@@ -41,6 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Basicas\Serie.cs" />
+    <Compile Include="Basicas\TipoUsuario.cs" />
+    <Compile Include="Basicas\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
