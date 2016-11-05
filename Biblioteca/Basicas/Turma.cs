@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Biblioteca.Persistência
-    class DAOTurma
+namespace Biblioteca.Basicas
+{
+    class Turma
     {
-
     }
 }

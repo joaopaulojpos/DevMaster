@@ -40,7 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Persistência\DAOTurma.cs" />
+    <Compile Include="Basicas\Turma.cs" />
+    <Compile Include="DAO\DAOTurma.cs" />
     <Compile Include="Basicas\Serie.cs" />
     <Compile Include="Basicas\TipoUsuario.cs" />
     <Compile Include="Basicas\Usuario.cs" />
