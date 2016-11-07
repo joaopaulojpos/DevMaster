@@ -42,7 +42,6 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -172,20 +171,11 @@
             this.button1.Text = "Inserir Aluno";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(18, 210);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(333, 147);
-            this.listBox1.TabIndex = 9;
-            // 
             // GUIInserirAluno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(596, 493);
-            this.Controls.Add(this.listBox1);
+            this.ClientSize = new System.Drawing.Size(493, 257);
             this.Controls.Add(this.panel1);
             this.Name = "GUIInserirAluno";
             this.Text = "GUIInserirAluno";
@@ -212,6 +202,5 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.ListBox listBox1;
     }
 }
