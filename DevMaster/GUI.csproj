@@ -58,11 +58,11 @@
     <Compile Include="Aluno\GUIAlterarAluno.Designer.cs">
       <DependentUpon>GUIAlterarAluno.cs</DependentUpon>
     </Compile>
-    <Compile Include="Aluno\GUIAluno.cs">
+    <Compile Include="Aluno\GUIAlunoNovo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Aluno\GUIAluno.Designer.cs">
-      <DependentUpon>GUIAluno.cs</DependentUpon>
+    <Compile Include="Aluno\GUIAlunoNovo.Designer.cs">
+      <DependentUpon>GUIAlunoNovo.cs</DependentUpon>
     </Compile>
     <Compile Include="Aluno\GUIInserirAluno.cs">
       <SubType>Form</SubType>
@@ -162,8 +162,8 @@
     <EmbeddedResource Include="Aluno\GUIAlterarAluno.resx">
       <DependentUpon>GUIAlterarAluno.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Aluno\GUIAluno.resx">
-      <DependentUpon>GUIAluno.cs</DependentUpon>
+    <EmbeddedResource Include="Aluno\GUIAlunoNovo.resx">
+      <DependentUpon>GUIAlunoNovo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Aluno\GUIInserirAluno.resx">
       <DependentUpon>GUIInserirAluno.cs</DependentUpon>

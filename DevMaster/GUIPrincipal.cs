@@ -55,7 +55,7 @@ namespace DevMaster
 
         private void cadastroDeAlunosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-             GUIAluno guiAluno = new GUIAluno();
+             GUIAlunoNovo guiAluno = new GUIAlunoNovo();
             guiAluno.ShowDialog();
         }
 
