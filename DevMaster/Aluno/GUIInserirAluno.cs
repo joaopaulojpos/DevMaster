@@ -10,19 +10,14 @@ using System.Windows.Forms;
 
 namespace DevMaster
 {
-    public partial class GUIAluno : Form
+    public partial class GUIInserirAluno : Form
     {
-        public GUIAluno()
+        public GUIInserirAluno()
         {
             InitializeComponent();
         }
 
-        private void GUIAluno_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void GUIInserirAluno_Load(object sender, EventArgs e)
         {
 
         }

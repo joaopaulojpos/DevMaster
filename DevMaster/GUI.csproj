@@ -52,11 +52,23 @@
     <Compile Include="Aluno\GUIAlterar2Aluno.Designer.cs">
       <DependentUpon>GUIAlterar2Aluno.cs</DependentUpon>
     </Compile>
+    <Compile Include="Aluno\GUIAlterarAluno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aluno\GUIAlterarAluno.Designer.cs">
+      <DependentUpon>GUIAlterarAluno.cs</DependentUpon>
+    </Compile>
     <Compile Include="Aluno\GUIAluno.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Aluno\GUIAluno.Designer.cs">
       <DependentUpon>GUIAluno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aluno\GUIInserirAluno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aluno\GUIInserirAluno.Designer.cs">
+      <DependentUpon>GUIInserirAluno.cs</DependentUpon>
     </Compile>
     <Compile Include="Aluno\GUIListarAluno.cs">
       <SubType>Form</SubType>
@@ -147,8 +159,14 @@
     <EmbeddedResource Include="Aluno\GUIAlterar2Aluno.resx">
       <DependentUpon>GUIAlterar2Aluno.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Aluno\GUIAlterarAluno.resx">
+      <DependentUpon>GUIAlterarAluno.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Aluno\GUIAluno.resx">
       <DependentUpon>GUIAluno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aluno\GUIInserirAluno.resx">
+      <DependentUpon>GUIInserirAluno.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Aluno\GUIListarAluno.resx">
       <DependentUpon>GUIListarAluno.cs</DependentUpon>

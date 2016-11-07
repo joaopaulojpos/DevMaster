@@ -1,6 +1,6 @@
 ﻿namespace DevMaster
 {
-    partial class GUIRemoverAluno
+    partial class GUIInserirAluno
     {
         /// <summary>
         /// Required designer variable.
@@ -30,14 +30,14 @@
         {
             this.SuspendLayout();
             // 
-            // GUIRemoverAluno
+            // GUIInserirAluno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Name = "GUIRemoverAluno";
-            this.Text = "GUIRemoverAluno";
-            this.Load += new System.EventHandler(this.GUIRemoverAluno_Load);
+            this.Name = "GUIInserirAluno";
+            this.Text = "GUIInserirAluno";
+            this.Load += new System.EventHandler(this.GUIInserirAluno_Load);
             this.ResumeLayout(false);
 
         }
