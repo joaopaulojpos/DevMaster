@@ -175,6 +175,7 @@
             this.Name = "GUIChamada";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GUIProfessor";
+            this.Load += new System.EventHandler(this.GUIChamada_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

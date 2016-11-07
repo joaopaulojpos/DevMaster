@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DevMaster
 {
-    public partial class GUILancarNotas : Form
+    public partial class GUILancarNota : Form
     {
-        public GUILancarNotas()
+        public GUILancarNota()
         {
             InitializeComponent();
         }

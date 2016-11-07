@@ -39,6 +39,7 @@
             this.coordenaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.emitirBoletimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastroSérieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -104,7 +105,8 @@
             // coordenaçãoToolStripMenuItem
             // 
             this.coordenaçãoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.emitirBoletimToolStripMenuItem});
+            this.emitirBoletimToolStripMenuItem,
+            this.cadastroSérieToolStripMenuItem});
             this.coordenaçãoToolStripMenuItem.Name = "coordenaçãoToolStripMenuItem";
             this.coordenaçãoToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.coordenaçãoToolStripMenuItem.Text = "Coordenação";
@@ -112,7 +114,7 @@
             // emitirBoletimToolStripMenuItem
             // 
             this.emitirBoletimToolStripMenuItem.Name = "emitirBoletimToolStripMenuItem";
-            this.emitirBoletimToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.emitirBoletimToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.emitirBoletimToolStripMenuItem.Text = "Emitir Boletim";
             // 
             // sairToolStripMenuItem
@@ -121,6 +123,13 @@
             this.sairToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
+            // 
+            // cadastroSérieToolStripMenuItem
+            // 
+            this.cadastroSérieToolStripMenuItem.Name = "cadastroSérieToolStripMenuItem";
+            this.cadastroSérieToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cadastroSérieToolStripMenuItem.Text = "Cadastro Série";
+            this.cadastroSérieToolStripMenuItem.Click += new System.EventHandler(this.cadastroSérieToolStripMenuItem_Click);
             // 
             // GUIPrincipal
             // 
@@ -152,5 +161,6 @@
         private System.Windows.Forms.ToolStripMenuItem coordenaçãoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem emitirBoletimToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem abonoDeFaltasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadastroSérieToolStripMenuItem;
     }
 }
