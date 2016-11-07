@@ -24,7 +24,32 @@ namespace DevMaster
 
         private void button1_Click(object sender, EventArgs e)
         {
+            GUIInserirAluno guiInserirAluno = new GUIInserirAluno();
+            guiInserirAluno.ShowDialog();
+        }
 
+        private void btnAlterarAluno_Click(object sender, EventArgs e)
+        {
+            GUIAlterarAluno guiAlterarAluno = new GUIAlterarAluno();
+            guiAlterarAluno.ShowDialog();
+        }
+
+        private void btnRemoverAluno_Click(object sender, EventArgs e)
+        {
+            GUIRemoverAluno guiRemoverAluno = new GUIRemoverAluno();
+            guiRemoverAluno.ShowDialog();
+        }
+
+        private void btnListarAluno_Click(object sender, EventArgs e)
+        {
+            GUIListarAluno guiListarAluno = new GUIListarAluno();
+            guiListarAluno.ShowDialog();
+        }
+
+        private void btnPesquisarSerie_Click(object sender, EventArgs e)
+        {
+            GUIPesquisarAluno guiPesquisarAluno = new GUIPesquisarAluno();
+            guiPesquisarAluno.ShowDialog();
         }
     }
 }

@@ -30,26 +30,26 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnPesquisarSerie = new System.Windows.Forms.Button();
+            this.btnInserirAluno = new System.Windows.Forms.Button();
+            this.btnListarAluno = new System.Windows.Forms.Button();
+            this.btnAlterarAluno = new System.Windows.Forms.Button();
+            this.btnRemoverAluno = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button3);
+            this.panel1.Controls.Add(this.btnPesquisarSerie);
+            this.panel1.Controls.Add(this.btnInserirAluno);
+            this.panel1.Controls.Add(this.btnListarAluno);
+            this.panel1.Controls.Add(this.btnAlterarAluno);
+            this.panel1.Controls.Add(this.btnRemoverAluno);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(284, 261);
+            this.panel1.Size = new System.Drawing.Size(284, 356);
             this.panel1.TabIndex = 7;
             // 
             // label1
@@ -61,57 +61,61 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Escolha a opção desejada:";
             // 
-            // button5
+            // btnPesquisarSerie
             // 
-            this.button5.Location = new System.Drawing.Point(21, 299);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(225, 46);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "Pesquisar Séries";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnPesquisarSerie.Location = new System.Drawing.Point(21, 299);
+            this.btnPesquisarSerie.Name = "btnPesquisarSerie";
+            this.btnPesquisarSerie.Size = new System.Drawing.Size(225, 46);
+            this.btnPesquisarSerie.TabIndex = 4;
+            this.btnPesquisarSerie.Text = "Pesquisar Séries";
+            this.btnPesquisarSerie.UseVisualStyleBackColor = true;
+            this.btnPesquisarSerie.Click += new System.EventHandler(this.btnPesquisarSerie_Click);
             // 
-            // button1
+            // btnInserirAluno
             // 
-            this.button1.Location = new System.Drawing.Point(21, 33);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(225, 46);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Inserir Aluno";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnInserirAluno.Location = new System.Drawing.Point(21, 33);
+            this.btnInserirAluno.Name = "btnInserirAluno";
+            this.btnInserirAluno.Size = new System.Drawing.Size(225, 46);
+            this.btnInserirAluno.TabIndex = 0;
+            this.btnInserirAluno.Text = "Inserir Aluno";
+            this.btnInserirAluno.UseVisualStyleBackColor = true;
+            this.btnInserirAluno.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button4
+            // btnListarAluno
             // 
-            this.button4.Location = new System.Drawing.Point(21, 233);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(225, 46);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Listar Aluno";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnListarAluno.Location = new System.Drawing.Point(21, 233);
+            this.btnListarAluno.Name = "btnListarAluno";
+            this.btnListarAluno.Size = new System.Drawing.Size(225, 46);
+            this.btnListarAluno.TabIndex = 3;
+            this.btnListarAluno.Text = "Listar Aluno";
+            this.btnListarAluno.UseVisualStyleBackColor = true;
+            this.btnListarAluno.Click += new System.EventHandler(this.btnListarAluno_Click);
             // 
-            // button2
+            // btnAlterarAluno
             // 
-            this.button2.Location = new System.Drawing.Point(21, 99);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(225, 46);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Alterar Aluno";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnAlterarAluno.Location = new System.Drawing.Point(21, 99);
+            this.btnAlterarAluno.Name = "btnAlterarAluno";
+            this.btnAlterarAluno.Size = new System.Drawing.Size(225, 46);
+            this.btnAlterarAluno.TabIndex = 1;
+            this.btnAlterarAluno.Text = "Alterar Aluno";
+            this.btnAlterarAluno.UseVisualStyleBackColor = true;
+            this.btnAlterarAluno.Click += new System.EventHandler(this.btnAlterarAluno_Click);
             // 
-            // button3
+            // btnRemoverAluno
             // 
-            this.button3.Location = new System.Drawing.Point(21, 168);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(225, 46);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Remover Aluno";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnRemoverAluno.Location = new System.Drawing.Point(21, 168);
+            this.btnRemoverAluno.Name = "btnRemoverAluno";
+            this.btnRemoverAluno.Size = new System.Drawing.Size(225, 46);
+            this.btnRemoverAluno.TabIndex = 2;
+            this.btnRemoverAluno.Text = "Remover Aluno";
+            this.btnRemoverAluno.UseVisualStyleBackColor = true;
+            this.btnRemoverAluno.Click += new System.EventHandler(this.btnRemoverAluno_Click);
             // 
             // GUIAluno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(284, 356);
             this.Controls.Add(this.panel1);
             this.Name = "GUIAluno";
             this.Text = "GUIAluno";
@@ -126,10 +130,10 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnPesquisarSerie;
+        private System.Windows.Forms.Button btnInserirAluno;
+        private System.Windows.Forms.Button btnListarAluno;
+        private System.Windows.Forms.Button btnAlterarAluno;
+        private System.Windows.Forms.Button btnRemoverAluno;
     }
 }
