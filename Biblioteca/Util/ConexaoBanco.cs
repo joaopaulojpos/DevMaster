@@ -9,7 +9,7 @@ namespace Biblioteca.Util
 {
     class ConexaoBanco
     {
-        #region variáveis
+        #region variáveis do BD
         //tipo responsável para se trabalhar com o sqlserver
         public SqlConnection sqlConn;
         //máquina no qual estará o banco de dados
