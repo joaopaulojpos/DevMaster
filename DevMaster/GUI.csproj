@@ -114,48 +114,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Serie\GUIAlterar2Serie.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Serie\GUIAlterar2Serie.Designer.cs">
-      <DependentUpon>GUIAlterar2Serie.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Serie\GUIAlterarSerie.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Serie\GUIAlterarSerie.Designer.cs">
-      <DependentUpon>GUIAlterarSerie.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Serie\GUIInserirSerie.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Serie\GUIInserirSerie.Designer.cs">
-      <DependentUpon>GUIInserirSerie.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Serie\GUIListarSeries.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Serie\GUIListarSeries.Designer.cs">
-      <DependentUpon>GUIListarSeries.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Serie\GUIPesquisarSerie.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Serie\GUIPesquisarSerie.Designer.cs">
-      <DependentUpon>GUIPesquisarSerie.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Serie\GUIRemoverSerie.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Serie\GUIRemoverSerie.Designer.cs">
-      <DependentUpon>GUIRemoverSerie.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Serie\GUISerie.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Serie\GUISerie.Designer.cs">
-      <DependentUpon>GUISerie.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Aluno\GUIAlterar2Aluno.resx">
       <DependentUpon>GUIAlterar2Aluno.cs</DependentUpon>
     </EmbeddedResource>
@@ -198,27 +156,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Serie\GUIAlterar2Serie.resx">
-      <DependentUpon>GUIAlterar2Serie.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Serie\GUIAlterarSerie.resx">
-      <DependentUpon>GUIAlterarSerie.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Serie\GUIInserirSerie.resx">
-      <DependentUpon>GUIInserirSerie.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Serie\GUIListarSeries.resx">
-      <DependentUpon>GUIListarSeries.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Serie\GUIPesquisarSerie.resx">
-      <DependentUpon>GUIPesquisarSerie.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Serie\GUIRemoverSerie.resx">
-      <DependentUpon>GUIRemoverSerie.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Serie\GUISerie.resx">
-      <DependentUpon>GUISerie.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -231,6 +168,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Serie\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
