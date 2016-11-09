@@ -40,16 +40,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Basicas\Aluno.cs" />
+    <Compile Include="Basicas\Aula.cs" />
+    <Compile Include="Basicas\Disciplina.cs" />
+    <Compile Include="Basicas\Falta.cs" />
+    <Compile Include="Basicas\Nota.cs" />
+    <Compile Include="Basicas\Professor.cs" />
     <Compile Include="Basicas\Turma.cs" />
-    <Compile Include="DAO\DAOTurma.cs" />
     <Compile Include="Basicas\Serie.cs" />
     <Compile Include="Basicas\TipoUsuario.cs" />
     <Compile Include="Basicas\Usuario.cs" />
+    <Compile Include="DAO\DAOAluno.cs" />
+    <Compile Include="DAO\DAOTurma.cs" />
+    <Compile Include="DAO\DAOUsuario.cs" />
+    <Compile Include="Interfaces\InterfaceAluno.cs" />
+    <Compile Include="Interfaces\InterfaceDisciplina.cs" />
+    <Compile Include="Interfaces\InterfaceProfessor.cs" />
+    <Compile Include="Interfaces\InterfaceTurma.cs" />
+    <Compile Include="Interfaces\InterfaceUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\ConexaoBanco.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Interfaces\" />
     <Folder Include="RN\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

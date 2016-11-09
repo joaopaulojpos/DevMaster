@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace Biblioteca.Basicas
 {
-    class Usuario
+    public class Usuario
     {
         private int codUsuario;
         private string loginUsuario;
         private string senha;
+        private TipoUsuario tipoUsuario;
 
         public int CodUsuario
         {
@@ -48,6 +49,19 @@ namespace Biblioteca.Basicas
             set
             {
                 senha = value;
+            }
+        }
+
+        public TipoUsuario TipoUsuario
+        {
+            get
+            {
+                return tipoUsuario;
+            }
+
+            set
+            {
+                tipoUsuario = value;
             }
         }
     }
