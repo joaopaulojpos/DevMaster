@@ -30,9 +30,9 @@ namespace DevMaster
 
         private void lançarFaltasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GUIChamada telaPresenca = new GUIChamada();
+            GUIChamada guiPresenca = new GUIChamada();
             //Mostra a tela e impede q o usuário tente mexer na tela de trás
-            telaPresenca.ShowDialog();
+            guiPresenca.ShowDialog();
         }
 
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
@@ -48,20 +48,26 @@ namespace DevMaster
 
         private void lançarNotasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GUILancarNotas telaNotas = new GUILancarNotas();
+            GUILancarNota guiNotas = new GUILancarNota();
             //Mostra a tela e impede q o usuário tente mexer na tela de trás
-            telaNotas.ShowDialog();
+            guiNotas.ShowDialog();
         }
 
         private void cadastroDeAlunosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-             GUICRUDAluno telaAluno = new GUICRUDAluno();
-            telaAluno.ShowDialog();
+             GUIAluno guiAluno = new GUIAluno();
+            guiAluno.ShowDialog();
         }
 
         private void novoAlunoToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cadastroSérieToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GUISerie guiSerie = new GUISerie();
+            guiSerie.ShowDialog();
         }
     }
 }

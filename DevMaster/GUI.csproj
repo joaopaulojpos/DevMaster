@@ -46,23 +46,59 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Aluno\GUIAlterar2Aluno.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Aluno\GUIAlterar2Aluno.Designer.cs">
+      <DependentUpon>GUIAlterar2Aluno.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUICRUDAluno.cs">
+    <Compile Include="Aluno\GUIAlterarAluno.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUICRUDAluno.Designer.cs">
-      <DependentUpon>GUICRUDAluno.cs</DependentUpon>
+    <Compile Include="Aluno\GUIAlterarAluno.Designer.cs">
+      <DependentUpon>GUIAlterarAluno.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUILancarNotas.cs">
+    <Compile Include="Aluno\GUIAluno.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILancarNotas.Designer.cs">
-      <DependentUpon>GUILancarNotas.cs</DependentUpon>
+    <Compile Include="Aluno\GUIAluno.Designer.cs">
+      <DependentUpon>GUIAluno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aluno\GUIInserirAluno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aluno\GUIInserirAluno.Designer.cs">
+      <DependentUpon>GUIInserirAluno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aluno\GUIListarAluno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aluno\GUIListarAluno.Designer.cs">
+      <DependentUpon>GUIListarAluno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aluno\GUIPesquisarAluno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aluno\GUIPesquisarAluno.Designer.cs">
+      <DependentUpon>GUIPesquisarAluno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aluno\GUIRemoverAluno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aluno\GUIRemoverAluno.Designer.cs">
+      <DependentUpon>GUIRemoverAluno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OLDGUICRUDAluno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OLDGUICRUDAluno.Designer.cs">
+      <DependentUpon>OLDGUICRUDAluno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUILancarNota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILancarNota.Designer.cs">
+      <DependentUpon>GUILancarNota.cs</DependentUpon>
     </Compile>
     <Compile Include="GUILogin.cs">
       <SubType>Form</SubType>
@@ -84,14 +120,74 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Serie\GUIAlterar2Serie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Serie\GUIAlterar2Serie.Designer.cs">
+      <DependentUpon>GUIAlterar2Serie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Serie\GUIAlterarSerie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Serie\GUIAlterarSerie.Designer.cs">
+      <DependentUpon>GUIAlterarSerie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Serie\GUIInserirSerie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Serie\GUIInserirSerie.Designer.cs">
+      <DependentUpon>GUIInserirSerie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Serie\GUIListarSeries.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Serie\GUIListarSeries.Designer.cs">
+      <DependentUpon>GUIListarSeries.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Serie\GUIPesquisarSerie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Serie\GUIPesquisarSerie.Designer.cs">
+      <DependentUpon>GUIPesquisarSerie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Serie\GUIRemoverSerie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Serie\GUIRemoverSerie.Designer.cs">
+      <DependentUpon>GUIRemoverSerie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Serie\GUISerie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Serie\GUISerie.Designer.cs">
+      <DependentUpon>GUISerie.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Aluno\GUIAlterar2Aluno.resx">
+      <DependentUpon>GUIAlterar2Aluno.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUICRUDAluno.resx">
-      <DependentUpon>GUICRUDAluno.cs</DependentUpon>
+    <EmbeddedResource Include="Aluno\GUIAlterarAluno.resx">
+      <DependentUpon>GUIAlterarAluno.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILancarNotas.resx">
-      <DependentUpon>GUILancarNotas.cs</DependentUpon>
+    <EmbeddedResource Include="Aluno\GUIAluno.resx">
+      <DependentUpon>GUIAluno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aluno\GUIInserirAluno.resx">
+      <DependentUpon>GUIInserirAluno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aluno\GUIListarAluno.resx">
+      <DependentUpon>GUIListarAluno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aluno\GUIPesquisarAluno.resx">
+      <DependentUpon>GUIPesquisarAluno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aluno\GUIRemoverAluno.resx">
+      <DependentUpon>GUIRemoverAluno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OLDGUICRUDAluno.resx">
+      <DependentUpon>OLDGUICRUDAluno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILancarNota.resx">
+      <DependentUpon>GUILancarNota.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILogin.resx">
       <DependentUpon>GUILogin.cs</DependentUpon>
@@ -111,6 +207,27 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Serie\GUIAlterar2Serie.resx">
+      <DependentUpon>GUIAlterar2Serie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Serie\GUIAlterarSerie.resx">
+      <DependentUpon>GUIAlterarSerie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Serie\GUIInserirSerie.resx">
+      <DependentUpon>GUIInserirSerie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Serie\GUIListarSeries.resx">
+      <DependentUpon>GUIListarSeries.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Serie\GUIPesquisarSerie.resx">
+      <DependentUpon>GUIPesquisarSerie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Serie\GUIRemoverSerie.resx">
+      <DependentUpon>GUIRemoverSerie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Serie\GUISerie.resx">
+      <DependentUpon>GUISerie.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -123,12 +240,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Biblioteca\Biblioteca.csproj">
-      <Project>{031ecb35-b75f-4258-97a7-1c4a423da0ee}</Project>
-      <Name>Biblioteca</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

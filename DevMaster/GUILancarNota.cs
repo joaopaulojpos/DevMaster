@@ -10,21 +10,16 @@ using System.Windows.Forms;
 
 namespace DevMaster
 {
-    public partial class GUIChamada : Form
+    public partial class GUILancarNota : Form
     {
-        public GUIChamada()
+        public GUILancarNota()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.Abort;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -32,9 +27,9 @@ namespace DevMaster
 
         }
 
-        private void GUIChamada_Load(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-
+            DialogResult = DialogResult.Abort;
         }
     }
 }

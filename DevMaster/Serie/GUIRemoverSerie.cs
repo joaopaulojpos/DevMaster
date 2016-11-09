@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace DevMaster
 {
-    public partial class GUICRUDAluno : Form
+    public partial class GUIRemoverSerie : Form
     {
-        public GUICRUDAluno()
+        public GUIRemoverSerie()
         {
             InitializeComponent();
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+        private void GUIRemoverSerie_Load(object sender, EventArgs e)
         {
 
         }

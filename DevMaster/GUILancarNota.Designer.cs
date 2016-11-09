@@ -1,6 +1,6 @@
 ﻿namespace DevMaster
 {
-    partial class GUILancarNotas
+    partial class GUILancarNota
     {
         /// <summary>
         /// Required designer variable.

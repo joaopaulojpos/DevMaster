@@ -17,8 +17,8 @@ namespace DevMaster
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            //GUILogin telaLogin = new GUILogin();
-            //if (telaLogin.ShowDialog() == DialogResult.OK)
+            //GUILogin guiLogin = new GUILogin();
+            //if (guiLogin.ShowDialog() == DialogResult.OK)
             //{
                 Application.Run(new GUIPrincipal());
             //}
