@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DevMaster
+namespace GUI
 {
     public partial class GUIAlterarAluno : Form
     {
@@ -26,6 +26,11 @@ namespace DevMaster
         {
             GUIAlterar2Aluno guiAlterar2Aluno = new GUIAlterar2Aluno();
             guiAlterar2Aluno.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

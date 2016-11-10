@@ -1,4 +1,4 @@
-﻿namespace DevMaster
+﻿namespace GUI
 {
     partial class GUIRemoverAluno
     {
@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,6 +53,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(638, 647);
             this.panel1.TabIndex = 2;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(523, 62);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(103, 36);
+            this.button3.TabIndex = 6;
+            this.button3.Text = "Remover Aluno";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -105,15 +114,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "Pesquisar Alunos";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(523, 62);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(103, 36);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "Remover Aluno";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // GUIRemoverAluno
             // 

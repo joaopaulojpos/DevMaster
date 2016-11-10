@@ -1,4 +1,4 @@
-﻿namespace DevMaster
+﻿namespace GUI
 {
     partial class GUIInserirAluno
     {
@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -43,7 +44,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,6 +70,16 @@
             this.panel1.Size = new System.Drawing.Size(420, 296);
             this.panel1.TabIndex = 3;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(124, 9);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(179, 24);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "INSERIR ALUNOS";
+            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(323, 250);
@@ -78,6 +88,7 @@
             this.button2.TabIndex = 13;
             this.button2.Text = "Voltar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // comboBox2
             // 
@@ -186,16 +197,6 @@
             this.label1.Size = new System.Drawing.Size(55, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Matrícula:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(124, 9);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(179, 24);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "INSERIR ALUNOS";
             // 
             // GUIInserirAluno
             // 

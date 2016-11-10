@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DevMaster
+namespace GUI
 {
     public partial class GUIRemoverAluno : Form
     {
@@ -18,6 +18,11 @@ namespace DevMaster
         }
 
         private void GUIRemoverAluno_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }
