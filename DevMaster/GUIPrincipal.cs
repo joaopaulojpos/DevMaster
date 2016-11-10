@@ -55,6 +55,8 @@ namespace GUI
 
         private void cadastroDeAlunosToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            GUIAluno guiAluno = new GUIAluno();
+            guiAluno.ShowDialog();
         }
 
         private void novoAlunoToolStripMenuItem_Click(object sender, EventArgs e)

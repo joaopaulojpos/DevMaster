@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class GUIAlterar2Aluno
+    partial class GUIAlterarAluno
     {
         /// <summary>
         /// Required designer variable.

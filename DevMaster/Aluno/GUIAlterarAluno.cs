@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class GUIAlterar2Aluno : Form
+    public partial class GUIAlterarAluno : Form
     {
-        public GUIAlterar2Aluno()
+        public GUIAlterarAluno()
         {
             InitializeComponent();
         }

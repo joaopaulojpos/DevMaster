@@ -1,6 +1,6 @@
-﻿namespace GUI.Aluno
+﻿namespace GUI
 {
-    partial class safasfdsa
+    partial class GUIAluno
     {
         /// <summary>
         /// Required designer variable.
@@ -55,8 +55,8 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1021, 477);
-            this.panel1.TabIndex = 1;
+            this.panel1.Size = new System.Drawing.Size(838, 463);
+            this.panel1.TabIndex = 2;
             // 
             // button4
             // 
@@ -66,6 +66,7 @@
             this.button4.TabIndex = 6;
             this.button4.Text = "Voltar";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -75,6 +76,7 @@
             this.button3.TabIndex = 5;
             this.button3.Text = "Pesquisar";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -93,6 +95,7 @@
             this.button1.TabIndex = 3;
             this.button1.Text = "Alterar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox1
             // 
@@ -124,7 +127,7 @@
             this.novoAlunoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1021, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(838, 24);
             this.menuStrip1.TabIndex = 7;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -133,15 +136,16 @@
             this.novoAlunoToolStripMenuItem.Name = "novoAlunoToolStripMenuItem";
             this.novoAlunoToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
             this.novoAlunoToolStripMenuItem.Text = "Novo Aluno";
+            this.novoAlunoToolStripMenuItem.Click += new System.EventHandler(this.novoAlunoToolStripMenuItem_Click);
             // 
-            // safasfdsa
+            // GUIAluno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1021, 477);
+            this.ClientSize = new System.Drawing.Size(838, 463);
             this.Controls.Add(this.panel1);
-            this.Name = "safasfdsa";
-            this.Text = "safasfdsa";
+            this.Name = "GUIAluno";
+            this.Text = "GUIAluno";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
