@@ -38,8 +38,8 @@
             this.lançarNotasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.coordenaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.emitirBoletimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroSérieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,6 +55,7 @@
             this.menuStrip1.Size = new System.Drawing.Size(635, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // secretáriaToolStripMenuItem
             // 
@@ -114,8 +115,15 @@
             // emitirBoletimToolStripMenuItem
             // 
             this.emitirBoletimToolStripMenuItem.Name = "emitirBoletimToolStripMenuItem";
-            this.emitirBoletimToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.emitirBoletimToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.emitirBoletimToolStripMenuItem.Text = "Emitir Boletim";
+            // 
+            // cadastroSérieToolStripMenuItem
+            // 
+            this.cadastroSérieToolStripMenuItem.Name = "cadastroSérieToolStripMenuItem";
+            this.cadastroSérieToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.cadastroSérieToolStripMenuItem.Text = "Cadastro Série";
+            this.cadastroSérieToolStripMenuItem.Click += new System.EventHandler(this.cadastroSérieToolStripMenuItem_Click);
             // 
             // sairToolStripMenuItem
             // 
@@ -123,13 +131,6 @@
             this.sairToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
-            // 
-            // cadastroSérieToolStripMenuItem
-            // 
-            this.cadastroSérieToolStripMenuItem.Name = "cadastroSérieToolStripMenuItem";
-            this.cadastroSérieToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.cadastroSérieToolStripMenuItem.Text = "Cadastro Série";
-            this.cadastroSérieToolStripMenuItem.Click += new System.EventHandler(this.cadastroSérieToolStripMenuItem_Click);
             // 
             // GUIPrincipal
             // 

@@ -69,5 +69,10 @@ namespace GUI
             GUISerie guiSerie = new GUISerie();
             guiSerie.ShowDialog();
         }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }

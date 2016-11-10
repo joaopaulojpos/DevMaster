@@ -88,12 +88,6 @@
     <Compile Include="Aluno\GUIRemoverAluno.Designer.cs">
       <DependentUpon>GUIRemoverAluno.cs</DependentUpon>
     </Compile>
-    <Compile Include="Aluno\NovoGUIAluno.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Aluno\NovoGUIAluno.Designer.cs">
-      <DependentUpon>NovoGUIAluno.cs</DependentUpon>
-    </Compile>
     <Compile Include="OLDGUICRUDAluno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,9 +182,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Aluno\GUIRemoverAluno.resx">
       <DependentUpon>GUIRemoverAluno.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Aluno\NovoGUIAluno.resx">
-      <DependentUpon>NovoGUIAluno.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OLDGUICRUDAluno.resx">
       <DependentUpon>OLDGUICRUDAluno.cs</DependentUpon>
