@@ -10,26 +10,21 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class GUILancarNota : Form
+    public partial class NovoGUIAluno : Form
     {
-        public GUILancarNota()
+        public NovoGUIAluno()
         {
             InitializeComponent();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.Abort;
+
         }
     }
 }

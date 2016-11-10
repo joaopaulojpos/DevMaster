@@ -1,4 +1,4 @@
-﻿namespace DevMaster
+﻿namespace GUI
 {
     partial class GUIPrincipal
     {

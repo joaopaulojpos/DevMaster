@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DevMaster
+namespace GUI
 {
     public partial class GUIPrincipal : Form
     {
@@ -55,7 +55,7 @@ namespace DevMaster
 
         private void cadastroDeAlunosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-             GUIAluno guiAluno = new GUIAluno();
+             NovoGUIAluno guiAluno = new NovoGUIAluno();
             guiAluno.ShowDialog();
         }
 

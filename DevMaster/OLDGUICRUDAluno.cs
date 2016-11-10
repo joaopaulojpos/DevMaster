@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DevMaster
+namespace GUI
 {
     public partial class OLDGUICRUDAluno : Form
     {
@@ -23,6 +23,11 @@ namespace DevMaster
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
         {
 
         }

@@ -7,8 +7,8 @@
     <ProjectGuid>{1DD33471-C120-44BD-91F3-EDF897E9EC1F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DevMaster</RootNamespace>
-    <AssemblyName>DevMaster</AssemblyName>
+    <RootNamespace>GUI</RootNamespace>
+    <AssemblyName>GUI</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -87,6 +87,12 @@
     </Compile>
     <Compile Include="Aluno\GUIRemoverAluno.Designer.cs">
       <DependentUpon>GUIRemoverAluno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aluno\NovoGUIAluno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aluno\NovoGUIAluno.Designer.cs">
+      <DependentUpon>NovoGUIAluno.cs</DependentUpon>
     </Compile>
     <Compile Include="OLDGUICRUDAluno.cs">
       <SubType>Form</SubType>
@@ -183,6 +189,9 @@
     <EmbeddedResource Include="Aluno\GUIRemoverAluno.resx">
       <DependentUpon>GUIRemoverAluno.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Aluno\NovoGUIAluno.resx">
+      <DependentUpon>NovoGUIAluno.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OLDGUICRUDAluno.resx">
       <DependentUpon>OLDGUICRUDAluno.cs</DependentUpon>
     </EmbeddedResource>
@@ -206,6 +215,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Serie\GUIAlterar2Serie.resx">
       <DependentUpon>GUIAlterar2Serie.cs</DependentUpon>
