@@ -1,6 +1,6 @@
-﻿namespace GUI
+﻿namespace GUI.Aluno
 {
-    partial class GUIAlunoNovo
+    partial class safasfdsa
     {
         /// <summary>
         /// Required designer variable.
@@ -55,8 +55,8 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(840, 469);
-            this.panel1.TabIndex = 0;
+            this.panel1.Size = new System.Drawing.Size(1021, 477);
+            this.panel1.TabIndex = 1;
             // 
             // button4
             // 
@@ -75,7 +75,6 @@
             this.button3.TabIndex = 5;
             this.button3.Text = "Pesquisar";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -125,7 +124,7 @@
             this.novoAlunoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(840, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1021, 24);
             this.menuStrip1.TabIndex = 7;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -134,18 +133,15 @@
             this.novoAlunoToolStripMenuItem.Name = "novoAlunoToolStripMenuItem";
             this.novoAlunoToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
             this.novoAlunoToolStripMenuItem.Text = "Novo Aluno";
-            this.novoAlunoToolStripMenuItem.Click += new System.EventHandler(this.novoAlunoToolStripMenuItem_Click);
             // 
-            // GUIAlunoNovo
+            // safasfdsa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(840, 469);
+            this.ClientSize = new System.Drawing.Size(1021, 477);
             this.Controls.Add(this.panel1);
-            this.MainMenuStrip = this.menuStrip1;
-            this.Name = "GUIAlunoNovo";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "GUIAlunoNovo";
+            this.Name = "safasfdsa";
+            this.Text = "safasfdsa";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);

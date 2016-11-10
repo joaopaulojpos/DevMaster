@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GUI
+namespace GUI.Aluno
 {
-    public partial class GUIPesquisarAluno : Form
+    public partial class safasfdsa : Form
     {
-        public GUIPesquisarAluno()
+        public safasfdsa()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

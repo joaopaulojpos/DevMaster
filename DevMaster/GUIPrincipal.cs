@@ -55,7 +55,6 @@ namespace GUI
 
         private void cadastroDeAlunosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
         }
 
         private void novoAlunoToolStripMenuItem_Click(object sender, EventArgs e)

@@ -10,27 +10,21 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class GUIAlterarAluno : Form
+    public partial class GUIAlterar2Aluno : Form
     {
-        public GUIAlterarAluno()
+        public GUIAlterar2Aluno()
         {
             InitializeComponent();
-        }
-
-        private void GUIAlterarAluno_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            GUIAlterar2Aluno guiAlterar2Aluno = new GUIAlterar2Aluno();
-            guiAlterar2Aluno.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Abort;
         }
     }
 }
