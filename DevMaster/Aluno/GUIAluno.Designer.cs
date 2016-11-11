@@ -145,6 +145,7 @@
             this.ClientSize = new System.Drawing.Size(838, 463);
             this.Controls.Add(this.panel1);
             this.Name = "GUIAluno";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "GUIAluno";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
