@@ -10,26 +10,16 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class OLDGUICRUDAluno : Form
+    public partial class GUIAlterarDisciplina : Form
     {
-        public OLDGUICRUDAluno()
+        public GUIAlterarDisciplina()
         {
             InitializeComponent();
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
+            DialogResult = DialogResult.Abort;
         }
     }
 }

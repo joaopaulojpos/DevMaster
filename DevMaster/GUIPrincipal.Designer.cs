@@ -39,7 +39,10 @@
             this.coordenaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.emitirBoletimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroSérieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastroDisciplinaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastroTipoDeUsuárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastroTurmaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -107,23 +110,41 @@
             // 
             this.coordenaçãoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.emitirBoletimToolStripMenuItem,
-            this.cadastroSérieToolStripMenuItem});
+            this.cadastroSérieToolStripMenuItem,
+            this.cadastroDisciplinaToolStripMenuItem,
+            this.cadastroTipoDeUsuárioToolStripMenuItem,
+            this.cadastroTurmaToolStripMenuItem});
             this.coordenaçãoToolStripMenuItem.Name = "coordenaçãoToolStripMenuItem";
             this.coordenaçãoToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.coordenaçãoToolStripMenuItem.Text = "Coordenação";
+            this.coordenaçãoToolStripMenuItem.Click += new System.EventHandler(this.coordenaçãoToolStripMenuItem_Click);
             // 
             // emitirBoletimToolStripMenuItem
             // 
             this.emitirBoletimToolStripMenuItem.Name = "emitirBoletimToolStripMenuItem";
-            this.emitirBoletimToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.emitirBoletimToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
             this.emitirBoletimToolStripMenuItem.Text = "Emitir Boletim";
             // 
             // cadastroSérieToolStripMenuItem
             // 
             this.cadastroSérieToolStripMenuItem.Name = "cadastroSérieToolStripMenuItem";
-            this.cadastroSérieToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.cadastroSérieToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
             this.cadastroSérieToolStripMenuItem.Text = "Cadastro Série";
             this.cadastroSérieToolStripMenuItem.Click += new System.EventHandler(this.cadastroSérieToolStripMenuItem_Click);
+            // 
+            // cadastroDisciplinaToolStripMenuItem
+            // 
+            this.cadastroDisciplinaToolStripMenuItem.Name = "cadastroDisciplinaToolStripMenuItem";
+            this.cadastroDisciplinaToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            this.cadastroDisciplinaToolStripMenuItem.Text = "Cadastro Disciplina";
+            this.cadastroDisciplinaToolStripMenuItem.Click += new System.EventHandler(this.cadastroDisciplinaToolStripMenuItem_Click);
+            // 
+            // cadastroTipoDeUsuárioToolStripMenuItem
+            // 
+            this.cadastroTipoDeUsuárioToolStripMenuItem.Name = "cadastroTipoDeUsuárioToolStripMenuItem";
+            this.cadastroTipoDeUsuárioToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            this.cadastroTipoDeUsuárioToolStripMenuItem.Text = "Cadastro Tipo de Usuário";
+            this.cadastroTipoDeUsuárioToolStripMenuItem.Click += new System.EventHandler(this.cadastroTipoDeUsuárioToolStripMenuItem_Click);
             // 
             // sairToolStripMenuItem
             // 
@@ -131,6 +152,13 @@
             this.sairToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
+            // 
+            // cadastroTurmaToolStripMenuItem
+            // 
+            this.cadastroTurmaToolStripMenuItem.Name = "cadastroTurmaToolStripMenuItem";
+            this.cadastroTurmaToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            this.cadastroTurmaToolStripMenuItem.Text = "Cadastro Turma";
+            this.cadastroTurmaToolStripMenuItem.Click += new System.EventHandler(this.cadastroTurmaToolStripMenuItem_Click);
             // 
             // GUIPrincipal
             // 
@@ -163,5 +191,8 @@
         private System.Windows.Forms.ToolStripMenuItem emitirBoletimToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem abonoDeFaltasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastroSérieToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadastroDisciplinaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadastroTipoDeUsuárioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadastroTurmaToolStripMenuItem;
     }
 }

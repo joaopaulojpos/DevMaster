@@ -36,20 +36,39 @@ namespace GUI
 
         private void button3_Click(object sender, EventArgs e)
         {
-            GUIRemoverSerie guiRemoverSerie = new GUIRemoverSerie();
-            guiRemoverSerie.ShowDialog();
+            
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            GUIListarSeries guiListarSeries = new GUIListarSeries();
-            guiListarSeries.ShowDialog();
+    
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            GUIPesquisarSerie guiPesquisarSerie = new GUIPesquisarSerie();
-            guiPesquisarSerie.ShowDialog();
+   
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Abort;
+        }
+
+        private void novoAlunoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GUIInserirSerie guiInserirSerie = new GUIInserirSerie();
+            guiInserirSerie.ShowDialog();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            GUIAlterarSerie guiAlterarSerie = new GUIAlterarSerie();
+            guiAlterarSerie.ShowDialog();
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -74,5 +74,28 @@ namespace GUI
         {
 
         }
+
+        private void cadastroDisciplinaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GUIDisciplina guiDisciplina = new GUIDisciplina();
+            guiDisciplina.ShowDialog();
+        }
+
+        private void coordenaçãoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cadastroTipoDeUsuárioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GUITipoUsuario guiTipoUsuario = new GUITipoUsuario();
+            guiTipoUsuario.ShowDialog();
+        }
+
+        private void cadastroTurmaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GUITurma guiTurma = new GUITurma();
+            guiTurma.ShowDialog();
+        }
     }
 }

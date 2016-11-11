@@ -10,14 +10,19 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class GUIPesquisarSerie : Form
+    public partial class GUIInserirTurma : Form
     {
-        public GUIPesquisarSerie()
+        public GUIInserirTurma()
         {
             InitializeComponent();
         }
 
-        private void GUIPesquisarSerie_Load(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Abort;
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
         }

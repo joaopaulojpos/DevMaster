@@ -10,16 +10,21 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class GUIAlterar2Serie : Form
+    public partial class GUIAlterarTurma : Form
     {
-        public GUIAlterar2Serie()
+        public GUIAlterarTurma()
         {
             InitializeComponent();
         }
 
-        private void GUIAlterar2Serie_Load(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
+            DialogResult = DialogResult.Abort;
+        }
 
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Abort;
         }
     }
 }

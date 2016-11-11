@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class GUIListarSeries : Form
+    public partial class GUIAlterarTipoUsuario : Form
     {
-        public GUIListarSeries()
+        public GUIAlterarTipoUsuario()
         {
             InitializeComponent();
         }
 
-        private void GUIListarSeries_Load(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-
+            DialogResult = DialogResult.Abort;
         }
     }
 }

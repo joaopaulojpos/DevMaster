@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class GUIInserirSerie
+    partial class GUIAlterarDisciplina
     {
         /// <summary>
         /// Required designer variable.
@@ -47,22 +47,22 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(417, 149);
-            this.panel1.TabIndex = 4;
+            this.panel1.Size = new System.Drawing.Size(410, 148);
+            this.panel1.TabIndex = 6;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(132, 9);
+            this.label7.Location = new System.Drawing.Point(118, 7);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(156, 24);
+            this.label7.Size = new System.Drawing.Size(219, 24);
             this.label7.TabIndex = 14;
-            this.label7.Text = "INSERIR SÉRIE";
+            this.label7.Text = "ALTERAR DISCIPLINA";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(320, 103);
+            this.button2.Location = new System.Drawing.Point(313, 102);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(85, 34);
             this.button2.TabIndex = 13;
@@ -72,7 +72,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 103);
+            this.button1.Location = new System.Drawing.Point(12, 102);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(85, 34);
             this.button1.TabIndex = 10;
@@ -81,7 +81,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(86, 47);
+            this.textBox2.Location = new System.Drawing.Point(76, 45);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(319, 20);
             this.textBox2.TabIndex = 6;
@@ -89,22 +89,21 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(22, 50);
+            this.label2.Location = new System.Drawing.Point(12, 48);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Descrição:";
             // 
-            // GUIInserirSerie
+            // GUIAlterarDisciplina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(417, 149);
+            this.ClientSize = new System.Drawing.Size(410, 148);
             this.Controls.Add(this.panel1);
-            this.Name = "GUIInserirSerie";
+            this.Name = "GUIAlterarDisciplina";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "GUIInserirSerie";
-            this.Load += new System.EventHandler(this.GUIInserirSerie_Load);
+            this.Text = "GUIAlterarDisciplina";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -115,9 +114,9 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
     }
 }

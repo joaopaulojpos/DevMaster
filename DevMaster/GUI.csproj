@@ -64,11 +64,23 @@
     <Compile Include="Aluno\GUIInserirAluno.Designer.cs">
       <DependentUpon>GUIInserirAluno.cs</DependentUpon>
     </Compile>
-    <Compile Include="OLDGUICRUDAluno.cs">
+    <Compile Include="Disciplina\GUIAlterarDisciplina.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OLDGUICRUDAluno.Designer.cs">
-      <DependentUpon>OLDGUICRUDAluno.cs</DependentUpon>
+    <Compile Include="Disciplina\GUIAlterarDisciplina.Designer.cs">
+      <DependentUpon>GUIAlterarDisciplina.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Disciplina\GUIDisciplina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Disciplina\GUIDisciplina.Designer.cs">
+      <DependentUpon>GUIDisciplina.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Disciplina\GUIInserirDisciplina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Disciplina\GUIInserirDisciplina.Designer.cs">
+      <DependentUpon>GUIInserirDisciplina.cs</DependentUpon>
     </Compile>
     <Compile Include="GUILancarNota.cs">
       <SubType>Form</SubType>
@@ -96,12 +108,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Serie\GUIAlterar2Serie.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Serie\GUIAlterar2Serie.Designer.cs">
-      <DependentUpon>GUIAlterar2Serie.cs</DependentUpon>
-    </Compile>
     <Compile Include="Serie\GUIAlterarSerie.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,29 +120,47 @@
     <Compile Include="Serie\GUIInserirSerie.Designer.cs">
       <DependentUpon>GUIInserirSerie.cs</DependentUpon>
     </Compile>
-    <Compile Include="Serie\GUIListarSeries.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Serie\GUIListarSeries.Designer.cs">
-      <DependentUpon>GUIListarSeries.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Serie\GUIPesquisarSerie.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Serie\GUIPesquisarSerie.Designer.cs">
-      <DependentUpon>GUIPesquisarSerie.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Serie\GUIRemoverSerie.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Serie\GUIRemoverSerie.Designer.cs">
-      <DependentUpon>GUIRemoverSerie.cs</DependentUpon>
-    </Compile>
     <Compile Include="Serie\GUISerie.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Serie\GUISerie.Designer.cs">
       <DependentUpon>GUISerie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TipoUsuario\GUIAlterarTipoUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TipoUsuario\GUIAlterarTipoUsuario.Designer.cs">
+      <DependentUpon>GUIAlterarTipoUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TipoUsuario\GUIInserirTipoUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TipoUsuario\GUIInserirTipoUsuario.Designer.cs">
+      <DependentUpon>GUIInserirTipoUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TipoUsuario\GUITipoUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TipoUsuario\GUITipoUsuario.Designer.cs">
+      <DependentUpon>GUITipoUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Turma\GUIAlterarTurma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Turma\GUIAlterarTurma.Designer.cs">
+      <DependentUpon>GUIAlterarTurma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Turma\GUIInserirTurma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Turma\GUIInserirTurma.Designer.cs">
+      <DependentUpon>GUIInserirTurma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Turma\GUITurma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Turma\GUITurma.Designer.cs">
+      <DependentUpon>GUITurma.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Aluno\GUIAlterarAluno.resx">
       <DependentUpon>GUIAlterarAluno.cs</DependentUpon>
@@ -147,8 +171,14 @@
     <EmbeddedResource Include="Aluno\GUIInserirAluno.resx">
       <DependentUpon>GUIInserirAluno.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OLDGUICRUDAluno.resx">
-      <DependentUpon>OLDGUICRUDAluno.cs</DependentUpon>
+    <EmbeddedResource Include="Disciplina\GUIAlterarDisciplina.resx">
+      <DependentUpon>GUIAlterarDisciplina.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Disciplina\GUIDisciplina.resx">
+      <DependentUpon>GUIDisciplina.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Disciplina\GUIInserirDisciplina.resx">
+      <DependentUpon>GUIInserirDisciplina.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILancarNota.resx">
       <DependentUpon>GUILancarNota.cs</DependentUpon>
@@ -172,26 +202,32 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Serie\GUIAlterar2Serie.resx">
-      <DependentUpon>GUIAlterar2Serie.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Serie\GUIAlterarSerie.resx">
       <DependentUpon>GUIAlterarSerie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Serie\GUIInserirSerie.resx">
       <DependentUpon>GUIInserirSerie.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Serie\GUIListarSeries.resx">
-      <DependentUpon>GUIListarSeries.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Serie\GUIPesquisarSerie.resx">
-      <DependentUpon>GUIPesquisarSerie.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Serie\GUIRemoverSerie.resx">
-      <DependentUpon>GUIRemoverSerie.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Serie\GUISerie.resx">
       <DependentUpon>GUISerie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TipoUsuario\GUIAlterarTipoUsuario.resx">
+      <DependentUpon>GUIAlterarTipoUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TipoUsuario\GUIInserirTipoUsuario.resx">
+      <DependentUpon>GUIInserirTipoUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TipoUsuario\GUITipoUsuario.resx">
+      <DependentUpon>GUITipoUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Turma\GUIAlterarTurma.resx">
+      <DependentUpon>GUIAlterarTurma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Turma\GUIInserirTurma.resx">
+      <DependentUpon>GUIInserirTurma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Turma\GUITurma.resx">
+      <DependentUpon>GUITurma.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

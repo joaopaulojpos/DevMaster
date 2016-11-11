@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class GUIRemoverSerie : Form
+    public partial class GUIInserirDisciplina : Form
     {
-        public GUIRemoverSerie()
+        public GUIInserirDisciplina()
         {
             InitializeComponent();
         }
 
-        private void GUIRemoverSerie_Load(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-
+            DialogResult = DialogResult.Abort;
         }
     }
 }

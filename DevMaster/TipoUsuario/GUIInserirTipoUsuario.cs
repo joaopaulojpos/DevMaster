@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class GUIAlterarSerie : Form
+    public partial class GUIInserirTipoUsuario : Form
     {
-        public GUIAlterarSerie()
+        public GUIInserirTipoUsuario()
         {
             InitializeComponent();
-        }
-
-        private void GUIAlterarSerie_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void button2_Click(object sender, EventArgs e)

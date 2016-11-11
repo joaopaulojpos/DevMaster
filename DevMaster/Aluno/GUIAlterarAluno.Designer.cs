@@ -82,7 +82,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(323, 250);
+            this.button2.Location = new System.Drawing.Point(330, 253);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(85, 34);
             this.button2.TabIndex = 13;
@@ -109,7 +109,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(14, 250);
+            this.button1.Location = new System.Drawing.Point(12, 253);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(85, 34);
             this.button1.TabIndex = 10;
@@ -198,13 +198,13 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Matrícula:";
             // 
-            // GUIAlterar2Aluno
+            // GUIAlterarAluno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(427, 299);
             this.Controls.Add(this.panel1);
-            this.Name = "GUIAlterar2Aluno";
+            this.Name = "GUIAlterarAluno";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "GUIAlterar2Aluno";
             this.panel1.ResumeLayout(false);

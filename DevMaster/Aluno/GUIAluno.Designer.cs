@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnVoltar = new System.Windows.Forms.Button();
+            this.btnPesquisar = new System.Windows.Forms.Button();
+            this.btnRemover = new System.Windows.Forms.Button();
+            this.btnAlterar = new System.Windows.Forms.Button();
+            this.textBoxPesquisar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -44,11 +44,11 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.btnVoltar);
+            this.panel1.Controls.Add(this.btnPesquisar);
+            this.panel1.Controls.Add(this.btnRemover);
+            this.panel1.Controls.Add(this.btnAlterar);
+            this.panel1.Controls.Add(this.textBoxPesquisar);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.listBox1);
             this.panel1.Controls.Add(this.menuStrip1);
@@ -58,51 +58,51 @@
             this.panel1.Size = new System.Drawing.Size(838, 463);
             this.panel1.TabIndex = 2;
             // 
-            // button4
+            // btnVoltar
             // 
-            this.button4.Location = new System.Drawing.Point(727, 415);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(100, 40);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "Voltar";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btnVoltar.Location = new System.Drawing.Point(727, 415);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(100, 40);
+            this.btnVoltar.TabIndex = 6;
+            this.btnVoltar.Text = "Voltar";
+            this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button3
+            // btnPesquisar
             // 
-            this.button3.Location = new System.Drawing.Point(621, 28);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(100, 40);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Pesquisar";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnPesquisar.Location = new System.Drawing.Point(621, 28);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(100, 40);
+            this.btnPesquisar.TabIndex = 5;
+            this.btnPesquisar.Text = "Pesquisar";
+            this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button2
+            // btnRemover
             // 
-            this.button2.Location = new System.Drawing.Point(727, 120);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 40);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Remover";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnRemover.Location = new System.Drawing.Point(727, 120);
+            this.btnRemover.Name = "btnRemover";
+            this.btnRemover.Size = new System.Drawing.Size(100, 40);
+            this.btnRemover.TabIndex = 4;
+            this.btnRemover.Text = "Remover";
+            this.btnRemover.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnAlterar
             // 
-            this.button1.Location = new System.Drawing.Point(727, 74);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 40);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Alterar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnAlterar.Location = new System.Drawing.Point(727, 74);
+            this.btnAlterar.Name = "btnAlterar";
+            this.btnAlterar.Size = new System.Drawing.Size(100, 40);
+            this.btnAlterar.TabIndex = 3;
+            this.btnAlterar.Text = "Alterar";
+            this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox1
+            // textBoxPesquisar
             // 
-            this.textBox1.Location = new System.Drawing.Point(74, 39);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(541, 20);
-            this.textBox1.TabIndex = 2;
+            this.textBoxPesquisar.Location = new System.Drawing.Point(74, 39);
+            this.textBoxPesquisar.Name = "textBoxPesquisar";
+            this.textBoxPesquisar.Size = new System.Drawing.Size(541, 20);
+            this.textBoxPesquisar.TabIndex = 2;
             // 
             // label1
             // 
@@ -158,11 +158,11 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnVoltar;
+        private System.Windows.Forms.Button btnPesquisar;
+        private System.Windows.Forms.Button btnRemover;
+        private System.Windows.Forms.Button btnAlterar;
+        private System.Windows.Forms.TextBox textBoxPesquisar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.MenuStrip menuStrip1;
