@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class GUIAluno
+    partial class GUIDisciplina
     {
         /// <summary>
         /// Required designer variable.
@@ -55,9 +55,8 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(838, 463);
-            this.panel1.TabIndex = 2;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.panel1.Size = new System.Drawing.Size(834, 469);
+            this.panel1.TabIndex = 3;
             // 
             // btnVoltar
             // 
@@ -67,7 +66,6 @@
             this.btnVoltar.TabIndex = 6;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
-            this.btnVoltar.Click += new System.EventHandler(this.button4_Click);
             // 
             // btnPesquisar
             // 
@@ -77,7 +75,6 @@
             this.btnPesquisar.TabIndex = 5;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
-            this.btnPesquisar.Click += new System.EventHandler(this.button3_Click);
             // 
             // btnRemover
             // 
@@ -96,7 +93,7 @@
             this.btnAlterar.TabIndex = 3;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
-            this.btnAlterar.Click += new System.EventHandler(this.button1_Click);
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // textBoxPesquisar
             // 
@@ -128,7 +125,7 @@
             this.novoAlunoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(838, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(834, 24);
             this.menuStrip1.TabIndex = 7;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -139,15 +136,14 @@
             this.novoAlunoToolStripMenuItem.Text = "Novo Aluno";
             this.novoAlunoToolStripMenuItem.Click += new System.EventHandler(this.novoAlunoToolStripMenuItem_Click);
             // 
-            // GUIAluno
+            // GUIDisciplina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(838, 463);
+            this.ClientSize = new System.Drawing.Size(834, 469);
             this.Controls.Add(this.panel1);
-            this.Name = "GUIAluno";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "GUIAluno";
+            this.Name = "GUIDisciplina";
+            this.Text = "GUIDisciplina";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);

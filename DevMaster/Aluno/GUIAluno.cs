@@ -38,5 +38,10 @@ namespace GUI
             GUIInserirAluno guiInserirAluno = new GUIInserirAluno();
             guiInserirAluno.ShowDialog();
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
