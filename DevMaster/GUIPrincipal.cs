@@ -97,5 +97,23 @@ namespace GUI
             GUITurma guiTurma = new GUITurma();
             guiTurma.ShowDialog();
         }
+
+        private void abonoDeFaltasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GUIAbono guiAbono = new GUIAbono();
+            guiAbono.ShowDialog();
+        }
+
+        private void cadastroAulaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GUIAula guiAula = new GUIAula();
+            guiAula.ShowDialog();
+        }
+
+        private void cadastroUsuárioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GUIUsuario guiUsuario = new GUIUsuario();
+            guiUsuario.ShowDialog();
+        }
     }
 }

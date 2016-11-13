@@ -107,6 +107,7 @@
             this.button1.TabIndex = 7;
             this.button1.Text = "Voltar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label4
             // 
@@ -185,6 +186,7 @@
             this.ClientSize = new System.Drawing.Size(265, 294);
             this.Controls.Add(this.panel2);
             this.Name = "GUIAbono";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "GUIAbono";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

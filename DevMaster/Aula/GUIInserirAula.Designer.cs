@@ -166,6 +166,7 @@
             this.ClientSize = new System.Drawing.Size(451, 225);
             this.Controls.Add(this.panel1);
             this.Name = "GUIInserirAula";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "GUIInserirAula";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

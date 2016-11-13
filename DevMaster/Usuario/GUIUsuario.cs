@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GUI.Usuario
+namespace GUI
 {
     public partial class GUIUsuario : Form
     {
         public GUIUsuario()
         {
             InitializeComponent();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Abort;
         }
     }
 }

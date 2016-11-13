@@ -152,6 +152,7 @@
             this.button3.TabIndex = 7;
             this.button3.Text = "Voltar";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -186,7 +187,7 @@
             this.ClientSize = new System.Drawing.Size(448, 233);
             this.Controls.Add(this.panel3);
             this.Name = "GUILancarNota";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "GUILancarNotas";
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();

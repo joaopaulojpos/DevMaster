@@ -31,5 +31,10 @@ namespace GUI
         {
             DialogResult = DialogResult.Abort;
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Abort;
+        }
     }
 }

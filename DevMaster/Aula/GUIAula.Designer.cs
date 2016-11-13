@@ -1,4 +1,4 @@
-﻿namespace GUI.Aula
+﻿namespace GUI
 {
     partial class GUIAula
     {
@@ -142,6 +142,7 @@
             this.ClientSize = new System.Drawing.Size(832, 462);
             this.Controls.Add(this.panel1);
             this.Name = "GUIAula";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "GUIAula";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
