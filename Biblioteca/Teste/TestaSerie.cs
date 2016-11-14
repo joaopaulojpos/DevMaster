@@ -25,7 +25,7 @@ namespace Biblioteca.Teste
             string codigo = textBoxCodigo.Text;
             string descricao = textBoxDescricao.Text;
             Serie serie = new Serie();
-            serie.CodSerie = (Integer)codigo;
+            serie.CodSerie = Convert.ToInt32(codigo);
             serie.DescricaoSerie = descricao;
             DAOSerie daoSerie = new DAOSerie();
             daoSerie.inserir(serie);

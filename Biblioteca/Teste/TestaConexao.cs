@@ -27,9 +27,9 @@ namespace Biblioteca.Teste
                 label1.Text = "Conectou!";
                 conexao.fecharConexao();
             }
-            catch (Exception e)
+            catch (Exception erro)
             {
-                label1.Text = e;
+                label1.Text = Convert.ToString(erro);
             }
         }
     }
