@@ -19,7 +19,7 @@ namespace Biblioteca.DAO
             try
             {
                 this.abrirConexao();
-                string sql = "update turma set cod_turma = @codigoTurma ,descricao=@descricao,turno=@turno,ano=@ano,dataInicio=@dataInicio,codSerie=@codSerie where cod_turma = @codigoTurma";
+                string sql = "update turma set descricao=@descricao,turno=@turno,ano=@ano,dataInicio=@dataInicio,codSerie=@codSerie where cod_turma = @codigoTurma";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
                 cmd.Parameters.Add("@codigoTurma", SqlDbType.Int);
@@ -112,7 +112,7 @@ namespace Biblioteca.DAO
                 string sql = "SELECT cod_turma,descricao,turno,ano,data_inicio,telefone,cod_serie FROM turma where cod_turma = cod_turma ";
                 if (filtro.CodigoTurma > 0)
                 {
-                    sql += " and codigoTurma = @codigoTurma";
+                    sql += " and cod_turma = @codigoTurma";
                 }
                 if (filtro.Descricao != null && filtro.Descricao.Trim().Equals("") == false)
                 {
@@ -123,7 +123,7 @@ namespace Biblioteca.DAO
                 if (filtro.CodigoTurma > 0)
                 {
                     cmd.Parameters.Add("@codigoTurma", SqlDbType.Int);
-                    cmd.Parameters["@codigoTurma"].Value = filtro.Descricao;
+                    cmd.Parameters["@codigoTurma"].Value = filtro.CodigoTurma;
                 }
                 if (filtro.Descricao != null && filtro.Descricao.Trim().Equals("") == false)
                 {
