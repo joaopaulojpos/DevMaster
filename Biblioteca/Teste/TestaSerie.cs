@@ -26,7 +26,7 @@ namespace Biblioteca.Teste
             Serie serie = new Serie();
             serie.DescricaoSerie = descricao;
             DAOSerie daoSerie = new DAOSerie();
-            daoSerie.inserir(serie);
+            daoSerie.Inserir(serie);
             
         }
 
@@ -36,7 +36,7 @@ namespace Biblioteca.Teste
             Serie serie = new Serie();
             serie.CodigoSerie = codigo;
             DAOSerie daoSerie= new DAOSerie();
-            daoSerie.excluir(serie);
+            daoSerie.Excluir(serie);
 
         }
 
@@ -48,7 +48,7 @@ namespace Biblioteca.Teste
             serie.CodigoSerie = codigo;
             serie.DescricaoSerie = descricao;
             DAOSerie daoSerie = new DAOSerie();
-            daoSerie.alterar(serie);
+            daoSerie.Alterar(serie);
 
         }
 

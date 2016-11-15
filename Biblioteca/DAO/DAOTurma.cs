@@ -13,7 +13,7 @@ namespace Biblioteca.DAO
 {
     public class DAOTurma : ConexaoBanco, InterfaceTurma
     {
-        public void alterar(Turma turma)
+        public void Alterar(Turma turma)
         {
 
             try
@@ -50,7 +50,7 @@ namespace Biblioteca.DAO
             }
         }
 
-        public void excluir(Turma turma)
+        public void Excluir(Turma turma)
         {
             try
             {
@@ -70,7 +70,7 @@ namespace Biblioteca.DAO
             }
         }
 
-        public void inserir(Turma turma)
+        public void Inserir(Turma turma)
         {
             try
             {
@@ -103,7 +103,7 @@ namespace Biblioteca.DAO
             }
         }
 
-        public List<Turma> listar(Turma filtro)
+        public List<Turma> Listar(Turma filtro)
         {
             List<Turma> retorno = new List<Turma>();
             try
@@ -155,7 +155,7 @@ namespace Biblioteca.DAO
             return retorno;
         }
 
-        public bool verificaDuplicidade(Turma turma)
+        public bool VerificaDuplicidade(Turma turma)
         {
             bool retorno = false;
             try

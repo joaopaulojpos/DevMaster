@@ -9,11 +9,11 @@ namespace Biblioteca.Interfaces
 {
     public interface InterfaceUsuario
     {
-        void inserir(Usuario usuario);
-        void alterar(Usuario usuario);
-        void excluir(Usuario usuario);
-        bool verificaDuplicidade(Usuario usuario);
-        List<Usuario> listar(Usuario filtro);
+        void Inserir(Usuario usuario);
+        void Alterar(Usuario usuario);
+        void Excluir(Usuario usuario);
+        bool VerificaDuplicidade(Usuario usuario);
+        List<Usuario> Listar(Usuario filtro);
 
     }
 }

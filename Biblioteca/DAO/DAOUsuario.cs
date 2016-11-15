@@ -13,7 +13,7 @@ namespace Biblioteca.DAO
 {
     public class DAOUsuario : ConexaoBanco, InterfaceUsuario
     {
-        public void alterar(Usuario usuario)
+        public void Alterar(Usuario usuario)
         {
             try
             {
@@ -43,7 +43,7 @@ namespace Biblioteca.DAO
             }
         }
 
-        public void excluir(Usuario usuario)
+        public void Excluir(Usuario usuario)
         {
             try
             {
@@ -63,7 +63,7 @@ namespace Biblioteca.DAO
             }
         }
 
-        public void inserir(Usuario usuario)
+        public void Inserir(Usuario usuario)
         {
             try
             {
@@ -90,7 +90,7 @@ namespace Biblioteca.DAO
             }
         }
 
-        public List<Usuario> listar(Usuario filtro)
+        public List<Usuario> Listar(Usuario filtro)
         {
             List<Usuario> retorno = new List<Usuario>();
             try
@@ -132,7 +132,7 @@ namespace Biblioteca.DAO
             return retorno;
         }
 
-        public bool verificaDuplicidade(Usuario usuario)
+        public bool VerificaDuplicidade(Usuario usuario)
         {
             bool retorno = false;
             try

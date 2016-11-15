@@ -9,10 +9,10 @@ namespace Biblioteca.Interfaces
 {
     public interface InterfaceAvaliacao
     {
-        void inserir(Avaliacao avaliacao);
-        void alterar(Avaliacao avaliacao);
-        void excluir(Avaliacao avaliacao);
-        bool verificaDuplicidade(Avaliacao avaliacao);
-        List<Avaliacao> listar(Avaliacao filtro);
+        void Inserir(Avaliacao avaliacao);
+        void Alterar(Avaliacao avaliacao);
+        void Excluir(Avaliacao avaliacao);
+        bool VerificaDuplicidade(Avaliacao avaliacao);
+        List<Avaliacao> Listar(Avaliacao filtro);
     }
 }

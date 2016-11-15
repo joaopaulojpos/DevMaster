@@ -9,10 +9,10 @@ namespace Biblioteca.Interfaces
 {
     interface InterfaceTipoUsuario
     {
-        void inserir(TipoUsuario tipoUsuario);
-        void alterar(TipoUsuario tipoUsuario);
-        void excluir(TipoUsuario tipoUsuario);
-        bool verificaDuplicidade(TipoUsuario tipoUsuario);
-        List<TipoUsuario> listar(TipoUsuario filtro);
+        void Inserir(TipoUsuario tipoUsuario);
+        void Alterar(TipoUsuario tipoUsuario);
+        void Excluir(TipoUsuario tipoUsuario);
+        bool VerificaDuplicidade(TipoUsuario tipoUsuario);
+        List<TipoUsuario> Listar(TipoUsuario filtro);
     }
 }

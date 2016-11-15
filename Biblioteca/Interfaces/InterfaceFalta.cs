@@ -9,10 +9,10 @@ namespace Biblioteca.Interfaces
 {
     public interface InterfaceFalta
     {
-        void inserir(Falta falta);
-        void alterar(Falta falta);
-        void excluir(Falta falta);
-        bool verificaDuplicidade(Falta falta);
-        List<Falta> listar(Falta filtro);
+        void Inserir(Falta falta);
+        void Alterar(Falta falta);
+        void Excluir(Falta falta);
+        bool VerificaDuplicidade(Falta falta);
+        List<Falta> Listar(Falta filtro);
     }
 }

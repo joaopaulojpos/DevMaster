@@ -9,11 +9,11 @@ namespace Biblioteca.Interfaces
 {
     public interface InterfaceAluno
     {
-        void inserir(Aluno aluno);
-        void alterar(Aluno aluno);
-        void excluir(Aluno aluno);
-        bool verificaDuplicidade(Aluno aluno);
-        List<Aluno> listar(Aluno filtro);
+        void Inserir(Aluno aluno);
+        void Alterar(Aluno aluno);
+        void Excluir(Aluno aluno);
+        bool VerificaDuplicidade(Aluno aluno);
+        List<Aluno> Listar(Aluno filtro);
 
     }
 }

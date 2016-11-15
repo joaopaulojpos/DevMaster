@@ -9,11 +9,11 @@ namespace Biblioteca.Interfaces
 {
     public interface InterfaceProfessor
     {
-        void inserir(Professor professor);
-        void alterar(Professor professor);
-        void excluir(Professor professor);
-        bool verificaDuplicidade(Professor professor);
-        List<Professor> listar(Professor filtro);
+        void Inserir(Professor professor);
+        void Alterar(Professor professor);
+        void Excluir(Professor professor);
+        bool VerificaDuplicidade(Professor professor);
+        List<Professor> Listar(Professor filtro);
 
     }
 }

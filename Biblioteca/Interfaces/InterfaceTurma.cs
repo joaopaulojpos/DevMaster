@@ -9,11 +9,11 @@ namespace Biblioteca.Interfaces
 {
     public interface InterfaceTurma
     {
-        void inserir(Turma turma);
-        void alterar(Turma turma);
-        void excluir(Turma turma);
-        bool verificaDuplicidade(Turma turma);
-        List<Turma> listar(Turma filtro);
+        void Inserir(Turma turma);
+        void Alterar(Turma turma);
+        void Excluir(Turma turma);
+        bool VerificaDuplicidade(Turma turma);
+        List<Turma> Listar(Turma filtro);
 
     }
 }

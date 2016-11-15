@@ -13,7 +13,7 @@ namespace Biblioteca.DAO
 {
     public class DAOAluno : ConexaoBanco, InterfaceAluno
     {
-        public void alterar(Aluno aluno)
+        public void Alterar(Aluno aluno)
         {
 
             try
@@ -50,7 +50,7 @@ namespace Biblioteca.DAO
             }
         }
 
-        public void excluir(Aluno aluno)
+        public void Excluir(Aluno aluno)
         {
             try
             {
@@ -70,7 +70,7 @@ namespace Biblioteca.DAO
             }
         }
 
-        public void inserir(Aluno aluno)
+        public void Inserir(Aluno aluno)
         {
             try
             {
@@ -94,7 +94,7 @@ namespace Biblioteca.DAO
             }
         }
 
-        public List<Aluno> listar(Aluno filtro)
+        public List<Aluno> Listar(Aluno filtro)
         {
             List<Aluno> retorno = new List<Aluno>();
             try
@@ -147,7 +147,7 @@ namespace Biblioteca.DAO
             return retorno;
         }
 
-        public bool verificaDuplicidade(Aluno aluno)
+        public bool VerificaDuplicidade(Aluno aluno)
         {
             bool retorno = false;
             try

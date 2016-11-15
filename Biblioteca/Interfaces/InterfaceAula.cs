@@ -10,10 +10,10 @@ namespace Biblioteca.Interfaces
 {
     public interface InterfaceAula
     {
-        void inserir(Aula aula);
-        void alterar(Aula aula);
-        void excluir(Aula aula);
-        bool verificaDuplicidade(Aula aula);
-        List<Aula> listar(Aula filtro);
+        void Inserir(Aula aula);
+        void Alterar(Aula aula);
+        void Excluir(Aula aula);
+        bool VerificaDuplicidade(Aula aula);
+        List<Aula> Listar(Aula filtro);
     }
 }

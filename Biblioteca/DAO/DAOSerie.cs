@@ -11,9 +11,9 @@ using System.Data;
 
 namespace Biblioteca.DAO
 {
-    class DAOSerie : ConexaoBanco, InterfaceSerie
+    public class DAOSerie : ConexaoBanco, InterfaceSerie
     {
-        public void alterar(Serie serie)
+        public void Alterar(Serie serie)
         {
             try
             {
@@ -37,7 +37,7 @@ namespace Biblioteca.DAO
             }
         }
 
-        public void excluir(Serie serie)
+        public void Excluir(Serie serie)
         {
             try
             {
@@ -57,7 +57,7 @@ namespace Biblioteca.DAO
             }
         }
 
-        public void inserir(Serie serie)
+        public void Inserir(Serie serie)
         {
             try
             {
@@ -79,13 +79,13 @@ namespace Biblioteca.DAO
             }
         }
 
-        public List<Serie> listar(Serie filtro)
+        public List<Serie> Listar(Serie filtro)
         {
             List<Serie> retorno = new List<Serie>();
             try
             {
                 this.abrirConexao();
-                string sql = "SELECT cod_serie,descricao_serie FROM turma where cod_serie = cod_serie";
+                string sql = "SELECT cod_serie,descricao_serie FROM serie where cod_serie = cod_serie";
                 if (filtro.CodigoSerie> 0)
                 {
                     sql += " and cod_serie = @codigoSerie";
@@ -126,7 +126,7 @@ namespace Biblioteca.DAO
             return retorno;
         }
 
-        public bool verificaDuplicidade(Serie serie)
+        public bool VerificaDuplicidade(Serie serie)
         {
             bool retorno = false;
             try
