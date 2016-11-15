@@ -11,6 +11,8 @@ namespace Biblioteca.Basicas
         private int codUsuario;
         private string loginUsuario;
         private string senha;
+        private string nome;
+        private string telefone;
         private TipoUsuario tipoUsuario;
 
         public int CodUsuario
@@ -52,6 +54,19 @@ namespace Biblioteca.Basicas
             }
         }
 
+        public string Telefone
+        {
+            get
+            {
+                return telefone;
+            }
+
+            set
+            {
+                telefone = value;
+            }
+        }
+
         public TipoUsuario TipoUsuario
         {
             get
@@ -62,6 +77,19 @@ namespace Biblioteca.Basicas
             set
             {
                 tipoUsuario = value;
+            }
+        }
+
+        public string Nome
+        {
+            get
+            {
+                return nome;
+            }
+
+            set
+            {
+                nome = value;
             }
         }
     }

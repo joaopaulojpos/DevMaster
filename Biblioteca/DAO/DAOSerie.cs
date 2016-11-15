@@ -15,12 +15,46 @@ namespace Biblioteca.DAO
     {
         public void alterar(Serie serie)
         {
-            throw new NotImplementedException();
+            try
+            {
+                this.abrirConexao();
+                string sql = "update serie set descricao_serie=@descricaoSerie where cod_serie = @codigoSerie";
+                SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
+
+                cmd.Parameters.Add("@codigoSerie", SqlDbType.Int);
+                cmd.Parameters["@codigoSerie"].Value = serie.CodigoSerie;
+
+                cmd.Parameters.Add("@descricaoSerie", SqlDbType.VarChar);
+                cmd.Parameters["@descricaoSerie"].Value = serie.DescricaoSerie;
+
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+                this.fecharConexao();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao conecar e atualizar " + ex.Message);
+            }
         }
 
         public void excluir(Serie serie)
         {
-            throw new NotImplementedException();
+            try
+            {
+                this.abrirConexao();
+                string sql = "delete from serie where cod_serie = @codigoSerie";
+                SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
+                cmd.Parameters.Add("@codigoSerie", SqlDbType.Int);
+                cmd.Parameters["@codigoSerie"].Value = serie.CodigoSerie;
+
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+                this.fecharConexao();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao conecar e remover " + ex.Message);
+            }
         }
 
         public void inserir(Serie serie)
@@ -28,16 +62,9 @@ namespace Biblioteca.DAO
             try
             {
                 this.abrirConexao();
-                string sql = 
-                    "INSERT INTO Serie"
-                  + "(cod_serie, descricao_serie)"
-                  + "VALUES"
-                  + "(@cod_serie, @descricao_serie); ";
+                string sql = "INSERTO INTO Serie (descricao_serie) VALUES (@descricao_serie)"; 
 
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
-
-                cmd.Parameters.Add("@cod_serie", SqlDbType.Int);
-                cmd.Parameters["@cod_serie"].Value = serie.CodSerie;
 
                 cmd.Parameters.Add("@descricao_serie", SqlDbType.VarChar);
                 cmd.Parameters["@descricao_serie"].Value = serie.DescricaoSerie;
@@ -54,12 +81,78 @@ namespace Biblioteca.DAO
 
         public List<Serie> listar(Serie filtro)
         {
-            throw new NotImplementedException();
+            List<Serie> retorno = new List<Serie>();
+            try
+            {
+                this.abrirConexao();
+                string sql = "SELECT cod_serie,descricao_serie FROM turma where cod_serie = cod_serie";
+                if (filtro.CodigoSerie> 0)
+                {
+                    sql += " and cod_serie = @codigoSerie";
+                }
+                if (filtro.DescricaoSerie != null && filtro.DescricaoSerie.Trim().Equals("") == false)
+                {
+                    sql += " and descricao_serie like '%" + filtro.DescricaoSerie.Trim() + "%'";
+                }
+                SqlCommand cmd = new SqlCommand(sql, sqlConn);
+
+                if (filtro.CodigoSerie > 0)
+                {
+                    cmd.Parameters.Add("@codigoSerie", SqlDbType.Int);
+                    cmd.Parameters["@codigoSerie"].Value = filtro.CodigoSerie;
+                }
+                if (filtro.DescricaoSerie != null && filtro.DescricaoSerie.Trim().Equals("") == false)
+                {
+                    cmd.Parameters.Add("@descricaoSerie", SqlDbType.VarChar);
+                    cmd.Parameters["@descricaoSerie"].Value = filtro.DescricaoSerie;
+
+                }
+                SqlDataReader DbReader = cmd.ExecuteReader();
+                while (DbReader.Read())
+                {
+                    Serie serie = new Serie();
+                    serie.CodigoSerie = DbReader.GetInt32(DbReader.GetOrdinal("cod_serie"));
+                    serie.DescricaoSerie = DbReader.GetString(DbReader.GetOrdinal("descricao_serie"));
+                    retorno.Add(serie);
+                }
+                DbReader.Close();
+                cmd.Dispose();
+                this.fecharConexao();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao conecar e selecionar " + ex.Message);
+            }
+            return retorno;
         }
 
         public bool verificaDuplicidade(Serie serie)
         {
-            throw new NotImplementedException();
+            bool retorno = false;
+            try
+            {
+                this.abrirConexao();
+                string sql = "SELECT cod_serie FROM serie where cod_serie = @codigoSerie";
+                SqlCommand cmd = new SqlCommand(sql, sqlConn);
+
+                cmd.Parameters.Add("@codigoSerie", SqlDbType.Int);
+                cmd.Parameters["@codigoSerie"].Value = serie.CodigoSerie;
+
+                SqlDataReader DbReader = cmd.ExecuteReader();
+                while (DbReader.Read())
+                {
+                    retorno = true;
+                    break;
+                }
+                DbReader.Close();
+                cmd.Dispose();
+                this.fecharConexao();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao conecar e selecionar " + ex.Message);
+            }
+            return retorno;
         }
     }
 }

@@ -22,14 +22,39 @@ namespace Biblioteca.Teste
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string codigo = textBoxCodigo.Text;
             string descricao = textBoxDescricao.Text;
             Serie serie = new Serie();
-            serie.CodSerie = Convert.ToInt32(codigo);
             serie.DescricaoSerie = descricao;
             DAOSerie daoSerie = new DAOSerie();
             daoSerie.inserir(serie);
             
+        }
+
+        private void btnRemover_Click(object sender, EventArgs e)
+        {
+            int codigo = Convert.ToInt32(textBoxCodigo.Text);
+            Serie serie = new Serie();
+            serie.CodigoSerie = codigo;
+            DAOSerie daoSerie= new DAOSerie();
+            daoSerie.excluir(serie);
+
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            int codigo = Convert.ToInt32(textBoxCodigo);
+            string descricao = textBoxDescricao.Text;
+            Serie serie = new Serie();
+            serie.CodigoSerie = codigo;
+            serie.DescricaoSerie = descricao;
+            DAOSerie daoSerie = new DAOSerie();
+            daoSerie.alterar(serie);
+
+        }
+
+        private void btnListar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -101,6 +101,7 @@ namespace Biblioteca.DAO
             {
                 this.abrirConexao();
                 string sql = "SELECT matricula,nome,data_nasc,sexo,telefone,cod_turma FROM aluno where matricula = matricula ";
+
                 if (filtro.Matricula > 0)
                 {
                     sql += " and matricula = @matricula";

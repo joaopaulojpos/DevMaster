@@ -32,7 +32,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxDescricao = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnInserir = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnAlterar = new System.Windows.Forms.Button();
+            this.btnListar = new System.Windows.Forms.Button();
+            this.btnRemover = new System.Windows.Forms.Button();
+            this.btnVerifica = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBoxCodigo
@@ -67,22 +72,75 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Descrição:";
             // 
-            // button1
+            // btnInserir
             // 
-            this.button1.Location = new System.Drawing.Point(83, 139);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Inserir";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnInserir.Location = new System.Drawing.Point(83, 139);
+            this.btnInserir.Name = "btnInserir";
+            this.btnInserir.Size = new System.Drawing.Size(75, 23);
+            this.btnInserir.TabIndex = 4;
+            this.btnInserir.Text = "Inserir";
+            this.btnInserir.UseVisualStyleBackColor = true;
+            this.btnInserir.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(260, 44);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "label3";
+            // 
+            // btnAlterar
+            // 
+            this.btnAlterar.Location = new System.Drawing.Point(83, 168);
+            this.btnAlterar.Name = "btnAlterar";
+            this.btnAlterar.Size = new System.Drawing.Size(75, 23);
+            this.btnAlterar.TabIndex = 6;
+            this.btnAlterar.Text = "Alterar";
+            this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
+            // 
+            // btnListar
+            // 
+            this.btnListar.Location = new System.Drawing.Point(83, 207);
+            this.btnListar.Name = "btnListar";
+            this.btnListar.Size = new System.Drawing.Size(75, 23);
+            this.btnListar.TabIndex = 7;
+            this.btnListar.Text = "Listar";
+            this.btnListar.UseVisualStyleBackColor = true;
+            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
+            // 
+            // btnRemover
+            // 
+            this.btnRemover.Location = new System.Drawing.Point(83, 248);
+            this.btnRemover.Name = "btnRemover";
+            this.btnRemover.Size = new System.Drawing.Size(75, 23);
+            this.btnRemover.TabIndex = 8;
+            this.btnRemover.Text = "Remover";
+            this.btnRemover.UseVisualStyleBackColor = true;
+            this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
+            // 
+            // btnVerifica
+            // 
+            this.btnVerifica.Location = new System.Drawing.Point(83, 288);
+            this.btnVerifica.Name = "btnVerifica";
+            this.btnVerifica.Size = new System.Drawing.Size(124, 23);
+            this.btnVerifica.TabIndex = 9;
+            this.btnVerifica.Text = "Verifica Duplicidade";
+            this.btnVerifica.UseVisualStyleBackColor = true;
             // 
             // TestaSerie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(592, 349);
+            this.Controls.Add(this.btnVerifica);
+            this.Controls.Add(this.btnRemover);
+            this.Controls.Add(this.btnListar);
+            this.Controls.Add(this.btnAlterar);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.btnInserir);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxDescricao);
             this.Controls.Add(this.label1);
@@ -100,6 +158,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxDescricao;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnInserir;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnAlterar;
+        private System.Windows.Forms.Button btnListar;
+        private System.Windows.Forms.Button btnRemover;
+        private System.Windows.Forms.Button btnVerifica;
     }
 }

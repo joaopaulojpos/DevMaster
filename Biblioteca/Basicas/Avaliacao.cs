@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Biblioteca.Basicas
 {
-    public class Nota
+    public class Avaliacao
     {
-        private string nota;
+        private Double nota;
         private string descricao;
-        private Disciplina disciplina;
+        private Disciplina_Turma disciplina_turma;
         private Aluno aluno;
     }
 }

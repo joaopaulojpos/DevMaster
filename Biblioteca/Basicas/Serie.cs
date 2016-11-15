@@ -8,19 +8,19 @@ namespace Biblioteca.Basicas
 {
     public class Serie
     {
-        private int codSerie;
+        private int codigoSerie;
         private string descricaoSerie;
 
-        public int CodSerie
+        public int CodigoSerie
         {
             get
             {
-                return codSerie;
+                return codigoSerie;
             }
 
             set
             {
-                codSerie = value;
+                codigoSerie = value;
             }
         }
 

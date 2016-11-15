@@ -6,52 +6,36 @@ using System.Threading.Tasks;
 
 namespace Biblioteca.Basicas
 {
-    public class Aula
+    public class Disciplina_Turma
     {
-        private int codigoAula;
-        private string data;
-        private string assunto;
-        private Disciplina disciplina;
+        private int codigoDisciplinaTurma;
         private Turma turma;
+        private Disciplina disciplina;
+        private Usuario usuario;
 
-
-
-        public int CodigoAula
+        public int CodigoDisciplinaTurma
         {
             get
             {
-                return codigoAula;
+                return codigoDisciplinaTurma;
             }
 
             set
             {
-                codigoAula = value;
+                codigoDisciplinaTurma = value;
             }
         }
 
-        public string Data
+        public Turma Turma
         {
             get
             {
-                return data;
+                return turma;
             }
 
             set
             {
-                data = value;
-            }
-        }
-
-        public string Assunto
-        {
-            get
-            {
-                return assunto;
-            }
-
-            set
-            {
-                assunto = value;
+                turma = value;
             }
         }
 
@@ -68,16 +52,16 @@ namespace Biblioteca.Basicas
             }
         }
 
-        public Turma Turma
+        public Usuario Usuario
         {
             get
             {
-                return turma;
+                return usuario;
             }
 
             set
             {
-                turma = value;
+                usuario = value;
             }
         }
     }

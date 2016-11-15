@@ -19,14 +19,14 @@ namespace Biblioteca.DAO
             try
             {
                 this.abrirConexao();
-                string sql = "update turma set descricao=@descricao,turno=@turno,ano=@ano,dataInicio=@dataInicio,codSerie=@codSerie where cod_turma = @codigoTurma";
+                string sql = "update turma set descricao_turma=@descricaoTurma,turno=@turno,ano=@ano,dataInicio=@dataInicio,codSerie=@codSerie where cod_turma = @codigoTurma";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
                 cmd.Parameters.Add("@codigoTurma", SqlDbType.Int);
                 cmd.Parameters["@codigoTurma"].Value = turma.CodigoTurma;
 
-                cmd.Parameters.Add("@descricao", SqlDbType.VarChar);
-                cmd.Parameters["@descricao"].Value = turma.Descricao;
+                cmd.Parameters.Add("@descricao_turma", SqlDbType.VarChar);
+                cmd.Parameters["@descricao_turma"].Value = turma.DescricaoTurma;
 
                 cmd.Parameters.Add("@turno", SqlDbType.Char);
                 cmd.Parameters["@turno"].Value = turma.Turno;
@@ -38,7 +38,7 @@ namespace Biblioteca.DAO
                 cmd.Parameters["@dataInicio"].Value = turma.DataInicio;
 
                 cmd.Parameters.Add("@codSerie", SqlDbType.Int);
-                cmd.Parameters["@codSerie"].Value = turma.Serie.CodSerie;
+                cmd.Parameters["@codSerie"].Value = turma.Serie.CodigoSerie;
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
@@ -91,7 +91,7 @@ namespace Biblioteca.DAO
                 cmd.Parameters["@dataInicio"].Value = turma.DataInicio;
 
                 cmd.Parameters.Add("@codSerie", SqlDbType.Int);
-                cmd.Parameters["@codSerie"].Value = turma.Serie.CodSerie;
+                cmd.Parameters["@codSerie"].Value = turma.Serie.CodigoSerie;
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
@@ -109,14 +109,14 @@ namespace Biblioteca.DAO
             try
             {
                 this.abrirConexao();
-                string sql = "SELECT cod_turma,descricao,turno,ano,data_inicio,telefone,cod_serie FROM turma where cod_turma = cod_turma ";
+                string sql = "SELECT cod_turma,descricao_turma,turno,ano,data_inicio,telefone,cod_serie FROM turma where cod_turma = cod_turma ";
                 if (filtro.CodigoTurma > 0)
                 {
                     sql += " and cod_turma = @codigoTurma";
                 }
-                if (filtro.Descricao != null && filtro.Descricao.Trim().Equals("") == false)
+                if (filtro.DescricaoTurma != null && filtro.DescricaoTurma.Trim().Equals("") == false)
                 {
-                    sql += " and descricao like '%" + filtro.Descricao.Trim() + "%'";
+                    sql += " and descricao_turma like '%" + filtro.DescricaoTurma.Trim() + "%'";
                 }
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
 
@@ -125,10 +125,10 @@ namespace Biblioteca.DAO
                     cmd.Parameters.Add("@codigoTurma", SqlDbType.Int);
                     cmd.Parameters["@codigoTurma"].Value = filtro.CodigoTurma;
                 }
-                if (filtro.Descricao != null && filtro.Descricao.Trim().Equals("") == false)
+                if (filtro.DescricaoTurma != null && filtro.DescricaoTurma.Trim().Equals("") == false)
                 {
-                    cmd.Parameters.Add("@descricao", SqlDbType.VarChar);
-                    cmd.Parameters["@descricao"].Value = filtro.Descricao;
+                    cmd.Parameters.Add("@descricaoTurma", SqlDbType.VarChar);
+                    cmd.Parameters["@descricaoTurma"].Value = filtro.DescricaoTurma;
 
                 }
                 SqlDataReader DbReader = cmd.ExecuteReader();
@@ -136,10 +136,10 @@ namespace Biblioteca.DAO
                 {
                     Turma turma = new Turma();
                     turma.CodigoTurma = DbReader.GetInt32(DbReader.GetOrdinal("cod_turma"));
-                    turma.Descricao = DbReader.GetString(DbReader.GetOrdinal("descricao"));
+                    turma.DescricaoTurma = DbReader.GetString(DbReader.GetOrdinal("descricao_turma"));
                     turma.DataInicio = DbReader.GetString(DbReader.GetOrdinal("data_inicio"));
                     turma.Turno = DbReader.GetChar(DbReader.GetOrdinal("turno"));
-                    turma.Serie.CodSerie = DbReader.GetInt32(DbReader.GetOrdinal("cod_serie"));
+                    turma.Serie.CodigoSerie = DbReader.GetInt32(DbReader.GetOrdinal("cod_serie"));
                     turma.Ano = DbReader.GetInt32(DbReader.GetOrdinal("ano"));
 
                     retorno.Add(turma);

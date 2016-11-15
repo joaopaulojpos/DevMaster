@@ -124,5 +124,11 @@ namespace GUI
             TestaSerie testa = new TestaSerie();
             testa.ShowDialog();
         }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            TestaSerie testaSerie = new TestaSerie();
+            testaSerie.ShowDialog();
+        }
     }
 }

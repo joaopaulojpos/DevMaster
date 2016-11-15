@@ -11,7 +11,7 @@ namespace Biblioteca.Basicas
     public class Turma
     {
         private int codigoTurma;
-        private string descricao;
+        private string descricaoTurma;
         private char turno;
         private int ano;
         private string dataInicio;
@@ -30,16 +30,16 @@ namespace Biblioteca.Basicas
             }
         }
 
-        public string Descricao
+        public string DescricaoTurma
         {
             get
             {
-                return descricao;
+                return descricaoTurma;
             }
 
             set
             {
-                descricao = value;
+                descricaoTurma = value;
             }
         }
 
