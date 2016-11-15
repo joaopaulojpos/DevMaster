@@ -121,7 +121,7 @@ namespace GUI
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            TestaConexao testa = new TestaConexao();
+            TestaSerie testa = new TestaSerie();
             testa.ShowDialog();
         }
     }
