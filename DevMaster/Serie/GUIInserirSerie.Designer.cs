@@ -31,7 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnConcluir = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -41,7 +41,7 @@
             // 
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnConcluir);
             this.panel1.Controls.Add(this.textBox2);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -70,14 +70,15 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
+            // btnConcluir
             // 
-            this.button1.Location = new System.Drawing.Point(12, 103);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(85, 34);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Concluir";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnConcluir.Location = new System.Drawing.Point(12, 103);
+            this.btnConcluir.Name = "btnConcluir";
+            this.btnConcluir.Size = new System.Drawing.Size(85, 34);
+            this.btnConcluir.TabIndex = 10;
+            this.btnConcluir.Text = "Concluir";
+            this.btnConcluir.UseVisualStyleBackColor = true;
+            this.btnConcluir.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox2
             // 
@@ -117,7 +118,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnConcluir;
         private System.Windows.Forms.Button button2;
     }
 }

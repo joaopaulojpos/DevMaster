@@ -19,7 +19,7 @@ namespace GUI
 
         private void button4_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.Abort;
+            this.Close();
         }
     }
 }

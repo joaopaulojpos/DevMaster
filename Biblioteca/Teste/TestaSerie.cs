@@ -25,18 +25,17 @@ namespace Biblioteca.Teste
             string descricao = textBoxDescricao.Text;
             Serie serie = new Serie();
             serie.DescricaoSerie = descricao;
-            DAOSerie daoSerie = new DAOSerie();
-            daoSerie.Inserir(serie);
+            DAOSerie.Instancia.Inserir(serie);
             
         }
 
         private void btnRemover_Click(object sender, EventArgs e)
         {
+            //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
             int codigo = Convert.ToInt32(textBoxCodigo.Text);
             Serie serie = new Serie();
             serie.CodigoSerie = codigo;
-            DAOSerie daoSerie= new DAOSerie();
-            daoSerie.Excluir(serie);
+            DAOSerie.Instancia.Excluir(serie);
 
         }
 
@@ -47,8 +46,7 @@ namespace Biblioteca.Teste
             Serie serie = new Serie();
             serie.CodigoSerie = codigo;
             serie.DescricaoSerie = descricao;
-            DAOSerie daoSerie = new DAOSerie();
-            daoSerie.Alterar(serie);
+            DAOSerie.Instancia.Alterar(serie);
 
         }
 

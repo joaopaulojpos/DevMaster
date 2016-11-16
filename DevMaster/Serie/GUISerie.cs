@@ -54,7 +54,7 @@ namespace GUI
 
         private void button4_Click_1(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.Abort;
+            this.Close();
         }
 
         private void novoAlunoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -69,26 +69,22 @@ namespace GUI
             guiAlterarSerie.ShowDialog();
         }
 
-        private void button3_Click_1(object sender, EventArgs e)
+        private void btnConsultar_Click_1(object sender, EventArgs e)
         {
-            DAOSerie daoSerie = new DAOSerie();
+            listViewSerie.Items.Clear();
+
             string filtro = textBoxFiltro.Text;
-            Serie serie = new Serie();
-            serie.DescricaoSerie = filtro;
-            listaSerie = daoSerie.Listar(serie);
 
-            foreach (Serie valor in listaSerie)
+            Serie serie2 = new Serie();
+            serie2.DescricaoSerie = filtro;
+
+            listaSerie = DAOSerie.Instancia.Listar(serie2);
+
+            foreach (Serie serie in listaSerie)
             {
-                listBoxSerie.Items.AddRange(new object[] {
-                valor.CodigoSerie + " " + valor.DescricaoSerie,
-                });
+                ListViewItem linha = listViewSerie.Items.Add(Convert.ToString(serie.CodigoSerie));
+                linha.SubItems.Add(serie.DescricaoSerie);
             }
-
-            /*
-            List<string> nomes = new List<string>();
-            nomes.Add("leandro");
-            listBoxSerie.Items.Add(nomes[0]);
-            */
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -99,6 +95,27 @@ namespace GUI
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+
+        private void btnRemover_Click(object sender, EventArgs e)
+        {
+            ListView.SelectedListViewItemCollection selecionado = listViewSerie.SelectedItems;
+
+            Serie removerSerie = new Serie();
+            foreach (ListViewItem serie in selecionado)
+            {
+                removerSerie.CodigoSerie = Convert.ToInt32(serie.SubItems[0].Text);
+                if (MessageBox.Show("Tem certeza?", "Confirmar remoção do Funcionário", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    DAOSerie.Instancia.Excluir(removerSerie);
+                    listViewSerie.Items.Remove(serie);
+                }
+                else
+                {
+                    MessageBox.Show("Cancelado.", "Remoção de Série");
+                }
+            }
         }
     }
 }

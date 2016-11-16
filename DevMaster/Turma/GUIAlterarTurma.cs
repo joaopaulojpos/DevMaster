@@ -17,14 +17,19 @@ namespace GUI
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.Abort;
-        }
-
         private void button2_Click_1(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.Abort;
+            this.Close();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

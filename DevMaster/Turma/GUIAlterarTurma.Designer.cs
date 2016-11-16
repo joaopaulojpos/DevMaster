@@ -65,6 +65,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(455, 281);
             this.panel1.TabIndex = 6;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // dateTimePicker2
             // 
@@ -163,6 +164,7 @@
             this.button1.TabIndex = 10;
             this.button1.Text = "Concluir";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox2
             // 

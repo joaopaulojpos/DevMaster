@@ -13,6 +13,26 @@ namespace Biblioteca.DAO
 {
     public class DAOSerie : ConexaoBanco, InterfaceSerie
     {
+
+        #region Singleton
+        private static DAOSerie instancia;
+
+        private DAOSerie() { }
+
+        public static DAOSerie Instancia
+        {
+            get
+            {
+                if (instancia == null)
+                {
+                    instancia = new DAOSerie();
+                }
+                return instancia;
+            }
+        }
+        #endregion
+
+        #region Implementação da Interface
         public void Alterar(Serie serie)
         {
             try
@@ -62,7 +82,7 @@ namespace Biblioteca.DAO
             try
             {
                 this.abrirConexao();
-                string sql = "INSERTO INTO Serie (descricao_serie) VALUES (@descricao_serie)"; 
+                string sql = "INSERTO INTO Serie (descricao_serie) VALUES (@descricao_serie)";
 
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
@@ -86,7 +106,7 @@ namespace Biblioteca.DAO
             {
                 this.abrirConexao();
                 string sql = "SELECT cod_serie,descricao_serie FROM serie where cod_serie = cod_serie";
-                if (filtro.CodigoSerie> 0)
+                if (filtro.CodigoSerie > 0)
                 {
                     sql += " and cod_serie = @codigoSerie";
                 }
@@ -155,4 +175,5 @@ namespace Biblioteca.DAO
             return retorno;
         }
     }
+    #endregion
 }

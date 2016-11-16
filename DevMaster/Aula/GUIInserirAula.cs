@@ -19,7 +19,7 @@ namespace GUI.Aula
 
         private void button2_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.Abort;
+            this.Close();
         }
 
         private void label3_Click(object sender, EventArgs e)

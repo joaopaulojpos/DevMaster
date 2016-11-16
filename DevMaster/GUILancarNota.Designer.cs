@@ -37,8 +37,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnVoltar = new System.Windows.Forms.Button();
+            this.btnLancarNota = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.panel3.SuspendLayout();
@@ -127,9 +127,9 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.comboBox3);
-            this.panel3.Controls.Add(this.button3);
+            this.panel3.Controls.Add(this.btnVoltar);
             this.panel3.Controls.Add(this.label4);
-            this.panel3.Controls.Add(this.button4);
+            this.panel3.Controls.Add(this.btnLancarNota);
             this.panel3.Controls.Add(this.comboBox2);
             this.panel3.Controls.Add(this.textBox1);
             this.panel3.Controls.Add(this.comboBox1);
@@ -144,24 +144,25 @@
             this.panel3.Size = new System.Drawing.Size(448, 233);
             this.panel3.TabIndex = 15;
             // 
-            // button3
+            // btnVoltar
             // 
-            this.button3.Location = new System.Drawing.Point(344, 190);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(97, 34);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "Voltar";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnVoltar.Location = new System.Drawing.Point(344, 190);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(97, 34);
+            this.btnVoltar.TabIndex = 7;
+            this.btnVoltar.Text = "Voltar";
+            this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button4
+            // btnLancarNota
             // 
-            this.button4.Location = new System.Drawing.Point(10, 190);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(97, 34);
-            this.button4.TabIndex = 7;
-            this.button4.Text = "Lançar Nota";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnLancarNota.Location = new System.Drawing.Point(10, 190);
+            this.btnLancarNota.Name = "btnLancarNota";
+            this.btnLancarNota.Size = new System.Drawing.Size(97, 34);
+            this.btnLancarNota.TabIndex = 7;
+            this.btnLancarNota.Text = "Lançar Nota";
+            this.btnLancarNota.UseVisualStyleBackColor = true;
+            this.btnLancarNota.Click += new System.EventHandler(this.button4_Click);
             // 
             // label8
             // 
@@ -205,8 +206,8 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnVoltar;
+        private System.Windows.Forms.Button btnLancarNota;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox comboBox5;
     }

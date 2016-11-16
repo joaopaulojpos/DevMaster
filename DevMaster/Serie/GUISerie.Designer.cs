@@ -29,13 +29,15 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.listViewSerie = new System.Windows.Forms.ListView();
+            this.ColumnHeaderCodigo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ColumnHeaderSerie = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnVoltar = new System.Windows.Forms.Button();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.btnRemover = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.textBoxFiltro = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.listBoxSerie = new System.Windows.Forms.ListBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.novoAlunoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
@@ -44,13 +46,13 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.listViewSerie);
             this.panel1.Controls.Add(this.btnVoltar);
             this.panel1.Controls.Add(this.btnConsultar);
             this.panel1.Controls.Add(this.btnRemover);
             this.panel1.Controls.Add(this.btnAlterar);
             this.panel1.Controls.Add(this.textBoxFiltro);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.listBoxSerie);
             this.panel1.Controls.Add(this.menuStrip1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -58,6 +60,27 @@
             this.panel1.Size = new System.Drawing.Size(836, 466);
             this.panel1.TabIndex = 3;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // listViewSerie
+            // 
+            this.listViewSerie.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ColumnHeaderCodigo,
+            this.ColumnHeaderSerie});
+            this.listViewSerie.FullRowSelect = true;
+            this.listViewSerie.Location = new System.Drawing.Point(15, 74);
+            this.listViewSerie.Name = "listViewSerie";
+            this.listViewSerie.Size = new System.Drawing.Size(706, 380);
+            this.listViewSerie.TabIndex = 8;
+            this.listViewSerie.UseCompatibleStateImageBehavior = false;
+            this.listViewSerie.View = System.Windows.Forms.View.Details;
+            // 
+            // ColumnHeaderCodigo
+            // 
+            this.ColumnHeaderCodigo.Text = "Código";
+            // 
+            // ColumnHeaderSerie
+            // 
+            this.ColumnHeaderSerie.Text = "Série";
             // 
             // btnVoltar
             // 
@@ -71,13 +94,14 @@
             // 
             // btnConsultar
             // 
+            this.btnConsultar.AccessibleName = "";
             this.btnConsultar.Location = new System.Drawing.Point(621, 28);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(100, 40);
             this.btnConsultar.TabIndex = 5;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = true;
-            this.btnConsultar.Click += new System.EventHandler(this.button3_Click_1);
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click_1);
             // 
             // btnRemover
             // 
@@ -87,6 +111,7 @@
             this.btnRemover.TabIndex = 4;
             this.btnRemover.Text = "Remover";
             this.btnRemover.UseVisualStyleBackColor = true;
+            this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
             // 
             // btnAlterar
             // 
@@ -113,16 +138,6 @@
             this.label1.Size = new System.Drawing.Size(56, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Pesquisar:";
-            // 
-            // listBoxSerie
-            // 
-            this.listBoxSerie.FormattingEnabled = true;
-            this.listBoxSerie.Location = new System.Drawing.Point(12, 74);
-            this.listBoxSerie.MultiColumn = true;
-            this.listBoxSerie.Name = "listBoxSerie";
-            this.listBoxSerie.Size = new System.Drawing.Size(709, 381);
-            this.listBoxSerie.TabIndex = 0;
-            this.listBoxSerie.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // menuStrip1
             // 
@@ -162,7 +177,6 @@
         #endregion
 
         private System.Windows.Forms.TextBox textBoxFiltro;
-        private System.Windows.Forms.ListBox listBoxSerie;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem novoAlunoToolStripMenuItem;
         private System.Windows.Forms.Label label1;
@@ -171,5 +185,8 @@
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ListView listViewSerie;
+        private System.Windows.Forms.ColumnHeader ColumnHeaderCodigo;
+        private System.Windows.Forms.ColumnHeader ColumnHeaderSerie;
     }
 }

@@ -27,14 +27,16 @@ namespace GUI
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.Abort;
-        }
+       
 
         private void button3_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.Abort;
+            this.Close();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
