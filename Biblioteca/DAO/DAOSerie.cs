@@ -38,7 +38,7 @@ namespace Biblioteca.DAO
             try
             {
                 this.abrirConexao();
-                string sql = "update serie set descricao_serie=@descricaoSerie where cod_serie = @codigoSerie";
+                string sql = "update serie set descricao_serie = @descricaoSerie where cod_serie = @codigoSerie";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
                 cmd.Parameters.Add("@codigoSerie", SqlDbType.Int);
@@ -82,12 +82,12 @@ namespace Biblioteca.DAO
             try
             {
                 this.abrirConexao();
-                string sql = "INSERTO INTO Serie (descricao_serie) VALUES (@descricao_serie)";
+                string sql = "INSERT INTO Serie (descricao_serie) VALUES (@descricaoSerie)";
 
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
-                cmd.Parameters.Add("@descricao_serie", SqlDbType.VarChar);
-                cmd.Parameters["@descricao_serie"].Value = serie.DescricaoSerie;
+                cmd.Parameters.Add("@descricaoSerie", SqlDbType.VarChar);
+                cmd.Parameters["@descricaoSerie"].Value = serie.DescricaoSerie;
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();

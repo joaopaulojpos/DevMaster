@@ -90,7 +90,7 @@
             this.btnVoltar.TabIndex = 6;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
-            this.btnVoltar.Click += new System.EventHandler(this.button4_Click_1);
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltarClick);
             // 
             // btnConsultar
             // 
@@ -101,7 +101,7 @@
             this.btnConsultar.TabIndex = 5;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = true;
-            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click_1);
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultarClick);
             // 
             // btnRemover
             // 
@@ -111,7 +111,7 @@
             this.btnRemover.TabIndex = 4;
             this.btnRemover.Text = "Remover";
             this.btnRemover.UseVisualStyleBackColor = true;
-            this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
+            this.btnRemover.Click += new System.EventHandler(this.btnRemoverClick);
             // 
             // btnAlterar
             // 
@@ -121,7 +121,7 @@
             this.btnAlterar.TabIndex = 3;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
-            this.btnAlterar.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterarClick);
             // 
             // textBoxFiltro
             // 

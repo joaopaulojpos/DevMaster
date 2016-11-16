@@ -14,62 +14,34 @@ namespace GUI
 {
     public partial class GUISerie : Form
     {
+        #region Atributos
+
         List<Serie> listaSerie;
+
+        #endregion
+
+        #region Construtores
+
         public GUISerie()
         {
             InitializeComponent();
+
+            //To tentando fazer pra ele já clicar no Consultar quando abrir a tela
+
+            //btnConsultar.PerformClick();
+            //btnConsultarClick.PerformClick();
+
+            //Enquanto eu não to conseguindo, tirei tudo do botão Consultar e botei num método, 
+            //ai o botão e esse construtor vai chamar o método:
+
+            Consultar();
         }
 
-        private void GUISerie_Load(object sender, EventArgs e)
-        {
+        #endregion
 
-        }
+        #region Métodos Auxiliares
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            GUIInserirSerie guiInserirSerie = new GUIInserirSerie();
-            guiInserirSerie.ShowDialog();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            GUIAlterarSerie guiAlterarSerie = new GUIAlterarSerie();
-            guiAlterarSerie.ShowDialog();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button4_Click_1(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void novoAlunoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            GUIInserirSerie guiInserirSerie = new GUIInserirSerie();
-            guiInserirSerie.ShowDialog();
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            GUIAlterarSerie guiAlterarSerie = new GUIAlterarSerie();
-            guiAlterarSerie.ShowDialog();
-        }
-
-        private void btnConsultar_Click_1(object sender, EventArgs e)
+        public void Consultar()
         {
             listViewSerie.Items.Clear();
 
@@ -87,6 +59,96 @@ namespace GUI
             }
         }
 
+        #endregion
+
+        #region Menu Inserir
+
+        private void novoAlunoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GUIInserirSerie guiInserirSerie = new GUIInserirSerie();
+            guiInserirSerie.ShowDialog();
+        }
+
+        #endregion
+
+        #region Consultar
+
+        private void btnConsultarClick(object sender, EventArgs e)
+        {
+            Consultar();
+        }
+
+        #endregion
+
+
+
+
+        #region Alterar
+
+        private void btnAlterarClick(object sender, EventArgs e)
+        {
+            //Pega a Série selecionada, mesmo que só seja uma ele entende como uma coleção
+            ListView.SelectedListViewItemCollection colecaoSelecionada = listViewSerie.SelectedItems;
+            //Instanciando objeto que vai ser alterado
+            Serie alterarSerie = new Serie();
+            //Percorrendo a coleção(a série selecionada)
+            foreach (ListViewItem selecionado in colecaoSelecionada)
+            {
+                //Alimentando a série a ser alterada
+                alterarSerie.CodigoSerie = Convert.ToInt32(selecionado.SubItems[0].Text);
+                alterarSerie.DescricaoSerie = selecionado.SubItems[1].Text;
+                //Enviando a série a ser alterada pra tela de Alterar
+                GUIAlterarSerie guiAlterarSerie = new GUIAlterarSerie(alterarSerie);
+                guiAlterarSerie.ShowDialog();
+            }
+        }
+
+        #endregion
+
+        #region Remover
+
+        private void btnRemoverClick(object sender, EventArgs e)
+        {
+            //Pega a Série selecionada, mesmo que só seja uma ele entende como uma coleção
+            ListView.SelectedListViewItemCollection colecaoSelecionada = listViewSerie.SelectedItems;
+            //Instanciando objeto que vai ser removido
+            Serie removerSerie = new Serie();
+            //Percorrendo a coleção(a série selecionada)
+            foreach (ListViewItem selecionado in colecaoSelecionada)
+            {
+                removerSerie.CodigoSerie = Convert.ToInt32(selecionado.SubItems[0].Text);
+                if (MessageBox.Show("Tem certeza?", "Confirmar remoção da Série.", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    //Remove do Banco
+                    DAOSerie.Instancia.Excluir(removerSerie);
+                    //Remove da ListView
+                    listViewSerie.Items.Remove(selecionado);
+                }
+                else
+                {
+                    MessageBox.Show("Cancelado.", "Remoção de Série");
+                }
+            }
+        }
+
+        #endregion
+
+        #region Voltar
+
+        private void btnVoltarClick(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        #endregion
+
+        #region Outros
+
+        private void GUISerie_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -97,25 +159,6 @@ namespace GUI
 
         }
 
-
-        private void btnRemover_Click(object sender, EventArgs e)
-        {
-            ListView.SelectedListViewItemCollection selecionado = listViewSerie.SelectedItems;
-
-            Serie removerSerie = new Serie();
-            foreach (ListViewItem serie in selecionado)
-            {
-                removerSerie.CodigoSerie = Convert.ToInt32(serie.SubItems[0].Text);
-                if (MessageBox.Show("Tem certeza?", "Confirmar remoção do Funcionário", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    DAOSerie.Instancia.Excluir(removerSerie);
-                    listViewSerie.Items.Remove(serie);
-                }
-                else
-                {
-                    MessageBox.Show("Cancelado.", "Remoção de Série");
-                }
-            }
-        }
+        #endregion
     }
 }

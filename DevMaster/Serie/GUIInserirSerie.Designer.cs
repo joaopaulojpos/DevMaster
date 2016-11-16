@@ -31,8 +31,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.btnConcluir = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btnInserir = new System.Windows.Forms.Button();
+            this.textBoxDescricaoSerie = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -41,8 +41,8 @@
             // 
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.btnConcluir);
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.btnInserir);
+            this.panel1.Controls.Add(this.textBoxDescricaoSerie);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -68,24 +68,24 @@
             this.button2.TabIndex = 13;
             this.button2.Text = "Voltar";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.btnVoltarClick);
             // 
-            // btnConcluir
+            // btnInserir
             // 
-            this.btnConcluir.Location = new System.Drawing.Point(12, 103);
-            this.btnConcluir.Name = "btnConcluir";
-            this.btnConcluir.Size = new System.Drawing.Size(85, 34);
-            this.btnConcluir.TabIndex = 10;
-            this.btnConcluir.Text = "Concluir";
-            this.btnConcluir.UseVisualStyleBackColor = true;
-            this.btnConcluir.Click += new System.EventHandler(this.button1_Click);
+            this.btnInserir.Location = new System.Drawing.Point(12, 103);
+            this.btnInserir.Name = "btnInserir";
+            this.btnInserir.Size = new System.Drawing.Size(85, 34);
+            this.btnInserir.TabIndex = 10;
+            this.btnInserir.Text = "Concluir";
+            this.btnInserir.UseVisualStyleBackColor = true;
+            this.btnInserir.Click += new System.EventHandler(this.btnInserirClick);
             // 
-            // textBox2
+            // textBoxDescricaoSerie
             // 
-            this.textBox2.Location = new System.Drawing.Point(86, 47);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(319, 20);
-            this.textBox2.TabIndex = 6;
+            this.textBoxDescricaoSerie.Location = new System.Drawing.Point(86, 47);
+            this.textBoxDescricaoSerie.Name = "textBoxDescricaoSerie";
+            this.textBoxDescricaoSerie.Size = new System.Drawing.Size(319, 20);
+            this.textBoxDescricaoSerie.TabIndex = 6;
             // 
             // label2
             // 
@@ -116,9 +116,9 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxDescricaoSerie;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnConcluir;
+        private System.Windows.Forms.Button btnInserir;
         private System.Windows.Forms.Button button2;
     }
 }
