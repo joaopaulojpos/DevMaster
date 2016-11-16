@@ -18,7 +18,7 @@ namespace GUI
 
         //Esse atributo vai receber a tela anterior(a partir do Construtor) e assim poder chamar métodos dela.
         GUISerie guiSerie;
-        
+
         #endregion
 
         #region Construtores
@@ -44,13 +44,20 @@ namespace GUI
 
         private void btnInserirClick(object sender, EventArgs e)
         {
-            Serie serie = new Serie();
-            serie.DescricaoSerie = textBoxDescricaoSerie.Text;
-            DAOSerie.Instancia.Inserir(serie);
-            MessageBox.Show("Série inserida com sucesso!");
+            try
+            {
+                    Serie serie = new Serie();
+                    serie.DescricaoSerie = textBoxDescricaoSerie.Text;
+                    DAOSerie.Instancia.Inserir(serie);
+                    MessageBox.Show("Série inserida com sucesso!");
 
-            //Chamando o método Consultar da tela anterior
-            guiSerie.Consultar();
+                    //Chamando o método Consultar da tela anterior
+                    guiSerie.Consultar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         #endregion

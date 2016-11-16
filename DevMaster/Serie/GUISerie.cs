@@ -64,10 +64,10 @@ namespace GUI
 
         private void novoAlunoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //O parâmetro this é essa própria tela, com isso lá na tela de Inserir 
-            //será possível chamar o método Consultar(); dessa tela.
-            GUIInserirSerie guiInserirSerie = new GUIInserirSerie(this);
-            guiInserirSerie.ShowDialog();
+                //O parâmetro this é essa própria tela, com isso lá na tela de Inserir 
+                //será possível chamar o método Consultar(); dessa tela.
+                GUIInserirSerie guiInserirSerie = new GUIInserirSerie(this);
+                guiInserirSerie.ShowDialog();
         }
 
         #endregion
@@ -151,11 +151,6 @@ namespace GUI
         #region Outros
 
         private void GUISerie_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

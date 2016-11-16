@@ -69,7 +69,6 @@
             this.ColumnHeaderSerie});
             this.listViewSerie.FullRowSelect = true;
             this.listViewSerie.GridLines = true;
-            this.listViewSerie.HoverSelection = true;
             this.listViewSerie.Location = new System.Drawing.Point(15, 74);
             this.listViewSerie.Name = "listViewSerie";
             this.listViewSerie.Size = new System.Drawing.Size(311, 286);
@@ -149,7 +148,6 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.novoAlunoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.MinimumSize = new System.Drawing.Size(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(443, 24);
             this.menuStrip1.TabIndex = 7;
