@@ -57,22 +57,26 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(836, 466);
+            this.panel1.Size = new System.Drawing.Size(443, 369);
             this.panel1.TabIndex = 3;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // listViewSerie
             // 
+            this.listViewSerie.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.listViewSerie.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ColumnHeaderCodigo,
             this.ColumnHeaderSerie});
             this.listViewSerie.FullRowSelect = true;
+            this.listViewSerie.GridLines = true;
+            this.listViewSerie.HoverSelection = true;
             this.listViewSerie.Location = new System.Drawing.Point(15, 74);
             this.listViewSerie.Name = "listViewSerie";
-            this.listViewSerie.Size = new System.Drawing.Size(706, 380);
+            this.listViewSerie.Size = new System.Drawing.Size(311, 286);
             this.listViewSerie.TabIndex = 8;
             this.listViewSerie.UseCompatibleStateImageBehavior = false;
             this.listViewSerie.View = System.Windows.Forms.View.Details;
+            this.listViewSerie.SelectedIndexChanged += new System.EventHandler(this.listViewSerie_SelectedIndexChanged);
             // 
             // ColumnHeaderCodigo
             // 
@@ -81,10 +85,11 @@
             // ColumnHeaderSerie
             // 
             this.ColumnHeaderSerie.Text = "Série";
+            this.ColumnHeaderSerie.Width = 76;
             // 
             // btnVoltar
             // 
-            this.btnVoltar.Location = new System.Drawing.Point(727, 415);
+            this.btnVoltar.Location = new System.Drawing.Point(332, 320);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(100, 40);
             this.btnVoltar.TabIndex = 6;
@@ -95,7 +100,7 @@
             // btnConsultar
             // 
             this.btnConsultar.AccessibleName = "";
-            this.btnConsultar.Location = new System.Drawing.Point(621, 28);
+            this.btnConsultar.Location = new System.Drawing.Point(226, 28);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(100, 40);
             this.btnConsultar.TabIndex = 5;
@@ -105,7 +110,7 @@
             // 
             // btnRemover
             // 
-            this.btnRemover.Location = new System.Drawing.Point(727, 120);
+            this.btnRemover.Location = new System.Drawing.Point(332, 120);
             this.btnRemover.Name = "btnRemover";
             this.btnRemover.Size = new System.Drawing.Size(100, 40);
             this.btnRemover.TabIndex = 4;
@@ -115,7 +120,7 @@
             // 
             // btnAlterar
             // 
-            this.btnAlterar.Location = new System.Drawing.Point(727, 74);
+            this.btnAlterar.Location = new System.Drawing.Point(332, 74);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(100, 40);
             this.btnAlterar.TabIndex = 3;
@@ -127,7 +132,7 @@
             // 
             this.textBoxFiltro.Location = new System.Drawing.Point(74, 39);
             this.textBoxFiltro.Name = "textBoxFiltro";
-            this.textBoxFiltro.Size = new System.Drawing.Size(541, 20);
+            this.textBoxFiltro.Size = new System.Drawing.Size(146, 20);
             this.textBoxFiltro.TabIndex = 2;
             // 
             // label1
@@ -144,8 +149,9 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.novoAlunoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.MinimumSize = new System.Drawing.Size(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(836, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(443, 24);
             this.menuStrip1.TabIndex = 7;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -160,11 +166,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(836, 466);
+            this.ClientSize = new System.Drawing.Size(443, 369);
             this.Controls.Add(this.panel1);
             this.Name = "GUISerie";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "GUISerie";
+            this.Text = "Cadastro de Série";
             this.Load += new System.EventHandler(this.GUISerie_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

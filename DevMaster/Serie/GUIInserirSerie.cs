@@ -14,11 +14,28 @@ namespace GUI
 {
     public partial class GUIInserirSerie : Form
     {
+        #region Atributos
+
+        //Esse atributo vai receber a tela anterior(a partir do Construtor) e assim poder chamar métodos dela.
+        GUISerie guiSerie;
+        
+        #endregion
+
         #region Construtores
 
+        //Construtor Padrão
         public GUIInserirSerie()
         {
             InitializeComponent();
+        }
+
+        //Construtor feito pra receber a tela anterior e assim acessar seus métodos
+        public GUIInserirSerie(GUISerie guiSerie)
+        {
+            InitializeComponent();
+
+            //De fato recebendo a tela anterior
+            this.guiSerie = guiSerie;
         }
 
         #endregion
@@ -31,7 +48,9 @@ namespace GUI
             serie.DescricaoSerie = textBoxDescricaoSerie.Text;
             DAOSerie.Instancia.Inserir(serie);
             MessageBox.Show("Série inserida com sucesso!");
-            Consultar();
+
+            //Chamando o método Consultar da tela anterior
+            guiSerie.Consultar();
         }
 
         #endregion

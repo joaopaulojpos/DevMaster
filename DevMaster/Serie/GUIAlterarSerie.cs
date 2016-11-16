@@ -18,10 +18,14 @@ namespace GUI
 
         Serie serieAlterada;
 
+        //Esse atributo vai receber a tela anterior(a partir do Construtor) e assim poder chamar métodos dela.
+        GUISerie guiSerie;
+
         #endregion
 
         #region Construtores
 
+        //Construtor Padrão
         public GUIAlterarSerie(Serie serieOld)
         {
             InitializeComponent();
@@ -29,6 +33,20 @@ namespace GUI
             serieAlterada = serieOld;
 
             AlimentarCampos(serieOld);
+
+        }
+
+        //Construtor feito pra receber a tela anterior e assim acessar seus métodos
+        public GUIAlterarSerie(Serie serieOld, GUISerie guiSerie)
+        {
+            InitializeComponent();
+
+            serieAlterada = serieOld;
+
+            AlimentarCampos(serieOld);
+
+            //De fato recebendo a tela anterior
+            this.guiSerie = guiSerie;
         }
 
         #endregion
@@ -59,6 +77,9 @@ namespace GUI
 
             DAOSerie.Instancia.Alterar(serieAlterada);
             MessageBox.Show("Série alterada com sucesso!");
+
+            //Chamando o método Consultar da tela anterior
+            guiSerie.Consultar();
         }
 
         #endregion

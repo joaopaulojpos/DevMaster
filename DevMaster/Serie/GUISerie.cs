@@ -17,24 +17,22 @@ namespace GUI
         #region Atributos
 
         List<Serie> listaSerie;
-
+        
         #endregion
 
         #region Construtores
 
+        //Construtor Padrão
         public GUISerie()
         {
             InitializeComponent();
 
-            //To tentando fazer pra ele já clicar no Consultar quando abrir a tela
-
-            //btnConsultar.PerformClick();
-            //btnConsultarClick.PerformClick();
-
-            //Enquanto eu não to conseguindo, tirei tudo do botão Consultar e botei num método, 
-            //ai o botão e esse construtor vai chamar o método:
-
+            //Já abre o form jogando a Consulta na List View
             Consultar();
+
+            //Faz com que as colunas da List View ocupem o espaço que precisar sem cortar
+            listViewSerie.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            listViewSerie.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
         #endregion
@@ -54,6 +52,7 @@ namespace GUI
 
             foreach (Serie serie in listaSerie)
             {
+                //ListViewItem é tipo uma linha, e cada coluna é um subitem dessa linha/Item
                 ListViewItem linha = listViewSerie.Items.Add(Convert.ToString(serie.CodigoSerie));
                 linha.SubItems.Add(serie.DescricaoSerie);
             }
@@ -65,7 +64,9 @@ namespace GUI
 
         private void novoAlunoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GUIInserirSerie guiInserirSerie = new GUIInserirSerie();
+            //O parâmetro this é essa própria tela, com isso lá na tela de Inserir 
+            //será possível chamar o método Consultar(); dessa tela.
+            GUIInserirSerie guiInserirSerie = new GUIInserirSerie(this);
             guiInserirSerie.ShowDialog();
         }
 
@@ -75,6 +76,8 @@ namespace GUI
 
         private void btnConsultarClick(object sender, EventArgs e)
         {
+            //Botei o código da Consulta dentro da função em vez de botar no botão pq é mais fácil
+            //outras telas/construtor chamarem esse método do que o click do botão.
             Consultar();
         }
 
@@ -89,16 +92,19 @@ namespace GUI
         {
             //Pega a Série selecionada, mesmo que só seja uma ele entende como uma coleção
             ListView.SelectedListViewItemCollection colecaoSelecionada = listViewSerie.SelectedItems;
-            //Instanciando objeto que vai ser alterado
+
             Serie alterarSerie = new Serie();
+
             //Percorrendo a coleção(a série selecionada)
             foreach (ListViewItem selecionado in colecaoSelecionada)
             {
-                //Alimentando a série a ser alterada
                 alterarSerie.CodigoSerie = Convert.ToInt32(selecionado.SubItems[0].Text);
                 alterarSerie.DescricaoSerie = selecionado.SubItems[1].Text;
-                //Enviando a série a ser alterada pra tela de Alterar
-                GUIAlterarSerie guiAlterarSerie = new GUIAlterarSerie(alterarSerie);
+
+                //Enviando a série a ser alterada pra tela de Alterar:
+                //O parâmetro this é essa própria tela, com isso lá na tela de Alterar 
+                //será possível chamar o método Consultar(); dessa tela.
+                GUIAlterarSerie guiAlterarSerie = new GUIAlterarSerie(alterarSerie, this);
                 guiAlterarSerie.ShowDialog();
             }
         }
@@ -111,17 +117,17 @@ namespace GUI
         {
             //Pega a Série selecionada, mesmo que só seja uma ele entende como uma coleção
             ListView.SelectedListViewItemCollection colecaoSelecionada = listViewSerie.SelectedItems;
-            //Instanciando objeto que vai ser removido
+
             Serie removerSerie = new Serie();
+
             //Percorrendo a coleção(a série selecionada)
             foreach (ListViewItem selecionado in colecaoSelecionada)
             {
                 removerSerie.CodigoSerie = Convert.ToInt32(selecionado.SubItems[0].Text);
                 if (MessageBox.Show("Tem certeza?", "Confirmar remoção da Série.", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    //Remove do Banco
                     DAOSerie.Instancia.Excluir(removerSerie);
-                    //Remove da ListView
+
                     listViewSerie.Items.Remove(selecionado);
                 }
                 else
@@ -160,5 +166,10 @@ namespace GUI
         }
 
         #endregion
+
+        private void listViewSerie_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
