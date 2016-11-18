@@ -48,7 +48,9 @@ namespace GUI
             Ensino ensino2 = new Ensino();
             ensino2.DescricaoEnsino = filtro;
 
-            listaEnsino = DAOEnsino.Instancia.Listar(ensino2);
+            //listaEnsino = DAOEnsino.Instancia.Listar(ensino2);
+            DAOEnsino daoEnsino = new DAOEnsino();
+            daoEnsino.Listar(ensino2);
 
             foreach (Ensino ensino in listaEnsino)
             {
@@ -123,7 +125,9 @@ namespace GUI
                 removerEnsino.CodigoEnsino = Convert.ToInt32(selecionado.SubItems[0].Text);
                 if (MessageBox.Show("Tem certeza?", "Confirmar remoção do Ensino.", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    DAOEnsino.Instancia.Excluir(removerEnsino);
+                    //DAOEnsino.Instancia.Excluir(removerEnsino);
+                    DAOEnsino daoEnsino = new DAOEnsino();
+                    daoEnsino.Excluir(removerEnsino);
 
                     listViewEnsino.Items.Remove(selecionado);
                 }

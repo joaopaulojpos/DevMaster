@@ -69,30 +69,10 @@
     <Compile Include="Interfaces\InterfaceTurma.cs" />
     <Compile Include="Interfaces\InterfaceUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Teste\TestaConexao.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Teste\TestaConexao.Designer.cs">
-      <DependentUpon>TestaConexao.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Teste\TestaSerie.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Teste\TestaSerie.Designer.cs">
-      <DependentUpon>TestaSerie.cs</DependentUpon>
-    </Compile>
     <Compile Include="Util\ConexaoBanco.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="RN\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Teste\TestaConexao.resx">
-      <DependentUpon>TestaConexao.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Teste\TestaSerie.resx">
-      <DependentUpon>TestaSerie.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

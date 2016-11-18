@@ -48,7 +48,10 @@ namespace GUI
             {
                     Ensino ensino = new Ensino();
                     ensino.DescricaoEnsino = textBoxDescricaoEnsino.Text;
-                    DAOEnsino.Instancia.Inserir(ensino);
+                    //DAOEnsino.Instancia.Inserir(ensino);
+                    DAOEnsino daoEnsino = new DAOEnsino();
+                    daoEnsino.Inserir(ensino);
+
                     MessageBox.Show("Série inserida com sucesso!");
 
                     //Chamando o método Consultar da tela anterior

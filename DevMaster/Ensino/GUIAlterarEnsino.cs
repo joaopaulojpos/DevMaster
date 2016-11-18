@@ -75,7 +75,10 @@ namespace GUI
         {
             ensinoAlterado.DescricaoEnsino = textBoxDescricaoEnsino.Text;
 
-            DAOEnsino.Instancia.Alterar(ensinoAlterado);
+            //DAOEnsino.Instancia.Alterar(ensinoAlterado);
+            DAOEnsino daoEnsino = new DAOEnsino();
+            daoEnsino.Alterar(ensinoAlterado);
+
             MessageBox.Show("Ensino alterada com sucesso!");
 
             //Chamando o método Consultar da tela anterior

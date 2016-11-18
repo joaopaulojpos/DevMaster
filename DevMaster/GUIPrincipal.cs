@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 //Temp
 using Biblioteca;
-using Biblioteca.Teste;
+
 
 namespace GUI
 {
@@ -119,16 +119,16 @@ namespace GUI
             guiUsuario.ShowDialog();
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            TestaSerie testa = new TestaSerie();
-            testa.ShowDialog();
-        }
+        //private void button1_Click_1(object sender, EventArgs e)
+        //{
+        //    TestaSerie testa = new TestaSerie();
+        //    testa.ShowDialog();
+        //}
 
-        private void button1_Click_2(object sender, EventArgs e)
-        {
-            TestaSerie testaSerie = new TestaSerie();
-            testaSerie.ShowDialog();
-        }
+        //private void button1_Click_2(object sender, EventArgs e)
+        //{
+        //    TestaSerie testaSerie = new TestaSerie();
+        //    testaSerie.ShowDialog();
+        //}
     }
 }
