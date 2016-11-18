@@ -69,7 +69,7 @@ namespace GUI
 
         private void cadastroSérieToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GUISerie guiSerie = new GUISerie();
+            GUIEnsino guiSerie = new GUIEnsino();
             guiSerie.ShowDialog();
         }
 

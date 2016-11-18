@@ -23,9 +23,9 @@ namespace Biblioteca.Teste
         private void button1_Click(object sender, EventArgs e)
         {
             string descricao = textBoxDescricao.Text;
-            Serie serie = new Serie();
-            serie.DescricaoSerie = descricao;
-            DAOSerie.Instancia.Inserir(serie);
+            Ensino serie = new Ensino();
+            serie.DescricaoEnsino = descricao;
+            DAOEnsino.Instancia.Inserir(serie);
             
         }
 
@@ -33,9 +33,9 @@ namespace Biblioteca.Teste
         {
             //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
             int codigo = Convert.ToInt32(textBoxCodigo.Text);
-            Serie serie = new Serie();
-            serie.CodigoSerie = codigo;
-            DAOSerie.Instancia.Excluir(serie);
+            Ensino serie = new Ensino();
+            serie.CodigoEnsino = codigo;
+            DAOEnsino.Instancia.Excluir(serie);
 
         }
 
@@ -43,10 +43,10 @@ namespace Biblioteca.Teste
         {
             int codigo = Convert.ToInt32(textBoxCodigo);
             string descricao = textBoxDescricao.Text;
-            Serie serie = new Serie();
-            serie.CodigoSerie = codigo;
-            serie.DescricaoSerie = descricao;
-            DAOSerie.Instancia.Alterar(serie);
+            Ensino serie = new Ensino();
+            serie.CodigoEnsino = codigo;
+            serie.DescricaoEnsino = descricao;
+            DAOEnsino.Instancia.Alterar(serie);
 
         }
 

@@ -50,12 +50,12 @@
     <Compile Include="Basicas\Avaliacao.cs" />
     <Compile Include="Basicas\Professor.cs" />
     <Compile Include="Basicas\Turma.cs" />
-    <Compile Include="Basicas\Serie.cs" />
+    <Compile Include="Basicas\Ensino.cs" />
     <Compile Include="Basicas\TipoUsuario.cs" />
     <Compile Include="Basicas\Usuario.cs" />
     <Compile Include="DAO\DAOAluno.cs" />
     <Compile Include="DAO\DAODisciplina.cs" />
-    <Compile Include="DAO\DAOSerie.cs" />
+    <Compile Include="DAO\DAOEnsino.cs" />
     <Compile Include="DAO\DAOTurma.cs" />
     <Compile Include="DAO\DAOUsuario.cs" />
     <Compile Include="Interfaces\InterfaceAluno.cs" />
@@ -64,7 +64,7 @@
     <Compile Include="Interfaces\InterfaceDisciplina.cs" />
     <Compile Include="Interfaces\InterfaceFalta.cs" />
     <Compile Include="Interfaces\InterfaceProfessor.cs" />
-    <Compile Include="Interfaces\InterfaceSerie.cs" />
+    <Compile Include="Interfaces\InterfaceEnsino.cs" />
     <Compile Include="Interfaces\InterfaceTipoUsuario.cs" />
     <Compile Include="Interfaces\InterfaceTurma.cs" />
     <Compile Include="Interfaces\InterfaceUsuario.cs" />

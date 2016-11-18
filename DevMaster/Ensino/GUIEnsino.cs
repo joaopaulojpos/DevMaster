@@ -12,18 +12,18 @@ using Biblioteca.DAO;
 
 namespace GUI
 {
-    public partial class GUISerie : Form
+    public partial class GUIEnsino : Form
     {
         #region Atributos
 
-        List<Serie> listaSerie;
+        List<Ensino> listaEnsino;
         
         #endregion
 
         #region Construtores
 
         //Construtor Padrão
-        public GUISerie()
+        public GUIEnsino()
         {
             InitializeComponent();
 
@@ -31,8 +31,8 @@ namespace GUI
             Consultar();
 
             //Faz com que as colunas da List View ocupem o espaço que precisar sem cortar
-            listViewSerie.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-            listViewSerie.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            listViewEnsino.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            listViewEnsino.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
         #endregion
@@ -41,20 +41,20 @@ namespace GUI
 
         public void Consultar()
         {
-            listViewSerie.Items.Clear();
+            listViewEnsino.Items.Clear();
 
             string filtro = textBoxFiltro.Text;
 
-            Serie serie2 = new Serie();
-            serie2.DescricaoSerie = filtro;
+            Ensino ensino2 = new Ensino();
+            ensino2.DescricaoEnsino = filtro;
 
-            listaSerie = DAOSerie.Instancia.Listar(serie2);
+            listaEnsino = DAOEnsino.Instancia.Listar(ensino2);
 
-            foreach (Serie serie in listaSerie)
+            foreach (Ensino ensino in listaEnsino)
             {
                 //ListViewItem é tipo uma linha, e cada coluna é um subitem dessa linha/Item
-                ListViewItem linha = listViewSerie.Items.Add(Convert.ToString(serie.CodigoSerie));
-                linha.SubItems.Add(serie.DescricaoSerie);
+                ListViewItem linha = listViewEnsino.Items.Add(Convert.ToString(ensino.CodigoEnsino));
+                linha.SubItems.Add(ensino.DescricaoEnsino);
             }
         }
 
@@ -66,7 +66,7 @@ namespace GUI
         {
                 //O parâmetro this é essa própria tela, com isso lá na tela de Inserir 
                 //será possível chamar o método Consultar(); dessa tela.
-                GUIInserirSerie guiInserirSerie = new GUIInserirSerie(this);
+                GUIInserirEnsino guiInserirSerie = new GUIInserirEnsino(this);
                 guiInserirSerie.ShowDialog();
         }
 
@@ -83,28 +83,25 @@ namespace GUI
 
         #endregion
 
-
-
-
         #region Alterar
 
         private void btnAlterarClick(object sender, EventArgs e)
         {
             //Pega a Série selecionada, mesmo que só seja uma ele entende como uma coleção
-            ListView.SelectedListViewItemCollection colecaoSelecionada = listViewSerie.SelectedItems;
+            ListView.SelectedListViewItemCollection colecaoSelecionada = listViewEnsino.SelectedItems;
 
-            Serie alterarSerie = new Serie();
+            Ensino alterarEnsino = new Ensino();
 
             //Percorrendo a coleção(a série selecionada)
             foreach (ListViewItem selecionado in colecaoSelecionada)
             {
-                alterarSerie.CodigoSerie = Convert.ToInt32(selecionado.SubItems[0].Text);
-                alterarSerie.DescricaoSerie = selecionado.SubItems[1].Text;
+                alterarEnsino.CodigoEnsino = Convert.ToInt32(selecionado.SubItems[0].Text);
+                alterarEnsino.DescricaoEnsino = selecionado.SubItems[1].Text;
 
                 //Enviando a série a ser alterada pra tela de Alterar:
                 //O parâmetro this é essa própria tela, com isso lá na tela de Alterar 
                 //será possível chamar o método Consultar(); dessa tela.
-                GUIAlterarSerie guiAlterarSerie = new GUIAlterarSerie(alterarSerie, this);
+                GUIAlterarEnsino guiAlterarSerie = new GUIAlterarEnsino(alterarEnsino, this);
                 guiAlterarSerie.ShowDialog();
             }
         }
@@ -116,19 +113,19 @@ namespace GUI
         private void btnRemoverClick(object sender, EventArgs e)
         {
             //Pega a Série selecionada, mesmo que só seja uma ele entende como uma coleção
-            ListView.SelectedListViewItemCollection colecaoSelecionada = listViewSerie.SelectedItems;
+            ListView.SelectedListViewItemCollection colecaoSelecionada = listViewEnsino.SelectedItems;
 
-            Serie removerSerie = new Serie();
+            Ensino removerEnsino = new Ensino();
 
             //Percorrendo a coleção(a série selecionada)
             foreach (ListViewItem selecionado in colecaoSelecionada)
             {
-                removerSerie.CodigoSerie = Convert.ToInt32(selecionado.SubItems[0].Text);
-                if (MessageBox.Show("Tem certeza?", "Confirmar remoção da Série.", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                removerEnsino.CodigoEnsino = Convert.ToInt32(selecionado.SubItems[0].Text);
+                if (MessageBox.Show("Tem certeza?", "Confirmar remoção do Ensino.", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    DAOSerie.Instancia.Excluir(removerSerie);
+                    DAOEnsino.Instancia.Excluir(removerEnsino);
 
-                    listViewSerie.Items.Remove(selecionado);
+                    listViewEnsino.Items.Remove(selecionado);
                 }
                 else
                 {
@@ -150,7 +147,7 @@ namespace GUI
 
         #region Outros
 
-        private void GUISerie_Load(object sender, EventArgs e)
+        private void GUIEnsino_Load(object sender, EventArgs e)
         {
 
         }
@@ -160,11 +157,13 @@ namespace GUI
 
         }
 
-        #endregion
-
-        private void listViewSerie_SelectedIndexChanged(object sender, EventArgs e)
+        private void listViewEnsino_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
+
+        #endregion
+
+
     }
 }

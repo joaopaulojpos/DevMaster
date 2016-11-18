@@ -11,41 +11,41 @@ using System.Data;
 
 namespace Biblioteca.DAO
 {
-    public class DAOSerie : ConexaoBanco, InterfaceSerie
+    public class DAOEnsino : ConexaoBanco, InterfaceEnsino
     {
 
         #region Singleton
-        private static DAOSerie instancia;
+        //private static DAOEnsino instancia;
 
-        private DAOSerie() { }
+        //private DAOEnsino() { }
 
-        public static DAOSerie Instancia
-        {
-            get
-            {
-                if (instancia == null)
-                {
-                    instancia = new DAOSerie();
-                }
-                return instancia;
-            }
-        }
+        //public static DAOEnsino Instancia
+        //{
+        //    get
+        //    {
+        //        if (instancia == null)
+        //        {
+        //            instancia = new DAOEnsino();
+        //        }
+        //        return instancia;
+        //    }
+        //}
         #endregion
 
         #region Implementação da Interface
-        public void Alterar(Serie serie)
+        public void Alterar(Ensino ensino)
         {
             try
             {
                 this.abrirConexao();
-                string sql = "update serie set descricao_serie = @descricaoSerie where cod_serie = @codigoSerie";
+                string sql = "update ensino set descricao_ensino = @descricaoEnsino where cod_ensino = @codigoEnsino";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
-                cmd.Parameters.Add("@codigoSerie", SqlDbType.Int);
-                cmd.Parameters["@codigoSerie"].Value = serie.CodigoSerie;
+                cmd.Parameters.Add("@codigoEnsino", SqlDbType.Int);
+                cmd.Parameters["@codigoEnsino"].Value = ensino.CodigoEnsino;
 
-                cmd.Parameters.Add("@descricaoSerie", SqlDbType.VarChar);
-                cmd.Parameters["@descricaoSerie"].Value = serie.DescricaoSerie;
+                cmd.Parameters.Add("@descricaoEnsino", SqlDbType.VarChar);
+                cmd.Parameters["@descricaoEnsino"].Value = ensino.DescricaoEnsino;
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
@@ -57,15 +57,15 @@ namespace Biblioteca.DAO
             }
         }
 
-        public void Excluir(Serie serie)
+        public void Excluir(Ensino ensino)
         {
             try
             {
                 this.abrirConexao();
-                string sql = "delete from serie where cod_serie = @codigoSerie";
+                string sql = "delete from ensino where cod_ensino = @codigoEnsino";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
-                cmd.Parameters.Add("@codigoSerie", SqlDbType.Int);
-                cmd.Parameters["@codigoSerie"].Value = serie.CodigoSerie;
+                cmd.Parameters.Add("@codigoEnsino", SqlDbType.Int);
+                cmd.Parameters["@codigoEnsino"].Value = ensino.CodigoEnsino;
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
@@ -77,17 +77,17 @@ namespace Biblioteca.DAO
             }
         }
 
-        public void Inserir(Serie serie)
+        public void Inserir(Ensino ensino)
         {
             try
             {
                 this.abrirConexao();
-                string sql = "INSERT INTO Serie (descricao_serie) VALUES (@descricaoSerie)";
+                string sql = "INSERT INTO Ensino (descricao_ensino) VALUES (@descricaoEnsino)";
 
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
-                cmd.Parameters.Add("@descricaoSerie", SqlDbType.VarChar);
-                cmd.Parameters["@descricaoSerie"].Value = serie.DescricaoSerie;
+                cmd.Parameters.Add("@descricaoEnsino", SqlDbType.VarChar);
+                cmd.Parameters["@descricaoEnsino"].Value = ensino.DescricaoEnsino;
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
@@ -99,41 +99,41 @@ namespace Biblioteca.DAO
             }
         }
 
-        public List<Serie> Listar(Serie filtro)
+        public List<Ensino> Listar(Ensino filtro)
         {
-            List<Serie> retorno = new List<Serie>();
+            List<Ensino> retorno = new List<Ensino>();
             try
             {
                 this.abrirConexao();
-                string sql = "SELECT cod_serie,descricao_serie FROM serie where cod_serie = cod_serie";
-                if (filtro.CodigoSerie > 0)
+                string sql = "SELECT cod_ensino,descricao_ensino FROM ensino where cod_ensino = cod_ensino";
+                if (filtro.CodigoEnsino > 0)
                 {
-                    sql += " and cod_serie = @codigoSerie";
+                    sql += " and cod_ensino = @codigoEnsino";
                 }
-                if (filtro.DescricaoSerie != null && filtro.DescricaoSerie.Trim().Equals("") == false)
+                if (filtro.DescricaoEnsino != null && filtro.DescricaoEnsino.Trim().Equals("") == false)
                 {
-                    sql += " and descricao_serie like '%" + filtro.DescricaoSerie.Trim() + "%'";
+                    sql += " and descricao_ensino like '%" + filtro.DescricaoEnsino.Trim() + "%'";
                 }
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
 
-                if (filtro.CodigoSerie > 0)
+                if (filtro.CodigoEnsino > 0)
                 {
-                    cmd.Parameters.Add("@codigoSerie", SqlDbType.Int);
-                    cmd.Parameters["@codigoSerie"].Value = filtro.CodigoSerie;
+                    cmd.Parameters.Add("@codigoEnsino", SqlDbType.Int);
+                    cmd.Parameters["@codigoEnsino"].Value = filtro.CodigoEnsino;
                 }
-                if (filtro.DescricaoSerie != null && filtro.DescricaoSerie.Trim().Equals("") == false)
+                if (filtro.DescricaoEnsino != null && filtro.DescricaoEnsino.Trim().Equals("") == false)
                 {
-                    cmd.Parameters.Add("@descricaoSerie", SqlDbType.VarChar);
-                    cmd.Parameters["@descricaoSerie"].Value = filtro.DescricaoSerie;
+                    cmd.Parameters.Add("@descricaoEnsino", SqlDbType.VarChar);
+                    cmd.Parameters["@descricaoEnsino"].Value = filtro.DescricaoEnsino;
 
                 }
                 SqlDataReader DbReader = cmd.ExecuteReader();
                 while (DbReader.Read())
                 {
-                    Serie serie = new Serie();
-                    serie.CodigoSerie = DbReader.GetInt32(DbReader.GetOrdinal("cod_serie"));
-                    serie.DescricaoSerie = DbReader.GetString(DbReader.GetOrdinal("descricao_serie"));
-                    retorno.Add(serie);
+                    Ensino ensino = new Ensino();
+                    ensino.CodigoEnsino = DbReader.GetInt32(DbReader.GetOrdinal("cod_ensino"));
+                    ensino.DescricaoEnsino = DbReader.GetString(DbReader.GetOrdinal("descricao_ensino"));
+                    retorno.Add(ensino);
                 }
                 DbReader.Close();
                 cmd.Dispose();
@@ -146,17 +146,17 @@ namespace Biblioteca.DAO
             return retorno;
         }
 
-        public bool VerificaDuplicidade(Serie serie)
+        public bool VerificaDuplicidade(Ensino ensino)
         {
             bool retorno = false;
             try
             {
                 this.abrirConexao();
-                string sql = "SELECT cod_serie FROM serie where cod_serie = @codigoSerie";
+                string sql = "SELECT cod_ensino FROM ensino where cod_ensino = @codigoEnsino";
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
 
-                cmd.Parameters.Add("@codigoSerie", SqlDbType.Int);
-                cmd.Parameters["@codigoSerie"].Value = serie.CodigoSerie;
+                cmd.Parameters.Add("@codigoEnsino", SqlDbType.Int);
+                cmd.Parameters["@codigoEnsino"].Value = ensino.CodigoEnsino;
 
                 SqlDataReader DbReader = cmd.ExecuteReader();
                 while (DbReader.Read())

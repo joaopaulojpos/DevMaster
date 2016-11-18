@@ -12,50 +12,50 @@ using Biblioteca.DAO;
 
 namespace GUI
 {
-    public partial class GUIAlterarSerie : Form
+    public partial class GUIAlterarEnsino : Form
     {
         #region Atributos
 
-        Serie serieAlterada;
+        Ensino ensinoAlterado;
 
         //Esse atributo vai receber a tela anterior(a partir do Construtor) e assim poder chamar métodos dela.
-        GUISerie guiSerie;
+        GUIEnsino guiEnsino;
 
         #endregion
 
         #region Construtores
 
         //Construtor Padrão
-        public GUIAlterarSerie(Serie serieOld)
+        public GUIAlterarEnsino(Ensino ensinoOld)
         {
             InitializeComponent();
 
-            serieAlterada = serieOld;
+            ensinoAlterado = ensinoOld;
 
-            AlimentarCampos(serieOld);
+            AlimentarCampos(ensinoOld);
 
         }
 
         //Construtor feito pra receber a tela anterior e assim acessar seus métodos
-        public GUIAlterarSerie(Serie serieOld, GUISerie guiSerie)
+        public GUIAlterarEnsino(Ensino ensinoOld, GUIEnsino guiEnsino)
         {
             InitializeComponent();
 
-            serieAlterada = serieOld;
+            ensinoAlterado = ensinoOld;
 
-            AlimentarCampos(serieOld);
+            AlimentarCampos(ensinoOld);
 
             //De fato recebendo a tela anterior
-            this.guiSerie = guiSerie;
+            this.guiEnsino = guiEnsino;
         }
 
         #endregion
 
         #region Métodos Auxiliares
 
-        void AlimentarCampos(Serie serie)
+        void AlimentarCampos(Ensino ensino)
         {
-            textBoxDescricaoSerie.Text = serie.DescricaoSerie;
+            textBoxDescricaoEnsino.Text = ensino.DescricaoEnsino;
         }
 
         #endregion
@@ -73,20 +73,20 @@ namespace GUI
 
         private void btnAlterarClick(object sender, EventArgs e)
         {
-            serieAlterada.DescricaoSerie = textBoxDescricaoSerie.Text;
+            ensinoAlterado.DescricaoEnsino = textBoxDescricaoEnsino.Text;
 
-            DAOSerie.Instancia.Alterar(serieAlterada);
-            MessageBox.Show("Série alterada com sucesso!");
+            DAOEnsino.Instancia.Alterar(ensinoAlterado);
+            MessageBox.Show("Ensino alterada com sucesso!");
 
             //Chamando o método Consultar da tela anterior
-            guiSerie.Consultar();
+            guiEnsino.Consultar();
         }
 
         #endregion
 
         #region Outros
 
-        private void GUIAlterarSerie_Load(object sender, EventArgs e)
+        private void GUIAlterarEnsino_Load(object sender, EventArgs e)
         {
 
         }

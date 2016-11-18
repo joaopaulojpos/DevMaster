@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class GUIInserirSerie
+    partial class GUIInserirEnsino
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.btnInserir = new System.Windows.Forms.Button();
-            this.textBoxDescricaoSerie = new System.Windows.Forms.TextBox();
+            this.textBoxDescricaoEnsino = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -40,7 +40,7 @@
             // 
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.btnInserir);
-            this.panel1.Controls.Add(this.textBoxDescricaoSerie);
+            this.panel1.Controls.Add(this.textBoxDescricaoEnsino);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -70,10 +70,10 @@
             // 
             // textBoxDescricaoSerie
             // 
-            this.textBoxDescricaoSerie.Location = new System.Drawing.Point(86, 20);
-            this.textBoxDescricaoSerie.Name = "textBoxDescricaoSerie";
-            this.textBoxDescricaoSerie.Size = new System.Drawing.Size(319, 20);
-            this.textBoxDescricaoSerie.TabIndex = 6;
+            this.textBoxDescricaoEnsino.Location = new System.Drawing.Point(86, 20);
+            this.textBoxDescricaoEnsino.Name = "textBoxDescricaoSerie";
+            this.textBoxDescricaoEnsino.Size = new System.Drawing.Size(319, 20);
+            this.textBoxDescricaoEnsino.TabIndex = 6;
             // 
             // label2
             // 
@@ -93,7 +93,7 @@
             this.Name = "GUIInserirSerie";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Inserir Série";
-            this.Load += new System.EventHandler(this.GUIInserirSerie_Load);
+            this.Load += new System.EventHandler(this.GUIInserirEnsino_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -103,7 +103,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBoxDescricaoSerie;
+        private System.Windows.Forms.TextBox textBoxDescricaoEnsino;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnInserir;
         private System.Windows.Forms.Button button2;

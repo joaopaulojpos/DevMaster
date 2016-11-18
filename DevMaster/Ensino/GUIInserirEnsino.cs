@@ -12,30 +12,30 @@ using Biblioteca.DAO;
 
 namespace GUI
 {
-    public partial class GUIInserirSerie : Form
+    public partial class GUIInserirEnsino : Form
     {
         #region Atributos
 
         //Esse atributo vai receber a tela anterior(a partir do Construtor) e assim poder chamar métodos dela.
-        GUISerie guiSerie;
+        GUIEnsino guiEnsino;
 
         #endregion
 
         #region Construtores
 
         //Construtor Padrão
-        public GUIInserirSerie()
+        public GUIInserirEnsino()
         {
             InitializeComponent();
         }
 
         //Construtor feito pra receber a tela anterior e assim acessar seus métodos
-        public GUIInserirSerie(GUISerie guiSerie)
+        public GUIInserirEnsino(GUIEnsino guiEnsino)
         {
             InitializeComponent();
 
             //De fato recebendo a tela anterior
-            this.guiSerie = guiSerie;
+            this.guiEnsino = guiEnsino;
         }
 
         #endregion
@@ -46,13 +46,13 @@ namespace GUI
         {
             try
             {
-                    Serie serie = new Serie();
-                    serie.DescricaoSerie = textBoxDescricaoSerie.Text;
-                    DAOSerie.Instancia.Inserir(serie);
+                    Ensino ensino = new Ensino();
+                    ensino.DescricaoEnsino = textBoxDescricaoEnsino.Text;
+                    DAOEnsino.Instancia.Inserir(ensino);
                     MessageBox.Show("Série inserida com sucesso!");
 
                     //Chamando o método Consultar da tela anterior
-                    guiSerie.Consultar();
+                    guiEnsino.Consultar();
             }
             catch (Exception ex)
             {
@@ -73,7 +73,7 @@ namespace GUI
 
         #region Outros
 
-        private void GUIInserirSerie_Load(object sender, EventArgs e)
+        private void GUIInserirEnsino_Load(object sender, EventArgs e)
         {
 
         }

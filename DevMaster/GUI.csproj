@@ -126,23 +126,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Serie\GUIAlterarSerie.cs">
+    <Compile Include="Ensino\GUIAlterarEnsino.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Serie\GUIAlterarSerie.Designer.cs">
-      <DependentUpon>GUIAlterarSerie.cs</DependentUpon>
+    <Compile Include="Ensino\GUIAlterarEnsino.Designer.cs">
+      <DependentUpon>GUIAlterarEnsino.cs</DependentUpon>
     </Compile>
-    <Compile Include="Serie\GUIInserirSerie.cs">
+    <Compile Include="Ensino\GUIInserirEnsino.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Serie\GUIInserirSerie.Designer.cs">
-      <DependentUpon>GUIInserirSerie.cs</DependentUpon>
+    <Compile Include="Ensino\GUIInserirEnsino.Designer.cs">
+      <DependentUpon>GUIInserirEnsino.cs</DependentUpon>
     </Compile>
-    <Compile Include="Serie\GUISerie.cs">
+    <Compile Include="Ensino\GUIEnsino.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Serie\GUISerie.Designer.cs">
-      <DependentUpon>GUISerie.cs</DependentUpon>
+    <Compile Include="Ensino\GUIEnsino.Designer.cs">
+      <DependentUpon>GUIEnsino.cs</DependentUpon>
     </Compile>
     <Compile Include="TipoUsuario\GUIAlterarTipoUsuario.cs">
       <SubType>Form</SubType>
@@ -247,14 +247,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Serie\GUIAlterarSerie.resx">
-      <DependentUpon>GUIAlterarSerie.cs</DependentUpon>
+    <EmbeddedResource Include="Ensino\GUIAlterarEnsino.resx">
+      <DependentUpon>GUIAlterarEnsino.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Serie\GUIInserirSerie.resx">
-      <DependentUpon>GUIInserirSerie.cs</DependentUpon>
+    <EmbeddedResource Include="Ensino\GUIInserirEnsino.resx">
+      <DependentUpon>GUIInserirEnsino.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Serie\GUISerie.resx">
-      <DependentUpon>GUISerie.cs</DependentUpon>
+    <EmbeddedResource Include="Ensino\GUIEnsino.resx">
+      <DependentUpon>GUIEnsino.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TipoUsuario\GUIAlterarTipoUsuario.resx">
       <DependentUpon>GUIAlterarTipoUsuario.cs</DependentUpon>
