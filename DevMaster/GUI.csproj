@@ -94,6 +94,7 @@
     <Compile Include="Disciplina\GUIInserirDisciplina.Designer.cs">
       <DependentUpon>GUIInserirDisciplina.cs</DependentUpon>
     </Compile>
+    <Compile Include="Disciplina\TestandoGitHub.cs" />
     <Compile Include="GUIAbono.cs">
       <SubType>Form</SubType>
     </Compile>
