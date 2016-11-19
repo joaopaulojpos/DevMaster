@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 //Temp
 using Biblioteca;
-using Biblioteca.Teste;
 
 namespace GUI
 {
@@ -69,7 +68,7 @@ namespace GUI
 
         private void cadastroSérieToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GUISerie guiSerie = new GUISerie();
+            GUIEnsino guiSerie = new GUIEnsino();
             guiSerie.ShowDialog();
         }
 
@@ -117,18 +116,6 @@ namespace GUI
         {
             GUIUsuario guiUsuario = new GUIUsuario();
             guiUsuario.ShowDialog();
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            TestaSerie testa = new TestaSerie();
-            testa.ShowDialog();
-        }
-
-        private void button1_Click_2(object sender, EventArgs e)
-        {
-            TestaSerie testaSerie = new TestaSerie();
-            testaSerie.ShowDialog();
         }
     }
 }

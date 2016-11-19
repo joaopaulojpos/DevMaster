@@ -12,50 +12,55 @@ using Biblioteca.DAO;
 
 namespace GUI
 {
-    public partial class GUIAlterarSerie : Form
+    public partial class GUIInserirEnsino : Form
     {
         #region Atributos
 
-        Serie serieAlterada;
-
         //Esse atributo vai receber a tela anterior(a partir do Construtor) e assim poder chamar métodos dela.
-        GUISerie guiSerie;
+        GUIEnsino guiEnsino;
 
         #endregion
 
         #region Construtores
 
         //Construtor Padrão
-        public GUIAlterarSerie(Serie serieOld)
+        public GUIInserirEnsino()
         {
             InitializeComponent();
-
-            serieAlterada = serieOld;
-
-            AlimentarCampos(serieOld);
-
         }
 
         //Construtor feito pra receber a tela anterior e assim acessar seus métodos
-        public GUIAlterarSerie(Serie serieOld, GUISerie guiSerie)
+        public GUIInserirEnsino(GUIEnsino guiEnsino)
         {
             InitializeComponent();
 
-            serieAlterada = serieOld;
-
-            AlimentarCampos(serieOld);
-
             //De fato recebendo a tela anterior
-            this.guiSerie = guiSerie;
+            this.guiEnsino = guiEnsino;
         }
 
         #endregion
 
-        #region Métodos Auxiliares
+        #region Inserir
 
-        void AlimentarCampos(Serie serie)
+        private void btnInserirClick(object sender, EventArgs e)
         {
-            textBoxDescricaoSerie.Text = serie.DescricaoSerie;
+            try
+            {
+                Ensino ensino = new Ensino();
+                ensino.DescricaoEnsino = textBoxDescricaoEnsino.Text;
+
+                DAOEnsino daoEnsino = new DAOEnsino();
+                daoEnsino.Inserir(ensino);
+
+                MessageBox.Show("Série inserida com sucesso!");
+
+                //Chamando o método Consultar da tela anterior
+                guiEnsino.Consultar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         #endregion
@@ -69,24 +74,9 @@ namespace GUI
 
         #endregion
 
-        #region Alterar
-
-        private void btnAlterarClick(object sender, EventArgs e)
-        {
-            serieAlterada.DescricaoSerie = textBoxDescricaoSerie.Text;
-
-            DAOSerie.Instancia.Alterar(serieAlterada);
-            MessageBox.Show("Série alterada com sucesso!");
-
-            //Chamando o método Consultar da tela anterior
-            guiSerie.Consultar();
-        }
-
-        #endregion
-
         #region Outros
 
-        private void GUIAlterarSerie_Load(object sender, EventArgs e)
+        private void GUIInserirEnsino_Load(object sender, EventArgs e)
         {
 
         }

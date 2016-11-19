@@ -50,12 +50,12 @@
     <Compile Include="Basicas\Avaliacao.cs" />
     <Compile Include="Basicas\Professor.cs" />
     <Compile Include="Basicas\Turma.cs" />
-    <Compile Include="Basicas\Serie.cs" />
+    <Compile Include="Basicas\Ensino.cs" />
     <Compile Include="Basicas\TipoUsuario.cs" />
     <Compile Include="Basicas\Usuario.cs" />
     <Compile Include="DAO\DAOAluno.cs" />
     <Compile Include="DAO\DAODisciplina.cs" />
-    <Compile Include="DAO\DAOSerie.cs" />
+    <Compile Include="DAO\DAOEnsino.cs" />
     <Compile Include="DAO\DAOTurma.cs" />
     <Compile Include="DAO\DAOUsuario.cs" />
     <Compile Include="Erros\ConexaoException.cs" />
@@ -67,35 +67,16 @@
     <Compile Include="Interfaces\InterfaceDisciplina.cs" />
     <Compile Include="Interfaces\InterfaceFalta.cs" />
     <Compile Include="Interfaces\InterfaceProfessor.cs" />
-    <Compile Include="Interfaces\InterfaceSerie.cs" />
+    <Compile Include="Interfaces\InterfaceEnsino.cs" />
     <Compile Include="Interfaces\InterfaceTipoUsuario.cs" />
     <Compile Include="Interfaces\InterfaceTurma.cs" />
     <Compile Include="Interfaces\InterfaceUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RN\RNEnsino.cs" />
     <Compile Include="RN\RNUsuario.cs" />
-    <Compile Include="Teste\TestaConexao.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Teste\TestaConexao.Designer.cs">
-      <DependentUpon>TestaConexao.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Teste\TestaSerie.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Teste\TestaSerie.Designer.cs">
-      <DependentUpon>TestaSerie.cs</DependentUpon>
-    </Compile>
     <Compile Include="Util\ConexaoBanco.cs" />
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <EmbeddedResource Include="Teste\TestaConexao.resx">
-      <DependentUpon>TestaConexao.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Teste\TestaSerie.resx">
-      <DependentUpon>TestaSerie.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

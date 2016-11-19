@@ -6,34 +6,34 @@ using System.Threading.Tasks;
 
 namespace Biblioteca.Basicas
 {
-    public class Serie
+    public class Ensino
     {
-        private int codigoSerie;
-        private string descricaoSerie;
+        private int codigoEnsino;
+        private string descricaoEnsino;
 
-        public int CodigoSerie
+        public int CodigoEnsino
         {
             get
             {
-                return codigoSerie;
+                return codigoEnsino;
             }
 
             set
             {
-                codigoSerie = value;
+                codigoEnsino = value;
             }
         }
 
-        public string DescricaoSerie
+        public string DescricaoEnsino
         {
             get
             {
-                return descricaoSerie;
+                return descricaoEnsino;
             }
 
             set
             {
-                descricaoSerie = value;
+                descricaoEnsino = value;
             }
         }
     }

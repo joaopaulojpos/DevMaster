@@ -19,7 +19,7 @@ namespace Biblioteca.DAO
             try
             {
                 this.abrirConexao();
-                string sql = "update turma set descricao_turma=@descricaoTurma,turno=@turno,ano=@ano,dataInicio=@dataInicio,codSerie=@codSerie where cod_turma = @codigoTurma";
+                string sql = "update turma set descricao_turma=@descricaoTurma,turno=@turno,ano=@ano,dataInicio=@dataInicio,codEnsino=@codEnsino where cod_turma = @codigoTurma";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
                 cmd.Parameters.Add("@codigoTurma", SqlDbType.Int);
@@ -37,8 +37,8 @@ namespace Biblioteca.DAO
                 cmd.Parameters.Add("@dataInicio", SqlDbType.Date);
                 cmd.Parameters["@dataInicio"].Value = turma.DataInicio;
 
-                cmd.Parameters.Add("@codSerie", SqlDbType.Int);
-                cmd.Parameters["@codSerie"].Value = turma.Serie.CodigoSerie;
+                cmd.Parameters.Add("@codEnsino", SqlDbType.Int);
+                cmd.Parameters["@codEnsino"].Value = turma.Ensino.CodigoEnsino;
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
@@ -75,7 +75,7 @@ namespace Biblioteca.DAO
             try
             {
                 this.abrirConexao();
-                string sql = "insert into turma (descricao,turno,ano,data_inicio,cod_serie) values(@descricao,@turno,@ano,@dataInicio,@codSerie)";
+                string sql = "insert into turma (descricao,turno,ano,data_inicio,cod_ensino) values(@descricao,@turno,@ano,@dataInicio,@codEnsino)";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
                 cmd.Parameters.Add("@descricao", SqlDbType.VarChar);
@@ -90,8 +90,8 @@ namespace Biblioteca.DAO
                 cmd.Parameters.Add("@dataInicio", SqlDbType.VarChar);
                 cmd.Parameters["@dataInicio"].Value = turma.DataInicio;
 
-                cmd.Parameters.Add("@codSerie", SqlDbType.Int);
-                cmd.Parameters["@codSerie"].Value = turma.Serie.CodigoSerie;
+                cmd.Parameters.Add("@codEnsino", SqlDbType.Int);
+                cmd.Parameters["@codEnsino"].Value = turma.Ensino.CodigoEnsino;
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
@@ -109,7 +109,7 @@ namespace Biblioteca.DAO
             try
             {
                 this.abrirConexao();
-                string sql = "SELECT cod_turma,descricao_turma,turno,ano,data_inicio,telefone,cod_serie FROM turma where cod_turma = cod_turma ";
+                string sql = "SELECT cod_turma,descricao_turma,turno,ano,data_inicio,telefone,cod_ensino FROM turma where cod_turma = cod_turma ";
                 if (filtro.CodigoTurma > 0)
                 {
                     sql += " and cod_turma = @codigoTurma";
@@ -139,7 +139,7 @@ namespace Biblioteca.DAO
                     turma.DescricaoTurma = DbReader.GetString(DbReader.GetOrdinal("descricao_turma"));
                     turma.DataInicio = DbReader.GetString(DbReader.GetOrdinal("data_inicio"));
                     turma.Turno = DbReader.GetChar(DbReader.GetOrdinal("turno"));
-                    turma.Serie.CodigoSerie = DbReader.GetInt32(DbReader.GetOrdinal("cod_serie"));
+                    turma.Ensino.CodigoEnsino = DbReader.GetInt32(DbReader.GetOrdinal("cod_ensino"));
                     turma.Ano = DbReader.GetInt32(DbReader.GetOrdinal("ano"));
 
                     retorno.Add(turma);

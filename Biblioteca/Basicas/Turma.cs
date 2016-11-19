@@ -15,7 +15,7 @@ namespace Biblioteca.Basicas
         private char turno;
         private int ano;
         private string dataInicio;
-        private Serie serie;
+        private Ensino serie;
 
         public int CodigoTurma
         {
@@ -82,7 +82,7 @@ namespace Biblioteca.Basicas
             }
         }
 
-        public Serie Serie
+        public Ensino Ensino
         {
             get
             {

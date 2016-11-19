@@ -1,55 +1,59 @@
-﻿using Biblioteca.Basicas;
-using Biblioteca.DAO;
-using Biblioteca.Erros;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Biblioteca.Basicas;
+using Biblioteca.DAO;
+using Biblioteca.Erros;
 
 namespace Biblioteca.RN
 {
-    public class RNUsuario: DAOUsuario
+    class RNEnsino : DAOEnsino
     {
-        private DAOUsuario daoUsuario;
+        #region Atributos
 
-        public RNUsuario()
+        private DAOEnsino daoEnsino;
+
+        public RNEnsino()
         {
-            daoUsuario = new DAOUsuario();
+            daoEnsino = new DAOEnsino();
         }
+
+        #endregion
 
         #region Métodos Principais
-
-        public void inserir(Usuario usuario)
+        public void inserir(Ensino ensino)
         {
-            validar(usuario);
-            duplicidade(usuario);
-            gravar(usuario);
+            validar(ensino);
+            duplicidade(ensino);
+            gravar(ensino);
         }
-        public void alterar(Usuario usuario)
+        public void alterar(Ensino ensino)
         {
-            validar(usuario);
-            atualizar(usuario);
-        }
-
-        public void excluir(Usuario usuario)
-        {
-            existe(usuario);
-            apagar(usuario);
+            validar(ensino);
+            atualizar(ensino);
         }
 
-        public List<Usuario> listar(Usuario usuario) {
-            return lista(usuario);
+        public void excluir(Ensino ensino)
+        {
+            existe(ensino);
+            apagar(ensino);
+        }
+
+        public List<Ensino> listar(Ensino ensino)
+        {
+            return lista(ensino);
         }
 
         #endregion
 
         #region Métodos auxiliares 
-        private void gravar(Usuario usuario)
+        private void gravar(Ensino ensino)
         {
-            try {
-                daoUsuario.Inserir(usuario);
-                throw new ValidacaoException(""); //Leandro: Esse throw é aqui msm ou foi engano?
+            try
+            {
+                daoEnsino.Inserir(ensino);
             }
             catch (ConexaoException ex)
             {
@@ -61,68 +65,26 @@ namespace Biblioteca.RN
             }
         }
 
-        private void validar(Usuario usuario)
+        private void validar(Ensino ensino)
         {
-            if (usuario==null)
+            if (ensino == null)
             {
                 throw new ValidacaoException();
             }
-            if (usuario.Nome.Trim().Length<4|| usuario.Nome.Trim().Length > 100)
+            if (ensino.DescricaoEnsino.Trim().Length < 4 || ensino.DescricaoEnsino.Trim().Length > 100)
             {
-                throw new ValidacaoException("Nome de usuário inválido. Minimo:4 , Máximo:100");
-            }
-            if (usuario.LoginUsuario.Trim().Length < 4 || usuario.LoginUsuario.Trim().Length > 100)
-            {
-                throw new ValidacaoException("Login para usuário inválido. Minimo:4 , Máximo:100");
-            }
-            if (usuario.Senha.Trim().Length < 5 || usuario.LoginUsuario.Trim().Length > 20)
-            {
-                throw new ValidacaoException("Senha para usuário inválida. Minimo:5 , Máximo:20");
+                throw new ValidacaoException("Nome de ensino inválido. Minimo:4 , Máximo:100");
             }
         }
 
 
-        private void duplicidade(Usuario usuario)
+        private void duplicidade(Ensino ensino)
         {
             try
             {
-                if (daoUsuario.VerificaDuplicidade(usuario))
+                if (daoEnsino.VerificaDuplicidade(ensino))
                 {
-                    throw new ValidacaoException("Usuário já existe no sistema.");
-                }     
-            }catch(ConexaoException ex)
-            {
-                throw new ValidacaoException("Não foi possivel conectar ao banco de dados.");
-            }
-            catch (RepositorioException ex)
-            {
-                throw new ValidacaoException("Consulte o suporte.");
-            }
-        }
-
-        private void atualizar(Usuario usuario)
-        {
-            try
-            {
-                daoUsuario.Alterar(usuario);
-            }
-            catch (ConexaoException ex)
-            {
-                throw new ValidacaoException("Não foi possivel conectar ao banco de dados.");
-            }
-            catch (RepositorioException ex)
-            {
-                throw new ValidacaoException("Consulte o suporte.");
-            }
-        }
-
-        private void existe(Usuario usuario)
-        {
-            try
-            {
-                if (daoUsuario.VerificaDuplicidade(usuario)==false)
-                {
-                    throw new ValidacaoException("Usuario nao existe");
+                    throw new ValidacaoException("Ensino já existe no sistema.");
                 }
             }
             catch (ConexaoException ex)
@@ -135,11 +97,11 @@ namespace Biblioteca.RN
             }
         }
 
-        private void apagar(Usuario usuario)
+        private void atualizar(Ensino ensino)
         {
             try
             {
-                daoUsuario.Excluir(usuario);
+                daoEnsino.Alterar(ensino);
             }
             catch (ConexaoException ex)
             {
@@ -151,10 +113,46 @@ namespace Biblioteca.RN
             }
         }
 
-        private List<Usuario> lista(Usuario usuario)
+        private void existe(Ensino ensino)
         {
-            try {
-                return daoUsuario.Listar(usuario);
+            try
+            {
+                if (daoEnsino.VerificaDuplicidade(ensino) == false)
+                {
+                    throw new ValidacaoException("Ensino não existe");
+                }
+            }
+            catch (ConexaoException ex)
+            {
+                throw new ValidacaoException("Não foi possível conectar ao banco de dados.");
+            }
+            catch (RepositorioException ex)
+            {
+                throw new ValidacaoException("Consulte o suporte.");
+            }
+        }
+
+        private void apagar(Ensino ensino)
+        {
+            try
+            {
+                daoEnsino.Excluir(ensino);
+            }
+            catch (ConexaoException ex)
+            {
+                throw new ValidacaoException("Não foi possivel conectar ao banco de dados.");
+            }
+            catch (RepositorioException ex)
+            {
+                throw new ValidacaoException("Consulte o suporte.");
+            }
+        }
+
+        private List<Ensino> lista(Ensino ensino)
+        {
+            try
+            {
+                return daoEnsino.Listar(ensino);
             }
             catch (ConexaoException ex)
             {

@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class GUIInserirSerie
+    partial class GUIInserirEnsino
     {
         /// <summary>
         /// Required designer variable.
@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonVoltar = new System.Windows.Forms.Button();
             this.btnInserir = new System.Windows.Forms.Button();
-            this.textBoxDescricaoSerie = new System.Windows.Forms.TextBox();
+            this.textBoxDescricaoEnsino = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.buttonVoltar);
             this.panel1.Controls.Add(this.btnInserir);
-            this.panel1.Controls.Add(this.textBoxDescricaoSerie);
+            this.panel1.Controls.Add(this.textBoxDescricaoEnsino);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -48,15 +48,15 @@
             this.panel1.Size = new System.Drawing.Size(417, 120);
             this.panel1.TabIndex = 4;
             // 
-            // button2
+            // buttonVoltar
             // 
-            this.button2.Location = new System.Drawing.Point(320, 76);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(85, 34);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "Voltar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.btnVoltarClick);
+            this.buttonVoltar.Location = new System.Drawing.Point(320, 76);
+            this.buttonVoltar.Name = "buttonVoltar";
+            this.buttonVoltar.Size = new System.Drawing.Size(85, 34);
+            this.buttonVoltar.TabIndex = 13;
+            this.buttonVoltar.Text = "Voltar";
+            this.buttonVoltar.UseVisualStyleBackColor = true;
+            this.buttonVoltar.Click += new System.EventHandler(this.btnVoltarClick);
             // 
             // btnInserir
             // 
@@ -68,12 +68,12 @@
             this.btnInserir.UseVisualStyleBackColor = true;
             this.btnInserir.Click += new System.EventHandler(this.btnInserirClick);
             // 
-            // textBoxDescricaoSerie
+            // textBoxDescricaoEnsino
             // 
-            this.textBoxDescricaoSerie.Location = new System.Drawing.Point(86, 20);
-            this.textBoxDescricaoSerie.Name = "textBoxDescricaoSerie";
-            this.textBoxDescricaoSerie.Size = new System.Drawing.Size(319, 20);
-            this.textBoxDescricaoSerie.TabIndex = 6;
+            this.textBoxDescricaoEnsino.Location = new System.Drawing.Point(86, 20);
+            this.textBoxDescricaoEnsino.Name = "textBoxDescricaoEnsino";
+            this.textBoxDescricaoEnsino.Size = new System.Drawing.Size(319, 20);
+            this.textBoxDescricaoEnsino.TabIndex = 6;
             // 
             // label2
             // 
@@ -84,16 +84,16 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Descrição:";
             // 
-            // GUIInserirSerie
+            // GUIInserirEnsino
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(417, 120);
             this.Controls.Add(this.panel1);
-            this.Name = "GUIInserirSerie";
+            this.Name = "GUIInserirEnsino";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Inserir Série";
-            this.Load += new System.EventHandler(this.GUIInserirSerie_Load);
+            this.Load += new System.EventHandler(this.GUIInserirEnsino_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -103,9 +103,9 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBoxDescricaoSerie;
+        private System.Windows.Forms.TextBox textBoxDescricaoEnsino;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnInserir;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonVoltar;
     }
 }
