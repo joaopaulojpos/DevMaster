@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Biblioteca.Basicas;
-using Biblioteca.DAO;
+using Biblioteca.RN;
 
 namespace GUI
 {
@@ -17,7 +17,7 @@ namespace GUI
         #region Atributos
 
         List<Ensino> listaEnsino;
-        
+
         #endregion
 
         #region Construtores
@@ -45,11 +45,11 @@ namespace GUI
 
             string filtro = textBoxFiltro.Text;
 
-            Ensino ensino2 = new Ensino();
-            ensino2.DescricaoEnsino = filtro;
+            Ensino ensinoFiltro = new Ensino();
+            ensinoFiltro.DescricaoEnsino = filtro;
+            RNEnsino rnEnsino = new RNEnsino();
 
-            DAOEnsino daoEnsino = new DAOEnsino();
-            listaEnsino = daoEnsino.Listar(ensino2);
+            listaEnsino = rnEnsino.Listar(ensinoFiltro);
 
             foreach (Ensino ensino in listaEnsino)
             {
@@ -57,18 +57,6 @@ namespace GUI
                 ListViewItem linha = listViewEnsino.Items.Add(Convert.ToString(ensino.CodigoEnsino));
                 linha.SubItems.Add(ensino.DescricaoEnsino);
             }
-        }
-
-        #endregion
-
-        #region Menu Inserir
-
-        private void novoAlunoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-                //O parâmetro this é essa própria tela, com isso lá na tela de Inserir 
-                //será possível chamar o método Consultar(); dessa tela.
-                GUIInserirEnsino guiInserirEnsino = new GUIInserirEnsino(this);
-                guiInserirEnsino.ShowDialog();
         }
 
         #endregion
@@ -84,30 +72,47 @@ namespace GUI
 
         #endregion
 
+        #region Menu Inserir
 
+        private void novoAlunoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //O parâmetro this é essa própria tela, com isso lá na tela de Inserir 
+            //será possível chamar o método Consultar(); dessa tela.
+            GUIInserirEnsino guiInserirEnsino = new GUIInserirEnsino(this);
+            guiInserirEnsino.ShowDialog();
+        }
 
+        #endregion
 
         #region Alterar
 
         private void btnAlterarClick(object sender, EventArgs e)
         {
-            //Pega a Série selecionada, mesmo que só seja uma ele entende como uma coleção
+            //Pega o Ensino selecionado, mesmo que só seja um ele entende como uma coleção
             ListView.SelectedListViewItemCollection colecaoSelecionada = listViewEnsino.SelectedItems;
 
             Ensino alterarEnsino = new Ensino();
+            int codigoSelecionado = 0;
 
             //Percorrendo a coleção(a série selecionada)
             foreach (ListViewItem selecionado in colecaoSelecionada)
             {
-                alterarEnsino.CodigoEnsino= Convert.ToInt32(selecionado.SubItems[0].Text);
-                alterarEnsino.DescricaoEnsino = selecionado.SubItems[1].Text;
-
-                //Enviando a série a ser alterada pra tela de Alterar:
-                //O parâmetro this é essa própria tela, com isso lá na tela de Alterar 
-                //será possível chamar o método Consultar(); dessa tela.
-                GUIAlterarEnsino guiAlterarEnsino = new GUIAlterarEnsino(alterarEnsino, this);
-                guiAlterarEnsino.ShowDialog();
+                codigoSelecionado = Convert.ToInt32(selecionado.SubItems[0].Text);
             }
+
+            foreach (Ensino ensino in listaEnsino)
+            {
+                if (ensino.CodigoEnsino == codigoSelecionado)
+                {
+                    alterarEnsino = ensino;
+                }
+            }
+
+            //Enviando a série a ser alterada pra tela de Alterar:
+            //O parâmetro this é essa própria tela, com isso lá na tela de Alterar 
+            //será possível chamar o método Consultar(); dessa tela.
+            GUIAlterarEnsino guiAlterarEnsino = new GUIAlterarEnsino(alterarEnsino, this);
+            guiAlterarEnsino.ShowDialog();
         }
 
         #endregion
@@ -127,8 +132,8 @@ namespace GUI
                 removerEnsino.CodigoEnsino = Convert.ToInt32(selecionado.SubItems[0].Text);
                 if (MessageBox.Show("Tem certeza?", "Confirmar remoção do Ensino.", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    DAOEnsino daoEnsino = new DAOEnsino();
-                    daoEnsino.Excluir(removerEnsino);
+                    RNEnsino rnEnsino = new RNEnsino();
+                    rnEnsino.Excluir(removerEnsino);
 
                     listViewEnsino.Items.Remove(selecionado);
                 }
@@ -162,11 +167,13 @@ namespace GUI
 
         }
 
-        #endregion
-
         private void listViewEnsino_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
+
+        #endregion
+
+
     }
 }

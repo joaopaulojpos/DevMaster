@@ -9,7 +9,7 @@ using Biblioteca.Erros;
 
 namespace Biblioteca.RN
 {
-    class RNEnsino : DAOEnsino
+    public class RNEnsino
     {
         #region Atributos
 
@@ -23,33 +23,35 @@ namespace Biblioteca.RN
         #endregion
 
         #region Métodos Principais
-        public void inserir(Ensino ensino)
+
+        public void Inserir(Ensino ensino)
         {
-            validar(ensino);
-            duplicidade(ensino);
-            gravar(ensino);
+            Validar(ensino);
+            Duplicidade(ensino);
+            Gravar(ensino);
         }
-        public void alterar(Ensino ensino)
+        public void Alterar(Ensino ensino)
         {
-            validar(ensino);
-            atualizar(ensino);
+            Validar(ensino);
+            Atualizar(ensino);
         }
 
-        public void excluir(Ensino ensino)
+        public void Excluir(Ensino ensino)
         {
-            existe(ensino);
-            apagar(ensino);
+            Existe(ensino);
+            Apagar(ensino);
         }
 
-        public List<Ensino> listar(Ensino ensino)
+        public List<Ensino> Listar(Ensino ensino)
         {
-            return lista(ensino);
+            return Listar2(ensino);
         }
 
         #endregion
 
         #region Métodos auxiliares 
-        private void gravar(Ensino ensino)
+
+        private void Gravar(Ensino ensino)
         {
             try
             {
@@ -57,15 +59,15 @@ namespace Biblioteca.RN
             }
             catch (ConexaoException ex)
             {
-                throw new ValidacaoException("Não foi possivel conectar ao banco de dados.");
+                throw new ValidacaoException("Não foi possivel conectar ao banco de dados. Erro: " + ex.Message);
             }
             catch (RepositorioException ex)
             {
-                throw new ValidacaoException("Consulte o suporte.");
+                throw new ValidacaoException("Consulte o suporte. Erro: " + ex.Message);
             }
         }
 
-        private void validar(Ensino ensino)
+        private void Validar(Ensino ensino)
         {
             if (ensino == null)
             {
@@ -78,7 +80,7 @@ namespace Biblioteca.RN
         }
 
 
-        private void duplicidade(Ensino ensino)
+        private void Duplicidade(Ensino ensino)
         {
             try
             {
@@ -89,15 +91,15 @@ namespace Biblioteca.RN
             }
             catch (ConexaoException ex)
             {
-                throw new ValidacaoException("Não foi possivel conectar ao banco de dados.");
+                throw new ValidacaoException("Não foi possivel conectar ao banco de dados. Erro: " + ex.Message);
             }
             catch (RepositorioException ex)
             {
-                throw new ValidacaoException("Consulte o suporte.");
+                throw new ValidacaoException("Consulte o suporte. Erro: " + ex.Message);
             }
         }
 
-        private void atualizar(Ensino ensino)
+        private void Atualizar(Ensino ensino)
         {
             try
             {
@@ -105,15 +107,15 @@ namespace Biblioteca.RN
             }
             catch (ConexaoException ex)
             {
-                throw new ValidacaoException("Não foi possivel conectar ao banco de dados.");
+                throw new ValidacaoException("Não foi possivel conectar ao banco de dados. Erro: " + ex.Message);
             }
             catch (RepositorioException ex)
             {
-                throw new ValidacaoException("Consulte o suporte.");
+                throw new ValidacaoException("Consulte o suporte. Erro: " + ex.Message);
             }
         }
 
-        private void existe(Ensino ensino)
+        private void Existe(Ensino ensino)
         {
             try
             {
@@ -124,15 +126,15 @@ namespace Biblioteca.RN
             }
             catch (ConexaoException ex)
             {
-                throw new ValidacaoException("Não foi possível conectar ao banco de dados.");
+                throw new ValidacaoException("Não foi possível conectar ao banco de dados. Erro: " + ex.Message);
             }
             catch (RepositorioException ex)
             {
-                throw new ValidacaoException("Consulte o suporte.");
+                throw new ValidacaoException("Consulte o suporte. Erro: " + ex.Message);
             }
         }
 
-        private void apagar(Ensino ensino)
+        private void Apagar(Ensino ensino)
         {
             try
             {
@@ -140,15 +142,15 @@ namespace Biblioteca.RN
             }
             catch (ConexaoException ex)
             {
-                throw new ValidacaoException("Não foi possivel conectar ao banco de dados.");
+                throw new ValidacaoException("Não foi possivel conectar ao banco de dados. Erro: " + ex.Message);
             }
             catch (RepositorioException ex)
             {
-                throw new ValidacaoException("Consulte o suporte.");
+                throw new ValidacaoException("Consulte o suporte. Erro: " + ex.Message);
             }
         }
 
-        private List<Ensino> lista(Ensino ensino)
+        private List<Ensino> Listar2(Ensino ensino)
         {
             try
             {
@@ -156,11 +158,11 @@ namespace Biblioteca.RN
             }
             catch (ConexaoException ex)
             {
-                throw new ValidacaoException("Não foi possivel conectar ao banco de dados.");
+                throw new ValidacaoException("Não foi possivel conectar ao banco de dados. Erro: " + ex.Message);
             }
             catch (RepositorioException ex)
             {
-                throw new ValidacaoException("Consulte o suporte.");
+                throw new ValidacaoException("Consulte o suporte. Erro: " + ex.Message);
             }
         }
 

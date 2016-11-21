@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Biblioteca.Basicas;
-using Biblioteca.DAO;
+using Biblioteca.RN;
 
 namespace GUI
 {
@@ -75,8 +75,8 @@ namespace GUI
         {
             ensinoAlterado.DescricaoEnsino = textBoxDescricaoEnsino.Text;
 
-            DAOEnsino daoEnsino = new DAOEnsino();
-            daoEnsino.Alterar(ensinoAlterado);
+            RNEnsino rnEnsino = new RNEnsino();
+            rnEnsino.Alterar(ensinoAlterado);
             MessageBox.Show("Ensino alterada com sucesso!");
 
             //Chamando o método Consultar da tela anterior
