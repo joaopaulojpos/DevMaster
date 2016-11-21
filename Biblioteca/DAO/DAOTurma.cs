@@ -48,6 +48,10 @@ namespace Biblioteca.DAO
             {
                 throw new Exception("Erro ao conecar e atualizar " + ex.Message);
             }
+            finally
+            {
+                sqlConn.Close();
+            }
         }
 
         public void Excluir(Turma turma)
@@ -67,6 +71,10 @@ namespace Biblioteca.DAO
             catch (Exception ex)
             {
                 throw new Exception("Erro ao conecar e remover " + ex.Message);
+            }
+            finally
+            {
+                sqlConn.Close();
             }
         }
 
@@ -100,6 +108,10 @@ namespace Biblioteca.DAO
             catch (Exception ex)
             {
                 throw new Exception("Erro ao conecar e inserir " + ex.Message);
+            }
+            finally
+            {
+                sqlConn.Close();
             }
         }
 
@@ -152,6 +164,10 @@ namespace Biblioteca.DAO
             {
                 throw new Exception("Erro ao conecar e selecionar " + ex.Message);
             }
+            finally
+            {
+                sqlConn.Close();
+            }
             return retorno;
         }
 
@@ -179,6 +195,10 @@ namespace Biblioteca.DAO
             catch (Exception ex)
             {
                 throw new Exception("Erro ao conecar e selecionar " + ex.Message);
+            }
+            finally
+            {
+                sqlConn.Close();
             }
             return retorno;
         }

@@ -8,14 +8,14 @@ namespace Biblioteca.Basicas
 {
     public class Aluno
     {
-        private int matricula;
+        private string matricula;
         private string nome;
         private string dataNasc;
-        private char sexo;
+        private string sexo;
         private string telefone;
         private Turma turma;
 
-        public int Matricula
+        public string Matricula
         {
             get
             {
@@ -54,7 +54,7 @@ namespace Biblioteca.Basicas
             }
         }
 
-        public char Sexo
+        public string Sexo
         {
             get
             {

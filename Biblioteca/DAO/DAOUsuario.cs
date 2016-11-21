@@ -69,6 +69,10 @@ namespace Biblioteca.DAO
             {
                 throw new RepositorioException();
             }
+            finally
+            {
+                sqlConn.Close();
+            }
         }
 
         public void Inserir(Usuario usuario)
@@ -95,6 +99,10 @@ namespace Biblioteca.DAO
             catch (Exception ex)
             {
                 throw new RepositorioException();
+            }
+            finally
+            {
+                sqlConn.Close();
             }
         }
 
@@ -138,6 +146,10 @@ namespace Biblioteca.DAO
             {
                 throw new RepositorioException();
             }
+            finally
+            {
+                sqlConn.Close();
+            }
             return retorno;
         }
 
@@ -168,6 +180,10 @@ namespace Biblioteca.DAO
             catch (Exception ex)
             {
                 throw new RepositorioException();
+            }
+            finally
+            {
+                sqlConn.Close();
             }
             return retorno;
         }

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Biblioteca.Basicas;
+using Biblioteca.DAO;
+using Biblioteca.RN;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,6 +22,25 @@ namespace GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
+            try
+            {
+                DAOAluno dao = new DAOAluno();
+                RNAluno rn = new RNAluno();
+                Aluno a = new Aluno();
+                Turma t = new Turma();
+                a.Matricula = textBox1.Text;
+                a.Nome = textBox2.Text;
+                a.DataNasc = textBox3.Text;
+                a.Sexo = "m";
+                a.Telefone = textBox4.Text;
+                t.CodigoTurma = 1;
+                a.Turma = t;
+                dao.Inserir(a);
+                MessageBox.Show("Inserido!");
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
         }
 
