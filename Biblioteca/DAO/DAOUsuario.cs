@@ -41,13 +41,9 @@ namespace Biblioteca.DAO
                 cmd.Dispose();
                 this.fecharConexao();
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
-                throw new RepositorioException();
-            }
-            finally
-            {
-                sqlConn.Close();
+                throw new Exception("Contate o suporte.\nErro: " + ex.Message);
             }
         }
 
@@ -65,9 +61,9 @@ namespace Biblioteca.DAO
                 cmd.Dispose();
                 this.fecharConexao();
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
-                throw new RepositorioException();
+                throw new Exception("Contate o suporte.\nErro: " + ex.Message);
             }
         }
 
@@ -92,9 +88,9 @@ namespace Biblioteca.DAO
                 cmd.Dispose();
                 this.fecharConexao();
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
-                throw new RepositorioException();
+                throw new Exception("Contate o suporte.\nErro: " + ex.Message);
             }
         }
 
@@ -134,9 +130,9 @@ namespace Biblioteca.DAO
                 cmd.Dispose();
                 this.fecharConexao();
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
-                throw new RepositorioException();
+                throw new Exception("Contate o suporte.\nErro: " + ex.Message);
             }
             return retorno;
         }
@@ -165,9 +161,9 @@ namespace Biblioteca.DAO
                 cmd.Dispose();
                 this.fecharConexao();
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
-                throw new RepositorioException();
+                throw new Exception("Contate o suporte.\nErro: " + ex.Message);
             }
             return retorno;
         }

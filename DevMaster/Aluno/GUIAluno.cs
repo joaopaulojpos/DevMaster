@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Biblioteca.Basicas;
+using Biblioteca.DAO;
+using Biblioteca.Erros;
+using Biblioteca.RN;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +16,32 @@ namespace GUI
 {
     public partial class GUIAluno : Form
     {
+        private RNAluno rn;
         public GUIAluno()
         {
             InitializeComponent();
+            rn = new RNAluno();
+            carregarListAluno();
+        }
+
+        private void carregarListAluno()
+        {
+            try
+            {
+                listBox1.Items.Clear();
+                Aluno aluno = new Aluno();
+                aluno.Matricula = "";
+                aluno.Nome="";
+                foreach (Aluno a in rn.listar(aluno))
+                {
+                    listBox1.Items.Add(a.Nome);
+                }
+                    
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -37,6 +64,21 @@ namespace GUI
         {
             GUIInserirAluno guiInserirAluno = new GUIInserirAluno();
             guiInserirAluno.ShowDialog();
+        }
+
+        private void btnRemover_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Aluno a = new Aluno();
+                a.Matricula = "2";
+                rn.Excluir(a);
+                MessageBox.Show("Excluido!");
+            }
+            catch (ValidacaoException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

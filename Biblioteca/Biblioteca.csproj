@@ -54,8 +54,11 @@
     <Compile Include="Basicas\TipoUsuario.cs" />
     <Compile Include="Basicas\Usuario.cs" />
     <Compile Include="DAO\DAOAluno.cs" />
+    <Compile Include="DAO\DAOAula.cs" />
+    <Compile Include="DAO\DAOAvaliacao.cs" />
     <Compile Include="DAO\DAODisciplina.cs" />
     <Compile Include="DAO\DAOEnsino.cs" />
+    <Compile Include="DAO\DAOFalta.cs" />
     <Compile Include="DAO\DAOTurma.cs" />
     <Compile Include="DAO\DAOUsuario.cs" />
     <Compile Include="Erros\ConexaoException.cs" />
@@ -66,12 +69,11 @@
     <Compile Include="Interfaces\InterfaceAvaliacao.cs" />
     <Compile Include="Interfaces\InterfaceDisciplina.cs" />
     <Compile Include="Interfaces\InterfaceFalta.cs" />
-    <Compile Include="Interfaces\InterfaceProfessor.cs" />
     <Compile Include="Interfaces\InterfaceEnsino.cs" />
-    <Compile Include="Interfaces\InterfaceTipoUsuario.cs" />
     <Compile Include="Interfaces\InterfaceTurma.cs" />
     <Compile Include="Interfaces\InterfaceUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RN\RNAluno.cs" />
     <Compile Include="RN\RNEnsino.cs" />
     <Compile Include="RN\RNTurma.cs" />
     <Compile Include="RN\RNUsuario.cs" />

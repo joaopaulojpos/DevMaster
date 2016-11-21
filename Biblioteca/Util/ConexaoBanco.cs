@@ -14,11 +14,11 @@ namespace Biblioteca.Util
         //tipo responsável para se trabalhar com o sqlserver
         public SqlConnection sqlConn;
         //máquina no qual estará o banco de dados
-        private const string local = "WINDOWS7\\SQLEXPRESS";
+        private const string local = "RHUAN\\SQLEXPRESS";
         //nome do banco de dados no qual desejamos nos comunicar
         private const string banco_de_dados = "DevMaster";
         //usuário que tenha os privilégios para utilizar o banco de dados
-        private const string usuario = "DevMaster";
+        private const string usuario = "rhuan";
         //senha do usuario
         private const string senha = "1234";
         #endregion
@@ -35,7 +35,7 @@ namespace Biblioteca.Util
             }
             catch (SqlException ex)
             {
-                throw new ConexaoException();
+                throw new ConexaoException(ex.Message);
             }
         }
         public void fecharConexao()

@@ -9,7 +9,7 @@ namespace Biblioteca.Basicas
     public class Disciplina_Turma
     {
         private int codigoDisciplinaTurma;
-        private Ensino turma;
+        private Turma turma;
         private Disciplina disciplina;
         private Usuario usuario;
 
