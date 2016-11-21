@@ -12,7 +12,6 @@ namespace Biblioteca.Interfaces
         void Inserir(Falta falta);
         void Alterar(Falta falta);
         void Excluir(Falta falta);
-        bool VerificaDuplicidade(Falta falta);
         List<Falta> Listar(Falta filtro);
     }
 }

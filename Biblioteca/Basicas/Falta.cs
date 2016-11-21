@@ -8,6 +8,7 @@ namespace Biblioteca.Basicas
 {
     public class Falta
     {
+        private int codigoFalta;
         private string motivo;
         private bool abono;
         private string data;
@@ -76,6 +77,19 @@ namespace Biblioteca.Basicas
             set
             {
                 aluno = value;
+            }
+        }
+
+        public int CodigoFalta
+        {
+            get
+            {
+                return codigoFalta;
+            }
+
+            set
+            {
+                codigoFalta = value;
             }
         }
     }

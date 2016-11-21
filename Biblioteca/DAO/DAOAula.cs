@@ -11,23 +11,26 @@ using System.Threading.Tasks;
 
 namespace Biblioteca.DAO
 {
-    public class DAODisciplina: ConexaoBanco,InterfaceDisciplina
+    class DAOAula: ConexaoBanco, InterfaceAula
     {
         #region Implementação da Interface
-        public void Alterar(Disciplina disciplina)
+        public void Alterar(Aula aula)
         {
 
             try
             {
                 this.abrirConexao();
-                string sql = "update disciplina set nome_disciplina = @nomeDisciplina where cod_disciplina = @codigoDisciplina";
+                string sql = "update aula set data=@data,assunto=@assunto where cod_aula = @codigoAula";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
-                cmd.Parameters.Add("@codigoDisciplina", SqlDbType.Int);
-                cmd.Parameters["@codigoDisciplina"].Value = disciplina.CodigoDisciplina;
+                cmd.Parameters.Add("@codigoAula", SqlDbType.Int);
+                cmd.Parameters["@codigoAula"].Value = aula.CodigoAula;
 
-                cmd.Parameters.Add("@nomeDisciplina", SqlDbType.VarChar);
-                cmd.Parameters["@nomeDisciplina"].Value = disciplina.NomeDisciplina;
+                cmd.Parameters.Add("@data", SqlDbType.VarChar);
+                cmd.Parameters["@data"].Value = aula.Data;
+
+                cmd.Parameters.Add("@assunto", SqlDbType.VarChar);
+                cmd.Parameters["@assunto"].Value = aula.Assunto;
                 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
@@ -39,15 +42,15 @@ namespace Biblioteca.DAO
             }
         }
 
-        public void Excluir(Disciplina disciplina)
+        public void Excluir(Aula aula)
         {
             try
             {
                 this.abrirConexao();
-                string sql = "delete from disciplina where cod_disciplina = @codigoDisciplina";
+                string sql = "delete from aula where cod_aula = @codigoAula";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
-                cmd.Parameters.Add("@codigoDisciplina", SqlDbType.VarChar);
-                cmd.Parameters["@codigoDiscplina"].Value = disciplina.CodigoDisciplina;
+                cmd.Parameters.Add("@codigoAula", SqlDbType.Int);
+                cmd.Parameters["@codigoAula"].Value = aula.CodigoAula;
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
@@ -59,16 +62,19 @@ namespace Biblioteca.DAO
             }
         }
 
-        public void Inserir(Disciplina disciplina)
+        public void Inserir(Aula aula)
         {
             try
             {
                 this.abrirConexao();
-                string sql = "insert into disciplina (nome_disciplina) values(@nomeDisciplina)";
+                string sql = "insert into aula (data,assunto) values(@data,@assunto)";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
-                
-                cmd.Parameters.Add("@nomeDisciplina", SqlDbType.VarChar);
-                cmd.Parameters["@nomeDisciplina"].Value = disciplina.NomeDisciplina;
+
+                cmd.Parameters.Add("@data", SqlDbType.VarChar);
+                cmd.Parameters["@data"].Value = aula.Data;
+
+                cmd.Parameters.Add("@assunto", SqlDbType.VarChar);
+                cmd.Parameters["@assunto"].Value = aula.Assunto;
                 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
@@ -80,43 +86,35 @@ namespace Biblioteca.DAO
             }
         }
 
-        public List<Disciplina> Listar(Disciplina filtro)
+        public List<Aula> Listar(Aula filtro)
         {
-            List<Disciplina> retorno = new List<Disciplina>();
+            List<Aula> retorno = new List<Aula>();
             try
             {
                 this.abrirConexao();
-                string sql = "SELECT cod_disciplina,nome_disciplina FROM disciplina where cod_disciplina = cod_disciplina";
+                string sql = "SELECT cod_aula,data,assunto FROM aula where cod_aula = cod_aula";
 
-                if (filtro.CodigoDisciplina > 0)
+                if (filtro.Data.Length > 0)
                 {
-                    sql += " and cod_disciplina = @codigoDisciplina";
+                    sql += " and cod_aula = @codigoAula";
                 }
-                if (filtro.NomeDisciplina != null && filtro.NomeDisciplina.Trim().Equals("") == false)
-                {
-                    sql += " and nome_disciplina like '%" + filtro.NomeDisciplina.Trim() + "%'";
-                }
+                
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
 
-                if (filtro.CodigoDisciplina > 0)
+                if (filtro.Data.Length > 0)
                 {
-                    cmd.Parameters.Add("@codigoDisciplina", SqlDbType.Int);
-                    cmd.Parameters["@codigoDisciplina"].Value = filtro.CodigoDisciplina;
-                }
-                if (filtro.NomeDisciplina != null && filtro.NomeDisciplina.Trim().Equals("") == false)
-                {
-                    cmd.Parameters.Add("@nomeDisciplina", SqlDbType.VarChar);
-                    cmd.Parameters["@nomeDisciplina"].Value = filtro.NomeDisciplina;
-
+                    cmd.Parameters.Add("@data", SqlDbType.Int);
+                    cmd.Parameters["@data"].Value = filtro.Data;
                 }
                 SqlDataReader DbReader = cmd.ExecuteReader();
                 while (DbReader.Read())
                 {
-                    Disciplina disciplina = new Disciplina();
-                    disciplina.CodigoDisciplina = DbReader.GetInt32(DbReader.GetOrdinal("cod_disciplina"));
-                    disciplina.NomeDisciplina = DbReader.GetString(DbReader.GetOrdinal("nome_disciplina"));
+                    Aula aula = new Aula();
+                    aula.CodigoAula = DbReader.GetInt32(DbReader.GetOrdinal("cod_aula"));
+                    aula.Data = DbReader.GetDateTime(DbReader.GetOrdinal("data")).ToString();
+                    aula.Assunto = DbReader.GetString(DbReader.GetOrdinal("assunto"));
 
-                    retorno.Add(disciplina);
+                    retorno.Add(aula);
                 }
                 DbReader.Close();
                 cmd.Dispose();
@@ -129,16 +127,16 @@ namespace Biblioteca.DAO
             return retorno;
         }
 
-        public bool VerificaDuplicidade(Disciplina disciplina)
+        public bool VerificaDuplicidade(Aula aula)
         {
             bool retorno = false;
             try
             {
                 this.abrirConexao();
-                string sql = "SELECT cod_disciplina FROM disciplina where cod_disciplina = @codigoDisciplina";
+                string sql = "SELECT data FROM aula where data = @data";
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
-                cmd.Parameters.Add("@codigoDisciplina", SqlDbType.Int);
-                cmd.Parameters["@codigoDisciplina"].Value = disciplina.CodigoDisciplina;
+                cmd.Parameters.Add("@data", SqlDbType.Int);
+                cmd.Parameters["@data"].Value = aula.Data;
 
                 SqlDataReader DbReader = cmd.ExecuteReader();
                 while (DbReader.Read())
