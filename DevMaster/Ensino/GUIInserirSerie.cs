@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Biblioteca.Basicas;
-using Biblioteca.DAO;
+using Biblioteca.RN;
 
 namespace GUI
 {
@@ -49,8 +49,8 @@ namespace GUI
                 Ensino ensino = new Ensino();
                 ensino.DescricaoEnsino = textBoxDescricaoEnsino.Text;
 
-                DAOEnsino daoEnsino = new DAOEnsino();
-                daoEnsino.Inserir(ensino);
+                RNEnsino rnEnsino = new RNEnsino();
+                rnEnsino.Inserir(ensino);
 
                 MessageBox.Show("Série inserida com sucesso!");
 

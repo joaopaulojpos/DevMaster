@@ -73,6 +73,7 @@
     <Compile Include="Interfaces\InterfaceUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RN\RNEnsino.cs" />
+    <Compile Include="RN\RNTurma.cs" />
     <Compile Include="RN\RNUsuario.cs" />
     <Compile Include="Util\ConexaoBanco.cs" />
   </ItemGroup>

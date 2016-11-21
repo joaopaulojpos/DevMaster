@@ -9,7 +9,7 @@ namespace Biblioteca.Basicas
     public class Disciplina_Turma
     {
         private int codigoDisciplinaTurma;
-        private Turma turma;
+        private Ensino turma;
         private Disciplina disciplina;
         private Usuario usuario;
 
@@ -26,7 +26,7 @@ namespace Biblioteca.Basicas
             }
         }
 
-        public Turma Turma
+        public Ensino Turma
         {
             get
             {

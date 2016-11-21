@@ -7,12 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Biblioteca.Basicas;
+using Biblioteca.RN;
 
 namespace GUI
 {
     public partial class GUIAlterarTurma : Form
     {
-        public GUIAlterarTurma()
+        public GUIAlterarTurma(Turma turmaOld)
+        {
+            InitializeComponent();
+        }
+
+        public GUIAlterarTurma(Turma turmaOld, GUITurma guiTurma)
         {
             InitializeComponent();
         }
