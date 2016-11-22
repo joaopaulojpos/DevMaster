@@ -35,9 +35,9 @@ namespace GUI
 
         #endregion
 
-        #region Cadastro Ensino
+        #region Consultar Ensino
 
-        private void cadastroEnsinoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void consultarEnsinoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GUIEnsino guiEnsino = new GUIEnsino();
             guiEnsino.ShowDialog();
@@ -136,7 +136,8 @@ namespace GUI
 
         private void cadastroDeTurmaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            GUITurma guiTurma = new GUITurma();
+            guiTurma.ShowDialog();
         }
 
         #endregion
@@ -193,6 +194,7 @@ namespace GUI
         {
 
         }
+
         #endregion
 
 

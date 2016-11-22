@@ -27,13 +27,13 @@ namespace GUI
         {
             try
             {
-                listBox1.Items.Clear();
+                
                 Aluno aluno = new Aluno();
                 aluno.Matricula = "";
                 aluno.Nome="";
                 foreach (Aluno a in rn.listar(aluno))
                 {
-                    listBox1.Items.Add(a.Nome);
+                    
                 }
                     
             }

@@ -59,7 +59,7 @@ namespace GUI
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Erro: \n" + ex.Message);
             }
         }
 
@@ -69,7 +69,9 @@ namespace GUI
 
         private void btnVoltarClick(object sender, EventArgs e)
         {
+
             this.Close();
+
         }
 
         #endregion
