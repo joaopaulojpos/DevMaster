@@ -44,4 +44,5 @@ namespace WebService
             set { stringValue = value; }
         }
     }
+   
 }

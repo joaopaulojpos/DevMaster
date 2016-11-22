@@ -1,183 +1,180 @@
 ﻿using Biblioteca.Basicas;
-using Biblioteca.RN;
+using Biblioteca.Fachada;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
+using System.Web.Services;
 
-namespace Biblioteca.Fachada
+namespace WebService
 {
-    public class Fachada
+    /// <summary>
+    /// Summary description for Servico
+    /// </summary>
+    [WebService(Namespace = "http://tempuri.org/")]
+    [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
+    [System.ComponentModel.ToolboxItem(false)]
+    // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
+    // [System.Web.Script.Services.ScriptService]
+    public class Servico : System.Web.Services.WebService
     {
-        #region Atributos
-        private static Fachada instance;
-        private RNAluno rnAluno;
-        private RNAula rnAula;
-        private RNAvaliacao rnAvaliacao;
-        private RNDisciplina rnDisciplina;
-        private RNEnsino rnEnsino;
-        private RNFalta rnFalta;
-        private RNTurma rnTurma;
-        private RNUsuario rnUsuario;
-        #endregion
+        private Fachada fachada = Fachada.Instance;
 
-        #region Construtor privado
-        private Fachada()
-        {
-            rnAluno = new RNAluno();
-            rnAula = new RNAula();
-            rnAvaliacao = new RNAvaliacao();
-            rnDisciplina = new RNDisciplina();
-            rnEnsino = new RNEnsino();
-            rnFalta = new RNFalta();
-            rnTurma = new RNTurma();
-            rnUsuario = new RNUsuario();
-        }
-        #endregion
-
-        #region Método Singleton
-        public static Fachada Instance
-        {
-            get{
-                if (instance == null)
-                {
-                    instance = new Fachada();
-                }
-                return instance;
-            }
-        }
-        #endregion
 
         #region Aluno
+        [WebMethod]
         public void InserirAluno(Aluno aluno)
         {
-            rnAluno.inserir(aluno);
+            fachada.InserirAluno(aluno);
         }
+        [WebMethod]
         public void AlterarAluno(Aluno aluno)
         {
-            rnAluno.alterar(aluno);
+            fachada.AlterarAluno(aluno);
         }
+        [WebMethod]
         public void ExcluirAluno(Aluno aluno)
         {
-            rnAluno.excluir(aluno);
+            fachada.ExcluirAluno(aluno);
         }
+        [WebMethod]
         public List<Aluno> ListarAluno(Aluno aluno)
         {
-            return rnAluno.listar(aluno);
+            return fachada.ListarAluno(aluno);
         }
         #endregion
 
         #region Aula
+        [WebMethod]
         public void InserirAula(Aula aula)
         {
-            rnAula.inserir(aula);
+            fachada.InserirAula(aula);
         }
+        [WebMethod]
         public void AlterarAula(Aula aula)
         {
-            rnAula.alterar(aula);
+            fachada.AlterarAula(aula);
         }
+        [WebMethod]
         public void ExcluirAula(Aula aula)
         {
-            rnAula.excluir(aula);
+            fachada.ExcluirAula(aula);
         }
+        [WebMethod]
         public List<Aula> ListarAula(Aula aula)
         {
-            return rnAula.listar(aula);
+            return fachada.ListarAula(aula);
         }
+
         #endregion
 
         #region Avaliação
+        [WebMethod]
         public void InserirAvaliacao(Avaliacao avaliacao)
         {
-            rnAvaliacao.inserir(avaliacao);
+            fachada.InserirAvaliacao(avaliacao);
         }
+        [WebMethod]
         public void AlterarAvaliacao(Avaliacao avaliacao)
         {
-            rnAvaliacao.alterar(avaliacao);
+            fachada.AlterarAvaliacao(avaliacao);
         }
+        [WebMethod]
         public void ExcluirAvaliacao(Avaliacao avaliacao)
         {
-            rnAvaliacao.excluir(avaliacao);
+            fachada.ExcluirAvaliacao(avaliacao);
         }
+        [WebMethod]
         public List<Avaliacao> ListarAvaliacao(Avaliacao avaliacao)
         {
-            return rnAvaliacao.listar(avaliacao);
+            return fachada.ListarAvaliacao(avaliacao);
         }
         #endregion
 
         #region Disciplina
-        
+        [WebMethod]
         public List<Disciplina> ListarDisciplina(Disciplina disciplina)
         {
-            return rnDisciplina.listar(disciplina);
+            return fachada.ListarDisciplina(disciplina);
         }
+
         #endregion
 
         #region Ensino
-
+        [WebMethod]
         public List<Ensino> ListarEnsino(Ensino ensino)
         {
-            return rnEnsino.Listar(ensino);
+            return fachada.ListarEnsino(ensino);
         }
         #endregion
 
         #region Falta
+        [WebMethod]
         public void InserirFalta(Falta falta)
         {
-            rnFalta.inserir(falta);
+            fachada.InserirFalta(falta);
         }
+        [WebMethod]
         public void AlterarFalta(Falta falta)
         {
-            rnFalta.alterar(falta);
+            fachada.AlterarFalta(falta);
         }
+        [WebMethod]
         public void ExcluirFalta(Falta falta)
         {
-            rnFalta.excluir(falta);
+            fachada.ExcluirFalta(falta);
         }
+        [WebMethod]
         public List<Falta> ListarFalta(Falta falta)
         {
-            return rnFalta.listar(falta);
+            return fachada.ListarFalta(falta);
         }
         #endregion
 
         #region Turma
+        [WebMethod]
         public void InserirTurma(Turma turma)
         {
-            rnTurma.inserir(turma);
+            fachada.InserirTurma(turma);
         }
+        [WebMethod]
         public void AlterarTurma(Turma turma)
         {
-            rnTurma.alterar(turma);
+            fachada.AlterarTurma(turma);
         }
+        [WebMethod]
         public void ExcluirTurma(Turma turma)
         {
-            rnTurma.excluir(turma);
+            fachada.ExcluirTurma(turma);
         }
+        [WebMethod]
         public List<Turma> ListarTurma(Turma turma)
         {
-            return rnTurma.listar(turma);
+            return fachada.ListarTurma(turma);
         }
         #endregion
 
         #region Usuário
+        [WebMethod]
         public void InserirUsuario(Usuario usuario)
         {
-            rnUsuario.inserir(usuario);
+            fachada.InserirUsuario(usuario);
         }
+        [WebMethod]
         public void AlterarUsuario(Usuario usuario)
         {
-            rnUsuario.alterar(usuario);
+            fachada.AlterarUsuario(usuario);
         }
+        [WebMethod]
         public void ExcluirUsuario(Usuario usuario)
         {
-            rnUsuario.excluir(usuario);
+            fachada.ExcluirUsuario(usuario);
         }
+        [WebMethod]
         public List<Usuario> ListarUsuario(Usuario usuario)
         {
-            return rnUsuario.listar(usuario);
+            return fachada.ListarUsuario(usuario);
         }
         #endregion
-
     }
 }

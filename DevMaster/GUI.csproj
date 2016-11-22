@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -300,6 +301,10 @@
     <ProjectReference Include="..\Biblioteca\Biblioteca.csproj">
       <Project>{031ecb35-b75f-4258-97a7-1c4a423da0ee}</Project>
       <Name>Biblioteca</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebService\WebService.csproj">
+      <Project>{594883cd-cceb-4dff-b2ad-63a6f8d66c53}</Project>
+      <Name>WebService</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

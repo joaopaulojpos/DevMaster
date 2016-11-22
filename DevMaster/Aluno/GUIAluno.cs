@@ -10,16 +10,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WebService;
 
 namespace GUI
 {
     public partial class GUIAluno : Form
     {
         private RNAluno rn;
+        private Servico servico;
         public GUIAluno()
         {
             InitializeComponent();
             rn = new RNAluno();
+            servico = new Servico();
             carregarListAluno();
         }
 
@@ -31,7 +34,7 @@ namespace GUI
                 Aluno aluno = new Aluno();
                 aluno.Matricula = "";
                 aluno.Nome="";
-                foreach (Aluno a in rn.listar(aluno))
+                foreach (Aluno a in servico.ListarAluno(aluno))
                 {
                     listViewAlunos.Items.Add(a.Nome);
                 }
