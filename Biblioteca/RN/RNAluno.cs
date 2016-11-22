@@ -67,21 +67,21 @@ namespace Biblioteca.RN
             {
                 throw new Exception("Impossível efetuar registro.");
             }
+            if (aluno.Matricula==null || aluno.Matricula.Trim().Length < 0)
+            {
+                throw new Exception("Campo matrícula inválida");
+            }
             if (aluno.Nome.Trim().Length<4|| aluno.Nome.Trim().Length > 100)
             {
                 throw new Exception("Nome do aluno inválido. Minimo:4 , Máximo:100");
-            }
-            if (aluno.Matricula.Length<0)
-            {
-                throw new Exception("Campo matrícula inválida");
             }
             if (!aluno.Sexo.Equals("M") && !aluno.Sexo.Equals("F"))
             {
                 throw new Exception("Campo sexo inválido.");
             }
-            String regex = "^9.\\d{4}-\\d{4}$";
+            String regex = @"^9.\\d{4}-\\d{4}$";
             Regex er = new Regex(regex);
-            if (aluno.Telefone != null)
+            //if (aluno.Telefone != null)
                 if (!er.IsMatch(aluno.Telefone))
                     throw new Exception("Telefone inválido.");
         }
@@ -118,9 +118,9 @@ namespace Biblioteca.RN
         {
             try
             {
-                if (daoAluno.VerificaDuplicidade(aluno) ==false)
+                if (daoAluno.VerificaDuplicidade(aluno) == false)
                 {
-                    throw new Exception("Usuario nao existe");
+                    throw new Exception("Aluno nao existe");
                 }
             }
             catch (Exception ex)

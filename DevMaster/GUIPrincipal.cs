@@ -136,7 +136,7 @@ namespace GUI
 
         private void cadastroDeTurmaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            new GUITurma().ShowDialog();
         }
 
         #endregion

@@ -161,10 +161,10 @@ namespace Biblioteca.DAO
             try
             {
                 this.AbrirConexao();
-                string sql = "SELECT cod_turma FROM turma where cod_turma = @codigoTurma";
+                string sql = "SELECT descricao_turma FROM turma where descricao_turma = @descricaoTurma";
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
-                cmd.Parameters.Add("@codigoTurma", SqlDbType.Int);
-                cmd.Parameters["@codigoTurma"].Value = turma.CodigoTurma;
+                cmd.Parameters.Add("@descricaoTurma", SqlDbType.VarChar);
+                cmd.Parameters["@descricaoTurma"].Value = turma.DescricaoTurma;
 
                 SqlDataReader DbReader = cmd.ExecuteReader();
                 while (DbReader.Read())

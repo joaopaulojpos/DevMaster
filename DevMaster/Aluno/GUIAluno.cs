@@ -27,13 +27,13 @@ namespace GUI
         {
             try
             {
-                listBox1.Items.Clear();
+                listViewAlunos.Items.Clear();
                 Aluno aluno = new Aluno();
                 aluno.Matricula = "";
                 aluno.Nome="";
                 foreach (Aluno a in rn.listar(aluno))
                 {
-                    listBox1.Items.Add(a.Nome);
+                    listViewAlunos.Items.Add(a.Nome);
                 }
                     
             }
@@ -70,7 +70,7 @@ namespace GUI
             try
             {
                 Aluno a = new Aluno();
-                a.Matricula = "2";
+                a.Matricula = "20160002";
                 rn.excluir(a);
                 MessageBox.Show("Excluido!");
             }

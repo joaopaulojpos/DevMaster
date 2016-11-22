@@ -31,11 +31,11 @@ namespace GUI
                 a.Matricula = textBox1.Text;
                 a.Nome = textBox2.Text;
                 a.DataNasc = textBox3.Text;
-                a.Sexo = "m";
+                a.Sexo = "M";
                 a.Telefone = textBox4.Text;
                 t.CodigoTurma = 1;
                 a.Turma = t;
-                dao.Inserir(a);
+                rn.inserir(a);
                 MessageBox.Show("Inserido!");
             }catch(Exception ex)
             {
