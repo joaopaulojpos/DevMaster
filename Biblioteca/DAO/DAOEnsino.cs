@@ -20,7 +20,7 @@ namespace Biblioteca.DAO
         //private DAOEnsino() { }
 
         //public static DAOEnsino Instancia
-        //{
+            //{
         //    get
         //    {
         //        if (instancia == null)

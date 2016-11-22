@@ -61,6 +61,7 @@
     <Compile Include="DAO\DAOFalta.cs" />
     <Compile Include="DAO\DAOTurma.cs" />
     <Compile Include="DAO\DAOUsuario.cs" />
+    <Compile Include="Fachada\Fachada.cs" />
     <Compile Include="Interfaces\InterfaceAluno.cs" />
     <Compile Include="Interfaces\InterfaceAula.cs" />
     <Compile Include="Interfaces\InterfaceAvaliacao.cs" />
@@ -71,7 +72,11 @@
     <Compile Include="Interfaces\InterfaceUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RN\RNAluno.cs" />
+    <Compile Include="RN\RNAula.cs" />
+    <Compile Include="RN\RNAvaliacao.cs" />
+    <Compile Include="RN\RNDisciplina.cs" />
     <Compile Include="RN\RNEnsino.cs" />
+    <Compile Include="RN\RNFalta.cs" />
     <Compile Include="RN\RNTurma.cs" />
     <Compile Include="RN\RNUsuario.cs" />
     <Compile Include="Util\ConexaoBanco.cs" />
