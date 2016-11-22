@@ -26,7 +26,7 @@ namespace Biblioteca.Basicas
             }
         }
 
-        public Ensino Turma
+        public Turma Turma
         {
             get
             {
