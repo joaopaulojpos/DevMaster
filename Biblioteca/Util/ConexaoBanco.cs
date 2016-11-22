@@ -9,31 +9,43 @@ namespace Biblioteca.Util
 {
     public class ConexaoBanco
     {
-        #region variáveis
+        #region Atributos
+
         public SqlConnection sqlConn;
         //private const string local = "DESKTOP-5HIVE2F";//Servidor Joao Paulo
         private const string local = "RHUAN\\SQLEXPRESS";//Servidor Rhuan
+        //private const string local = "WINDOWS7\SQLEXPRESS";//Servidor Leandro
         private const string banco_de_dados = "DevMaster";
         private const string usuario = "DevMaster";
         private const string senha = "1234";
+
         #endregion
 
         string connectionStringSqlServer = @"Data Source=" + local + ";Initial Catalog=" + banco_de_dados + ";UId=" + usuario + ";Password=" + senha + ";";
 
-        public void abrirConexao()
+        #region Abrir Conexão
+
+        public void AbrirConexao()
         {
             this.sqlConn = new SqlConnection(connectionStringSqlServer);
-            try {
+            try
+            {
                 this.sqlConn.Open();
             }
             catch (SqlException ex)
             {
-                throw new Exception("Falha ao conectar com o banco de dados.\nErro: "+ex.Message);
+                throw new Exception("Falha ao conectar com o banco de dados.\nErro: " + ex.Message);
             }
         }
-        public void fecharConexao()
+
+        #endregion
+
+        #region Fechar Conexão
+
+        public void FecharConexao()
         {
-            try {
+            try
+            {
                 sqlConn.Close();
                 sqlConn.Dispose();
             }
@@ -42,5 +54,7 @@ namespace Biblioteca.Util
                 throw new Exception("Falha ao conectar com o banco de dados.\nErro: " + ex.Message);
             }
         }
+
+        #endregion
     }
 }

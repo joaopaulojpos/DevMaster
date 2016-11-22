@@ -28,28 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonLogar = new System.Windows.Forms.Button();
+            this.btnLogar = new System.Windows.Forms.Button();
             this.labeLogin = new System.Windows.Forms.Label();
             this.labelSenha = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.textBoxLogin = new System.Windows.Forms.TextBox();
+            this.textBoxSenha = new System.Windows.Forms.TextBox();
+            this.labelTitulo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // buttonLogar
+            // btnLogar
             // 
-            this.buttonLogar.Location = new System.Drawing.Point(24, 129);
-            this.buttonLogar.Name = "buttonLogar";
-            this.buttonLogar.Size = new System.Drawing.Size(144, 35);
-            this.buttonLogar.TabIndex = 0;
-            this.buttonLogar.Text = "Logar";
-            this.buttonLogar.UseVisualStyleBackColor = true;
-            this.buttonLogar.Click += new System.EventHandler(this.buttonLogar_Click);
+            this.btnLogar.Location = new System.Drawing.Point(99, 234);
+            this.btnLogar.Name = "btnLogar";
+            this.btnLogar.Size = new System.Drawing.Size(144, 35);
+            this.btnLogar.TabIndex = 0;
+            this.btnLogar.Text = "Logar";
+            this.btnLogar.UseVisualStyleBackColor = true;
+            this.btnLogar.Click += new System.EventHandler(this.buttonLogar_Click);
             // 
             // labeLogin
             // 
             this.labeLogin.AutoSize = true;
-            this.labeLogin.Location = new System.Drawing.Point(26, 55);
+            this.labeLogin.Location = new System.Drawing.Point(11, 154);
             this.labeLogin.Name = "labeLogin";
             this.labeLogin.Size = new System.Drawing.Size(36, 13);
             this.labeLogin.TabIndex = 1;
@@ -59,49 +59,50 @@
             // labelSenha
             // 
             this.labelSenha.AutoSize = true;
-            this.labelSenha.Location = new System.Drawing.Point(21, 89);
+            this.labelSenha.Location = new System.Drawing.Point(6, 180);
             this.labelSenha.Name = "labelSenha";
             this.labelSenha.Size = new System.Drawing.Size(41, 13);
             this.labelSenha.TabIndex = 2;
             this.labelSenha.Text = "Senha:";
             // 
-            // textBox1
+            // textBoxLogin
             // 
-            this.textBox1.Location = new System.Drawing.Point(68, 52);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 3;
+            this.textBoxLogin.Location = new System.Drawing.Point(53, 151);
+            this.textBoxLogin.Name = "textBoxLogin";
+            this.textBoxLogin.Size = new System.Drawing.Size(236, 20);
+            this.textBoxLogin.TabIndex = 3;
             // 
-            // textBox2
+            // textBoxSenha
             // 
-            this.textBox2.Location = new System.Drawing.Point(68, 89);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 4;
+            this.textBoxSenha.Location = new System.Drawing.Point(53, 177);
+            this.textBoxSenha.Name = "textBoxSenha";
+            this.textBoxSenha.Size = new System.Drawing.Size(236, 20);
+            this.textBoxSenha.TabIndex = 4;
             // 
-            // label3
+            // labelTitulo
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(56, 9);
-            this.label3.Name = "label3";
-            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label3.Size = new System.Drawing.Size(59, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "DevMaster";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.labelTitulo.AutoSize = true;
+            this.labelTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitulo.Location = new System.Drawing.Point(22, 9);
+            this.labelTitulo.Name = "labelTitulo";
+            this.labelTitulo.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.labelTitulo.Size = new System.Drawing.Size(258, 20);
+            this.labelTitulo.TabIndex = 5;
+            this.labelTitulo.Text = "Sistema Acadêmico DevMaster";
+            this.labelTitulo.Click += new System.EventHandler(this.label3_Click);
             // 
             // GUILogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(184, 181);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(301, 281);
+            this.Controls.Add(this.labelTitulo);
+            this.Controls.Add(this.textBoxSenha);
+            this.Controls.Add(this.textBoxLogin);
             this.Controls.Add(this.labelSenha);
             this.Controls.Add(this.labeLogin);
-            this.Controls.Add(this.buttonLogar);
+            this.Controls.Add(this.btnLogar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "GUILogin";
@@ -115,12 +116,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Button buttonLogar;
+        private System.Windows.Forms.Button btnLogar;
         private System.Windows.Forms.Label labeLogin;
         private System.Windows.Forms.Label labelSenha;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBoxLogin;
+        private System.Windows.Forms.TextBox textBoxSenha;
+        private System.Windows.Forms.Label labelTitulo;
     }
 }
 

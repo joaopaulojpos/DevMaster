@@ -19,7 +19,7 @@ namespace Biblioteca.DAO
 
             try
             {
-                this.abrirConexao();
+                this.AbrirConexao();
                 string sql = "update aluno set matricula = @matricula ,nome_aluno=@nome,data_nasc=@dataNasc,sexo=@sexo,telefone=@telefone,cod_turma=@codigoTurma  where matricula = @matricula";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
@@ -43,7 +43,7 @@ namespace Biblioteca.DAO
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
-                this.fecharConexao();
+                this.FecharConexao();
             }
             catch (SqlException ex)
             {
@@ -55,7 +55,7 @@ namespace Biblioteca.DAO
         {
             try
             {
-                this.abrirConexao();
+                this.AbrirConexao();
                 string sql = "delete from aluno where matricula = @matricula";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
                 cmd.Parameters.Add("@matricula", SqlDbType.VarChar);
@@ -63,7 +63,7 @@ namespace Biblioteca.DAO
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
-                this.fecharConexao();
+                this.FecharConexao();
             }
             catch (SqlException ex)
             {
@@ -75,7 +75,7 @@ namespace Biblioteca.DAO
         {
             try
             {
-                this.abrirConexao();
+                this.AbrirConexao();
                 string sql = "insert into aluno (matricula,nome_aluno,data_nasc,sexo,telefone,cod_turma) values(@matricula,@nome,@dataNasc,@sexo,@telefone,@codTurma)";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
@@ -99,7 +99,7 @@ namespace Biblioteca.DAO
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
-                this.fecharConexao();
+                this.FecharConexao();
             }
             catch (SqlException ex)
             {
@@ -112,7 +112,7 @@ namespace Biblioteca.DAO
             List<Aluno> retorno = new List<Aluno>();
             try
             {
-                this.abrirConexao();
+                this.AbrirConexao();
                 string sql = "SELECT matricula,nome_aluno,data_nasc,sexo,telefone,cod_turma FROM aluno where matricula = matricula ";
 
                 if (filtro.Matricula.Length > 0)
@@ -153,7 +153,7 @@ namespace Biblioteca.DAO
                 }
                 DbReader.Close();
                 cmd.Dispose();
-                this.fecharConexao();
+                this.FecharConexao();
             }
             catch (SqlException ex)
             {
@@ -167,7 +167,7 @@ namespace Biblioteca.DAO
             bool retorno = false;
             try
             {
-                this.abrirConexao();
+                this.AbrirConexao();
                 string sql = "SELECT matricula FROM aluno where matricula = @matricula";
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
                 cmd.Parameters.Add("@matricula", SqlDbType.Int);
@@ -181,7 +181,7 @@ namespace Biblioteca.DAO
                 }
                 DbReader.Close();
                 cmd.Dispose();
-                this.fecharConexao();
+                this.FecharConexao();
             }
             catch (SqlException ex)
             {

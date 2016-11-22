@@ -19,7 +19,7 @@ namespace Biblioteca.DAO
 
             try
             {
-                this.abrirConexao();
+                this.AbrirConexao();
                 string sql = "update aula set data=@data,assunto=@assunto where cod_aula = @codigoAula";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
@@ -34,7 +34,7 @@ namespace Biblioteca.DAO
                 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
-                this.fecharConexao();
+                this.FecharConexao();
             }
             catch (SqlException ex)
             {
@@ -46,7 +46,7 @@ namespace Biblioteca.DAO
         {
             try
             {
-                this.abrirConexao();
+                this.AbrirConexao();
                 string sql = "delete from aula where cod_aula = @codigoAula";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
                 cmd.Parameters.Add("@codigoAula", SqlDbType.Int);
@@ -54,7 +54,7 @@ namespace Biblioteca.DAO
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
-                this.fecharConexao();
+                this.FecharConexao();
             }
             catch (SqlException ex)
             {
@@ -66,7 +66,7 @@ namespace Biblioteca.DAO
         {
             try
             {
-                this.abrirConexao();
+                this.AbrirConexao();
                 string sql = "insert into aula (data,assunto) values(@data,@assunto)";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
@@ -78,7 +78,7 @@ namespace Biblioteca.DAO
                 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
-                this.fecharConexao();
+                this.FecharConexao();
             }
             catch (SqlException ex)
             {
@@ -91,7 +91,7 @@ namespace Biblioteca.DAO
             List<Aula> retorno = new List<Aula>();
             try
             {
-                this.abrirConexao();
+                this.AbrirConexao();
                 string sql = "SELECT cod_aula,data,assunto FROM aula where cod_aula = cod_aula";
 
                 if (filtro.Data.Length > 0)
@@ -118,7 +118,7 @@ namespace Biblioteca.DAO
                 }
                 DbReader.Close();
                 cmd.Dispose();
-                this.fecharConexao();
+                this.FecharConexao();
             }
             catch (SqlException ex)
             {
@@ -132,7 +132,7 @@ namespace Biblioteca.DAO
             bool retorno = false;
             try
             {
-                this.abrirConexao();
+                this.AbrirConexao();
                 string sql = "SELECT data FROM aula where data = @data";
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
                 cmd.Parameters.Add("@data", SqlDbType.Int);
@@ -146,7 +146,7 @@ namespace Biblioteca.DAO
                 }
                 DbReader.Close();
                 cmd.Dispose();
-                this.fecharConexao();
+                this.FecharConexao();
             }
             catch (SqlException ex)
             {

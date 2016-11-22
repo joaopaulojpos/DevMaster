@@ -24,20 +24,24 @@ namespace GUI
 
         #region Construtores
 
+        //Padrão
         public GUITurma()
         {
             InitializeComponent();
 
-            Consultar();
-
-            listViewTurma.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-            listViewTurma.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            //Comentei por enquanto
+            //Consultar();
+            //Comentei por enquanto
+            //listViewTurma.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            //listViewTurma.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
         #endregion
 
-        #region Métodos Auxiliares
+        #region Botões
 
+        #region Métodos Auxiliares
+        /*
         public void Consultar()
         {
             listViewTurma.Items.Clear();
@@ -46,8 +50,9 @@ namespace GUI
             string filtro = textBoxFiltro.Text;
             turmaFiltro.DescricaoTurma = filtro;
 
-            DAOTurma rnTurma = new DAOTurma();
+            DAOTurma DAOTurma = new DAOTurma();
 
+            //Tá dando erro pq RNTurma ainda não tá pronto
             listaTurma = rnTurma.Listar(turmaFiltro);
 
             foreach (Turma turma in listaTurma)
@@ -60,21 +65,22 @@ namespace GUI
                 linha.SubItems.Add(turma.Ensino.DescricaoEnsino);
             }
         }
-
+        */
         #endregion
 
         #region Consultar
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            Consultar();
+            //Consultar();
+            MessageBox.Show("Sem Consultar");
         }
 
         #endregion
 
         #region Inserir
 
-        private void novoAlunoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void novaTurmaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GUIInserirTurma guiInserirTurma = new GUIInserirTurma();
             guiInserirTurma.ShowDialog();
@@ -86,7 +92,7 @@ namespace GUI
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            ListView.SelectedListViewItemCollection colecaoSelecionada = listViewTurma.SelectedItems;
+            ListView.SelectedListViewItemCollection colecaoSelecionada = listViewTurmas.SelectedItems;
 
             Turma alterarTurma = new Turma();
             int codigoSelecionado = 0;
@@ -115,7 +121,7 @@ namespace GUI
         private void btnRemover_Click(object sender, EventArgs e)
         {
             //Pega a Série selecionada, mesmo que só seja uma ele entende como uma coleção
-            ListView.SelectedListViewItemCollection colecaoSelecionada = listViewTurma.SelectedItems;
+            ListView.SelectedListViewItemCollection colecaoSelecionada = listViewTurmas.SelectedItems;
 
             Turma removerTurma = new Turma();
 
@@ -129,7 +135,7 @@ namespace GUI
                     DAOTurma rnTurma = new DAOTurma();
                     rnTurma.Excluir(removerTurma);
 
-                    listViewTurma.Items.Remove(selecionado);
+                    listViewTurmas.Items.Remove(selecionado);
                 }
                 else
                 {
@@ -146,6 +152,9 @@ namespace GUI
         {
             this.Close();
         }
+
+        #endregion
+
 
         #endregion
     }

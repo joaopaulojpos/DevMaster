@@ -19,7 +19,7 @@ namespace Biblioteca.DAO
 
             try
             {
-                this.abrirConexao();
+                this.AbrirConexao();
                 string sql = "update falta set data=@data,motivo=@motivo,abono=@abono,matricula=@matricula,cod_aula=@codigoAula where cod_falta = @codigoFalta";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
@@ -43,7 +43,7 @@ namespace Biblioteca.DAO
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
-                this.fecharConexao();
+                this.FecharConexao();
             }
             catch (SqlException ex)
             {
@@ -55,7 +55,7 @@ namespace Biblioteca.DAO
         {
             try
             {
-                this.abrirConexao();
+                this.AbrirConexao();
                 string sql = "delete from falta where cod_falta = @codigoFalta";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
                 cmd.Parameters.Add("@codigoFalta", SqlDbType.Int);
@@ -63,7 +63,7 @@ namespace Biblioteca.DAO
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
-                this.fecharConexao();
+                this.FecharConexao();
             }
             catch (SqlException ex)
             {
@@ -75,7 +75,7 @@ namespace Biblioteca.DAO
         {
             try
             {
-                this.abrirConexao();
+                this.AbrirConexao();
                 string sql = "insert into falta (data,motivo,abono,matricula,cod_aula) values(@data,@motivo,@abono,@matricula,@codigoAula)";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
@@ -96,7 +96,7 @@ namespace Biblioteca.DAO
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
-                this.fecharConexao();
+                this.FecharConexao();
             }
             catch (SqlException ex)
             {
@@ -109,7 +109,7 @@ namespace Biblioteca.DAO
             List<Falta> retorno = new List<Falta>();
             try
             {
-                this.abrirConexao();
+                this.AbrirConexao();
                 string sql = "SELECT f.cod_falta,f.data,f.motivo,f.abono,f.matricula,a.nome,f.cod_aula FROM falta as f INNER JOIN aluno as a ON f.matricula=a.matricula where cod_falta = cod_falta";
 
                 if (filtro.Data.Length > 0)
@@ -152,7 +152,7 @@ namespace Biblioteca.DAO
                 }
                 DbReader.Close();
                 cmd.Dispose();
-                this.fecharConexao();
+                this.FecharConexao();
             }
             catch (SqlException ex)
             {
@@ -166,7 +166,7 @@ namespace Biblioteca.DAO
             bool retorno = false;
             try
             {
-                this.abrirConexao();
+                this.AbrirConexao();
                 string sql = "SELECT data FROM falta where data = @data";
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
                 cmd.Parameters.Add("@data", SqlDbType.Int);
@@ -180,7 +180,7 @@ namespace Biblioteca.DAO
                 }
                 DbReader.Close();
                 cmd.Dispose();
-                this.fecharConexao();
+                this.FecharConexao();
             }
             catch (SqlException ex)
             {

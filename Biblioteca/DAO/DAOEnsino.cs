@@ -37,7 +37,7 @@ namespace Biblioteca.DAO
         {
             try
             {
-                this.abrirConexao();
+                this.AbrirConexao();
                 string sql = "update ensino set descricao_ensino = @descricaoEnsino where cod_ensino = @codigoEnsino";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
@@ -49,7 +49,7 @@ namespace Biblioteca.DAO
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
-                this.fecharConexao();
+                this.FecharConexao();
             }
             catch (Exception ex)
             {
@@ -61,7 +61,7 @@ namespace Biblioteca.DAO
         {
             try
             {
-                this.abrirConexao();
+                this.AbrirConexao();
                 string sql = "delete from ensino where cod_ensino = @codigoEnsino";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
                 cmd.Parameters.Add("@codigoEnsino", SqlDbType.Int);
@@ -69,7 +69,7 @@ namespace Biblioteca.DAO
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
-                this.fecharConexao();
+                this.FecharConexao();
             }
             catch (Exception ex)
             {
@@ -81,7 +81,7 @@ namespace Biblioteca.DAO
         {
             try
             {
-                this.abrirConexao();
+                this.AbrirConexao();
                 string sql = "INSERT INTO Ensino (descricao_ensino) VALUES (@descricaoEnsino)";
 
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
@@ -91,7 +91,7 @@ namespace Biblioteca.DAO
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
-                this.fecharConexao();
+                this.FecharConexao();
             }
             catch (Exception ex)
             {
@@ -104,7 +104,7 @@ namespace Biblioteca.DAO
             List<Ensino> retorno = new List<Ensino>();
             try
             {
-                this.abrirConexao();
+                this.AbrirConexao();
                 string sql = "SELECT cod_ensino,descricao_ensino FROM ensino where cod_ensino = cod_ensino";
                 if (filtro.CodigoEnsino > 0)
                 {
@@ -137,7 +137,7 @@ namespace Biblioteca.DAO
                 }
                 DbReader.Close();
                 cmd.Dispose();
-                this.fecharConexao();
+                this.FecharConexao();
             }
             catch (Exception ex)
             {
@@ -151,7 +151,7 @@ namespace Biblioteca.DAO
             bool retorno = false;
             try
             {
-                this.abrirConexao();
+                this.AbrirConexao();
                 string sql = "SELECT cod_ensino FROM ensino where cod_ensino = @codigoEnsino";
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
 
@@ -166,7 +166,7 @@ namespace Biblioteca.DAO
                 }
                 DbReader.Close();
                 cmd.Dispose();
-                this.fecharConexao();
+                this.FecharConexao();
             }
             catch (Exception ex)
             {

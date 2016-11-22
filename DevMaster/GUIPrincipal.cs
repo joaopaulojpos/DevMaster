@@ -14,6 +14,14 @@ namespace GUI
 {
     public partial class GUIPrincipal : Form
     {
+        #region Atributos
+
+
+
+        #endregion
+
+        #region Construtores
+
         public GUIPrincipal()
         {
             InitializeComponent();
@@ -25,28 +33,68 @@ namespace GUI
             */
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        #endregion
+
+        #region Cadastro Ensino
+
+        private void cadastroEnsinoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GUIEnsino guiEnsino = new GUIEnsino();
+            guiEnsino.ShowDialog();
+        }
+
+        #endregion
+
+        #region Cadastro de Alunos
+
+        private void cadastroDeAlunosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GUIAluno guiAluno = new GUIAluno();
+            guiAluno.ShowDialog();
+        }
+
+        #endregion
+
+        #region Novo Aluno
+
+        private void novoAlunoToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
+
+        #endregion
+
+        #region Cadastro Disciplina
+
+        private void cadastroDisciplinaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GUIDisciplina guiDisciplina = new GUIDisciplina();
+            guiDisciplina.ShowDialog();
+        }
+
+        #endregion
+
+        #region Lançar Faltas
 
         private void lançarFaltasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GUIChamada guiPresenca = new GUIChamada();
-            //Mostra a tela e impede q o usuário tente mexer na tela de trás
             guiPresenca.ShowDialog();
         }
 
-        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //Finaliza o programa
-            Application.Exit();
-        }
+        #endregion
+
+
+
+        #region Professor??Oo
 
         private void professorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
         }
+
+        #endregion
+
+        #region Lançar Notas
 
         private void lançarNotasToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -55,38 +103,26 @@ namespace GUI
             guiNotas.ShowDialog();
         }
 
-        private void cadastroDeAlunosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            GUIAluno guiAluno = new GUIAluno();
-            guiAluno.ShowDialog();
-        }
+        #endregion
 
-        private void novoAlunoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
 
-        }
 
-        private void cadastroSérieToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            GUIEnsino guiSerie = new GUIEnsino();
-            guiSerie.ShowDialog();
-        }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
 
-        }
 
-        private void cadastroDisciplinaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            GUIDisciplina guiDisciplina = new GUIDisciplina();
-            guiDisciplina.ShowDialog();
-        }
+
+
+
+        #region Coordenação
 
         private void coordenaçãoToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
+
+        #endregion
+
+        #region Cadastro usuário
 
         private void cadastroTipoDeUsuárioToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -94,11 +130,18 @@ namespace GUI
             guiTipoUsuario.ShowDialog();
         }
 
-        private void cadastroTurmaToolStripMenuItem_Click(object sender, EventArgs e)
+        #endregion
+
+        #region Cadastro Turma
+
+        private void cadastroDeTurmaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GUITurma guiTurma = new GUITurma();
-            guiTurma.ShowDialog();
+
         }
+
+        #endregion
+
+        #region Abono
 
         private void abonoDeFaltasToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -106,16 +149,52 @@ namespace GUI
             guiAbono.ShowDialog();
         }
 
+        #endregion
+
+        #region Cadastro Aula
+
         private void cadastroAulaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GUIAula guiAula = new GUIAula();
             guiAula.ShowDialog();
         }
 
+        #endregion
+
+        #region Cadastro Usuário
+
         private void cadastroUsuárioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GUIUsuario guiUsuario = new GUIUsuario();
             guiUsuario.ShowDialog();
         }
+
+        #endregion
+
+        #region Sair
+
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Finaliza o programa
+            Application.Exit();
+        }
+
+        #endregion
+
+
+        #region Outros
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+        #endregion
+
+
     }
 }

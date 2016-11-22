@@ -29,7 +29,13 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.listViewTurma = new System.Windows.Forms.ListView();
+            this.listViewTurmas = new System.Windows.Forms.ListView();
+            this.columnHeaderCodigo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderDescricaoTurma = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderTurno = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderAno = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderDataInicio = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderEnsino = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnVoltar = new System.Windows.Forms.Button();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.btnRemover = new System.Windows.Forms.Button();
@@ -37,20 +43,14 @@
             this.textBoxFiltro = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.novoAlunoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.columnHeaderCodigo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderDescricaoTurma = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderTurno = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderAno = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderDataInicio = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderEnsino = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.novaTurmaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.listViewTurma);
+            this.panel1.Controls.Add(this.listViewTurmas);
             this.panel1.Controls.Add(this.btnVoltar);
             this.panel1.Controls.Add(this.btnConsultar);
             this.panel1.Controls.Add(this.btnRemover);
@@ -64,23 +64,50 @@
             this.panel1.Size = new System.Drawing.Size(838, 467);
             this.panel1.TabIndex = 4;
             // 
-            // listViewTurma
+            // listViewTurmas
             // 
-            this.listViewTurma.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listViewTurmas.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeaderCodigo,
             this.columnHeaderDescricaoTurma,
             this.columnHeaderTurno,
             this.columnHeaderAno,
             this.columnHeaderDataInicio,
             this.columnHeaderEnsino});
-            this.listViewTurma.FullRowSelect = true;
-            this.listViewTurma.GridLines = true;
-            this.listViewTurma.Location = new System.Drawing.Point(15, 74);
-            this.listViewTurma.Name = "listViewTurma";
-            this.listViewTurma.Size = new System.Drawing.Size(706, 381);
-            this.listViewTurma.TabIndex = 8;
-            this.listViewTurma.UseCompatibleStateImageBehavior = false;
-            this.listViewTurma.View = System.Windows.Forms.View.Details;
+            this.listViewTurmas.FullRowSelect = true;
+            this.listViewTurmas.GridLines = true;
+            this.listViewTurmas.Location = new System.Drawing.Point(15, 74);
+            this.listViewTurmas.Name = "listViewTurmas";
+            this.listViewTurmas.Size = new System.Drawing.Size(706, 381);
+            this.listViewTurmas.TabIndex = 8;
+            this.listViewTurmas.UseCompatibleStateImageBehavior = false;
+            this.listViewTurmas.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeaderCodigo
+            // 
+            this.columnHeaderCodigo.Text = "Código";
+            // 
+            // columnHeaderDescricaoTurma
+            // 
+            this.columnHeaderDescricaoTurma.Text = "Descrição Turma";
+            this.columnHeaderDescricaoTurma.Width = 101;
+            // 
+            // columnHeaderTurno
+            // 
+            this.columnHeaderTurno.Text = "Turno";
+            // 
+            // columnHeaderAno
+            // 
+            this.columnHeaderAno.Text = "Ano";
+            // 
+            // columnHeaderDataInicio
+            // 
+            this.columnHeaderDataInicio.Text = "Data Início";
+            this.columnHeaderDataInicio.Width = 73;
+            // 
+            // columnHeaderEnsino
+            // 
+            this.columnHeaderEnsino.Text = "Ensino";
+            this.columnHeaderEnsino.Width = 90;
             // 
             // btnVoltar
             // 
@@ -141,46 +168,19 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.novoAlunoToolStripMenuItem});
+            this.novaTurmaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(838, 24);
             this.menuStrip1.TabIndex = 7;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // novoAlunoToolStripMenuItem
+            // novaTurmaToolStripMenuItem
             // 
-            this.novoAlunoToolStripMenuItem.Name = "novoAlunoToolStripMenuItem";
-            this.novoAlunoToolStripMenuItem.Size = new System.Drawing.Size(85, 20);
-            this.novoAlunoToolStripMenuItem.Text = "Nova Turma";
-            this.novoAlunoToolStripMenuItem.Click += new System.EventHandler(this.novoAlunoToolStripMenuItem_Click);
-            // 
-            // columnHeaderCodigo
-            // 
-            this.columnHeaderCodigo.Text = "Código";
-            // 
-            // columnHeaderDescricaoTurma
-            // 
-            this.columnHeaderDescricaoTurma.Text = "Descrição Turma";
-            this.columnHeaderDescricaoTurma.Width = 101;
-            // 
-            // columnHeaderTurno
-            // 
-            this.columnHeaderTurno.Text = "Turno";
-            // 
-            // columnHeaderAno
-            // 
-            this.columnHeaderAno.Text = "Ano";
-            // 
-            // columnHeaderDataInicio
-            // 
-            this.columnHeaderDataInicio.Text = "Data Início";
-            this.columnHeaderDataInicio.Width = 73;
-            // 
-            // columnHeaderEnsino
-            // 
-            this.columnHeaderEnsino.Text = "Ensino";
-            this.columnHeaderEnsino.Width = 90;
+            this.novaTurmaToolStripMenuItem.Name = "novaTurmaToolStripMenuItem";
+            this.novaTurmaToolStripMenuItem.Size = new System.Drawing.Size(85, 20);
+            this.novaTurmaToolStripMenuItem.Text = "Nova Turma";
+            this.novaTurmaToolStripMenuItem.Click += new System.EventHandler(this.novaTurmaToolStripMenuItem_Click);
             // 
             // GUITurma
             // 
@@ -209,8 +209,8 @@
         private System.Windows.Forms.TextBox textBoxFiltro;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem novoAlunoToolStripMenuItem;
-        private System.Windows.Forms.ListView listViewTurma;
+        private System.Windows.Forms.ToolStripMenuItem novaTurmaToolStripMenuItem;
+        private System.Windows.Forms.ListView listViewTurmas;
         private System.Windows.Forms.ColumnHeader columnHeaderCodigo;
         private System.Windows.Forms.ColumnHeader columnHeaderDescricaoTurma;
         private System.Windows.Forms.ColumnHeader columnHeaderTurno;

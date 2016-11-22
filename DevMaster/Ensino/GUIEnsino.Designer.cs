@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.listViewEnsino = new System.Windows.Forms.ListView();
+            this.listViewEnsinos = new System.Windows.Forms.ListView();
             this.ColumnHeaderCodigo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ColumnHeaderSerie = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnVoltar = new System.Windows.Forms.Button();
@@ -46,7 +46,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.listViewEnsino);
+            this.panel1.Controls.Add(this.listViewEnsinos);
             this.panel1.Controls.Add(this.btnVoltar);
             this.panel1.Controls.Add(this.btnConsultar);
             this.panel1.Controls.Add(this.btnRemover);
@@ -61,21 +61,21 @@
             this.panel1.TabIndex = 3;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // listViewEnsino
+            // listViewEnsinos
             // 
-            this.listViewEnsino.Activation = System.Windows.Forms.ItemActivation.OneClick;
-            this.listViewEnsino.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listViewEnsinos.Activation = System.Windows.Forms.ItemActivation.OneClick;
+            this.listViewEnsinos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ColumnHeaderCodigo,
             this.ColumnHeaderSerie});
-            this.listViewEnsino.FullRowSelect = true;
-            this.listViewEnsino.GridLines = true;
-            this.listViewEnsino.Location = new System.Drawing.Point(15, 74);
-            this.listViewEnsino.Name = "listViewEnsino";
-            this.listViewEnsino.Size = new System.Drawing.Size(311, 286);
-            this.listViewEnsino.TabIndex = 8;
-            this.listViewEnsino.UseCompatibleStateImageBehavior = false;
-            this.listViewEnsino.View = System.Windows.Forms.View.Details;
-            this.listViewEnsino.SelectedIndexChanged += new System.EventHandler(this.listViewEnsino_SelectedIndexChanged);
+            this.listViewEnsinos.FullRowSelect = true;
+            this.listViewEnsinos.GridLines = true;
+            this.listViewEnsinos.Location = new System.Drawing.Point(15, 74);
+            this.listViewEnsinos.Name = "listViewEnsinos";
+            this.listViewEnsinos.Size = new System.Drawing.Size(311, 286);
+            this.listViewEnsinos.TabIndex = 8;
+            this.listViewEnsinos.UseCompatibleStateImageBehavior = false;
+            this.listViewEnsinos.View = System.Windows.Forms.View.Details;
+            this.listViewEnsinos.SelectedIndexChanged += new System.EventHandler(this.listViewEnsino_SelectedIndexChanged);
             // 
             // ColumnHeaderCodigo
             // 
@@ -160,13 +160,13 @@
             this.novoAlunoToolStripMenuItem.Text = "Nova Série";
             this.novoAlunoToolStripMenuItem.Click += new System.EventHandler(this.novoAlunoToolStripMenuItem_Click);
             // 
-            // GUISerie
+            // GUIEnsino
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(443, 369);
             this.Controls.Add(this.panel1);
-            this.Name = "GUISerie";
+            this.Name = "GUIEnsino";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Cadastro de Série";
             this.Load += new System.EventHandler(this.GUIEnsino_Load);
@@ -189,7 +189,7 @@
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ListView listViewEnsino;
+        private System.Windows.Forms.ListView listViewEnsinos;
         private System.Windows.Forms.ColumnHeader ColumnHeaderCodigo;
         private System.Windows.Forms.ColumnHeader ColumnHeaderSerie;
     }

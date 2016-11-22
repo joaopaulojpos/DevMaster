@@ -17,7 +17,7 @@ namespace Biblioteca.DAO
         {
             try
             {
-                this.abrirConexao();
+                this.AbrirConexao();
                 string sql = "update usuario set usuario_login=@loginUsuario,senha=@senha,cod_tipo_usuario=@tipoUsuario,nome=@nome where cod_usuario = @codUsuario";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
@@ -38,7 +38,7 @@ namespace Biblioteca.DAO
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
-                this.fecharConexao();
+                this.FecharConexao();
             }
             catch (SqlException ex)
             {
@@ -50,7 +50,7 @@ namespace Biblioteca.DAO
         {
             try
             {
-                this.abrirConexao();
+                this.AbrirConexao();
                 string sql = "delete from usuario where cod_usuario = @codUsuario";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
                 cmd.Parameters.Add("@codUsuario", SqlDbType.Int);
@@ -58,7 +58,7 @@ namespace Biblioteca.DAO
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
-                this.fecharConexao();
+                this.FecharConexao();
             }
             catch (SqlException ex)
             {
@@ -70,7 +70,7 @@ namespace Biblioteca.DAO
         {
             try
             {
-                this.abrirConexao();
+                this.AbrirConexao();
                 string sql = "insert into usuario (usuario_login,senha,cod_tipo_usuario) values(@loginUsuario,@senha,@tipoUsuario)";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
@@ -85,7 +85,7 @@ namespace Biblioteca.DAO
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
-                this.fecharConexao();
+                this.FecharConexao();
             }
             catch (SqlException ex)
             {
@@ -98,7 +98,7 @@ namespace Biblioteca.DAO
             List<Usuario> retorno = new List<Usuario>();
             try
             {
-                this.abrirConexao();
+                this.AbrirConexao();
                 string sql = "SELECT cod_usuario,loginUsuario,senha,nome,cod_tipo_usuario FROM usuario where cod_usuario = cod_usuario";
                 if (filtro.CodUsuario > 0)
                 {
@@ -127,7 +127,7 @@ namespace Biblioteca.DAO
                 }
                 DbReader.Close();
                 cmd.Dispose();
-                this.fecharConexao();
+                this.FecharConexao();
             }
             catch (SqlException ex)
             {
@@ -141,7 +141,7 @@ namespace Biblioteca.DAO
             bool retorno = false;
             try
             {
-                this.abrirConexao();
+                this.AbrirConexao();
                 string sql = "SELECT cod_usuario FROM usuario where usuario_login = @loginUsuario and senha = @senha";
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
                 cmd.Parameters.Add("@senha", SqlDbType.Int);
@@ -158,7 +158,7 @@ namespace Biblioteca.DAO
                 }
                 DbReader.Close();
                 cmd.Dispose();
-                this.fecharConexao();
+                this.FecharConexao();
             }
             catch (SqlException ex)
             {

@@ -31,8 +31,8 @@ namespace GUI
             Consultar();
 
             //Faz com que as colunas da List View ocupem o espaço que precisar sem cortar
-            listViewEnsino.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-            listViewEnsino.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            listViewEnsinos.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            listViewEnsinos.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
         #endregion
@@ -41,7 +41,7 @@ namespace GUI
 
         public void Consultar()
         {
-            listViewEnsino.Items.Clear();
+            listViewEnsinos.Items.Clear();
 
             string filtro = textBoxFiltro.Text;
 
@@ -54,7 +54,7 @@ namespace GUI
             foreach (Ensino ensino in listaEnsino)
             {
                 //ListViewItem é tipo uma linha, e cada coluna é um subitem dessa linha/Item
-                ListViewItem linha = listViewEnsino.Items.Add(Convert.ToString(ensino.CodigoEnsino));
+                ListViewItem linha = listViewEnsinos.Items.Add(Convert.ToString(ensino.CodigoEnsino));
                 linha.SubItems.Add(ensino.DescricaoEnsino);
             }
         }
@@ -89,7 +89,7 @@ namespace GUI
         private void btnAlterarClick(object sender, EventArgs e)
         {
             //Pega o Ensino selecionado, mesmo que só seja um ele entende como uma coleção
-            ListView.SelectedListViewItemCollection colecaoSelecionada = listViewEnsino.SelectedItems;
+            ListView.SelectedListViewItemCollection colecaoSelecionada = listViewEnsinos.SelectedItems;
 
             Ensino alterarEnsino = new Ensino();
             int codigoSelecionado = 0;
@@ -122,7 +122,7 @@ namespace GUI
         private void btnRemoverClick(object sender, EventArgs e)
         {
             //Pega a Série selecionada, mesmo que só seja uma ele entende como uma coleção
-            ListView.SelectedListViewItemCollection colecaoSelecionada = listViewEnsino.SelectedItems;
+            ListView.SelectedListViewItemCollection colecaoSelecionada = listViewEnsinos.SelectedItems;
 
             Ensino removerEnsino = new Ensino();
 
@@ -135,7 +135,7 @@ namespace GUI
                     RNEnsino rnEnsino = new RNEnsino();
                     rnEnsino.Excluir(removerEnsino);
 
-                    listViewEnsino.Items.Remove(selecionado);
+                    listViewEnsinos.Items.Remove(selecionado);
                 }
                 else
                 {
