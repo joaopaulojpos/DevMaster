@@ -19,7 +19,7 @@ namespace Biblioteca.DAO
             try
             {
                 this.abrirConexao();
-                string sql = "update turma set descricao_turma=@descricaoTurma,turno=@turno,ano=@ano,dataInicio=@dataInicio,codEnsino=@codEnsino where cod_turma = @codigoTurma";
+                string sql = "update turma set descricao_turma=@descricaoTurma,turno=@turno,ano=@ano,data_inicio=@dataInicio,codEnsino=@codEnsino where cod_turma = @codigoTurma";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
                 cmd.Parameters.Add("@codigoTurma", SqlDbType.Int);
@@ -44,13 +44,9 @@ namespace Biblioteca.DAO
                 cmd.Dispose();
                 this.fecharConexao();
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
-                throw new Exception("Erro ao conecar e atualizar " + ex.Message);
-            }
-            finally
-            {
-                sqlConn.Close();
+                throw new Exception("Contate o suporte.\nErro: " + ex.Message);
             }
         }
 
@@ -68,13 +64,9 @@ namespace Biblioteca.DAO
                 cmd.Dispose();
                 this.fecharConexao();
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
-                throw new Exception("Erro ao conecar e remover " + ex.Message);
-            }
-            finally
-            {
-                sqlConn.Close();
+                throw new Exception("Contate o suporte.\nErro: " + ex.Message);
             }
         }
 
@@ -105,13 +97,9 @@ namespace Biblioteca.DAO
                 cmd.Dispose();
                 this.fecharConexao();
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
-                throw new Exception("Erro ao conecar e inserir " + ex.Message);
-            }
-            finally
-            {
-                sqlConn.Close();
+                throw new Exception("Contate o suporte.\nErro: " + ex.Message);
             }
         }
 
@@ -121,7 +109,7 @@ namespace Biblioteca.DAO
             try
             {
                 this.abrirConexao();
-                string sql = "SELECT cod_turma,descricao_turma,turno,ano,data_inicio,telefone,cod_ensino FROM turma where cod_turma = cod_turma ";
+                string sql = "SELECT cod_turma,descricao_turma,turno,ano,data_inicio,cod_ensino FROM turma where cod_turma = cod_turma ";
                 if (filtro.CodigoTurma > 0)
                 {
                     sql += " and cod_turma = @codigoTurma";
@@ -149,7 +137,7 @@ namespace Biblioteca.DAO
                     Turma turma = new Turma();
                     turma.CodigoTurma = DbReader.GetInt32(DbReader.GetOrdinal("cod_turma"));
                     turma.DescricaoTurma = DbReader.GetString(DbReader.GetOrdinal("descricao_turma"));
-                    turma.DataInicio = DbReader.GetString(DbReader.GetOrdinal("data_inicio"));
+                    turma.DataInicio = DbReader.GetDateTime(DbReader.GetOrdinal("data_inicio")).ToString();
                     turma.Turno = DbReader.GetChar(DbReader.GetOrdinal("turno"));
                     turma.Ensino.CodigoEnsino = DbReader.GetInt32(DbReader.GetOrdinal("cod_ensino"));
                     turma.Ano = DbReader.GetInt32(DbReader.GetOrdinal("ano"));
@@ -160,13 +148,9 @@ namespace Biblioteca.DAO
                 cmd.Dispose();
                 this.fecharConexao();
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
-                throw new Exception("Erro ao conecar e selecionar " + ex.Message);
-            }
-            finally
-            {
-                sqlConn.Close();
+                throw new Exception("Contate o suporte.\nErro: " + ex.Message);
             }
             return retorno;
         }
@@ -192,13 +176,9 @@ namespace Biblioteca.DAO
                 cmd.Dispose();
                 this.fecharConexao();
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
-                throw new Exception("Erro ao conecar e selecionar " + ex.Message);
-            }
-            finally
-            {
-                sqlConn.Close();
+                throw new Exception("Contate o suporte.\nErro: " + ex.Message);
             }
             return retorno;
         }
