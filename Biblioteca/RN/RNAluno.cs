@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Biblioteca.RN
 {
-    public class RNAluno:DAOAluno
+    public class RNAluno
     {
         private DAOAluno daoAluno;
 

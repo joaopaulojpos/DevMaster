@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Biblioteca.RN
 {
-    public class RNUsuario: DAOUsuario
+    public class RNUsuario
     {
         private DAOUsuario daoUsuario;
 
