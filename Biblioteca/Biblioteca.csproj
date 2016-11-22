@@ -61,9 +61,6 @@
     <Compile Include="DAO\DAOFalta.cs" />
     <Compile Include="DAO\DAOTurma.cs" />
     <Compile Include="DAO\DAOUsuario.cs" />
-    <Compile Include="Erros\ConexaoException.cs" />
-    <Compile Include="Erros\RepositorioException.cs" />
-    <Compile Include="Erros\ValidacaoException.cs" />
     <Compile Include="Interfaces\InterfaceAluno.cs" />
     <Compile Include="Interfaces\InterfaceAula.cs" />
     <Compile Include="Interfaces\InterfaceAvaliacao.cs" />

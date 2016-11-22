@@ -1,8 +1,8 @@
 ﻿using Biblioteca.Basicas;
 using Biblioteca.DAO;
-using Biblioteca.Erros;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -54,13 +54,9 @@ namespace Biblioteca.RN
             try {
                 daoAluno.Inserir(aluno);
             }
-            catch (ConexaoException ex)
+            catch (Exception ex)
             {
-                throw new ValidacaoException("Não foi possivel conectar ao banco de dados.");
-            }
-            catch (RepositorioException ex)
-            {
-                throw new ValidacaoException("Consulte o suporte.");
+                throw new Exception("Falha ao inserir Aluno.\nErro: "+ex.Message);
             }
         }
 
@@ -69,25 +65,25 @@ namespace Biblioteca.RN
             
             if (aluno == null)
             {
-                throw new ValidacaoException();
+                throw new Exception("Impossível efetuar registro.");
             }
             if (aluno.Nome.Trim().Length<4|| aluno.Nome.Trim().Length > 100)
             {
-                throw new ValidacaoException("Nome do aluno inválido. Minimo:4 , Máximo:100");
+                throw new Exception("Nome do aluno inválido. Minimo:4 , Máximo:100");
             }
             if (aluno.Matricula.Length<0)
             {
-                throw new ValidacaoException("Campo matrícula inválida");
+                throw new Exception("Campo matrícula inválida");
             }
             if (!aluno.Sexo.Equals("M") && !aluno.Sexo.Equals("F"))
             {
-                throw new ValidacaoException("Campo sexo inválido.");
+                throw new Exception("Campo sexo inválido.");
             }
             String regex = "^9.\\d{4}-\\d{4}$";
             Regex er = new Regex(regex);
             if (aluno.Telefone != null)
                 if (!er.IsMatch(aluno.Telefone))
-                    throw new ValidacaoException("Telefone inválido.");
+                    throw new Exception("Telefone inválido.");
         }
 
 
@@ -97,15 +93,12 @@ namespace Biblioteca.RN
             {
                 if (daoAluno.VerificaDuplicidade(aluno))
                 {
-                    throw new ValidacaoException("Aluno já existe no sistema.");
-                }     
-            }catch(ConexaoException ex)
-            {
-                throw new ValidacaoException("Não foi possivel conectar ao banco de dados.");
+                    throw new Exception("Aluno já existe no sistema.");
+                }
             }
-            catch (RepositorioException ex)
+            catch (Exception ex)
             {
-                throw new ValidacaoException("Consulte o suporte.");
+                throw new Exception("Erro: " + ex.Message);
             }
         }
 
@@ -115,13 +108,9 @@ namespace Biblioteca.RN
             {
                 daoAluno.Alterar(aluno);
             }
-            catch (ConexaoException ex)
+            catch (Exception ex)
             {
-                throw new ValidacaoException("Não foi possivel conectar ao banco de dados.");
-            }
-            catch (RepositorioException ex)
-            {
-                throw new ValidacaoException("Consulte o suporte.");
+                throw new Exception("Falha ao atualizar Aluno.\nErro: " + ex.Message);
             }
         }
 
@@ -131,16 +120,12 @@ namespace Biblioteca.RN
             {
                 if (daoAluno.VerificaDuplicidade(aluno) ==false)
                 {
-                    throw new ValidacaoException("Usuario nao existe");
+                    throw new Exception("Usuario nao existe");
                 }
             }
-            catch (ConexaoException ex)
+            catch (Exception ex)
             {
-                throw new ValidacaoException("Não foi possivel conectar ao banco de dados.");
-            }
-            catch (RepositorioException ex)
-            {
-                throw new ValidacaoException("Consulte o suporte.");
+                throw new Exception("Erro: " + ex.Message);
             }
         }
 
@@ -150,13 +135,9 @@ namespace Biblioteca.RN
             {
                 daoAluno.Excluir(aluno);
             }
-            catch (ConexaoException ex)
+            catch (Exception ex)
             {
-                throw new ValidacaoException("Não foi possivel conectar ao banco de dados.");
-            }
-            catch (RepositorioException ex)
-            {
-                throw new ValidacaoException("Consulte o suporte.");
+                throw new Exception("Erro: " + ex.Message);
             }
         }
 
@@ -165,16 +146,11 @@ namespace Biblioteca.RN
             try {
                 return daoAluno.Listar(aluno);
             }
-            catch (ConexaoException ex)
+            catch (Exception ex)
             {
-                throw new ValidacaoException("Não foi possivel conectar ao banco de dados.");
-            }
-            catch (RepositorioException ex)
-            {
-                throw new ValidacaoException("Consulte o suporte.");
+                throw new Exception("Erro: " + ex.Message);
             }
         }
-
         #endregion
     }
 }

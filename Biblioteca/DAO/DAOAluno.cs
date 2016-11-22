@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 using Biblioteca.Basicas;
 using System.Data.SqlClient;
 using System.Data;
-using Biblioteca.Erros;
 
 namespace Biblioteca.DAO
 {
@@ -46,9 +45,9 @@ namespace Biblioteca.DAO
                 cmd.Dispose();
                 this.fecharConexao();
             }
-            catch (ConexaoException ex)
+            catch (SqlException ex)
             {
-                throw new RepositorioException();
+                throw new Exception("Contate o suporte.\nErro: " + ex.Message);
             }
         }
 
@@ -66,9 +65,9 @@ namespace Biblioteca.DAO
                 cmd.Dispose();
                 this.fecharConexao();
             }
-            catch (ConexaoException ex)
+            catch (SqlException ex)
             {
-                throw new RepositorioException();
+                throw new Exception("Contate o suporte.\nErro: " + ex.Message);
             }
         }
 
@@ -102,9 +101,9 @@ namespace Biblioteca.DAO
                 cmd.Dispose();
                 this.fecharConexao();
             }
-            catch (ConexaoException ex)
+            catch (SqlException ex)
             {
-                throw new RepositorioException();
+                throw new Exception("Contate o suporte.\nErro: " + ex.Message);
             }
         }
 
@@ -156,9 +155,9 @@ namespace Biblioteca.DAO
                 cmd.Dispose();
                 this.fecharConexao();
             }
-            catch (ConexaoException ex)
+            catch (SqlException ex)
             {
-                throw new RepositorioException();
+                throw new Exception("Contate o suporte.\nErro: " + ex.Message);
             }
             return retorno;
         }
@@ -184,9 +183,9 @@ namespace Biblioteca.DAO
                 cmd.Dispose();
                 this.fecharConexao();
             }
-            catch (ConexaoException ex)
+            catch (SqlException ex)
             {
-                throw new RepositorioException();
+                throw new Exception("Contate o suporte.\nErro: " + ex.Message);
             }
             return retorno;
         }

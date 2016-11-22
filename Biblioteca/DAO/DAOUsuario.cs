@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 using Biblioteca.Basicas;
 using System.Data.SqlClient;
 using System.Data;
-using Biblioteca.Erros;
 
 namespace Biblioteca.DAO
 {

@@ -1,6 +1,5 @@
 ﻿using Biblioteca.Basicas;
 using Biblioteca.DAO;
-using Biblioteca.Erros;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,15 +48,10 @@ namespace Biblioteca.RN
         {
             try {
                 daoUsuario.Inserir(usuario);
-                throw new ValidacaoException(""); //Leandro: Esse throw é aqui msm ou foi engano?
             }
-            catch (ConexaoException ex)
+            catch (Exception ex)
             {
-                throw new ValidacaoException("Não foi possivel conectar ao banco de dados.");
-            }
-            catch (RepositorioException ex)
-            {
-                throw new ValidacaoException("Consulte o suporte.");
+                throw new Exception("Falha ao inserir Aluno.\nErro: " + ex.Message);
             }
         }
 
@@ -65,19 +59,19 @@ namespace Biblioteca.RN
         {
             if (usuario==null)
             {
-                throw new ValidacaoException();
+                throw new Exception("Impossível inserir registro.");
             }
             if (usuario.Nome.Trim().Length<4|| usuario.Nome.Trim().Length > 100)
             {
-                throw new ValidacaoException("Nome de usuário inválido. Minimo:4 , Máximo:100");
+                throw new Exception("Nome de usuário inválido. Minimo:4 , Máximo:100");
             }
             if (usuario.LoginUsuario.Trim().Length < 4 || usuario.LoginUsuario.Trim().Length > 100)
             {
-                throw new ValidacaoException("Login para usuário inválido. Minimo:4 , Máximo:100");
+                throw new Exception("Login para usuário inválido. Minimo:4 , Máximo:100");
             }
             if (usuario.Senha.Trim().Length < 5 || usuario.LoginUsuario.Trim().Length > 20)
             {
-                throw new ValidacaoException("Senha para usuário inválida. Minimo:5 , Máximo:20");
+                throw new Exception("Senha para usuário inválida. Minimo:5 , Máximo:20");
             }
         }
 
@@ -88,15 +82,12 @@ namespace Biblioteca.RN
             {
                 if (daoUsuario.VerificaDuplicidade(usuario))
                 {
-                    throw new ValidacaoException("Usuário já existe no sistema.");
-                }     
-            }catch(ConexaoException ex)
-            {
-                throw new ValidacaoException("Não foi possivel conectar ao banco de dados.");
+                    throw new Exception("Usuário já existe no sistema.");
+                }
             }
-            catch (RepositorioException ex)
+            catch (Exception ex)
             {
-                throw new ValidacaoException("Consulte o suporte.");
+                throw new Exception("Erro: " + ex.Message);
             }
         }
 
@@ -106,13 +97,9 @@ namespace Biblioteca.RN
             {
                 daoUsuario.Alterar(usuario);
             }
-            catch (ConexaoException ex)
+            catch (Exception ex)
             {
-                throw new ValidacaoException("Não foi possivel conectar ao banco de dados.");
-            }
-            catch (RepositorioException ex)
-            {
-                throw new ValidacaoException("Consulte o suporte.");
+                throw new Exception("Erro: " + ex.Message);
             }
         }
 
@@ -122,16 +109,12 @@ namespace Biblioteca.RN
             {
                 if (daoUsuario.VerificaDuplicidade(usuario)==false)
                 {
-                    throw new ValidacaoException("Usuario nao existe");
+                    throw new Exception("Usuario nao existe");
                 }
             }
-            catch (ConexaoException ex)
+            catch (Exception ex)
             {
-                throw new ValidacaoException("Não foi possivel conectar ao banco de dados.");
-            }
-            catch (RepositorioException ex)
-            {
-                throw new ValidacaoException("Consulte o suporte.");
+                throw new Exception("Erro: " + ex.Message);
             }
         }
 
@@ -141,13 +124,9 @@ namespace Biblioteca.RN
             {
                 daoUsuario.Excluir(usuario);
             }
-            catch (ConexaoException ex)
+            catch (Exception ex)
             {
-                throw new ValidacaoException("Não foi possivel conectar ao banco de dados.");
-            }
-            catch (RepositorioException ex)
-            {
-                throw new ValidacaoException("Consulte o suporte.");
+                throw new Exception("Erro: " + ex.Message);
             }
         }
 
@@ -156,13 +135,9 @@ namespace Biblioteca.RN
             try {
                 return daoUsuario.Listar(usuario);
             }
-            catch (ConexaoException ex)
+            catch (Exception ex)
             {
-                throw new ValidacaoException("Não foi possivel conectar ao banco de dados.");
-            }
-            catch (RepositorioException ex)
-            {
-                throw new ValidacaoException("Consulte o suporte.");
+                throw new Exception("Erro: " + ex.Message);
             }
         }
 

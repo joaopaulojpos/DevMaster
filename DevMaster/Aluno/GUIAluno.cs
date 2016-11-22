@@ -1,6 +1,5 @@
 ﻿using Biblioteca.Basicas;
 using Biblioteca.DAO;
-using Biblioteca.Erros;
 using Biblioteca.RN;
 using System;
 using System.Collections.Generic;
@@ -24,7 +23,7 @@ namespace GUI
             carregarListAluno();
         }
 
-        private void carregarListAluno()
+        public void carregarListAluno()
         {
             try
             {
@@ -72,10 +71,10 @@ namespace GUI
             {
                 Aluno a = new Aluno();
                 a.Matricula = "2";
-                rn.Excluir(a);
+                rn.excluir(a);
                 MessageBox.Show("Excluido!");
             }
-            catch (ValidacaoException ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }

@@ -4,38 +4,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
-using Biblioteca.Erros;
 
 namespace Biblioteca.Util
 {
     public class ConexaoBanco
     {
         #region variáveis
-        //tipo responsável para se trabalhar com o sqlserver
         public SqlConnection sqlConn;
-        //máquina no qual estará o banco de dados
-        private const string local = "DESKTOP-5HIVE2F";
-        //nome do banco de dados no qual desejamos nos comunicar
+        //private const string local = "DESKTOP-5HIVE2F";//Servidor Joao Paulo
+        private const string local = "RHUAN\\SQLEXPRESS";//Servidor Rhuan
         private const string banco_de_dados = "DevMaster";
-        //usuário que tenha os privilégios para utilizar o banco de dados
         private const string usuario = "DevMaster";
-        //senha do usuario
         private const string senha = "1234";
         #endregion
 
-        //string de conexão obtida para o sql sever
         string connectionStringSqlServer = @"Data Source=" + local + ";Initial Catalog=" + banco_de_dados + ";UId=" + usuario + ";Password=" + senha + ";";
 
         public void abrirConexao()
         {
-            //iniciando uma conexão com o sql server, utilizando os parâmetros da string de conexão
             this.sqlConn = new SqlConnection(connectionStringSqlServer);
             try {
                 this.sqlConn.Open();
             }
             catch (SqlException ex)
             {
-                throw new ConexaoException(ex.Message);
+                throw new Exception("Falha ao conectar com o banco de dados.\nErro: "+ex.Message);
             }
         }
         public void fecharConexao()
@@ -46,7 +39,7 @@ namespace Biblioteca.Util
             }
             catch (SqlException ex)
             {
-                throw new ConexaoException();
+                throw new Exception("Falha ao conectar com o banco de dados.\nErro: " + ex.Message);
             }
         }
     }

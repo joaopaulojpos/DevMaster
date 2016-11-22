@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Biblioteca.Basicas;
 using Biblioteca.DAO;
-using Biblioteca.Erros;
 
 namespace Biblioteca.RN
 {
@@ -57,13 +56,9 @@ namespace Biblioteca.RN
             {
                 daoEnsino.Inserir(ensino);
             }
-            catch (ConexaoException ex)
+            catch (Exception ex)
             {
-                throw new ValidacaoException("Não foi possivel conectar ao banco de dados. Erro: " + ex.Message);
-            }
-            catch (RepositorioException ex)
-            {
-                throw new ValidacaoException("Consulte o suporte. Erro: " + ex.Message);
+                throw new Exception("Falha ao inserir Aluno.\nErro: " + ex.Message);
             }
         }
 
@@ -71,11 +66,11 @@ namespace Biblioteca.RN
         {
             if (ensino == null)
             {
-                throw new ValidacaoException();
+                throw new Exception("Impossível efetuar registro.");
             }
             if (ensino.DescricaoEnsino.Trim().Length < 4 || ensino.DescricaoEnsino.Trim().Length > 100)
             {
-                throw new ValidacaoException("Nome de ensino inválido. Minimo:4 , Máximo:100");
+                throw new Exception("Nome de ensino inválido. Minimo:4 , Máximo:100");
             }
         }
 
@@ -86,16 +81,12 @@ namespace Biblioteca.RN
             {
                 if (daoEnsino.VerificaDuplicidade(ensino))
                 {
-                    throw new ValidacaoException("Ensino já existe no sistema.");
+                    throw new Exception("Ensino já existe no sistema.");
                 }
             }
-            catch (ConexaoException ex)
+            catch (Exception ex)
             {
-                throw new ValidacaoException("Não foi possivel conectar ao banco de dados. Erro: " + ex.Message);
-            }
-            catch (RepositorioException ex)
-            {
-                throw new ValidacaoException("Consulte o suporte. Erro: " + ex.Message);
+                throw new Exception("Erro: " + ex.Message);
             }
         }
 
@@ -105,13 +96,9 @@ namespace Biblioteca.RN
             {
                 daoEnsino.Alterar(ensino);
             }
-            catch (ConexaoException ex)
+            catch (Exception ex)
             {
-                throw new ValidacaoException("Não foi possivel conectar ao banco de dados. Erro: " + ex.Message);
-            }
-            catch (RepositorioException ex)
-            {
-                throw new ValidacaoException("Consulte o suporte. Erro: " + ex.Message);
+                throw new Exception("Erro: " + ex.Message);
             }
         }
 
@@ -121,16 +108,12 @@ namespace Biblioteca.RN
             {
                 if (daoEnsino.VerificaDuplicidade(ensino) == false)
                 {
-                    throw new ValidacaoException("Ensino não existe");
+                    throw new Exception("Ensino não existe");
                 }
             }
-            catch (ConexaoException ex)
+            catch (Exception ex)
             {
-                throw new ValidacaoException("Não foi possível conectar ao banco de dados. Erro: " + ex.Message);
-            }
-            catch (RepositorioException ex)
-            {
-                throw new ValidacaoException("Consulte o suporte. Erro: " + ex.Message);
+                throw new Exception("Erro: " + ex.Message);
             }
         }
 
@@ -140,13 +123,9 @@ namespace Biblioteca.RN
             {
                 daoEnsino.Excluir(ensino);
             }
-            catch (ConexaoException ex)
+            catch (Exception ex)
             {
-                throw new ValidacaoException("Não foi possivel conectar ao banco de dados. Erro: " + ex.Message);
-            }
-            catch (RepositorioException ex)
-            {
-                throw new ValidacaoException("Consulte o suporte. Erro: " + ex.Message);
+                throw new Exception("Erro: " + ex.Message);
             }
         }
 
@@ -156,13 +135,9 @@ namespace Biblioteca.RN
             {
                 return daoEnsino.Listar(ensino);
             }
-            catch (ConexaoException ex)
+            catch (Exception ex)
             {
-                throw new ValidacaoException("Não foi possivel conectar ao banco de dados. Erro: " + ex.Message);
-            }
-            catch (RepositorioException ex)
-            {
-                throw new ValidacaoException("Consulte o suporte. Erro: " + ex.Message);
+                throw new Exception("Erro: " + ex.Message);
             }
         }
 
