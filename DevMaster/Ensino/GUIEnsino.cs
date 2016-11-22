@@ -41,21 +41,28 @@ namespace GUI
 
         public void Consultar()
         {
-            listViewEnsinos.Items.Clear();
-
-            string filtro = textBoxFiltro.Text;
-
-            Ensino ensinoFiltro = new Ensino();
-            ensinoFiltro.DescricaoEnsino = filtro;
-            RNEnsino rnEnsino = new RNEnsino();
-
-            listaEnsino = rnEnsino.Listar(ensinoFiltro);
-
-            foreach (Ensino ensino in listaEnsino)
+            try
             {
-                //ListViewItem é tipo uma linha, e cada coluna é um subitem dessa linha/Item
-                ListViewItem linha = listViewEnsinos.Items.Add(Convert.ToString(ensino.CodigoEnsino));
-                linha.SubItems.Add(ensino.DescricaoEnsino);
+                listViewEnsinos.Items.Clear();
+
+                string filtro = textBoxFiltro.Text;
+
+                Ensino ensinoFiltro = new Ensino();
+                ensinoFiltro.DescricaoEnsino = filtro;
+                RNEnsino rnEnsino = new RNEnsino();
+
+                listaEnsino = rnEnsino.Listar(ensinoFiltro);
+
+                foreach (Ensino ensino in listaEnsino)
+                {
+                    //ListViewItem é tipo uma linha, e cada coluna é um subitem dessa linha/Item
+                    ListViewItem linha = listViewEnsinos.Items.Add(Convert.ToString(ensino.CodigoEnsino));
+                    linha.SubItems.Add(ensino.DescricaoEnsino);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: \n" + ex.Message);
             }
         }
 
@@ -65,9 +72,16 @@ namespace GUI
 
         private void btnConsultarClick(object sender, EventArgs e)
         {
-            //Botei o código da Consulta dentro da função em vez de botar no botão pq é mais fácil
-            //outras telas/construtor chamarem esse método do que o click do botão.
-            Consultar();
+            try
+            {
+                //Botei o código da Consulta dentro da função em vez de botar no botão pq é mais fácil
+                //outras telas/construtor chamarem esse método do que o click do botão.
+                Consultar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: \n" + ex.Message);
+            }
         }
 
         #endregion
@@ -76,10 +90,17 @@ namespace GUI
 
         private void novoAlunoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //O parâmetro this é essa própria tela, com isso lá na tela de Inserir 
-            //será possível chamar o método Consultar(); dessa tela.
-            GUIInserirEnsino guiInserirEnsino = new GUIInserirEnsino(this);
-            guiInserirEnsino.ShowDialog();
+            try
+            {
+                //O parâmetro this é essa própria tela, com isso lá na tela de Inserir 
+                //será possível chamar o método Consultar(); dessa tela.
+                GUIInserirEnsino guiInserirEnsino = new GUIInserirEnsino(this);
+                guiInserirEnsino.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: \n" + ex.Message);
+            }
         }
 
         #endregion
@@ -88,31 +109,38 @@ namespace GUI
 
         private void btnAlterarClick(object sender, EventArgs e)
         {
-            //Pega o Ensino selecionado, mesmo que só seja um ele entende como uma coleção
-            ListView.SelectedListViewItemCollection colecaoSelecionada = listViewEnsinos.SelectedItems;
-
-            Ensino alterarEnsino = new Ensino();
-            int codigoSelecionado = 0;
-
-            //Percorrendo a coleção(a série selecionada)
-            foreach (ListViewItem selecionado in colecaoSelecionada)
+            try
             {
-                codigoSelecionado = Convert.ToInt32(selecionado.SubItems[0].Text);
-            }
+                //Pega o Ensino selecionado, mesmo que só seja um ele entende como uma coleção
+                ListView.SelectedListViewItemCollection colecaoSelecionada = listViewEnsinos.SelectedItems;
 
-            foreach (Ensino ensino in listaEnsino)
-            {
-                if (ensino.CodigoEnsino == codigoSelecionado)
+                Ensino alterarEnsino = new Ensino();
+                int codigoSelecionado = 0;
+
+                //Percorrendo a coleção(a série selecionada)
+                foreach (ListViewItem selecionado in colecaoSelecionada)
                 {
-                    alterarEnsino = ensino;
+                    codigoSelecionado = Convert.ToInt32(selecionado.SubItems[0].Text);
                 }
-            }
 
-            //Enviando a série a ser alterada pra tela de Alterar:
-            //O parâmetro this é essa própria tela, com isso lá na tela de Alterar 
-            //será possível chamar o método Consultar(); dessa tela.
-            GUIAlterarEnsino guiAlterarEnsino = new GUIAlterarEnsino(alterarEnsino, this);
-            guiAlterarEnsino.ShowDialog();
+                foreach (Ensino ensino in listaEnsino)
+                {
+                    if (ensino.CodigoEnsino == codigoSelecionado)
+                    {
+                        alterarEnsino = ensino;
+                    }
+                }
+
+                //Enviando a série a ser alterada pra tela de Alterar:
+                //O parâmetro this é essa própria tela, com isso lá na tela de Alterar 
+                //será possível chamar o método Consultar(); dessa tela.
+                GUIAlterarEnsino guiAlterarEnsino = new GUIAlterarEnsino(alterarEnsino, this);
+                guiAlterarEnsino.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: \n" + ex.Message);
+            }
         }
 
         #endregion
@@ -121,26 +149,33 @@ namespace GUI
 
         private void btnRemoverClick(object sender, EventArgs e)
         {
-            //Pega a Série selecionada, mesmo que só seja uma ele entende como uma coleção
-            ListView.SelectedListViewItemCollection colecaoSelecionada = listViewEnsinos.SelectedItems;
-
-            Ensino removerEnsino = new Ensino();
-
-            //Percorrendo a coleção(a série selecionada)
-            foreach (ListViewItem selecionado in colecaoSelecionada)
+            try
             {
-                removerEnsino.CodigoEnsino = Convert.ToInt32(selecionado.SubItems[0].Text);
-                if (MessageBox.Show("Tem certeza?", "Confirmar remoção do Ensino.", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    RNEnsino rnEnsino = new RNEnsino();
-                    rnEnsino.Excluir(removerEnsino);
+                //Pega a Série selecionada, mesmo que só seja uma ele entende como uma coleção
+                ListView.SelectedListViewItemCollection colecaoSelecionada = listViewEnsinos.SelectedItems;
 
-                    listViewEnsinos.Items.Remove(selecionado);
-                }
-                else
+                Ensino removerEnsino = new Ensino();
+
+                //Percorrendo a coleção(a série selecionada)
+                foreach (ListViewItem selecionado in colecaoSelecionada)
                 {
-                    MessageBox.Show("Cancelado.", "Remoção de Ensino");
+                    removerEnsino.CodigoEnsino = Convert.ToInt32(selecionado.SubItems[0].Text);
+                    if (MessageBox.Show("Tem certeza?", "Confirmar remoção do Ensino.", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        RNEnsino rnEnsino = new RNEnsino();
+                        rnEnsino.Excluir(removerEnsino);
+
+                        listViewEnsinos.Items.Remove(selecionado);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cancelado.", "Remoção de Ensino");
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: \n" + ex.Message);
             }
         }
 

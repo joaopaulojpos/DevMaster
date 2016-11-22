@@ -28,52 +28,68 @@ namespace GUI
         public GUITurma()
         {
             InitializeComponent();
+            //listViewTurmas
+            //Comentei por enquanto
+            Consultar();
+            //Comentei por enquanto
+            listViewTurmas.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            listViewTurmas.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+        }
 
-            //Comentei por enquanto
-            //Consultar();
-            //Comentei por enquanto
-            //listViewTurma.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-            //listViewTurma.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+        #endregion
+
+        #region Métodos Auxiliares
+
+        public void Consultar()
+        {
+           // try
+      //      {
+                listViewTurmas.Items.Clear();
+
+                Turma turmaFiltro = new Turma();
+                string filtro = textBoxFiltro.Text;
+                turmaFiltro.DescricaoTurma = filtro;
+
+                DAOTurma rnTurma = new DAOTurma();
+
+                //Tá dando erro pq RNTurma ainda não tá pronto
+                listaTurma = rnTurma.Listar(turmaFiltro);
+
+                foreach (Turma turma in listaTurma)
+                {
+                    ListViewItem linha = listViewTurmas.Items.Add(Convert.ToString(turma.CodigoTurma));
+                    linha.SubItems.Add(turma.DescricaoTurma);
+                    linha.SubItems.Add(Convert.ToString(turma.Turno));
+                    linha.SubItems.Add(Convert.ToString(turma.Ano));
+                    linha.SubItems.Add(turma.DataInicio);
+                    linha.SubItems.Add(turma.Ensino.DescricaoEnsino);
+                }
+        //    }
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Erro: \n" + ex.Message);
+            //}
         }
 
         #endregion
 
         #region Botões
 
-        #region Métodos Auxiliares
-        /*
-        public void Consultar()
-        {
-            listViewTurma.Items.Clear();
 
-            Turma turmaFiltro = new Turma();
-            string filtro = textBoxFiltro.Text;
-            turmaFiltro.DescricaoTurma = filtro;
-
-            DAOTurma DAOTurma = new DAOTurma();
-
-            //Tá dando erro pq RNTurma ainda não tá pronto
-            listaTurma = rnTurma.Listar(turmaFiltro);
-
-            foreach (Turma turma in listaTurma)
-            {
-                ListViewItem linha = listViewTurma.Items.Add(Convert.ToString(turma.CodigoTurma));
-                linha.SubItems.Add(turma.DescricaoTurma);
-                linha.SubItems.Add(Convert.ToString(turma.Turno));
-                linha.SubItems.Add(Convert.ToString(turma.Ano));
-                linha.SubItems.Add(turma.DataInicio);
-                linha.SubItems.Add(turma.Ensino.DescricaoEnsino);
-            }
-        }
-        */
-        #endregion
 
         #region Consultar
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            //Consultar();
-            MessageBox.Show("Sem Consultar");
+            try
+            {
+                Consultar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: \n" + ex.Message);
+            }
+
         }
 
         #endregion

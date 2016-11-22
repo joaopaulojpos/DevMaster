@@ -73,14 +73,22 @@ namespace GUI
 
         private void btnAlterarClick(object sender, EventArgs e)
         {
-            ensinoAlterado.DescricaoEnsino = textBoxDescricaoEnsino.Text;
+            try
+            {
+                ensinoAlterado.DescricaoEnsino = textBoxDescricaoEnsino.Text;
 
-            RNEnsino rnEnsino = new RNEnsino();
-            rnEnsino.Alterar(ensinoAlterado);
-            MessageBox.Show("Ensino alterada com sucesso!");
+                RNEnsino rnEnsino = new RNEnsino();
+                rnEnsino.Alterar(ensinoAlterado);
+                MessageBox.Show("Ensino alterada com sucesso!");
 
-            //Chamando o método Consultar da tela anterior
-            guiEnsino.Consultar();
+                //Chamando o método Consultar da tela anterior
+                guiEnsino.Consultar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: \n" + ex.Message);
+                throw;
+            }
         }
 
         #endregion

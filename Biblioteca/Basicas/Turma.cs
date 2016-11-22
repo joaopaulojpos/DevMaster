@@ -12,7 +12,7 @@ namespace Biblioteca.Basicas
     {
         private int codigoTurma;
         private string descricaoTurma;
-        private char turno;
+        private string turno;
         private int ano;
         private string dataInicio;
         private Ensino ensino;
@@ -44,7 +44,7 @@ namespace Biblioteca.Basicas
             }
         }
 
-        public char Turno
+        public string Turno
         {
             get
             {

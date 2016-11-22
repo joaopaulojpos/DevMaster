@@ -32,7 +32,7 @@ namespace Biblioteca.DAO
                 cmd.Parameters["@turno"].Value = turma.Turno;
 
                 cmd.Parameters.Add("@ano", SqlDbType.Int);
-                cmd.Parameters["@ano"].Value = turma.Ano ;
+                cmd.Parameters["@ano"].Value = turma.Ano;
 
                 cmd.Parameters.Add("@dataInicio", SqlDbType.Date);
                 cmd.Parameters["@dataInicio"].Value = turma.DataInicio;
@@ -105,19 +105,26 @@ namespace Biblioteca.DAO
 
         public List<Turma> Listar(Turma filtro)
         {
-            List<Turma> retorno = new List<Turma>();
             try
             {
+                List<Turma> retorno = new List<Turma>();
+
                 this.AbrirConexao();
-                string sql = "SELECT cod_turma,descricao_turma,turno,ano,data_inicio,cod_ensino FROM turma where cod_turma = cod_turma ";
+
+                string sql = "SELECT T.cod_turma, T.descricao_turma, T.turno,T.ano, T.data_inicio, E.descricao_ensino\n" +
+                              "FROM Turma T\n" +
+                              "INNER JOIN Ensino E\n" +
+                              "ON T.cod_ensino = E.cod_ensino";
+
                 if (filtro.CodigoTurma > 0)
                 {
-                    sql += " and cod_turma = @codigoTurma";
+                    sql += " and T.cod_turma = @codigoTurma";
                 }
                 if (filtro.DescricaoTurma != null && filtro.DescricaoTurma.Trim().Equals("") == false)
                 {
-                    sql += " and descricao_turma like '%" + filtro.DescricaoTurma.Trim() + "%'";
+                    sql += " and T.descricao_turma like '%" + filtro.DescricaoTurma.Trim() + "%'";
                 }
+
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
 
                 if (filtro.CodigoTurma > 0)
@@ -129,32 +136,50 @@ namespace Biblioteca.DAO
                 {
                     cmd.Parameters.Add("@descricaoTurma", SqlDbType.VarChar);
                     cmd.Parameters["@descricaoTurma"].Value = filtro.DescricaoTurma;
-
                 }
+
+
+
+
+                cmd.Parameters.Add("@CodigoEnsino", SqlDbType.Int);
+                cmd.Parameters["@codigoEnsino"].Value = filtro.Ensino.CodigoEnsino;
+
+
+
+                cmd.Parameters.Add("@DescricaoEnsino", SqlDbType.Int);
+                cmd.Parameters["@DescricaoEnsino"].Value = filtro.Ensino.DescricaoEnsino;
+
                 SqlDataReader DbReader = cmd.ExecuteReader();
                 while (DbReader.Read())
                 {
                     Turma turma = new Turma();
-                    turma.CodigoTurma = DbReader.GetInt32(DbReader.GetOrdinal("cod_turma"));
-                    turma.DescricaoTurma = DbReader.GetString(DbReader.GetOrdinal("descricao_turma"));
-                    turma.DataInicio = DbReader.GetDateTime(DbReader.GetOrdinal("data_inicio")).ToString();
-                    turma.Turno = DbReader.GetChar(DbReader.GetOrdinal("turno"));
-                    turma.Ensino.CodigoEnsino = DbReader.GetInt32(DbReader.GetOrdinal("cod_ensino"));
+                    turma.CodigoTurma = DbReader.GetInt32(DbReader.GetOrdinal("T.cod_turma"));
+                    turma.DescricaoTurma = DbReader.GetString(DbReader.GetOrdinal("T.descricao_turma"));
+                    turma.DataInicio = DbReader.GetDateTime(DbReader.GetOrdinal("T.data_inicio")).ToString();
+                    turma.Turno = DbReader.GetString(DbReader.GetOrdinal("T.turno"));
                     turma.Ano = DbReader.GetInt32(DbReader.GetOrdinal("ano"));
+                    //Alimentando o Ensino pra jogar dentro da Turma
+                    Ensino ensino = new Ensino();
+                    ensino.DescricaoEnsino = DbReader.GetString(DbReader.GetOrdinal("E.descricao_ensino"));
+                    ensino.CodigoEnsino = DbReader.GetInt32(DbReader.GetOrdinal("E.cod_ensino"));
+                    //ensino.DescricaoEnsino = "Teste Temporário";
+                    //ensino.CodigoEnsino = 999;
+                    //Jogando o Ensino na turma
+                    turma.Ensino = ensino;
 
                     retorno.Add(turma);
                 }
                 DbReader.Close();
                 cmd.Dispose();
                 this.FecharConexao();
+
+                return retorno;
             }
             catch (SqlException ex)
             {
-                throw new Exception("Contate o suporte.\nErro: " + ex.Message);
+                throw new Exception(ex.Message);
             }
-            return retorno;
         }
-
         public bool VerificaDuplicidade(Turma turma)
         {
             bool retorno = false;

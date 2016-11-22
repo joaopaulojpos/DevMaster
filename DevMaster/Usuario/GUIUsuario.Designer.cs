@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.listViewUsuarios = new System.Windows.Forms.ListView();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -37,7 +38,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.novoAlunoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listViewUsuarios = new System.Windows.Forms.ListView();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -58,6 +58,14 @@
             this.panel1.Size = new System.Drawing.Size(835, 461);
             this.panel1.TabIndex = 5;
             // 
+            // listViewUsuarios
+            // 
+            this.listViewUsuarios.Location = new System.Drawing.Point(15, 74);
+            this.listViewUsuarios.Name = "listViewUsuarios";
+            this.listViewUsuarios.Size = new System.Drawing.Size(706, 381);
+            this.listViewUsuarios.TabIndex = 8;
+            this.listViewUsuarios.UseCompatibleStateImageBehavior = false;
+            // 
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(727, 415);
@@ -76,6 +84,7 @@
             this.button3.TabIndex = 5;
             this.button3.Text = "Pesquisar";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -126,14 +135,6 @@
             this.novoAlunoToolStripMenuItem.Name = "novoAlunoToolStripMenuItem";
             this.novoAlunoToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
             this.novoAlunoToolStripMenuItem.Text = "Novo Usuário";
-            // 
-            // listViewUsuarios
-            // 
-            this.listViewUsuarios.Location = new System.Drawing.Point(15, 74);
-            this.listViewUsuarios.Name = "listViewUsuarios";
-            this.listViewUsuarios.Size = new System.Drawing.Size(706, 381);
-            this.listViewUsuarios.TabIndex = 8;
-            this.listViewUsuarios.UseCompatibleStateImageBehavior = false;
             // 
             // GUIUsuario
             // 
