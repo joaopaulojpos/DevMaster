@@ -59,6 +59,7 @@
     <Compile Include="DAO\DAODisciplina.cs" />
     <Compile Include="DAO\DAOEnsino.cs" />
     <Compile Include="DAO\DAOFalta.cs" />
+    <Compile Include="DAO\DAOTipoUsuario.cs" />
     <Compile Include="DAO\DAOTurma.cs" />
     <Compile Include="DAO\DAOUsuario.cs" />
     <Compile Include="Fachada\Fachada.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Interfaces\InterfaceDisciplina.cs" />
     <Compile Include="Interfaces\InterfaceFalta.cs" />
     <Compile Include="Interfaces\InterfaceEnsino.cs" />
+    <Compile Include="Interfaces\InterfaceTipoUsuario.cs" />
     <Compile Include="Interfaces\InterfaceTurma.cs" />
     <Compile Include="Interfaces\InterfaceUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

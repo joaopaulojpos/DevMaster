@@ -20,7 +20,7 @@ namespace Biblioteca.DAO
         //private DAOEnsino() { }
 
         //public static DAOEnsino Instancia
-            //{
+        //{
         //    get
         //    {
         //        if (instancia == null)
@@ -33,6 +33,9 @@ namespace Biblioteca.DAO
         #endregion
 
         #region Implementação da Interface
+
+        #region Alterar
+
         public void Alterar(Ensino ensino)
         {
             try
@@ -57,6 +60,10 @@ namespace Biblioteca.DAO
             }
         }
 
+        #endregion
+
+        #region Excluir
+
         public void Excluir(Ensino ensino)
         {
             try
@@ -76,6 +83,10 @@ namespace Biblioteca.DAO
                 throw new Exception("Erro ao conecar e remover " + ex.Message);
             }
         }
+
+        #endregion
+
+        #region Inserir
 
         public void Inserir(Ensino ensino)
         {
@@ -99,6 +110,10 @@ namespace Biblioteca.DAO
             }
         }
 
+        #endregion
+
+        #region Listar
+
         public List<Ensino> Listar(Ensino filtro)
         {
             List<Ensino> retorno = new List<Ensino>();
@@ -106,6 +121,8 @@ namespace Biblioteca.DAO
             {
                 this.AbrirConexao();
                 string sql = "SELECT cod_ensino,descricao_ensino FROM ensino where cod_ensino = cod_ensino";
+                
+                //Se o usuário
                 if (filtro.CodigoEnsino > 0)
                 {
                     sql += " and cod_ensino = @codigoEnsino";
@@ -141,10 +158,14 @@ namespace Biblioteca.DAO
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao conecar e selecionar " + ex.Message);
+                throw new Exception("Erro ao Conectar e Selecionar: \n" + ex.Message);
             }
             return retorno;
         }
+
+        #endregion
+
+        #region Verifica Duplicidade 
 
         public bool VerificaDuplicidade(Ensino ensino)
         {
@@ -174,6 +195,10 @@ namespace Biblioteca.DAO
             }
             return retorno;
         }
+
+        #endregion
+
+        #endregion
+
     }
-    #endregion
 }

@@ -28,6 +28,7 @@ namespace GUI
             InitializeComponent();
 
             //Já abre o form jogando a Consulta na List View
+            PopularComboBox();
             Consultar();
 
             //Faz com que as colunas da List View ocupem o espaço que precisar sem cortar
@@ -39,6 +40,19 @@ namespace GUI
 
         #region Métodos Auxiliares
 
+        #region Popular ComboBox
+
+        public void PopularComboBox()
+        {
+            comboBoxCampos.Items.Clear();
+            comboBoxCampos.Items.Add("Código");
+            comboBoxCampos.Items.Add("Descrição");
+        }
+
+        #endregion
+
+        #region Consultar
+
         public void Consultar()
         {
             try
@@ -48,7 +62,16 @@ namespace GUI
                 string filtro = textBoxFiltro.Text;
 
                 Ensino ensinoFiltro = new Ensino();
-                ensinoFiltro.DescricaoEnsino = filtro;
+
+                if (comboBoxCampos.Items.Equals("Código"))
+                {
+                    ensinoFiltro.CodigoEnsino = Convert.ToInt32(filtro);
+                }
+                else if (comboBoxCampos.Items.Equals("Descrição"))
+                {
+                    ensinoFiltro.DescricaoEnsino = filtro;
+                }
+                
                 RNEnsino rnEnsino = new RNEnsino();
 
                 listaEnsino = rnEnsino.Listar(ensinoFiltro);
@@ -68,6 +91,8 @@ namespace GUI
 
         #endregion
 
+        #endregion
+
         #region Consultar
 
         private void btnConsultarClick(object sender, EventArgs e)
@@ -80,7 +105,7 @@ namespace GUI
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro: \n" + ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
 

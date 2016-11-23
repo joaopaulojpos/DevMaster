@@ -13,6 +13,10 @@ namespace Biblioteca.DAO
 {
     public class DAOTurma : ConexaoBanco, InterfaceTurma
     {
+        #region Implementação da Interface
+
+        #region Alterar
+
         public void Alterar(Turma turma)
         {
 
@@ -50,6 +54,10 @@ namespace Biblioteca.DAO
             }
         }
 
+        #endregion
+
+        #region Excluir
+
         public void Excluir(Turma turma)
         {
             try
@@ -69,6 +77,10 @@ namespace Biblioteca.DAO
                 throw new Exception("Contate o suporte.\nErro: " + ex.Message);
             }
         }
+
+        #endregion
+
+        #region Inserir
 
         public void Inserir(Turma turma)
         {
@@ -103,6 +115,10 @@ namespace Biblioteca.DAO
             }
         }
 
+        #endregion
+
+        #region Listar
+
         public List<Turma> Listar(Turma filtro)
         {
             try
@@ -111,10 +127,10 @@ namespace Biblioteca.DAO
 
                 this.AbrirConexao();
 
-                string sql = "SELECT T.cod_turma, T.descricao_turma, T.turno,T.ano, T.data_inicio, E.descricao_ensino\n" +
-                              "FROM Turma T\n" +
-                              "INNER JOIN Ensino E\n" +
-                              "ON T.cod_ensino = E.cod_ensino";
+                string sql = "SELECT T.cod_turma, T.descricao_turma, T.turno,T.ano, T.data_inicio, E.descricao_ensino"
+                          + " FROM Turma T"
+                          + " INNER JOIN Ensino E"
+                          + " ON T.cod_ensino = E.cod_ensino";
 
                 if (filtro.CodigoTurma > 0)
                 {
@@ -180,6 +196,11 @@ namespace Biblioteca.DAO
                 throw new Exception(ex.Message);
             }
         }
+
+        #endregion
+
+        #region Verifica Duplicidade
+
         public bool VerificaDuplicidade(Turma turma)
         {
             bool retorno = false;
@@ -207,5 +228,9 @@ namespace Biblioteca.DAO
             }
             return retorno;
         }
+
+        #endregion
+
+        #endregion
     }
 }

@@ -40,12 +40,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.novoAlunoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.comboBoxCampos = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.comboBoxCampos);
             this.panel1.Controls.Add(this.listViewEnsinos);
             this.panel1.Controls.Add(this.btnVoltar);
             this.panel1.Controls.Add(this.btnConsultar);
@@ -57,7 +61,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(443, 369);
+            this.panel1.Size = new System.Drawing.Size(441, 420);
             this.panel1.TabIndex = 3;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -69,7 +73,7 @@
             this.ColumnHeaderSerie});
             this.listViewEnsinos.FullRowSelect = true;
             this.listViewEnsinos.GridLines = true;
-            this.listViewEnsinos.Location = new System.Drawing.Point(15, 74);
+            this.listViewEnsinos.Location = new System.Drawing.Point(12, 120);
             this.listViewEnsinos.Name = "listViewEnsinos";
             this.listViewEnsinos.Size = new System.Drawing.Size(311, 286);
             this.listViewEnsinos.TabIndex = 8;
@@ -88,7 +92,7 @@
             // 
             // btnVoltar
             // 
-            this.btnVoltar.Location = new System.Drawing.Point(332, 320);
+            this.btnVoltar.Location = new System.Drawing.Point(329, 366);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(100, 40);
             this.btnVoltar.TabIndex = 6;
@@ -99,7 +103,7 @@
             // btnConsultar
             // 
             this.btnConsultar.AccessibleName = "";
-            this.btnConsultar.Location = new System.Drawing.Point(226, 28);
+            this.btnConsultar.Location = new System.Drawing.Point(329, 120);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(100, 40);
             this.btnConsultar.TabIndex = 5;
@@ -109,7 +113,7 @@
             // 
             // btnRemover
             // 
-            this.btnRemover.Location = new System.Drawing.Point(332, 120);
+            this.btnRemover.Location = new System.Drawing.Point(329, 212);
             this.btnRemover.Name = "btnRemover";
             this.btnRemover.Size = new System.Drawing.Size(100, 40);
             this.btnRemover.TabIndex = 4;
@@ -119,7 +123,7 @@
             // 
             // btnAlterar
             // 
-            this.btnAlterar.Location = new System.Drawing.Point(332, 74);
+            this.btnAlterar.Location = new System.Drawing.Point(329, 166);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(100, 40);
             this.btnAlterar.TabIndex = 3;
@@ -129,15 +133,15 @@
             // 
             // textBoxFiltro
             // 
-            this.textBoxFiltro.Location = new System.Drawing.Point(74, 39);
+            this.textBoxFiltro.Location = new System.Drawing.Point(104, 94);
             this.textBoxFiltro.Name = "textBoxFiltro";
-            this.textBoxFiltro.Size = new System.Drawing.Size(146, 20);
+            this.textBoxFiltro.Size = new System.Drawing.Size(219, 20);
             this.textBoxFiltro.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 42);
+            this.label1.Location = new System.Drawing.Point(42, 97);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 13);
             this.label1.TabIndex = 1;
@@ -149,7 +153,7 @@
             this.novoAlunoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(443, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(441, 24);
             this.menuStrip1.TabIndex = 7;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -160,11 +164,29 @@
             this.novoAlunoToolStripMenuItem.Text = "Nova Série";
             this.novoAlunoToolStripMenuItem.Click += new System.EventHandler(this.novoAlunoToolStripMenuItem_Click);
             // 
+            // comboBoxCampos
+            // 
+            this.comboBoxCampos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCampos.FormattingEnabled = true;
+            this.comboBoxCampos.Location = new System.Drawing.Point(104, 67);
+            this.comboBoxCampos.Name = "comboBoxCampos";
+            this.comboBoxCampos.Size = new System.Drawing.Size(219, 21);
+            this.comboBoxCampos.TabIndex = 9;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(9, 70);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(89, 13);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Campo desejado:";
+            // 
             // GUIEnsino
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(443, 369);
+            this.ClientSize = new System.Drawing.Size(441, 420);
             this.Controls.Add(this.panel1);
             this.Name = "GUIEnsino";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -192,5 +214,7 @@
         private System.Windows.Forms.ListView listViewEnsinos;
         private System.Windows.Forms.ColumnHeader ColumnHeaderCodigo;
         private System.Windows.Forms.ColumnHeader ColumnHeaderSerie;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboBoxCampos;
     }
 }
