@@ -36,7 +36,10 @@ namespace GUI
                 aluno.Nome="";
                 foreach (Aluno a in servico.ListarAluno(aluno))
                 {
-                    listViewAlunos.Items.Add(a.Nome);
+                    ListViewItem row = listViewAlunos.Items.Add(a.Matricula);
+                    row.SubItems.Add(a.Nome);
+                    row.SubItems.Add(a.Sexo);
+                    row.SubItems.Add(a.Telefone);
                 }
                     
             }
@@ -73,9 +76,9 @@ namespace GUI
             try
             {
                 Aluno a = new Aluno();
-                a.Matricula = "20160002";
-                rn.excluir(a);
-                MessageBox.Show("Excluido!");
+                //a.Matricula = listViewAlunos.GetItemAt(0,0).Text;
+                //servico.ExcluirAluno(a);
+                MessageBox.Show("");
             }
             catch (Exception ex)
             {

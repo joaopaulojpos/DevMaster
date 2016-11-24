@@ -127,20 +127,16 @@ namespace Biblioteca.DAO
 
                 this.AbrirConexao();
 
-                string sql = "SELECT T.cod_turma, T.descricao_turma, T.turno,T.ano, T.data_inicio, E.descricao_ensino"
-                          + " FROM Turma T"
-                          + " INNER JOIN Ensino E"
-                          + " ON T.cod_ensino = E.cod_ensino";
+                string sql = "SELECT t.cod_turma,t.descricao_turma,t.turno,t.ano,t.data_inicio,e.descricao_ensino FROM turma as t INNER JOIN ensino as e ON t.cod_ensino = e.cod_ensino";
 
                 if (filtro.CodigoTurma > 0)
                 {
-                    sql += " and T.cod_turma = @codigoTurma";
+                    sql += " and t.cod_turma = @codigoTurma";
                 }
                 if (filtro.DescricaoTurma != null && filtro.DescricaoTurma.Trim().Equals("") == false)
                 {
-                    sql += " and T.descricao_turma like '%" + filtro.DescricaoTurma.Trim() + "%'";
+                    sql += " and t.descricao_turma like '%" + filtro.DescricaoTurma.Trim() + "%'";
                 }
-
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
 
                 if (filtro.CodigoTurma > 0)
@@ -152,38 +148,22 @@ namespace Biblioteca.DAO
                 {
                     cmd.Parameters.Add("@descricaoTurma", SqlDbType.VarChar);
                     cmd.Parameters["@descricaoTurma"].Value = filtro.DescricaoTurma;
+
                 }
-
-
-
-
-                cmd.Parameters.Add("@CodigoEnsino", SqlDbType.Int);
-                cmd.Parameters["@codigoEnsino"].Value = filtro.Ensino.CodigoEnsino;
-
-
-
-                cmd.Parameters.Add("@DescricaoEnsino", SqlDbType.Int);
-                cmd.Parameters["@DescricaoEnsino"].Value = filtro.Ensino.DescricaoEnsino;
-
                 SqlDataReader DbReader = cmd.ExecuteReader();
                 while (DbReader.Read())
                 {
-                    Turma turma = new Turma();
-                    turma.CodigoTurma = DbReader.GetInt32(DbReader.GetOrdinal("T.cod_turma"));
-                    turma.DescricaoTurma = DbReader.GetString(DbReader.GetOrdinal("T.descricao_turma"));
-                    turma.DataInicio = DbReader.GetDateTime(DbReader.GetOrdinal("T.data_inicio")).ToString();
-                    turma.Turno = DbReader.GetString(DbReader.GetOrdinal("T.turno"));
-                    turma.Ano = DbReader.GetInt32(DbReader.GetOrdinal("ano"));
-                    //Alimentando o Ensino pra jogar dentro da Turma
-                    Ensino ensino = new Ensino();
-                    ensino.DescricaoEnsino = DbReader.GetString(DbReader.GetOrdinal("E.descricao_ensino"));
-                    ensino.CodigoEnsino = DbReader.GetInt32(DbReader.GetOrdinal("E.cod_ensino"));
-                    //ensino.DescricaoEnsino = "Teste Temporário";
-                    //ensino.CodigoEnsino = 999;
-                    //Jogando o Ensino na turma
-                    turma.Ensino = ensino;
+                    Turma t = new Turma();
+                    Ensino e = new Ensino();
+                    t.CodigoTurma = DbReader.GetInt32(DbReader.GetOrdinal("cod_turma"));
+                    t.DescricaoTurma = DbReader.GetString(DbReader.GetOrdinal("descricao_turma"));
+                    t.DataInicio = DbReader.GetDateTime(DbReader.GetOrdinal("data_inicio")).ToString();
+                    t.Turno = DbReader.GetString(DbReader.GetOrdinal("turno"));
+                    t.Ano= DbReader.GetInt32(DbReader.GetOrdinal("ano"));
+                    e.DescricaoEnsino = DbReader.GetString(DbReader.GetOrdinal("descricao_ensino"));
+                    t.Ensino = e;
 
-                    retorno.Add(turma);
+                    retorno.Add(t);
                 }
                 DbReader.Close();
                 cmd.Dispose();

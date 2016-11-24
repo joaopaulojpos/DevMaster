@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.listViewAlunos = new System.Windows.Forms.ListView();
+            this.Matrícula = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Nome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Sexo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Telefone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnVoltar = new System.Windows.Forms.Button();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.btnRemover = new System.Windows.Forms.Button();
@@ -37,7 +42,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.novoAlunoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listViewAlunos = new System.Windows.Forms.ListView();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -57,6 +61,42 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(838, 463);
             this.panel1.TabIndex = 2;
+            // 
+            // listViewAlunos
+            // 
+            this.listViewAlunos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Matrícula,
+            this.Nome,
+            this.Sexo,
+            this.Telefone});
+            this.listViewAlunos.FullRowSelect = true;
+            this.listViewAlunos.GridLines = true;
+            this.listViewAlunos.Location = new System.Drawing.Point(15, 74);
+            this.listViewAlunos.MultiSelect = false;
+            this.listViewAlunos.Name = "listViewAlunos";
+            this.listViewAlunos.Size = new System.Drawing.Size(706, 381);
+            this.listViewAlunos.TabIndex = 8;
+            this.listViewAlunos.UseCompatibleStateImageBehavior = false;
+            this.listViewAlunos.View = System.Windows.Forms.View.Details;
+            // 
+            // Matrícula
+            // 
+            this.Matrícula.Text = "Matrícula";
+            this.Matrícula.Width = 100;
+            // 
+            // Nome
+            // 
+            this.Nome.Text = "Nome";
+            this.Nome.Width = 150;
+            // 
+            // Sexo
+            // 
+            this.Sexo.Text = "Sexo";
+            // 
+            // Telefone
+            // 
+            this.Telefone.Text = "Telefone";
+            this.Telefone.Width = 100;
             // 
             // btnVoltar
             // 
@@ -131,14 +171,6 @@
             this.novoAlunoToolStripMenuItem.Text = "Novo Aluno";
             this.novoAlunoToolStripMenuItem.Click += new System.EventHandler(this.novoAlunoToolStripMenuItem_Click);
             // 
-            // listViewAlunos
-            // 
-            this.listViewAlunos.Location = new System.Drawing.Point(15, 74);
-            this.listViewAlunos.Name = "listViewAlunos";
-            this.listViewAlunos.Size = new System.Drawing.Size(706, 381);
-            this.listViewAlunos.TabIndex = 8;
-            this.listViewAlunos.UseCompatibleStateImageBehavior = false;
-            // 
             // GUIAluno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -168,5 +200,9 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem novoAlunoToolStripMenuItem;
         private System.Windows.Forms.ListView listViewAlunos;
+        private System.Windows.Forms.ColumnHeader Matrícula;
+        private System.Windows.Forms.ColumnHeader Nome;
+        private System.Windows.Forms.ColumnHeader Sexo;
+        private System.Windows.Forms.ColumnHeader Telefone;
     }
 }

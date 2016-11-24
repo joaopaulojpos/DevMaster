@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Biblioteca.Basicas;
 using Biblioteca.RN;
 using Biblioteca.DAO;
+using WebService;
 
 namespace GUI
 {
@@ -42,34 +43,36 @@ namespace GUI
 
         public void Consultar()
         {
-           // try
-      //      {
+            try
+            {
                 listViewTurmas.Items.Clear();
 
-                Turma turmaFiltro = new Turma();
-                string filtro = textBoxFiltro.Text;
-                turmaFiltro.DescricaoTurma = filtro;
+                Turma turma = new Turma();
+                turma.CodigoTurma = 0;
+                turma.DescricaoTurma = "";
 
-                DAOTurma rnTurma = new DAOTurma();
+                Servico servico = new Servico();
 
                 //Tá dando erro pq RNTurma ainda não tá pronto
-                listaTurma = rnTurma.Listar(turmaFiltro);
+                listaTurma = servico.ListarTurma(turma);
 
-                foreach (Turma turma in listaTurma)
+                foreach (Turma t in listaTurma)
                 {
-                    ListViewItem linha = listViewTurmas.Items.Add(Convert.ToString(turma.CodigoTurma));
-                    linha.SubItems.Add(turma.DescricaoTurma);
-                    linha.SubItems.Add(Convert.ToString(turma.Turno));
-                    linha.SubItems.Add(Convert.ToString(turma.Ano));
-                    linha.SubItems.Add(turma.DataInicio);
-                    linha.SubItems.Add(turma.Ensino.DescricaoEnsino);
+                    ListViewItem linha = listViewTurmas.Items.Add(t.CodigoTurma.ToString());
+                    linha.SubItems.Add(t.DescricaoTurma);
+                    linha.SubItems.Add(Convert.ToString(t.Turno));
+                    linha.SubItems.Add(Convert.ToString(t.Ano));
+                    linha.SubItems.Add(t.DataInicio);
+                    linha.SubItems.Add(t.Ensino.DescricaoEnsino);
                 }
-        //    }
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Erro: \n" + ex.Message);
-            //}
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
+
+        
 
         #endregion
 

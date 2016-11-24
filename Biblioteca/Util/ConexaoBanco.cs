@@ -13,8 +13,8 @@ namespace Biblioteca.Util
 
         public SqlConnection sqlConn;
         //private const string local = "DESKTOP-5HIVE2F";//Servidor Joao Paulo
-        //private const string local = "RHUAN\\SQLEXPRESS";//Servidor Rhuan
-        private const string local = "WINDOWS7\\SQLEXPRESS";//Servidor Leandro
+        private const string local = "RHUAN\\SQLEXPRESS";//Servidor Rhuan
+        //private const string local = "WINDOWS7\\SQLEXPRESS";//Servidor Leandro
         private const string banco_de_dados = "DevMaster";
         private const string usuario = "DevMaster";
         private const string senha = "1234";
@@ -34,7 +34,7 @@ namespace Biblioteca.Util
             }
             catch (SqlException ex)
             {
-                throw new Exception("Falha ao conectar com o banco de dados.\nErro: " + ex.Message);
+                throw new Exception("Falha ao conectar com o banco de dados.\n" + ex.Message);
             }
         }
 
@@ -51,7 +51,7 @@ namespace Biblioteca.Util
             }
             catch (SqlException ex)
             {
-                throw new Exception("Falha ao conectar com o banco de dados.\nErro: " + ex.Message);
+                throw new Exception("Falha ao conectar com o banco de dados.\n" + ex.Message);
             }
         }
 
