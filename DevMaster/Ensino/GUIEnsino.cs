@@ -56,18 +56,21 @@ namespace GUI
         public void Consultar()
         {
             try
-            {
+            { /*
                 listViewEnsinos.Items.Clear();
 
                 string filtro = textBoxFiltro.Text;
 
                 Ensino ensinoFiltro = new Ensino();
 
-                if (comboBoxCampos.Items.Equals("Código"))
+                int indexComboBox = comboBoxCampos.SelectedIndex;
+                String textoComboBox = comboBoxCampos.Items[index].ToString();
+
+                if (comboBoxCampos.SelectedItem.Equals("Código"))
                 {
                     ensinoFiltro.CodigoEnsino = Convert.ToInt32(filtro);
                 }
-                else if (comboBoxCampos.Items.Equals("Descrição"))
+                if (comboBoxCampos.SelectedItem.Equals("Descrição"))
                 {
                     ensinoFiltro.DescricaoEnsino = filtro;
                 }
@@ -81,7 +84,7 @@ namespace GUI
                     //ListViewItem é tipo uma linha, e cada coluna é um subitem dessa linha/Item
                     ListViewItem linha = listViewEnsinos.Items.Add(Convert.ToString(ensino.CodigoEnsino));
                     linha.SubItems.Add(ensino.DescricaoEnsino);
-                }
+                }*/
             }
             catch (Exception ex)
             {

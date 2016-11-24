@@ -40,11 +40,11 @@
             this.coordenacaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.emitirBoletimToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroDisciplinaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cadastroTipoDeUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroDeTurmaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarEnsinoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultarTipoDeUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -122,10 +122,10 @@
             this.coordenacaoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.emitirBoletimToolStripMenuItem,
             this.cadastroDisciplinaToolStripMenuItem,
-            this.cadastroTipoDeUsuarioToolStripMenuItem,
             this.cadastroUsuarioToolStripMenuItem,
             this.cadastroDeTurmaToolStripMenuItem,
-            this.consultarEnsinoToolStripMenuItem});
+            this.consultarEnsinoToolStripMenuItem,
+            this.consultarTipoDeUsuarioToolStripMenuItem});
             this.coordenacaoToolStripMenuItem.Name = "coordenacaoToolStripMenuItem";
             this.coordenacaoToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.coordenacaoToolStripMenuItem.Text = "Coordenação";
@@ -134,41 +134,34 @@
             // emitirBoletimToolStripMenuItem
             // 
             this.emitirBoletimToolStripMenuItem.Name = "emitirBoletimToolStripMenuItem";
-            this.emitirBoletimToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.emitirBoletimToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.emitirBoletimToolStripMenuItem.Text = "Emitir Boletim";
             // 
             // cadastroDisciplinaToolStripMenuItem
             // 
             this.cadastroDisciplinaToolStripMenuItem.Name = "cadastroDisciplinaToolStripMenuItem";
-            this.cadastroDisciplinaToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.cadastroDisciplinaToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.cadastroDisciplinaToolStripMenuItem.Text = "Cadastro de Disciplina";
             this.cadastroDisciplinaToolStripMenuItem.Click += new System.EventHandler(this.cadastroDisciplinaToolStripMenuItem_Click);
-            // 
-            // cadastroTipoDeUsuarioToolStripMenuItem
-            // 
-            this.cadastroTipoDeUsuarioToolStripMenuItem.Name = "cadastroTipoDeUsuarioToolStripMenuItem";
-            this.cadastroTipoDeUsuarioToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
-            this.cadastroTipoDeUsuarioToolStripMenuItem.Text = "Cadastro de Tipo de Usuário";
-            this.cadastroTipoDeUsuarioToolStripMenuItem.Click += new System.EventHandler(this.cadastroTipoDeUsuárioToolStripMenuItem_Click);
             // 
             // cadastroUsuarioToolStripMenuItem
             // 
             this.cadastroUsuarioToolStripMenuItem.Name = "cadastroUsuarioToolStripMenuItem";
-            this.cadastroUsuarioToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.cadastroUsuarioToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.cadastroUsuarioToolStripMenuItem.Text = "Cadastro de Usuário";
             this.cadastroUsuarioToolStripMenuItem.Click += new System.EventHandler(this.cadastroUsuárioToolStripMenuItem_Click);
             // 
             // cadastroDeTurmaToolStripMenuItem
             // 
             this.cadastroDeTurmaToolStripMenuItem.Name = "cadastroDeTurmaToolStripMenuItem";
-            this.cadastroDeTurmaToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.cadastroDeTurmaToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.cadastroDeTurmaToolStripMenuItem.Text = "Cadastro de Turma";
             this.cadastroDeTurmaToolStripMenuItem.Click += new System.EventHandler(this.cadastroDeTurmaToolStripMenuItem_Click);
             // 
             // consultarEnsinoToolStripMenuItem
             // 
             this.consultarEnsinoToolStripMenuItem.Name = "consultarEnsinoToolStripMenuItem";
-            this.consultarEnsinoToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.consultarEnsinoToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.consultarEnsinoToolStripMenuItem.Text = "Consultar Ensino";
             this.consultarEnsinoToolStripMenuItem.Click += new System.EventHandler(this.consultarEnsinoToolStripMenuItem_Click);
             // 
@@ -178,6 +171,13 @@
             this.sairToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
+            // 
+            // consultarTipoDeUsuarioToolStripMenuItem
+            // 
+            this.consultarTipoDeUsuarioToolStripMenuItem.Name = "consultarTipoDeUsuarioToolStripMenuItem";
+            this.consultarTipoDeUsuarioToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.consultarTipoDeUsuarioToolStripMenuItem.Text = "Consultar Tipo de Usuário";
+            this.consultarTipoDeUsuarioToolStripMenuItem.Click += new System.EventHandler(this.consultarTipoDeUsuarioToolStripMenuItem_Click);
             // 
             // GUIPrincipal
             // 
@@ -210,10 +210,10 @@
         private System.Windows.Forms.ToolStripMenuItem emitirBoletimToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem abonoDeFaltasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastroDisciplinaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cadastroTipoDeUsuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastroAulaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastroUsuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastroDeTurmaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarEnsinoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultarTipoDeUsuarioToolStripMenuItem;
     }
 }

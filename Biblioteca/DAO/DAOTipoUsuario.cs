@@ -25,8 +25,6 @@ namespace Biblioteca.DAO
 
         #endregion
 
-        #region Implementação da Interface
-
         #region Listar
 
         public List<TipoUsuario> Listar(TipoUsuario filtro)
@@ -35,7 +33,7 @@ namespace Biblioteca.DAO
             try
             {
                 this.AbrirConexao();
-                string sql = "SELECT cod_tipo_usuario,desc_tipo_usuario FROM Tipo_usuario WHERE cod_tipo_usuario = cod_tipo_usuario";
+                string sql = "SELECT cod_tipo_usuario, desc_tipo_usuario FROM Tipo_usuario WHERE cod_tipo_usuario = cod_tipo_usuario";
                 if (filtro.CodTipoUsuario > 0)
                 {
                     sql += " and cod_tipo_usuario = @codigoTipoUsuario";
@@ -75,8 +73,6 @@ namespace Biblioteca.DAO
             }
             return retorno;
         }
-
-        #endregion
 
         #endregion
 

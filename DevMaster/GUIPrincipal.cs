@@ -122,9 +122,9 @@ namespace GUI
 
         #endregion
 
-        #region Cadastro usuário
+        #region Cadastro Tipo de Usuário
 
-        private void cadastroTipoDeUsuárioToolStripMenuItem_Click(object sender, EventArgs e)
+        private void consultarTipoDeUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GUITipoUsuario guiTipoUsuario = new GUITipoUsuario();
             guiTipoUsuario.ShowDialog();
@@ -194,6 +194,7 @@ namespace GUI
         {
 
         }
+
 
         #endregion
 

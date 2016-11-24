@@ -79,6 +79,7 @@
     <Compile Include="RN\RNDisciplina.cs" />
     <Compile Include="RN\RNEnsino.cs" />
     <Compile Include="RN\RNFalta.cs" />
+    <Compile Include="RN\RNTipousuario.cs" />
     <Compile Include="RN\RNTurma.cs" />
     <Compile Include="RN\RNUsuario.cs" />
     <Compile Include="Util\ConexaoBanco.cs" />
