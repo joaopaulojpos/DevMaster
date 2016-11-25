@@ -15,7 +15,14 @@ namespace GUI
 {
     public partial class GUIInserirAluno : Form
     {
+        GUIAluno guiAluno;
+
         public GUIInserirAluno()
+        {
+            InitializeComponent();
+        }
+
+        public GUIInserirAluno(GUIAluno guiAluno)
         {
             InitializeComponent();
         }

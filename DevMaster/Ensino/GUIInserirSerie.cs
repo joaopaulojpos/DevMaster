@@ -55,7 +55,7 @@ namespace GUI
                 MessageBox.Show("Série inserida com sucesso!");
 
                 //Chamando o método Consultar da tela anterior
-                guiEnsino.Consultar();
+                guiEnsino.CarregarListView();
             }
             catch (Exception ex)
             {

@@ -31,7 +31,7 @@ namespace GUI
         public GUITipoUsuario()
         {
             InitializeComponent();
-            Consultar();
+            CarregarListView();
         }
 
         #endregion
@@ -40,7 +40,7 @@ namespace GUI
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            Consultar();
+            CarregarListView();
         }
 
         #endregion
@@ -75,7 +75,7 @@ namespace GUI
 
         #region Consultar
 
-        public void Consultar()
+        public void CarregarListView()
         {
             try
             {

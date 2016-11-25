@@ -29,7 +29,7 @@ namespace GUI
 
             //Já abre o form jogando a Consulta na List View
             PopularComboBox();
-            Consultar();
+            CarregarListView();
 
             //Faz com que as colunas da List View ocupem o espaço que precisar sem cortar
             listViewEnsinos.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
@@ -51,9 +51,9 @@ namespace GUI
 
         #endregion
 
-        #region Consultar
+        #region Carregar ListView
 
-        public void Consultar()
+        public void CarregarListView()
         {
             try
             { /*
@@ -104,7 +104,7 @@ namespace GUI
             {
                 //Botei o código da Consulta dentro da função em vez de botar no botão pq é mais fácil
                 //outras telas/construtor chamarem esse método do que o click do botão.
-                Consultar();
+                CarregarListView();
             }
             catch (Exception ex)
             {
@@ -139,12 +139,11 @@ namespace GUI
         {
             try
             {
-                //Pega o Ensino selecionado, mesmo que só seja um ele entende como uma coleção
-                ListView.SelectedListViewItemCollection colecaoSelecionada = listViewEnsinos.SelectedItems;
-
                 Ensino alterarEnsino = new Ensino();
                 int codigoSelecionado = 0;
 
+                //Pega o Ensino selecionado, mesmo que só seja um ele entende como uma coleção
+                ListView.SelectedListViewItemCollection colecaoSelecionada = listViewEnsinos.SelectedItems;
                 //Percorrendo a coleção(a série selecionada)
                 foreach (ListViewItem selecionado in colecaoSelecionada)
                 {
