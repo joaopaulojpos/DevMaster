@@ -144,7 +144,7 @@ namespace Biblioteca.DAO
                     Turma t = new Turma();
                     aluno.Matricula = DbReader.GetString(DbReader.GetOrdinal("matricula"));
                     aluno.Nome = DbReader.GetString(DbReader.GetOrdinal("nome_aluno"));
-                    aluno.DataNasc = DbReader.GetDateTime(DbReader.GetOrdinal("data_nasc")).ToString();
+                    aluno.DataNasc = DbReader.GetDateTime(DbReader.GetOrdinal("data_nasc"));
                     aluno.Sexo = DbReader.GetString(DbReader.GetOrdinal("sexo"));
                     aluno.Telefone = DbReader.GetString(DbReader.GetOrdinal("telefone"));
                     t.CodigoTurma= DbReader.GetInt32(DbReader.GetOrdinal("cod_turma"));
