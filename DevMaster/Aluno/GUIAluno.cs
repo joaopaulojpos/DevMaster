@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WebService;
+using WebService.localhost1;
 
 namespace GUI
 {
@@ -23,6 +23,7 @@ namespace GUI
             InitializeComponent();
             rn = new RNAluno();
             servico = new Servico();
+            
             carregarListAluno();
         }
 

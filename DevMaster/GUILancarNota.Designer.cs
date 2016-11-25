@@ -40,16 +40,13 @@
             this.btnVoltar = new System.Windows.Forms.Button();
             this.btnLancarNota = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.comboBoxTurma = new System.Windows.Forms.ComboBox();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Matemática",
-            "Português"});
             this.comboBox1.Location = new System.Drawing.Point(109, 51);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(142, 21);
@@ -89,20 +86,15 @@
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            "Leandro Luís Cavalcanti Oliveira",
-            "Leandro Luís Cavalcanti Oliveira",
-            "Leandro Luís Cavalcanti Oliveira",
-            "Leandro Luís Cavalcanti Oliveira"});
-            this.comboBox3.Location = new System.Drawing.Point(109, 12);
+            this.comboBox3.Location = new System.Drawing.Point(109, 83);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(230, 21);
+            this.comboBox3.Size = new System.Drawing.Size(327, 21);
             this.comboBox3.TabIndex = 2;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(61, 12);
+            this.label4.Location = new System.Drawing.Point(66, 91);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 13);
             this.label4.TabIndex = 1;
@@ -136,7 +128,7 @@
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label8);
-            this.panel3.Controls.Add(this.comboBox5);
+            this.panel3.Controls.Add(this.comboBoxTurma);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
@@ -167,19 +159,19 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(63, 84);
+            this.label8.Location = new System.Drawing.Point(63, 27);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(40, 13);
             this.label8.TabIndex = 0;
             this.label8.Text = "Turma:";
             // 
-            // comboBox5
+            // comboBoxTurma
             // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(109, 81);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(142, 21);
-            this.comboBox5.TabIndex = 1;
+            this.comboBoxTurma.FormattingEnabled = true;
+            this.comboBoxTurma.Location = new System.Drawing.Point(109, 19);
+            this.comboBoxTurma.Name = "comboBoxTurma";
+            this.comboBoxTurma.Size = new System.Drawing.Size(142, 21);
+            this.comboBoxTurma.TabIndex = 1;
             // 
             // GUILancarNota
             // 
@@ -189,7 +181,7 @@
             this.Controls.Add(this.panel3);
             this.Name = "GUILancarNota";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "GUILancarNotas";
+            this.Text = "Lançar Notas";
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
@@ -209,6 +201,6 @@
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.Button btnLancarNota;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox comboBoxTurma;
     }
 }

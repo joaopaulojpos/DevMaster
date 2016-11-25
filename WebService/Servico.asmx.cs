@@ -176,5 +176,16 @@ namespace WebService
             return fachada.ListarUsuario(usuario);
         }
         #endregion
+
+        #region DisciplinaTurma
+        public void InserirDisciplinaTurma(Disciplina_Turma dt)
+        {
+            fachada.InserirDisciplinaTurma(dt);
+        }
+        public List<Disciplina_Turma> ListarDisciplinaTurma(Disciplina_Turma dt)
+        {
+            return fachada.ListarDisciplinaTurma(dt);
+        }
+        #endregion
     }
 }

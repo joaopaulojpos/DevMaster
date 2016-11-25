@@ -20,6 +20,7 @@ namespace Biblioteca.Fachada
         private RNFalta rnFalta;
         private RNTurma rnTurma;
         private RNUsuario rnUsuario;
+        private RNDisciplinaTurma rnDt;
         #endregion
 
         #region Construtor privado
@@ -33,6 +34,7 @@ namespace Biblioteca.Fachada
             rnFalta = new RNFalta();
             rnTurma = new RNTurma();
             rnUsuario = new RNUsuario();
+            rnDt = new RNDisciplinaTurma();
         }
         #endregion
 
@@ -179,5 +181,15 @@ namespace Biblioteca.Fachada
         }
         #endregion
 
+        #region DisciplinaTurma
+        public void InserirDisciplinaTurma(Disciplina_Turma dt)
+        {
+            rnDt.inserir(dt);
+        }
+        public List<Disciplina_Turma> ListarDisciplinaTurma(Disciplina_Turma dt)
+        {
+            return rnDt.listar(dt);
+        }
+        #endregion
     }
 }
