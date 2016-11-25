@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Biblioteca.Basicas;
 using Biblioteca.RN;
 using Biblioteca.DAO;
+using WebService;
 
 namespace GUI
 {

@@ -32,7 +32,7 @@ namespace GUI
                 ensino.DescricaoEnsino = "";
                 listaEnsino = servico.ListarEnsino(ensino);
                 foreach (Ensino e in listaEnsino) {
-                    comboBox2.Items.Add(e.DescricaoEnsino);
+                    comboBoxSerie.Items.Add(e.DescricaoEnsino);
                 }
             }
             catch (Exception ex)
@@ -43,9 +43,9 @@ namespace GUI
 
         private void carregarComboTurno()
         {
-            comboBox1.Items.Add("M");
-            comboBox1.Items.Add("T");
-            comboBox1.Items.Add("N");
+            comboBoxTurno.Items.Add("M");
+            comboBoxTurno.Items.Add("T");
+            comboBoxTurno.Items.Add("N");
         }
 
         private void button2_Click(object sender, EventArgs e)
