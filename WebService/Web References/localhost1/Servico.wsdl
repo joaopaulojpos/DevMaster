@@ -2,34 +2,920 @@
 <wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
-      <s:element name="HelloWorld">
-        <s:complexType />
-      </s:element>
-      <s:element name="HelloWorldResponse">
+      <s:element name="InserirAluno">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="aluno" type="tns:Aluno" />
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:complexType name="Aluno">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Matricula" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataNasc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sexo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telefone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Turma" type="tns:Turma" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Turma">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoTurma" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescricaoTurma" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Turno" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Ano" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataInicio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ensino" type="tns:Ensino" />
+          <s:element minOccurs="0" maxOccurs="1" name="Disciplinas" type="tns:ArrayOfDisciplina_Turma" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Ensino">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoEnsino" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescricaoEnsino" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDisciplina_Turma">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Disciplina_Turma" nillable="true" type="tns:Disciplina_Turma" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Disciplina_Turma">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoDisciplinaTurma" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Turma" type="tns:Turma" />
+          <s:element minOccurs="0" maxOccurs="1" name="Disciplina" type="tns:Disciplina" />
+          <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="tns:Usuario" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Disciplina">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoDisciplina" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NomeDisciplina" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Usuario">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodUsuario" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LoginUsuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Senha" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telefone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoUsuario" type="tns:TipoUsuario" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoUsuario">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodTipoUsuario" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescricaoTipoUsuario" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InserirAlunoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AlterarAluno">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="aluno" type="tns:Aluno" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarAlunoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ExcluirAluno">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="aluno" type="tns:Aluno" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExcluirAlunoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListarAluno">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="aluno" type="tns:Aluno" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarAlunoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarAlunoResult" type="tns:ArrayOfAluno" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAluno">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Aluno" nillable="true" type="tns:Aluno" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InserirAula">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="aula" type="tns:Aula" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Aula">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoAula" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Data" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Assunto" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Disciplina" type="tns:Disciplina" />
+          <s:element minOccurs="0" maxOccurs="1" name="Turma" type="tns:Turma" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InserirAulaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AlterarAula">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="aula" type="tns:Aula" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarAulaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ExcluirAula">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="aula" type="tns:Aula" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExcluirAulaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListarAula">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="aula" type="tns:Aula" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarAulaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarAulaResult" type="tns:ArrayOfAula" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAula">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Aula" nillable="true" type="tns:Aula" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InserirAvaliacao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="avaliacao" type="tns:Avaliacao" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Avaliacao">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Nota" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descricao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Disciplina_turma" type="tns:Disciplina_Turma" />
+          <s:element minOccurs="0" maxOccurs="1" name="Aluno" type="tns:Aluno" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoAvaliacao" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InserirAvaliacaoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AlterarAvaliacao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="avaliacao" type="tns:Avaliacao" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarAvaliacaoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ExcluirAvaliacao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="avaliacao" type="tns:Avaliacao" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExcluirAvaliacaoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListarAvaliacao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="avaliacao" type="tns:Avaliacao" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarAvaliacaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarAvaliacaoResult" type="tns:ArrayOfAvaliacao" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAvaliacao">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Avaliacao" nillable="true" type="tns:Avaliacao" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ListarDisciplina">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="disciplina" type="tns:Disciplina" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarDisciplinaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarDisciplinaResult" type="tns:ArrayOfDisciplina" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDisciplina">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Disciplina" nillable="true" type="tns:Disciplina" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ListarEnsino">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ensino" type="tns:Ensino" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarEnsinoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarEnsinoResult" type="tns:ArrayOfEnsino" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEnsino">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Ensino" nillable="true" type="tns:Ensino" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InserirFalta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="falta" type="tns:Falta" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Falta">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Motivo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Abono" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Data" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Aluno" type="tns:Aluno" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoFalta" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InserirFaltaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AlterarFalta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="falta" type="tns:Falta" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarFaltaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ExcluirFalta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="falta" type="tns:Falta" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExcluirFaltaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListarFalta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="falta" type="tns:Falta" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarFaltaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarFaltaResult" type="tns:ArrayOfFalta" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfFalta">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Falta" nillable="true" type="tns:Falta" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InserirTurma">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="turma" type="tns:Turma" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InserirTurmaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AlterarTurma">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="turma" type="tns:Turma" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarTurmaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ExcluirTurma">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="turma" type="tns:Turma" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExcluirTurmaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListarTurma">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="turma" type="tns:Turma" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarTurmaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarTurmaResult" type="tns:ArrayOfTurma" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTurma">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Turma" nillable="true" type="tns:Turma" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InserirUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="tns:Usuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InserirUsuarioResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AlterarUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="tns:Usuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarUsuarioResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ExcluirUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="tns:Usuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExcluirUsuarioResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListarUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="tns:Usuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarUsuarioResult" type="tns:ArrayOfUsuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfUsuario">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Usuario" nillable="true" type="tns:Usuario" />
+        </s:sequence>
+      </s:complexType>
     </s:schema>
   </wsdl:types>
-  <wsdl:message name="HelloWorldSoapIn">
-    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  <wsdl:message name="InserirAlunoSoapIn">
+    <wsdl:part name="parameters" element="tns:InserirAluno" />
   </wsdl:message>
-  <wsdl:message name="HelloWorldSoapOut">
-    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  <wsdl:message name="InserirAlunoSoapOut">
+    <wsdl:part name="parameters" element="tns:InserirAlunoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AlterarAlunoSoapIn">
+    <wsdl:part name="parameters" element="tns:AlterarAluno" />
+  </wsdl:message>
+  <wsdl:message name="AlterarAlunoSoapOut">
+    <wsdl:part name="parameters" element="tns:AlterarAlunoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExcluirAlunoSoapIn">
+    <wsdl:part name="parameters" element="tns:ExcluirAluno" />
+  </wsdl:message>
+  <wsdl:message name="ExcluirAlunoSoapOut">
+    <wsdl:part name="parameters" element="tns:ExcluirAlunoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarAlunoSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarAluno" />
+  </wsdl:message>
+  <wsdl:message name="ListarAlunoSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarAlunoResponse" />
+  </wsdl:message>
+  <wsdl:message name="InserirAulaSoapIn">
+    <wsdl:part name="parameters" element="tns:InserirAula" />
+  </wsdl:message>
+  <wsdl:message name="InserirAulaSoapOut">
+    <wsdl:part name="parameters" element="tns:InserirAulaResponse" />
+  </wsdl:message>
+  <wsdl:message name="AlterarAulaSoapIn">
+    <wsdl:part name="parameters" element="tns:AlterarAula" />
+  </wsdl:message>
+  <wsdl:message name="AlterarAulaSoapOut">
+    <wsdl:part name="parameters" element="tns:AlterarAulaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExcluirAulaSoapIn">
+    <wsdl:part name="parameters" element="tns:ExcluirAula" />
+  </wsdl:message>
+  <wsdl:message name="ExcluirAulaSoapOut">
+    <wsdl:part name="parameters" element="tns:ExcluirAulaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarAulaSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarAula" />
+  </wsdl:message>
+  <wsdl:message name="ListarAulaSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarAulaResponse" />
+  </wsdl:message>
+  <wsdl:message name="InserirAvaliacaoSoapIn">
+    <wsdl:part name="parameters" element="tns:InserirAvaliacao" />
+  </wsdl:message>
+  <wsdl:message name="InserirAvaliacaoSoapOut">
+    <wsdl:part name="parameters" element="tns:InserirAvaliacaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AlterarAvaliacaoSoapIn">
+    <wsdl:part name="parameters" element="tns:AlterarAvaliacao" />
+  </wsdl:message>
+  <wsdl:message name="AlterarAvaliacaoSoapOut">
+    <wsdl:part name="parameters" element="tns:AlterarAvaliacaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExcluirAvaliacaoSoapIn">
+    <wsdl:part name="parameters" element="tns:ExcluirAvaliacao" />
+  </wsdl:message>
+  <wsdl:message name="ExcluirAvaliacaoSoapOut">
+    <wsdl:part name="parameters" element="tns:ExcluirAvaliacaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarAvaliacaoSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarAvaliacao" />
+  </wsdl:message>
+  <wsdl:message name="ListarAvaliacaoSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarAvaliacaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarDisciplinaSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarDisciplina" />
+  </wsdl:message>
+  <wsdl:message name="ListarDisciplinaSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarDisciplinaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarEnsinoSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarEnsino" />
+  </wsdl:message>
+  <wsdl:message name="ListarEnsinoSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarEnsinoResponse" />
+  </wsdl:message>
+  <wsdl:message name="InserirFaltaSoapIn">
+    <wsdl:part name="parameters" element="tns:InserirFalta" />
+  </wsdl:message>
+  <wsdl:message name="InserirFaltaSoapOut">
+    <wsdl:part name="parameters" element="tns:InserirFaltaResponse" />
+  </wsdl:message>
+  <wsdl:message name="AlterarFaltaSoapIn">
+    <wsdl:part name="parameters" element="tns:AlterarFalta" />
+  </wsdl:message>
+  <wsdl:message name="AlterarFaltaSoapOut">
+    <wsdl:part name="parameters" element="tns:AlterarFaltaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExcluirFaltaSoapIn">
+    <wsdl:part name="parameters" element="tns:ExcluirFalta" />
+  </wsdl:message>
+  <wsdl:message name="ExcluirFaltaSoapOut">
+    <wsdl:part name="parameters" element="tns:ExcluirFaltaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarFaltaSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarFalta" />
+  </wsdl:message>
+  <wsdl:message name="ListarFaltaSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarFaltaResponse" />
+  </wsdl:message>
+  <wsdl:message name="InserirTurmaSoapIn">
+    <wsdl:part name="parameters" element="tns:InserirTurma" />
+  </wsdl:message>
+  <wsdl:message name="InserirTurmaSoapOut">
+    <wsdl:part name="parameters" element="tns:InserirTurmaResponse" />
+  </wsdl:message>
+  <wsdl:message name="AlterarTurmaSoapIn">
+    <wsdl:part name="parameters" element="tns:AlterarTurma" />
+  </wsdl:message>
+  <wsdl:message name="AlterarTurmaSoapOut">
+    <wsdl:part name="parameters" element="tns:AlterarTurmaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExcluirTurmaSoapIn">
+    <wsdl:part name="parameters" element="tns:ExcluirTurma" />
+  </wsdl:message>
+  <wsdl:message name="ExcluirTurmaSoapOut">
+    <wsdl:part name="parameters" element="tns:ExcluirTurmaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarTurmaSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarTurma" />
+  </wsdl:message>
+  <wsdl:message name="ListarTurmaSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarTurmaResponse" />
+  </wsdl:message>
+  <wsdl:message name="InserirUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:InserirUsuario" />
+  </wsdl:message>
+  <wsdl:message name="InserirUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:InserirUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="AlterarUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:AlterarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="AlterarUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:AlterarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExcluirUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:ExcluirUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ExcluirUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:ExcluirUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ListarUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarUsuarioResponse" />
   </wsdl:message>
   <wsdl:portType name="ServicoSoap">
-    <wsdl:operation name="HelloWorld">
-      <wsdl:input message="tns:HelloWorldSoapIn" />
-      <wsdl:output message="tns:HelloWorldSoapOut" />
+    <wsdl:operation name="InserirAluno">
+      <wsdl:input message="tns:InserirAlunoSoapIn" />
+      <wsdl:output message="tns:InserirAlunoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarAluno">
+      <wsdl:input message="tns:AlterarAlunoSoapIn" />
+      <wsdl:output message="tns:AlterarAlunoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirAluno">
+      <wsdl:input message="tns:ExcluirAlunoSoapIn" />
+      <wsdl:output message="tns:ExcluirAlunoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarAluno">
+      <wsdl:input message="tns:ListarAlunoSoapIn" />
+      <wsdl:output message="tns:ListarAlunoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InserirAula">
+      <wsdl:input message="tns:InserirAulaSoapIn" />
+      <wsdl:output message="tns:InserirAulaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarAula">
+      <wsdl:input message="tns:AlterarAulaSoapIn" />
+      <wsdl:output message="tns:AlterarAulaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirAula">
+      <wsdl:input message="tns:ExcluirAulaSoapIn" />
+      <wsdl:output message="tns:ExcluirAulaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarAula">
+      <wsdl:input message="tns:ListarAulaSoapIn" />
+      <wsdl:output message="tns:ListarAulaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InserirAvaliacao">
+      <wsdl:input message="tns:InserirAvaliacaoSoapIn" />
+      <wsdl:output message="tns:InserirAvaliacaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarAvaliacao">
+      <wsdl:input message="tns:AlterarAvaliacaoSoapIn" />
+      <wsdl:output message="tns:AlterarAvaliacaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirAvaliacao">
+      <wsdl:input message="tns:ExcluirAvaliacaoSoapIn" />
+      <wsdl:output message="tns:ExcluirAvaliacaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarAvaliacao">
+      <wsdl:input message="tns:ListarAvaliacaoSoapIn" />
+      <wsdl:output message="tns:ListarAvaliacaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarDisciplina">
+      <wsdl:input message="tns:ListarDisciplinaSoapIn" />
+      <wsdl:output message="tns:ListarDisciplinaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarEnsino">
+      <wsdl:input message="tns:ListarEnsinoSoapIn" />
+      <wsdl:output message="tns:ListarEnsinoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InserirFalta">
+      <wsdl:input message="tns:InserirFaltaSoapIn" />
+      <wsdl:output message="tns:InserirFaltaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarFalta">
+      <wsdl:input message="tns:AlterarFaltaSoapIn" />
+      <wsdl:output message="tns:AlterarFaltaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirFalta">
+      <wsdl:input message="tns:ExcluirFaltaSoapIn" />
+      <wsdl:output message="tns:ExcluirFaltaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarFalta">
+      <wsdl:input message="tns:ListarFaltaSoapIn" />
+      <wsdl:output message="tns:ListarFaltaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InserirTurma">
+      <wsdl:input message="tns:InserirTurmaSoapIn" />
+      <wsdl:output message="tns:InserirTurmaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarTurma">
+      <wsdl:input message="tns:AlterarTurmaSoapIn" />
+      <wsdl:output message="tns:AlterarTurmaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirTurma">
+      <wsdl:input message="tns:ExcluirTurmaSoapIn" />
+      <wsdl:output message="tns:ExcluirTurmaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarTurma">
+      <wsdl:input message="tns:ListarTurmaSoapIn" />
+      <wsdl:output message="tns:ListarTurmaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InserirUsuario">
+      <wsdl:input message="tns:InserirUsuarioSoapIn" />
+      <wsdl:output message="tns:InserirUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarUsuario">
+      <wsdl:input message="tns:AlterarUsuarioSoapIn" />
+      <wsdl:output message="tns:AlterarUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirUsuario">
+      <wsdl:input message="tns:ExcluirUsuarioSoapIn" />
+      <wsdl:output message="tns:ExcluirUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarUsuario">
+      <wsdl:input message="tns:ListarUsuarioSoapIn" />
+      <wsdl:output message="tns:ListarUsuarioSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="ServicoSoap" type="tns:ServicoSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="HelloWorld">
-      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+    <wsdl:operation name="InserirAluno">
+      <soap:operation soapAction="http://tempuri.org/InserirAluno" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarAluno">
+      <soap:operation soapAction="http://tempuri.org/AlterarAluno" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirAluno">
+      <soap:operation soapAction="http://tempuri.org/ExcluirAluno" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarAluno">
+      <soap:operation soapAction="http://tempuri.org/ListarAluno" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirAula">
+      <soap:operation soapAction="http://tempuri.org/InserirAula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarAula">
+      <soap:operation soapAction="http://tempuri.org/AlterarAula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirAula">
+      <soap:operation soapAction="http://tempuri.org/ExcluirAula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarAula">
+      <soap:operation soapAction="http://tempuri.org/ListarAula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirAvaliacao">
+      <soap:operation soapAction="http://tempuri.org/InserirAvaliacao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarAvaliacao">
+      <soap:operation soapAction="http://tempuri.org/AlterarAvaliacao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirAvaliacao">
+      <soap:operation soapAction="http://tempuri.org/ExcluirAvaliacao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarAvaliacao">
+      <soap:operation soapAction="http://tempuri.org/ListarAvaliacao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarDisciplina">
+      <soap:operation soapAction="http://tempuri.org/ListarDisciplina" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarEnsino">
+      <soap:operation soapAction="http://tempuri.org/ListarEnsino" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirFalta">
+      <soap:operation soapAction="http://tempuri.org/InserirFalta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarFalta">
+      <soap:operation soapAction="http://tempuri.org/AlterarFalta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirFalta">
+      <soap:operation soapAction="http://tempuri.org/ExcluirFalta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarFalta">
+      <soap:operation soapAction="http://tempuri.org/ListarFalta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirTurma">
+      <soap:operation soapAction="http://tempuri.org/InserirTurma" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarTurma">
+      <soap:operation soapAction="http://tempuri.org/AlterarTurma" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirTurma">
+      <soap:operation soapAction="http://tempuri.org/ExcluirTurma" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarTurma">
+      <soap:operation soapAction="http://tempuri.org/ListarTurma" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirUsuario">
+      <soap:operation soapAction="http://tempuri.org/InserirUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarUsuario">
+      <soap:operation soapAction="http://tempuri.org/AlterarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirUsuario">
+      <soap:operation soapAction="http://tempuri.org/ExcluirUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarUsuario">
+      <soap:operation soapAction="http://tempuri.org/ListarUsuario" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -40,8 +926,233 @@
   </wsdl:binding>
   <wsdl:binding name="ServicoSoap12" type="tns:ServicoSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="HelloWorld">
-      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+    <wsdl:operation name="InserirAluno">
+      <soap12:operation soapAction="http://tempuri.org/InserirAluno" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarAluno">
+      <soap12:operation soapAction="http://tempuri.org/AlterarAluno" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirAluno">
+      <soap12:operation soapAction="http://tempuri.org/ExcluirAluno" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarAluno">
+      <soap12:operation soapAction="http://tempuri.org/ListarAluno" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirAula">
+      <soap12:operation soapAction="http://tempuri.org/InserirAula" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarAula">
+      <soap12:operation soapAction="http://tempuri.org/AlterarAula" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirAula">
+      <soap12:operation soapAction="http://tempuri.org/ExcluirAula" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarAula">
+      <soap12:operation soapAction="http://tempuri.org/ListarAula" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirAvaliacao">
+      <soap12:operation soapAction="http://tempuri.org/InserirAvaliacao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarAvaliacao">
+      <soap12:operation soapAction="http://tempuri.org/AlterarAvaliacao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirAvaliacao">
+      <soap12:operation soapAction="http://tempuri.org/ExcluirAvaliacao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarAvaliacao">
+      <soap12:operation soapAction="http://tempuri.org/ListarAvaliacao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarDisciplina">
+      <soap12:operation soapAction="http://tempuri.org/ListarDisciplina" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarEnsino">
+      <soap12:operation soapAction="http://tempuri.org/ListarEnsino" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirFalta">
+      <soap12:operation soapAction="http://tempuri.org/InserirFalta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarFalta">
+      <soap12:operation soapAction="http://tempuri.org/AlterarFalta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirFalta">
+      <soap12:operation soapAction="http://tempuri.org/ExcluirFalta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarFalta">
+      <soap12:operation soapAction="http://tempuri.org/ListarFalta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirTurma">
+      <soap12:operation soapAction="http://tempuri.org/InserirTurma" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarTurma">
+      <soap12:operation soapAction="http://tempuri.org/AlterarTurma" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirTurma">
+      <soap12:operation soapAction="http://tempuri.org/ExcluirTurma" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarTurma">
+      <soap12:operation soapAction="http://tempuri.org/ListarTurma" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirUsuario">
+      <soap12:operation soapAction="http://tempuri.org/InserirUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarUsuario">
+      <soap12:operation soapAction="http://tempuri.org/AlterarUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirUsuario">
+      <soap12:operation soapAction="http://tempuri.org/ExcluirUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarUsuario">
+      <soap12:operation soapAction="http://tempuri.org/ListarUsuario" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

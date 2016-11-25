@@ -57,6 +57,7 @@
     <Compile Include="DAO\DAOAula.cs" />
     <Compile Include="DAO\DAOAvaliacao.cs" />
     <Compile Include="DAO\DAODisciplina.cs" />
+    <Compile Include="DAO\DAODisciplinaTurma.cs" />
     <Compile Include="DAO\DAOEnsino.cs" />
     <Compile Include="DAO\DAOFalta.cs" />
     <Compile Include="DAO\DAOTipoUsuario.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="RN\RNAula.cs" />
     <Compile Include="RN\RNAvaliacao.cs" />
     <Compile Include="RN\RNDisciplina.cs" />
+    <Compile Include="RN\RNDisciplinaTurma.cs" />
     <Compile Include="RN\RNEnsino.cs" />
     <Compile Include="RN\RNFalta.cs" />
     <Compile Include="RN\RNTipousuario.cs" />

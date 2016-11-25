@@ -29,7 +29,57 @@ namespace WebService.localhost1 {
     [System.Web.Services.WebServiceBindingAttribute(Name="ServicoSoap", Namespace="http://tempuri.org/")]
     public partial class Servico : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
-        private System.Threading.SendOrPostCallback HelloWorldOperationCompleted;
+        private System.Threading.SendOrPostCallback InserirAlunoOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AlterarAlunoOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ExcluirAlunoOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ListarAlunoOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback InserirAulaOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AlterarAulaOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ExcluirAulaOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ListarAulaOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback InserirAvaliacaoOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AlterarAvaliacaoOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ExcluirAvaliacaoOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ListarAvaliacaoOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ListarDisciplinaOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ListarEnsinoOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback InserirFaltaOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AlterarFaltaOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ExcluirFaltaOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ListarFaltaOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback InserirTurmaOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AlterarTurmaOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ExcluirTurmaOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ListarTurmaOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback InserirUsuarioOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AlterarUsuarioOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ExcluirUsuarioOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ListarUsuarioOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -70,32 +120,816 @@ namespace WebService.localhost1 {
         }
         
         /// <remarks/>
-        public event HelloWorldCompletedEventHandler HelloWorldCompleted;
+        public event InserirAlunoCompletedEventHandler InserirAlunoCompleted;
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/HelloWorld", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string HelloWorld() {
-            object[] results = this.Invoke("HelloWorld", new object[0]);
-            return ((string)(results[0]));
+        public event AlterarAlunoCompletedEventHandler AlterarAlunoCompleted;
+        
+        /// <remarks/>
+        public event ExcluirAlunoCompletedEventHandler ExcluirAlunoCompleted;
+        
+        /// <remarks/>
+        public event ListarAlunoCompletedEventHandler ListarAlunoCompleted;
+        
+        /// <remarks/>
+        public event InserirAulaCompletedEventHandler InserirAulaCompleted;
+        
+        /// <remarks/>
+        public event AlterarAulaCompletedEventHandler AlterarAulaCompleted;
+        
+        /// <remarks/>
+        public event ExcluirAulaCompletedEventHandler ExcluirAulaCompleted;
+        
+        /// <remarks/>
+        public event ListarAulaCompletedEventHandler ListarAulaCompleted;
+        
+        /// <remarks/>
+        public event InserirAvaliacaoCompletedEventHandler InserirAvaliacaoCompleted;
+        
+        /// <remarks/>
+        public event AlterarAvaliacaoCompletedEventHandler AlterarAvaliacaoCompleted;
+        
+        /// <remarks/>
+        public event ExcluirAvaliacaoCompletedEventHandler ExcluirAvaliacaoCompleted;
+        
+        /// <remarks/>
+        public event ListarAvaliacaoCompletedEventHandler ListarAvaliacaoCompleted;
+        
+        /// <remarks/>
+        public event ListarDisciplinaCompletedEventHandler ListarDisciplinaCompleted;
+        
+        /// <remarks/>
+        public event ListarEnsinoCompletedEventHandler ListarEnsinoCompleted;
+        
+        /// <remarks/>
+        public event InserirFaltaCompletedEventHandler InserirFaltaCompleted;
+        
+        /// <remarks/>
+        public event AlterarFaltaCompletedEventHandler AlterarFaltaCompleted;
+        
+        /// <remarks/>
+        public event ExcluirFaltaCompletedEventHandler ExcluirFaltaCompleted;
+        
+        /// <remarks/>
+        public event ListarFaltaCompletedEventHandler ListarFaltaCompleted;
+        
+        /// <remarks/>
+        public event InserirTurmaCompletedEventHandler InserirTurmaCompleted;
+        
+        /// <remarks/>
+        public event AlterarTurmaCompletedEventHandler AlterarTurmaCompleted;
+        
+        /// <remarks/>
+        public event ExcluirTurmaCompletedEventHandler ExcluirTurmaCompleted;
+        
+        /// <remarks/>
+        public event ListarTurmaCompletedEventHandler ListarTurmaCompleted;
+        
+        /// <remarks/>
+        public event InserirUsuarioCompletedEventHandler InserirUsuarioCompleted;
+        
+        /// <remarks/>
+        public event AlterarUsuarioCompletedEventHandler AlterarUsuarioCompleted;
+        
+        /// <remarks/>
+        public event ExcluirUsuarioCompletedEventHandler ExcluirUsuarioCompleted;
+        
+        /// <remarks/>
+        public event ListarUsuarioCompletedEventHandler ListarUsuarioCompleted;
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/InserirAluno", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void InserirAluno(Aluno aluno) {
+            this.Invoke("InserirAluno", new object[] {
+                        aluno});
         }
         
         /// <remarks/>
-        public void HelloWorldAsync() {
-            this.HelloWorldAsync(null);
+        public void InserirAlunoAsync(Aluno aluno) {
+            this.InserirAlunoAsync(aluno, null);
         }
         
         /// <remarks/>
-        public void HelloWorldAsync(object userState) {
-            if ((this.HelloWorldOperationCompleted == null)) {
-                this.HelloWorldOperationCompleted = new System.Threading.SendOrPostCallback(this.OnHelloWorldOperationCompleted);
+        public void InserirAlunoAsync(Aluno aluno, object userState) {
+            if ((this.InserirAlunoOperationCompleted == null)) {
+                this.InserirAlunoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnInserirAlunoOperationCompleted);
             }
-            this.InvokeAsync("HelloWorld", new object[0], this.HelloWorldOperationCompleted, userState);
+            this.InvokeAsync("InserirAluno", new object[] {
+                        aluno}, this.InserirAlunoOperationCompleted, userState);
         }
         
-        private void OnHelloWorldOperationCompleted(object arg) {
-            if ((this.HelloWorldCompleted != null)) {
+        private void OnInserirAlunoOperationCompleted(object arg) {
+            if ((this.InserirAlunoCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.HelloWorldCompleted(this, new HelloWorldCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.InserirAlunoCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AlterarAluno", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void AlterarAluno(Aluno aluno) {
+            this.Invoke("AlterarAluno", new object[] {
+                        aluno});
+        }
+        
+        /// <remarks/>
+        public void AlterarAlunoAsync(Aluno aluno) {
+            this.AlterarAlunoAsync(aluno, null);
+        }
+        
+        /// <remarks/>
+        public void AlterarAlunoAsync(Aluno aluno, object userState) {
+            if ((this.AlterarAlunoOperationCompleted == null)) {
+                this.AlterarAlunoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAlterarAlunoOperationCompleted);
+            }
+            this.InvokeAsync("AlterarAluno", new object[] {
+                        aluno}, this.AlterarAlunoOperationCompleted, userState);
+        }
+        
+        private void OnAlterarAlunoOperationCompleted(object arg) {
+            if ((this.AlterarAlunoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AlterarAlunoCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ExcluirAluno", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void ExcluirAluno(Aluno aluno) {
+            this.Invoke("ExcluirAluno", new object[] {
+                        aluno});
+        }
+        
+        /// <remarks/>
+        public void ExcluirAlunoAsync(Aluno aluno) {
+            this.ExcluirAlunoAsync(aluno, null);
+        }
+        
+        /// <remarks/>
+        public void ExcluirAlunoAsync(Aluno aluno, object userState) {
+            if ((this.ExcluirAlunoOperationCompleted == null)) {
+                this.ExcluirAlunoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnExcluirAlunoOperationCompleted);
+            }
+            this.InvokeAsync("ExcluirAluno", new object[] {
+                        aluno}, this.ExcluirAlunoOperationCompleted, userState);
+        }
+        
+        private void OnExcluirAlunoOperationCompleted(object arg) {
+            if ((this.ExcluirAlunoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ExcluirAlunoCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ListarAluno", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Aluno[] ListarAluno(Aluno aluno) {
+            object[] results = this.Invoke("ListarAluno", new object[] {
+                        aluno});
+            return ((Aluno[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ListarAlunoAsync(Aluno aluno) {
+            this.ListarAlunoAsync(aluno, null);
+        }
+        
+        /// <remarks/>
+        public void ListarAlunoAsync(Aluno aluno, object userState) {
+            if ((this.ListarAlunoOperationCompleted == null)) {
+                this.ListarAlunoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnListarAlunoOperationCompleted);
+            }
+            this.InvokeAsync("ListarAluno", new object[] {
+                        aluno}, this.ListarAlunoOperationCompleted, userState);
+        }
+        
+        private void OnListarAlunoOperationCompleted(object arg) {
+            if ((this.ListarAlunoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ListarAlunoCompleted(this, new ListarAlunoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/InserirAula", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void InserirAula(Aula aula) {
+            this.Invoke("InserirAula", new object[] {
+                        aula});
+        }
+        
+        /// <remarks/>
+        public void InserirAulaAsync(Aula aula) {
+            this.InserirAulaAsync(aula, null);
+        }
+        
+        /// <remarks/>
+        public void InserirAulaAsync(Aula aula, object userState) {
+            if ((this.InserirAulaOperationCompleted == null)) {
+                this.InserirAulaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnInserirAulaOperationCompleted);
+            }
+            this.InvokeAsync("InserirAula", new object[] {
+                        aula}, this.InserirAulaOperationCompleted, userState);
+        }
+        
+        private void OnInserirAulaOperationCompleted(object arg) {
+            if ((this.InserirAulaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.InserirAulaCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AlterarAula", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void AlterarAula(Aula aula) {
+            this.Invoke("AlterarAula", new object[] {
+                        aula});
+        }
+        
+        /// <remarks/>
+        public void AlterarAulaAsync(Aula aula) {
+            this.AlterarAulaAsync(aula, null);
+        }
+        
+        /// <remarks/>
+        public void AlterarAulaAsync(Aula aula, object userState) {
+            if ((this.AlterarAulaOperationCompleted == null)) {
+                this.AlterarAulaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAlterarAulaOperationCompleted);
+            }
+            this.InvokeAsync("AlterarAula", new object[] {
+                        aula}, this.AlterarAulaOperationCompleted, userState);
+        }
+        
+        private void OnAlterarAulaOperationCompleted(object arg) {
+            if ((this.AlterarAulaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AlterarAulaCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ExcluirAula", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void ExcluirAula(Aula aula) {
+            this.Invoke("ExcluirAula", new object[] {
+                        aula});
+        }
+        
+        /// <remarks/>
+        public void ExcluirAulaAsync(Aula aula) {
+            this.ExcluirAulaAsync(aula, null);
+        }
+        
+        /// <remarks/>
+        public void ExcluirAulaAsync(Aula aula, object userState) {
+            if ((this.ExcluirAulaOperationCompleted == null)) {
+                this.ExcluirAulaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnExcluirAulaOperationCompleted);
+            }
+            this.InvokeAsync("ExcluirAula", new object[] {
+                        aula}, this.ExcluirAulaOperationCompleted, userState);
+        }
+        
+        private void OnExcluirAulaOperationCompleted(object arg) {
+            if ((this.ExcluirAulaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ExcluirAulaCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ListarAula", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Aula[] ListarAula(Aula aula) {
+            object[] results = this.Invoke("ListarAula", new object[] {
+                        aula});
+            return ((Aula[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ListarAulaAsync(Aula aula) {
+            this.ListarAulaAsync(aula, null);
+        }
+        
+        /// <remarks/>
+        public void ListarAulaAsync(Aula aula, object userState) {
+            if ((this.ListarAulaOperationCompleted == null)) {
+                this.ListarAulaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnListarAulaOperationCompleted);
+            }
+            this.InvokeAsync("ListarAula", new object[] {
+                        aula}, this.ListarAulaOperationCompleted, userState);
+        }
+        
+        private void OnListarAulaOperationCompleted(object arg) {
+            if ((this.ListarAulaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ListarAulaCompleted(this, new ListarAulaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/InserirAvaliacao", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void InserirAvaliacao(Avaliacao avaliacao) {
+            this.Invoke("InserirAvaliacao", new object[] {
+                        avaliacao});
+        }
+        
+        /// <remarks/>
+        public void InserirAvaliacaoAsync(Avaliacao avaliacao) {
+            this.InserirAvaliacaoAsync(avaliacao, null);
+        }
+        
+        /// <remarks/>
+        public void InserirAvaliacaoAsync(Avaliacao avaliacao, object userState) {
+            if ((this.InserirAvaliacaoOperationCompleted == null)) {
+                this.InserirAvaliacaoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnInserirAvaliacaoOperationCompleted);
+            }
+            this.InvokeAsync("InserirAvaliacao", new object[] {
+                        avaliacao}, this.InserirAvaliacaoOperationCompleted, userState);
+        }
+        
+        private void OnInserirAvaliacaoOperationCompleted(object arg) {
+            if ((this.InserirAvaliacaoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.InserirAvaliacaoCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AlterarAvaliacao", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void AlterarAvaliacao(Avaliacao avaliacao) {
+            this.Invoke("AlterarAvaliacao", new object[] {
+                        avaliacao});
+        }
+        
+        /// <remarks/>
+        public void AlterarAvaliacaoAsync(Avaliacao avaliacao) {
+            this.AlterarAvaliacaoAsync(avaliacao, null);
+        }
+        
+        /// <remarks/>
+        public void AlterarAvaliacaoAsync(Avaliacao avaliacao, object userState) {
+            if ((this.AlterarAvaliacaoOperationCompleted == null)) {
+                this.AlterarAvaliacaoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAlterarAvaliacaoOperationCompleted);
+            }
+            this.InvokeAsync("AlterarAvaliacao", new object[] {
+                        avaliacao}, this.AlterarAvaliacaoOperationCompleted, userState);
+        }
+        
+        private void OnAlterarAvaliacaoOperationCompleted(object arg) {
+            if ((this.AlterarAvaliacaoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AlterarAvaliacaoCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ExcluirAvaliacao", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void ExcluirAvaliacao(Avaliacao avaliacao) {
+            this.Invoke("ExcluirAvaliacao", new object[] {
+                        avaliacao});
+        }
+        
+        /// <remarks/>
+        public void ExcluirAvaliacaoAsync(Avaliacao avaliacao) {
+            this.ExcluirAvaliacaoAsync(avaliacao, null);
+        }
+        
+        /// <remarks/>
+        public void ExcluirAvaliacaoAsync(Avaliacao avaliacao, object userState) {
+            if ((this.ExcluirAvaliacaoOperationCompleted == null)) {
+                this.ExcluirAvaliacaoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnExcluirAvaliacaoOperationCompleted);
+            }
+            this.InvokeAsync("ExcluirAvaliacao", new object[] {
+                        avaliacao}, this.ExcluirAvaliacaoOperationCompleted, userState);
+        }
+        
+        private void OnExcluirAvaliacaoOperationCompleted(object arg) {
+            if ((this.ExcluirAvaliacaoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ExcluirAvaliacaoCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ListarAvaliacao", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Avaliacao[] ListarAvaliacao(Avaliacao avaliacao) {
+            object[] results = this.Invoke("ListarAvaliacao", new object[] {
+                        avaliacao});
+            return ((Avaliacao[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ListarAvaliacaoAsync(Avaliacao avaliacao) {
+            this.ListarAvaliacaoAsync(avaliacao, null);
+        }
+        
+        /// <remarks/>
+        public void ListarAvaliacaoAsync(Avaliacao avaliacao, object userState) {
+            if ((this.ListarAvaliacaoOperationCompleted == null)) {
+                this.ListarAvaliacaoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnListarAvaliacaoOperationCompleted);
+            }
+            this.InvokeAsync("ListarAvaliacao", new object[] {
+                        avaliacao}, this.ListarAvaliacaoOperationCompleted, userState);
+        }
+        
+        private void OnListarAvaliacaoOperationCompleted(object arg) {
+            if ((this.ListarAvaliacaoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ListarAvaliacaoCompleted(this, new ListarAvaliacaoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ListarDisciplina", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Disciplina[] ListarDisciplina(Disciplina disciplina) {
+            object[] results = this.Invoke("ListarDisciplina", new object[] {
+                        disciplina});
+            return ((Disciplina[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ListarDisciplinaAsync(Disciplina disciplina) {
+            this.ListarDisciplinaAsync(disciplina, null);
+        }
+        
+        /// <remarks/>
+        public void ListarDisciplinaAsync(Disciplina disciplina, object userState) {
+            if ((this.ListarDisciplinaOperationCompleted == null)) {
+                this.ListarDisciplinaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnListarDisciplinaOperationCompleted);
+            }
+            this.InvokeAsync("ListarDisciplina", new object[] {
+                        disciplina}, this.ListarDisciplinaOperationCompleted, userState);
+        }
+        
+        private void OnListarDisciplinaOperationCompleted(object arg) {
+            if ((this.ListarDisciplinaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ListarDisciplinaCompleted(this, new ListarDisciplinaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ListarEnsino", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Ensino[] ListarEnsino(Ensino ensino) {
+            object[] results = this.Invoke("ListarEnsino", new object[] {
+                        ensino});
+            return ((Ensino[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ListarEnsinoAsync(Ensino ensino) {
+            this.ListarEnsinoAsync(ensino, null);
+        }
+        
+        /// <remarks/>
+        public void ListarEnsinoAsync(Ensino ensino, object userState) {
+            if ((this.ListarEnsinoOperationCompleted == null)) {
+                this.ListarEnsinoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnListarEnsinoOperationCompleted);
+            }
+            this.InvokeAsync("ListarEnsino", new object[] {
+                        ensino}, this.ListarEnsinoOperationCompleted, userState);
+        }
+        
+        private void OnListarEnsinoOperationCompleted(object arg) {
+            if ((this.ListarEnsinoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ListarEnsinoCompleted(this, new ListarEnsinoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/InserirFalta", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void InserirFalta(Falta falta) {
+            this.Invoke("InserirFalta", new object[] {
+                        falta});
+        }
+        
+        /// <remarks/>
+        public void InserirFaltaAsync(Falta falta) {
+            this.InserirFaltaAsync(falta, null);
+        }
+        
+        /// <remarks/>
+        public void InserirFaltaAsync(Falta falta, object userState) {
+            if ((this.InserirFaltaOperationCompleted == null)) {
+                this.InserirFaltaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnInserirFaltaOperationCompleted);
+            }
+            this.InvokeAsync("InserirFalta", new object[] {
+                        falta}, this.InserirFaltaOperationCompleted, userState);
+        }
+        
+        private void OnInserirFaltaOperationCompleted(object arg) {
+            if ((this.InserirFaltaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.InserirFaltaCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AlterarFalta", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void AlterarFalta(Falta falta) {
+            this.Invoke("AlterarFalta", new object[] {
+                        falta});
+        }
+        
+        /// <remarks/>
+        public void AlterarFaltaAsync(Falta falta) {
+            this.AlterarFaltaAsync(falta, null);
+        }
+        
+        /// <remarks/>
+        public void AlterarFaltaAsync(Falta falta, object userState) {
+            if ((this.AlterarFaltaOperationCompleted == null)) {
+                this.AlterarFaltaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAlterarFaltaOperationCompleted);
+            }
+            this.InvokeAsync("AlterarFalta", new object[] {
+                        falta}, this.AlterarFaltaOperationCompleted, userState);
+        }
+        
+        private void OnAlterarFaltaOperationCompleted(object arg) {
+            if ((this.AlterarFaltaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AlterarFaltaCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ExcluirFalta", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void ExcluirFalta(Falta falta) {
+            this.Invoke("ExcluirFalta", new object[] {
+                        falta});
+        }
+        
+        /// <remarks/>
+        public void ExcluirFaltaAsync(Falta falta) {
+            this.ExcluirFaltaAsync(falta, null);
+        }
+        
+        /// <remarks/>
+        public void ExcluirFaltaAsync(Falta falta, object userState) {
+            if ((this.ExcluirFaltaOperationCompleted == null)) {
+                this.ExcluirFaltaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnExcluirFaltaOperationCompleted);
+            }
+            this.InvokeAsync("ExcluirFalta", new object[] {
+                        falta}, this.ExcluirFaltaOperationCompleted, userState);
+        }
+        
+        private void OnExcluirFaltaOperationCompleted(object arg) {
+            if ((this.ExcluirFaltaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ExcluirFaltaCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ListarFalta", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Falta[] ListarFalta(Falta falta) {
+            object[] results = this.Invoke("ListarFalta", new object[] {
+                        falta});
+            return ((Falta[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ListarFaltaAsync(Falta falta) {
+            this.ListarFaltaAsync(falta, null);
+        }
+        
+        /// <remarks/>
+        public void ListarFaltaAsync(Falta falta, object userState) {
+            if ((this.ListarFaltaOperationCompleted == null)) {
+                this.ListarFaltaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnListarFaltaOperationCompleted);
+            }
+            this.InvokeAsync("ListarFalta", new object[] {
+                        falta}, this.ListarFaltaOperationCompleted, userState);
+        }
+        
+        private void OnListarFaltaOperationCompleted(object arg) {
+            if ((this.ListarFaltaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ListarFaltaCompleted(this, new ListarFaltaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/InserirTurma", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void InserirTurma(Turma turma) {
+            this.Invoke("InserirTurma", new object[] {
+                        turma});
+        }
+        
+        /// <remarks/>
+        public void InserirTurmaAsync(Turma turma) {
+            this.InserirTurmaAsync(turma, null);
+        }
+        
+        /// <remarks/>
+        public void InserirTurmaAsync(Turma turma, object userState) {
+            if ((this.InserirTurmaOperationCompleted == null)) {
+                this.InserirTurmaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnInserirTurmaOperationCompleted);
+            }
+            this.InvokeAsync("InserirTurma", new object[] {
+                        turma}, this.InserirTurmaOperationCompleted, userState);
+        }
+        
+        private void OnInserirTurmaOperationCompleted(object arg) {
+            if ((this.InserirTurmaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.InserirTurmaCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AlterarTurma", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void AlterarTurma(Turma turma) {
+            this.Invoke("AlterarTurma", new object[] {
+                        turma});
+        }
+        
+        /// <remarks/>
+        public void AlterarTurmaAsync(Turma turma) {
+            this.AlterarTurmaAsync(turma, null);
+        }
+        
+        /// <remarks/>
+        public void AlterarTurmaAsync(Turma turma, object userState) {
+            if ((this.AlterarTurmaOperationCompleted == null)) {
+                this.AlterarTurmaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAlterarTurmaOperationCompleted);
+            }
+            this.InvokeAsync("AlterarTurma", new object[] {
+                        turma}, this.AlterarTurmaOperationCompleted, userState);
+        }
+        
+        private void OnAlterarTurmaOperationCompleted(object arg) {
+            if ((this.AlterarTurmaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AlterarTurmaCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ExcluirTurma", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void ExcluirTurma(Turma turma) {
+            this.Invoke("ExcluirTurma", new object[] {
+                        turma});
+        }
+        
+        /// <remarks/>
+        public void ExcluirTurmaAsync(Turma turma) {
+            this.ExcluirTurmaAsync(turma, null);
+        }
+        
+        /// <remarks/>
+        public void ExcluirTurmaAsync(Turma turma, object userState) {
+            if ((this.ExcluirTurmaOperationCompleted == null)) {
+                this.ExcluirTurmaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnExcluirTurmaOperationCompleted);
+            }
+            this.InvokeAsync("ExcluirTurma", new object[] {
+                        turma}, this.ExcluirTurmaOperationCompleted, userState);
+        }
+        
+        private void OnExcluirTurmaOperationCompleted(object arg) {
+            if ((this.ExcluirTurmaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ExcluirTurmaCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ListarTurma", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Turma[] ListarTurma(Turma turma) {
+            object[] results = this.Invoke("ListarTurma", new object[] {
+                        turma});
+            return ((Turma[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ListarTurmaAsync(Turma turma) {
+            this.ListarTurmaAsync(turma, null);
+        }
+        
+        /// <remarks/>
+        public void ListarTurmaAsync(Turma turma, object userState) {
+            if ((this.ListarTurmaOperationCompleted == null)) {
+                this.ListarTurmaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnListarTurmaOperationCompleted);
+            }
+            this.InvokeAsync("ListarTurma", new object[] {
+                        turma}, this.ListarTurmaOperationCompleted, userState);
+        }
+        
+        private void OnListarTurmaOperationCompleted(object arg) {
+            if ((this.ListarTurmaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ListarTurmaCompleted(this, new ListarTurmaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/InserirUsuario", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void InserirUsuario(Usuario usuario) {
+            this.Invoke("InserirUsuario", new object[] {
+                        usuario});
+        }
+        
+        /// <remarks/>
+        public void InserirUsuarioAsync(Usuario usuario) {
+            this.InserirUsuarioAsync(usuario, null);
+        }
+        
+        /// <remarks/>
+        public void InserirUsuarioAsync(Usuario usuario, object userState) {
+            if ((this.InserirUsuarioOperationCompleted == null)) {
+                this.InserirUsuarioOperationCompleted = new System.Threading.SendOrPostCallback(this.OnInserirUsuarioOperationCompleted);
+            }
+            this.InvokeAsync("InserirUsuario", new object[] {
+                        usuario}, this.InserirUsuarioOperationCompleted, userState);
+        }
+        
+        private void OnInserirUsuarioOperationCompleted(object arg) {
+            if ((this.InserirUsuarioCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.InserirUsuarioCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AlterarUsuario", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void AlterarUsuario(Usuario usuario) {
+            this.Invoke("AlterarUsuario", new object[] {
+                        usuario});
+        }
+        
+        /// <remarks/>
+        public void AlterarUsuarioAsync(Usuario usuario) {
+            this.AlterarUsuarioAsync(usuario, null);
+        }
+        
+        /// <remarks/>
+        public void AlterarUsuarioAsync(Usuario usuario, object userState) {
+            if ((this.AlterarUsuarioOperationCompleted == null)) {
+                this.AlterarUsuarioOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAlterarUsuarioOperationCompleted);
+            }
+            this.InvokeAsync("AlterarUsuario", new object[] {
+                        usuario}, this.AlterarUsuarioOperationCompleted, userState);
+        }
+        
+        private void OnAlterarUsuarioOperationCompleted(object arg) {
+            if ((this.AlterarUsuarioCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AlterarUsuarioCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ExcluirUsuario", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void ExcluirUsuario(Usuario usuario) {
+            this.Invoke("ExcluirUsuario", new object[] {
+                        usuario});
+        }
+        
+        /// <remarks/>
+        public void ExcluirUsuarioAsync(Usuario usuario) {
+            this.ExcluirUsuarioAsync(usuario, null);
+        }
+        
+        /// <remarks/>
+        public void ExcluirUsuarioAsync(Usuario usuario, object userState) {
+            if ((this.ExcluirUsuarioOperationCompleted == null)) {
+                this.ExcluirUsuarioOperationCompleted = new System.Threading.SendOrPostCallback(this.OnExcluirUsuarioOperationCompleted);
+            }
+            this.InvokeAsync("ExcluirUsuario", new object[] {
+                        usuario}, this.ExcluirUsuarioOperationCompleted, userState);
+        }
+        
+        private void OnExcluirUsuarioOperationCompleted(object arg) {
+            if ((this.ExcluirUsuarioCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ExcluirUsuarioCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ListarUsuario", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Usuario[] ListarUsuario(Usuario usuario) {
+            object[] results = this.Invoke("ListarUsuario", new object[] {
+                        usuario});
+            return ((Usuario[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ListarUsuarioAsync(Usuario usuario) {
+            this.ListarUsuarioAsync(usuario, null);
+        }
+        
+        /// <remarks/>
+        public void ListarUsuarioAsync(Usuario usuario, object userState) {
+            if ((this.ListarUsuarioOperationCompleted == null)) {
+                this.ListarUsuarioOperationCompleted = new System.Threading.SendOrPostCallback(this.OnListarUsuarioOperationCompleted);
+            }
+            this.InvokeAsync("ListarUsuario", new object[] {
+                        usuario}, this.ListarUsuarioOperationCompleted, userState);
+        }
+        
+        private void OnListarUsuarioOperationCompleted(object arg) {
+            if ((this.ListarUsuarioCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ListarUsuarioCompleted(this, new ListarUsuarioCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -119,27 +953,899 @@ namespace WebService.localhost1 {
     }
     
     /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Aluno {
+        
+        private string matriculaField;
+        
+        private string nomeField;
+        
+        private string dataNascField;
+        
+        private string sexoField;
+        
+        private string telefoneField;
+        
+        private Turma turmaField;
+        
+        /// <remarks/>
+        public string Matricula {
+            get {
+                return this.matriculaField;
+            }
+            set {
+                this.matriculaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Nome {
+            get {
+                return this.nomeField;
+            }
+            set {
+                this.nomeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DataNasc {
+            get {
+                return this.dataNascField;
+            }
+            set {
+                this.dataNascField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Sexo {
+            get {
+                return this.sexoField;
+            }
+            set {
+                this.sexoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Telefone {
+            get {
+                return this.telefoneField;
+            }
+            set {
+                this.telefoneField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Turma Turma {
+            get {
+                return this.turmaField;
+            }
+            set {
+                this.turmaField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Turma {
+        
+        private int codigoTurmaField;
+        
+        private string descricaoTurmaField;
+        
+        private string turnoField;
+        
+        private int anoField;
+        
+        private string dataInicioField;
+        
+        private Ensino ensinoField;
+        
+        private Disciplina_Turma[] disciplinasField;
+        
+        /// <remarks/>
+        public int CodigoTurma {
+            get {
+                return this.codigoTurmaField;
+            }
+            set {
+                this.codigoTurmaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DescricaoTurma {
+            get {
+                return this.descricaoTurmaField;
+            }
+            set {
+                this.descricaoTurmaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Turno {
+            get {
+                return this.turnoField;
+            }
+            set {
+                this.turnoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Ano {
+            get {
+                return this.anoField;
+            }
+            set {
+                this.anoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DataInicio {
+            get {
+                return this.dataInicioField;
+            }
+            set {
+                this.dataInicioField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Ensino Ensino {
+            get {
+                return this.ensinoField;
+            }
+            set {
+                this.ensinoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Disciplina_Turma[] Disciplinas {
+            get {
+                return this.disciplinasField;
+            }
+            set {
+                this.disciplinasField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Ensino {
+        
+        private int codigoEnsinoField;
+        
+        private string descricaoEnsinoField;
+        
+        /// <remarks/>
+        public int CodigoEnsino {
+            get {
+                return this.codigoEnsinoField;
+            }
+            set {
+                this.codigoEnsinoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DescricaoEnsino {
+            get {
+                return this.descricaoEnsinoField;
+            }
+            set {
+                this.descricaoEnsinoField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Falta {
+        
+        private string motivoField;
+        
+        private bool abonoField;
+        
+        private string dataField;
+        
+        private Aluno alunoField;
+        
+        private int codigoFaltaField;
+        
+        /// <remarks/>
+        public string Motivo {
+            get {
+                return this.motivoField;
+            }
+            set {
+                this.motivoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool Abono {
+            get {
+                return this.abonoField;
+            }
+            set {
+                this.abonoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Data {
+            get {
+                return this.dataField;
+            }
+            set {
+                this.dataField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Aluno Aluno {
+            get {
+                return this.alunoField;
+            }
+            set {
+                this.alunoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int CodigoFalta {
+            get {
+                return this.codigoFaltaField;
+            }
+            set {
+                this.codigoFaltaField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Avaliacao {
+        
+        private double notaField;
+        
+        private string descricaoField;
+        
+        private Disciplina_Turma disciplina_turmaField;
+        
+        private Aluno alunoField;
+        
+        private int codigoAvaliacaoField;
+        
+        /// <remarks/>
+        public double Nota {
+            get {
+                return this.notaField;
+            }
+            set {
+                this.notaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Descricao {
+            get {
+                return this.descricaoField;
+            }
+            set {
+                this.descricaoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Disciplina_Turma Disciplina_turma {
+            get {
+                return this.disciplina_turmaField;
+            }
+            set {
+                this.disciplina_turmaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Aluno Aluno {
+            get {
+                return this.alunoField;
+            }
+            set {
+                this.alunoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int CodigoAvaliacao {
+            get {
+                return this.codigoAvaliacaoField;
+            }
+            set {
+                this.codigoAvaliacaoField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Disciplina_Turma {
+        
+        private int codigoDisciplinaTurmaField;
+        
+        private Turma turmaField;
+        
+        private Disciplina disciplinaField;
+        
+        private Usuario usuarioField;
+        
+        /// <remarks/>
+        public int CodigoDisciplinaTurma {
+            get {
+                return this.codigoDisciplinaTurmaField;
+            }
+            set {
+                this.codigoDisciplinaTurmaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Turma Turma {
+            get {
+                return this.turmaField;
+            }
+            set {
+                this.turmaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Disciplina Disciplina {
+            get {
+                return this.disciplinaField;
+            }
+            set {
+                this.disciplinaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Usuario Usuario {
+            get {
+                return this.usuarioField;
+            }
+            set {
+                this.usuarioField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Disciplina {
+        
+        private int codigoDisciplinaField;
+        
+        private string nomeDisciplinaField;
+        
+        /// <remarks/>
+        public int CodigoDisciplina {
+            get {
+                return this.codigoDisciplinaField;
+            }
+            set {
+                this.codigoDisciplinaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string NomeDisciplina {
+            get {
+                return this.nomeDisciplinaField;
+            }
+            set {
+                this.nomeDisciplinaField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Usuario {
+        
+        private int codUsuarioField;
+        
+        private string loginUsuarioField;
+        
+        private string senhaField;
+        
+        private string telefoneField;
+        
+        private TipoUsuario tipoUsuarioField;
+        
+        private string nomeField;
+        
+        /// <remarks/>
+        public int CodUsuario {
+            get {
+                return this.codUsuarioField;
+            }
+            set {
+                this.codUsuarioField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string LoginUsuario {
+            get {
+                return this.loginUsuarioField;
+            }
+            set {
+                this.loginUsuarioField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Senha {
+            get {
+                return this.senhaField;
+            }
+            set {
+                this.senhaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Telefone {
+            get {
+                return this.telefoneField;
+            }
+            set {
+                this.telefoneField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public TipoUsuario TipoUsuario {
+            get {
+                return this.tipoUsuarioField;
+            }
+            set {
+                this.tipoUsuarioField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Nome {
+            get {
+                return this.nomeField;
+            }
+            set {
+                this.nomeField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class TipoUsuario {
+        
+        private int codTipoUsuarioField;
+        
+        private string descricaoTipoUsuarioField;
+        
+        /// <remarks/>
+        public int CodTipoUsuario {
+            get {
+                return this.codTipoUsuarioField;
+            }
+            set {
+                this.codTipoUsuarioField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DescricaoTipoUsuario {
+            get {
+                return this.descricaoTipoUsuarioField;
+            }
+            set {
+                this.descricaoTipoUsuarioField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Aula {
+        
+        private int codigoAulaField;
+        
+        private string dataField;
+        
+        private string assuntoField;
+        
+        private Disciplina disciplinaField;
+        
+        private Turma turmaField;
+        
+        /// <remarks/>
+        public int CodigoAula {
+            get {
+                return this.codigoAulaField;
+            }
+            set {
+                this.codigoAulaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Data {
+            get {
+                return this.dataField;
+            }
+            set {
+                this.dataField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Assunto {
+            get {
+                return this.assuntoField;
+            }
+            set {
+                this.assuntoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Disciplina Disciplina {
+            get {
+                return this.disciplinaField;
+            }
+            set {
+                this.disciplinaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Turma Turma {
+            get {
+                return this.turmaField;
+            }
+            set {
+                this.turmaField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
-    public delegate void HelloWorldCompletedEventHandler(object sender, HelloWorldCompletedEventArgs e);
+    public delegate void InserirAlunoCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void AlterarAlunoCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void ExcluirAlunoCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void ListarAlunoCompletedEventHandler(object sender, ListarAlunoCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class HelloWorldCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class ListarAlunoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal HelloWorldCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal ListarAlunoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
         
         /// <remarks/>
-        public string Result {
+        public Aluno[] Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
+                return ((Aluno[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void InserirAulaCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void AlterarAulaCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void ExcluirAulaCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void ListarAulaCompletedEventHandler(object sender, ListarAulaCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ListarAulaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ListarAulaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Aula[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Aula[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void InserirAvaliacaoCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void AlterarAvaliacaoCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void ExcluirAvaliacaoCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void ListarAvaliacaoCompletedEventHandler(object sender, ListarAvaliacaoCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ListarAvaliacaoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ListarAvaliacaoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Avaliacao[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Avaliacao[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void ListarDisciplinaCompletedEventHandler(object sender, ListarDisciplinaCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ListarDisciplinaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ListarDisciplinaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Disciplina[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Disciplina[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void ListarEnsinoCompletedEventHandler(object sender, ListarEnsinoCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ListarEnsinoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ListarEnsinoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Ensino[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Ensino[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void InserirFaltaCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void AlterarFaltaCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void ExcluirFaltaCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void ListarFaltaCompletedEventHandler(object sender, ListarFaltaCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ListarFaltaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ListarFaltaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Falta[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Falta[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void InserirTurmaCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void AlterarTurmaCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void ExcluirTurmaCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void ListarTurmaCompletedEventHandler(object sender, ListarTurmaCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ListarTurmaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ListarTurmaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Turma[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Turma[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void InserirUsuarioCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void AlterarUsuarioCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void ExcluirUsuarioCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void ListarUsuarioCompletedEventHandler(object sender, ListarUsuarioCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ListarUsuarioCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ListarUsuarioCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Usuario[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Usuario[])(this.results[0]));
             }
         }
     }
