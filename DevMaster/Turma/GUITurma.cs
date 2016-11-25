@@ -21,8 +21,6 @@ namespace GUI
 
         List<Turma> listaTurma;
         int filtroCodigo;
-        int filtroAno;
-        DateTime filtroDataInicio;
 
         #endregion
 
@@ -109,7 +107,7 @@ namespace GUI
                 Ensino ensinoFiltro = new Ensino();
                 DAOTurma daoTurma = new DAOTurma();
 
-                //                  CÓDIGO TURMA
+                //                  CÓDIGO TURMA FILTRO
                 ZeraTextBox(textBoxCodigo);
                 if (int.TryParse(textBoxCodigo.Text, out filtroCodigo)) //Ele valida o primeiro param e se for inteiro, joga o valor pra o segundo param, nesse caso filtroCodigo
                 {
@@ -122,40 +120,7 @@ namespace GUI
                     throw new FormatException("Digite apenas números válidos.");
                 }
 
-                //                  ANO
-                ZeraTextBox(textBoxAno);
-                if (int.TryParse(textBoxAno.Text, out filtroAno))
-                {
-                    TirarZeroTextBox(textBoxAno);
-                    turmaFiltro.Ano = filtroAno;
-                }
-                else
-                {
-                    LimpaTextBox(textBoxAno);
-                    throw new FormatException("Digite apenas números válidos.");
-                }
-
-                //                  TURNO
-                turmaFiltro.Turno = textBoxTurno.Text;
-
-                //                  DATA INÍCIO
-                
-                ZeraTextBox(textBoxDataInicio);
-                if (DateTime.TryParse(textBoxDataInicio.Text, out filtroDataInicio))
-                {
-                    TirarZeroTextBox(textBoxDataInicio);
-                    turmaFiltro.DataInicio = Convert.ToDateTime(textBoxDataInicio.Text);
-                }
-                else
-                {
-                    LimpaTextBox(textBoxDataInicio);
-                    throw new FormatException("Digite uma data válida.");
-                }
-                //                  ENSINO
-                ensinoFiltro.DescricaoEnsino = textBoxEnsino.Text;
-                turmaFiltro.Ensino = ensinoFiltro;
-
-                //                  DESCRIÇÃO TURMA
+                //                  DESCRIÇÃO TURMA FILTRO
                 //Alimentando os campos num Objeto pra mandar pra DAO Pesquisar
                 turmaFiltro.DescricaoTurma = textBoxDescricao.Text;
 
@@ -169,9 +134,8 @@ namespace GUI
                         linha.SubItems.Add(turma.DescricaoTurma);
                         linha.SubItems.Add(turma.Turno);
                         linha.SubItems.Add(Convert.ToString(turma.Ano));
-                        //linha.SubItems.Add(turma.DataInicio.ToShortDateString);
+                        linha.SubItems.Add(Convert.ToString(turma.DataInicio.ToShortDateString()));
                         linha.SubItems.Add(turma.Ensino.DescricaoEnsino);
-                        //MessageBox.Show(turma.DataInicio.ToShortDateString);
                     }
                     
                 }
@@ -201,7 +165,7 @@ namespace GUI
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-                //Consultar();
+                Consultar();
         }
 
         #endregion
