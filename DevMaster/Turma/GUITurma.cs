@@ -32,8 +32,8 @@ namespace GUI
             InitializeComponent();
             //listViewTurmas
             //Comentei por enquanto
-            //Consultar();
-            //Comentei por enquanto
+            Consultar();
+
             listViewTurma.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             listViewTurma.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }

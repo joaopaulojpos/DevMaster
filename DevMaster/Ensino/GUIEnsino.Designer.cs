@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.listViewEnsinos = new System.Windows.Forms.ListView();
             this.ColumnHeaderCodigo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ColumnHeaderSerie = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -37,25 +36,26 @@
             this.btnConsultar = new System.Windows.Forms.Button();
             this.btnRemover = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
-            this.textBoxFiltro = new System.Windows.Forms.TextBox();
+            this.textBoxEnsino = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.novoAlunoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.comboBoxCampos = new System.Windows.Forms.ComboBox();
+            this.textBoxCodigo = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.textBoxCodigo);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.comboBoxCampos);
             this.panel1.Controls.Add(this.listViewEnsinos);
             this.panel1.Controls.Add(this.btnVoltar);
             this.panel1.Controls.Add(this.btnConsultar);
             this.panel1.Controls.Add(this.btnRemover);
             this.panel1.Controls.Add(this.btnAlterar);
-            this.panel1.Controls.Add(this.textBoxFiltro);
+            this.panel1.Controls.Add(this.textBoxEnsino);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.menuStrip1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -64,15 +64,6 @@
             this.panel1.Size = new System.Drawing.Size(441, 420);
             this.panel1.TabIndex = 3;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 70);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 13);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Campo desejado:";
             // 
             // listViewEnsinos
             // 
@@ -140,21 +131,21 @@
             this.btnAlterar.UseVisualStyleBackColor = true;
             this.btnAlterar.Click += new System.EventHandler(this.btnAlterarClick);
             // 
-            // textBoxFiltro
+            // textBoxEnsino
             // 
-            this.textBoxFiltro.Location = new System.Drawing.Point(104, 94);
-            this.textBoxFiltro.Name = "textBoxFiltro";
-            this.textBoxFiltro.Size = new System.Drawing.Size(219, 20);
-            this.textBoxFiltro.TabIndex = 2;
+            this.textBoxEnsino.Location = new System.Drawing.Point(104, 94);
+            this.textBoxEnsino.Name = "textBoxEnsino";
+            this.textBoxEnsino.Size = new System.Drawing.Size(219, 20);
+            this.textBoxEnsino.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(42, 97);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 13);
+            this.label1.Size = new System.Drawing.Size(42, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Pesquisar:";
+            this.label1.Text = "Ensino:";
             // 
             // menuStrip1
             // 
@@ -173,14 +164,21 @@
             this.novoAlunoToolStripMenuItem.Text = "Nova Série";
             this.novoAlunoToolStripMenuItem.Click += new System.EventHandler(this.novoAlunoToolStripMenuItem_Click);
             // 
-            // comboBoxCampos
+            // textBoxCodigo
             // 
-            this.comboBoxCampos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxCampos.FormattingEnabled = true;
-            this.comboBoxCampos.Location = new System.Drawing.Point(104, 67);
-            this.comboBoxCampos.Name = "comboBoxCampos";
-            this.comboBoxCampos.Size = new System.Drawing.Size(219, 21);
-            this.comboBoxCampos.TabIndex = 9;
+            this.textBoxCodigo.Location = new System.Drawing.Point(104, 68);
+            this.textBoxCodigo.Name = "textBoxCodigo";
+            this.textBoxCodigo.Size = new System.Drawing.Size(219, 20);
+            this.textBoxCodigo.TabIndex = 10;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(42, 71);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(43, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Código:";
             // 
             // GUIEnsino
             // 
@@ -202,7 +200,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBoxFiltro;
+        private System.Windows.Forms.TextBox textBoxEnsino;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem novoAlunoToolStripMenuItem;
         private System.Windows.Forms.Label label1;
@@ -214,7 +212,7 @@
         private System.Windows.Forms.ListView listViewEnsinos;
         private System.Windows.Forms.ColumnHeader ColumnHeaderCodigo;
         private System.Windows.Forms.ColumnHeader ColumnHeaderSerie;
+        private System.Windows.Forms.TextBox textBoxCodigo;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBoxCampos;
     }
 }

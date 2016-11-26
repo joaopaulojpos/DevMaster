@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Biblioteca.Basicas;
 using Biblioteca.RN;
+using Biblioteca.DAO;
+using WebService;
 
 namespace GUI
 {
@@ -17,6 +19,7 @@ namespace GUI
         #region Atributos
 
         List<Ensino> listaEnsino;
+        int filtroCodigo;
 
         #endregion
 
@@ -28,7 +31,6 @@ namespace GUI
             InitializeComponent();
 
             //Já abre o form jogando a Consulta na List View
-            PopularComboBox();
             CarregarListView();
 
             //Faz com que as colunas da List View ocupem o espaço que precisar sem cortar
@@ -40,13 +42,28 @@ namespace GUI
 
         #region Métodos Auxiliares
 
-        #region Popular ComboBox
+        #region TextBoxCodigo
 
-        public void PopularComboBox()
+        //Métodos para ajudarem na validação de textBoxCodigo
+        public void TirarZeroTextBoxCodigo()
         {
-            comboBoxCampos.Items.Clear();
-            comboBoxCampos.Items.Add("Código");
-            comboBoxCampos.Items.Add("Descrição");
+            if (textBoxCodigo.Text == "0")
+            {
+                LimpaTextBoxCodigo();
+            }
+        }
+
+        public void LimpaTextBoxCodigo()
+        {
+            textBoxCodigo.Text = "";
+        }
+
+        public void ZeraTextBoxCod()
+        {
+            if (textBoxCodigo.Text == "")
+            {
+                textBoxCodigo.Text = "0";
+            }
         }
 
         #endregion
@@ -56,13 +73,27 @@ namespace GUI
         public void CarregarListView()
         {
             try
-            { /*
+            {
                 listViewEnsinos.Items.Clear();
 
-                string filtro = textBoxFiltro.Text;
-
                 Ensino ensinoFiltro = new Ensino();
+                RNEnsino rnEnsino = new RNEnsino(); //Trocar por servico
 
+                //                  CÓDIGO ENSINO
+                ZeraTextBoxCod();
+                if (int.TryParse(textBoxCodigo.Text, out filtroCodigo)) //Ele valida o primeiro param e se for inteiro, joga o valor pra o segundo param, nesse caso filtroCodigo
+                {
+                    TirarZeroTextBoxCodigo(); //Só pra não ficar o número zero 0 lá no textbox, perfumaria...
+                    ensinoFiltro.CodigoEnsino = filtroCodigo;
+                }
+                else
+                {
+                    LimpaTextBoxCodigo();
+                    throw new FormatException("Digite apenas números válidos.");
+                }
+
+                //Combo Box
+                /*
                 int indexComboBox = comboBoxCampos.SelectedIndex;
                 String textoComboBox = comboBoxCampos.Items[index].ToString();
 
@@ -73,18 +104,23 @@ namespace GUI
                 if (comboBoxCampos.SelectedItem.Equals("Descrição"))
                 {
                     ensinoFiltro.DescricaoEnsino = filtro;
-                }
-                
-                RNEnsino rnEnsino = new RNEnsino();
+                }*/
 
                 listaEnsino = rnEnsino.Listar(ensinoFiltro);
 
-                foreach (Ensino ensino in listaEnsino)
+                if (listaEnsino.Count > 0)
                 {
-                    //ListViewItem é tipo uma linha, e cada coluna é um subitem dessa linha/Item
-                    ListViewItem linha = listViewEnsinos.Items.Add(Convert.ToString(ensino.CodigoEnsino));
-                    linha.SubItems.Add(ensino.DescricaoEnsino);
-                }*/
+                    foreach (Ensino ensino in listaEnsino)
+                    {
+                        //ListViewItem é tipo uma linha, e cada coluna é um subitem dessa linha/Item
+                        ListViewItem linha = listViewEnsinos.Items.Add(Convert.ToString(ensino.CodigoEnsino));
+                        linha.SubItems.Add(ensino.DescricaoEnsino);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Sem resultados.");
+                }
             }
             catch (Exception ex)
             {

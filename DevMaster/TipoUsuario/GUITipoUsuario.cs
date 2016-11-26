@@ -32,6 +32,8 @@ namespace GUI
         {
             InitializeComponent();
             CarregarListView();
+            listViewTipoUsuarios.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            listViewTipoUsuarios.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
         #endregion
@@ -73,7 +75,7 @@ namespace GUI
 
         #endregion
 
-        #region Consultar
+        #region Carrega List View
 
         public void CarregarListView()
         {

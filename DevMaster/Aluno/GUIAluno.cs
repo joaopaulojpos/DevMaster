@@ -1,7 +1,4 @@
-﻿using Biblioteca.Basicas;
-using Biblioteca.DAO;
-using Biblioteca.RN;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WebService;
+using Biblioteca.Basicas;
+using Biblioteca.RN;
+//using Biblioteca.DAO;
 
 namespace GUI
 {
@@ -20,7 +20,7 @@ namespace GUI
 
         private RNAluno rn;
         List<Aluno> listaAluno;
-        //private Servico servico;
+        private Servico servico;
 
         #endregion
 
@@ -71,35 +71,6 @@ namespace GUI
 
         #region Carregar List View
 
-        #region OLD
-
-        public void carregarListAluno()
-        {
-            try
-            {
-                listViewAlunos.Items.Clear();
-                Aluno aluno = new Aluno();
-                aluno.Matricula = "";
-                aluno.Nome = "";
-                foreach (Aluno a in servico.ListarAluno(aluno))
-                {
-                    ListViewItem row = listViewAlunos.Items.Add(a.Matricula);
-                    row.SubItems.Add(a.Nome);
-                    row.SubItems.Add(a.Sexo);
-                    row.SubItems.Add(a.Telefone);
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        #endregion
-
-        #region Direto na DAO
-
         public void CarregarListView()
         {
             try
@@ -108,7 +79,8 @@ namespace GUI
                 listViewAluno.Items.Clear();
 
                 Aluno alunoFiltro = new Aluno();
-                DAOAluno daoAluno = new DAOAluno();
+                //DAOAluno daoAluno = new DAOAluno();
+
 
                 //                  MATRÍCULA ALUNO
                 alunoFiltro.Matricula = textBoxMatricula.Text;
@@ -117,7 +89,8 @@ namespace GUI
                 //                  DESCRIÇÃO TIPO DE USUÁRIO
                 alunoFiltro.Nome = textBoxNome.Text;
 
-                listaAluno = daoAluno.Listar(alunoFiltro);
+                //listaAluno = daoAluno.Listar(alunoFiltro);
+                listaAluno = servico.ListarAluno(alunoFiltro);
 
                 if (listaAluno.Count > 0)
                 {
@@ -141,8 +114,6 @@ namespace GUI
                 MessageBox.Show(ex.Message);
             }
         }
-
-        #endregion
 
         #endregion
 
