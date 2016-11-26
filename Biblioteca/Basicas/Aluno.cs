@@ -10,7 +10,7 @@ namespace Biblioteca.Basicas
     {
         private string matricula;
         private string nome;
-        private string dataNasc;
+        private DateTime dataNasc;
         private string sexo;
         private string telefone;
         private Turma turma;
@@ -41,7 +41,7 @@ namespace Biblioteca.Basicas
             }
         }
 
-        public string DataNasc
+        public DateTime DataNasc
         {
             get
             {

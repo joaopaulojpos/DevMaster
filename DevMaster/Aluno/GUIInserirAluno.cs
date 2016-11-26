@@ -15,7 +15,14 @@ namespace GUI
 {
     public partial class GUIInserirAluno : Form
     {
+        GUIAluno guiAluno;
+
         public GUIInserirAluno()
+        {
+            InitializeComponent();
+        }
+
+        public GUIInserirAluno(GUIAluno guiAluno)
         {
             InitializeComponent();
         }
@@ -30,7 +37,7 @@ namespace GUI
                 Turma t = new Turma();
                 a.Matricula = textBox1.Text;
                 a.Nome = textBox2.Text;
-                a.DataNasc = textBox3.Text;
+                a.DataNasc = Convert.ToDateTime(dateNascimento);
                 a.Sexo = "M";
                 a.Telefone = textBox4.Text;
                 t.CodigoTurma = 1;

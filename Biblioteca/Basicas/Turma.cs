@@ -14,7 +14,7 @@ namespace Biblioteca.Basicas
         private string descricaoTurma;
         private string turno;
         private int ano;
-        private string dataInicio;
+        private DateTime dataInicio;
         private Ensino ensino;
         private List<Disciplina_Turma> disciplinas;
 
@@ -70,7 +70,7 @@ namespace Biblioteca.Basicas
             }
         }
 
-        public string DataInicio
+        public DateTime DataInicio
         {
             get
             {

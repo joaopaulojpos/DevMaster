@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Biblioteca.Basicas;
 using Biblioteca.RN;
 using Biblioteca.DAO;
+using WebService;
 
 namespace GUI
 {
@@ -30,7 +31,9 @@ namespace GUI
         public GUITipoUsuario()
         {
             InitializeComponent();
-            Consultar();
+            CarregarListView();
+            listViewTipoUsuarios.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            listViewTipoUsuarios.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
         #endregion
@@ -39,7 +42,7 @@ namespace GUI
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            Consultar();
+            CarregarListView();
         }
 
         #endregion
@@ -72,9 +75,9 @@ namespace GUI
 
         #endregion
 
-        #region Consultar
+        #region Carrega List View
 
-        public void Consultar()
+        public void CarregarListView()
         {
             try
             {

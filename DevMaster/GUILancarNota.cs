@@ -67,7 +67,7 @@ namespace GUI
             {
                 Turma turma = new Turma();
                 turma.CodigoTurma = 0;
-                turma.DataInicio = "";
+                turma.DataInicio = DateTime.Now;
                 listaTurmas = servico.ListarTurma(turma);
                 foreach (Turma t in listaTurmas)
                 {

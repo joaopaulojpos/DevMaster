@@ -14,6 +14,7 @@ namespace Biblioteca.DAO
     public class DAOAluno : ConexaoBanco, InterfaceAluno
     {
         #region Implementação da Interface
+
         public void Alterar(Aluno aluno)
         {
 
@@ -113,7 +114,10 @@ namespace Biblioteca.DAO
             try
             {
                 this.AbrirConexao();
-                string sql = "SELECT matricula,nome_aluno,data_nasc,sexo,telefone,cod_turma FROM aluno where matricula = matricula ";
+                string sql = "SELECT A.matricula, A.nome_aluno, A.data_nasc, A.sexo, A.telefone, T.descricao_turma, T.cod_turma FROM Aluno A " +
+                             "INNER JOIN Turma T " +
+                             "ON A.cod_turma = T.cod_turma " +
+                             "WHERE matricula = matricula";
 
                 if (filtro.Matricula.Length > 0)
                 {
@@ -136,6 +140,7 @@ namespace Biblioteca.DAO
                     cmd.Parameters["@nome"].Value = filtro.Nome;
 
                 }
+
                 SqlDataReader DbReader = cmd.ExecuteReader();
                 while (DbReader.Read())
                 {
@@ -143,10 +148,11 @@ namespace Biblioteca.DAO
                     Turma t = new Turma();
                     aluno.Matricula = DbReader.GetString(DbReader.GetOrdinal("matricula"));
                     aluno.Nome = DbReader.GetString(DbReader.GetOrdinal("nome_aluno"));
-                    aluno.DataNasc = DbReader.GetDateTime(DbReader.GetOrdinal("data_nasc")).ToString();
+                    aluno.DataNasc = DbReader.GetDateTime(DbReader.GetOrdinal("data_nasc"));
                     aluno.Sexo = DbReader.GetString(DbReader.GetOrdinal("sexo"));
                     aluno.Telefone = DbReader.GetString(DbReader.GetOrdinal("telefone"));
                     t.CodigoTurma= DbReader.GetInt32(DbReader.GetOrdinal("cod_turma"));
+                    t.DescricaoTurma = DbReader.GetString(DbReader.GetOrdinal("descricao_turma"));
                     aluno.Turma = t;
 
                     retorno.Add(aluno);

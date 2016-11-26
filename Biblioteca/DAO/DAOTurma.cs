@@ -157,7 +157,7 @@ namespace Biblioteca.DAO
                     Ensino e = new Ensino();
                     t.CodigoTurma = DbReader.GetInt32(DbReader.GetOrdinal("cod_turma"));
                     t.DescricaoTurma = DbReader.GetString(DbReader.GetOrdinal("descricao_turma"));
-                    t.DataInicio = DbReader.GetDateTime(DbReader.GetOrdinal("data_inicio")).ToString();
+                    t.DataInicio = DbReader.GetDateTime(DbReader.GetOrdinal("data_inicio"));
                     t.Turno = DbReader.GetString(DbReader.GetOrdinal("turno"));
                     t.Ano= DbReader.GetInt32(DbReader.GetOrdinal("ano"));
                     e.DescricaoEnsino = DbReader.GetString(DbReader.GetOrdinal("descricao_ensino"));

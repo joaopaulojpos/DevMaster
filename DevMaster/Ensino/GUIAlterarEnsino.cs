@@ -26,6 +26,11 @@ namespace GUI
         #region Construtores
 
         //Construtor Padrão
+        private GUIAlterarEnsino()
+        {
+
+        }
+        //Construtror antigo
         public GUIAlterarEnsino(Ensino ensinoOld)
         {
             InitializeComponent();
@@ -82,7 +87,7 @@ namespace GUI
                 MessageBox.Show("Ensino alterada com sucesso!");
 
                 //Chamando o método Consultar da tela anterior
-                guiEnsino.Consultar();
+                guiEnsino.CarregarListView();
             }
             catch (Exception ex)
             {
