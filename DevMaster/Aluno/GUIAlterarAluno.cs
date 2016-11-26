@@ -47,7 +47,11 @@ namespace GUI
         {
             textBoxMatricula.Text = aluno.Matricula;
             textBoxNome.Text = aluno.Nome;
-            //dateNascimento.Text = aluno.DataNasc.tosh
+            dateNascimento.Text = aluno.DataNasc.ToShortDateString();
+            comboBoxSexo.Text = aluno.Sexo;
+            textBoxTelefone.Text = aluno.Telefone;
+            comboBoxTurma.Text = aluno.Turma.DescricaoTurma;
+
         }
 
         #endregion
@@ -55,8 +59,31 @@ namespace GUI
         #region Botão Concluir
 
         private void btnConcluir_Click(object sender, EventArgs e)
-        {
+        {/*
+            try
+            {
+                alunoAlterado.Matricula = textBoxMatricula.Text;
+                alunoAlterado.Nome = textBoxNome.Text;
+                alunoAlterado.DataNasc = Convert.ToDateTime(dateNascimento.Text);
 
+                alunoAlterado.Sexo = comboBoxSexo.Text;
+                alunoAlterado.Telefone = textBoxTelefone.Text;
+                Turma fdsa;
+                fdsa.CodigoTurma = Convert.ToInt32(comboBoxTurma.Text);
+                alunoAlterado.Turma = turma;
+
+                RNEnsino rnEnsino = new RNEnsino();
+                rnEnsino.Alterar(ensinoAlterado);
+                MessageBox.Show("Ensino alterada com sucesso!");
+
+                //Chamando o método Consultar da tela anterior
+                guiEnsino.CarregarListView();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: \n" + ex.Message);
+                throw;
+            }*/
         }
 
         #endregion

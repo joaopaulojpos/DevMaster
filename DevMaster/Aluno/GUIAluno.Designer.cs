@@ -32,10 +32,10 @@
             this.textBoxNome = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.listViewAluno = new System.Windows.Forms.ListView();
-            this.Matrícula = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Nome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Sexo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Telefone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderMatricula = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderNome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderSexo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderTelefone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnVoltar = new System.Windows.Forms.Button();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.btnRemover = new System.Windows.Forms.Button();
@@ -44,6 +44,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.novoAlunoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.columnHeaderTurma = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderDataNasc = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -63,7 +65,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(605, 462);
+            this.panel1.Size = new System.Drawing.Size(751, 458);
             this.panel1.TabIndex = 2;
             // 
             // textBoxNome
@@ -85,43 +87,45 @@
             // listViewAluno
             // 
             this.listViewAluno.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Matrícula,
-            this.Nome,
-            this.Sexo,
-            this.Telefone});
+            this.columnHeaderMatricula,
+            this.columnHeaderNome,
+            this.columnHeaderDataNasc,
+            this.columnHeaderSexo,
+            this.columnHeaderTelefone,
+            this.columnHeaderTurma});
             this.listViewAluno.FullRowSelect = true;
             this.listViewAluno.GridLines = true;
-            this.listViewAluno.Location = new System.Drawing.Point(15, 163);
+            this.listViewAluno.Location = new System.Drawing.Point(15, 159);
             this.listViewAluno.MultiSelect = false;
             this.listViewAluno.Name = "listViewAluno";
-            this.listViewAluno.Size = new System.Drawing.Size(466, 287);
+            this.listViewAluno.Size = new System.Drawing.Size(618, 287);
             this.listViewAluno.TabIndex = 8;
             this.listViewAluno.UseCompatibleStateImageBehavior = false;
             this.listViewAluno.View = System.Windows.Forms.View.Details;
             // 
-            // Matrícula
+            // columnHeaderMatricula
             // 
-            this.Matrícula.Text = "Matrícula";
-            this.Matrícula.Width = 100;
+            this.columnHeaderMatricula.Text = "Matrícula";
+            this.columnHeaderMatricula.Width = 62;
             // 
-            // Nome
+            // columnHeaderNome
             // 
-            this.Nome.Text = "Nome";
-            this.Nome.Width = 196;
+            this.columnHeaderNome.Text = "Nome";
+            this.columnHeaderNome.Width = 203;
             // 
-            // Sexo
+            // columnHeaderSexo
             // 
-            this.Sexo.Text = "Sexo";
-            this.Sexo.Width = 62;
+            this.columnHeaderSexo.Text = "Sexo";
+            this.columnHeaderSexo.Width = 44;
             // 
-            // Telefone
+            // columnHeaderTelefone
             // 
-            this.Telefone.Text = "Telefone";
-            this.Telefone.Width = 105;
+            this.columnHeaderTelefone.Text = "Telefone";
+            this.columnHeaderTelefone.Width = 105;
             // 
             // btnVoltar
             // 
-            this.btnVoltar.Location = new System.Drawing.Point(487, 410);
+            this.btnVoltar.Location = new System.Drawing.Point(639, 410);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(100, 40);
             this.btnVoltar.TabIndex = 6;
@@ -131,7 +135,7 @@
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(12, 117);
+            this.btnConsultar.Location = new System.Drawing.Point(12, 104);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(100, 40);
             this.btnConsultar.TabIndex = 5;
@@ -141,7 +145,7 @@
             // 
             // btnRemover
             // 
-            this.btnRemover.Location = new System.Drawing.Point(487, 209);
+            this.btnRemover.Location = new System.Drawing.Point(639, 210);
             this.btnRemover.Name = "btnRemover";
             this.btnRemover.Size = new System.Drawing.Size(100, 40);
             this.btnRemover.TabIndex = 4;
@@ -151,7 +155,7 @@
             // 
             // btnAlterar
             // 
-            this.btnAlterar.Location = new System.Drawing.Point(487, 163);
+            this.btnAlterar.Location = new System.Drawing.Point(639, 163);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(100, 40);
             this.btnAlterar.TabIndex = 3;
@@ -181,7 +185,7 @@
             this.novoAlunoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(605, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(751, 24);
             this.menuStrip1.TabIndex = 7;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -192,11 +196,21 @@
             this.novoAlunoToolStripMenuItem.Text = "Novo Aluno";
             this.novoAlunoToolStripMenuItem.Click += new System.EventHandler(this.novoAlunoToolStripMenuItem_Click);
             // 
+            // columnHeaderTurma
+            // 
+            this.columnHeaderTurma.Text = "Turma";
+            this.columnHeaderTurma.Width = 52;
+            // 
+            // columnHeaderDataNasc
+            // 
+            this.columnHeaderDataNasc.Text = "Data de Nascimento";
+            this.columnHeaderDataNasc.Width = 114;
+            // 
             // GUIAluno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(605, 462);
+            this.ClientSize = new System.Drawing.Size(751, 458);
             this.Controls.Add(this.panel1);
             this.Name = "GUIAluno";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -221,11 +235,13 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem novoAlunoToolStripMenuItem;
         private System.Windows.Forms.ListView listViewAluno;
-        private System.Windows.Forms.ColumnHeader Matrícula;
-        private System.Windows.Forms.ColumnHeader Nome;
-        private System.Windows.Forms.ColumnHeader Sexo;
-        private System.Windows.Forms.ColumnHeader Telefone;
+        private System.Windows.Forms.ColumnHeader columnHeaderMatricula;
+        private System.Windows.Forms.ColumnHeader columnHeaderNome;
+        private System.Windows.Forms.ColumnHeader columnHeaderSexo;
+        private System.Windows.Forms.ColumnHeader columnHeaderTelefone;
         private System.Windows.Forms.TextBox textBoxNome;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ColumnHeader columnHeaderTurma;
+        private System.Windows.Forms.ColumnHeader columnHeaderDataNasc;
     }
 }

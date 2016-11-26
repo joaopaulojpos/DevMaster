@@ -29,7 +29,7 @@ namespace GUI
         public GUIAluno()
         {
             InitializeComponent();
-            
+
             //rn = new RNAluno();
             //OLD servico = new Servico();
             CarregarListView();
@@ -125,8 +125,10 @@ namespace GUI
                     {
                         ListViewItem linha = listViewAluno.Items.Add(aluno.Matricula);
                         linha.SubItems.Add(aluno.Nome);
+                        linha.SubItems.Add(aluno.DataNasc.ToShortDateString());
                         linha.SubItems.Add(aluno.Sexo);
                         linha.SubItems.Add(aluno.Telefone);
+                        linha.SubItems.Add(aluno.Turma.DescricaoTurma);
                     }
                 }
                 else
