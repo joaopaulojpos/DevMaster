@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//using WebService.localhost1;
+using WebService;
 
 namespace GUI
 {
@@ -30,8 +30,8 @@ namespace GUI
         {
             InitializeComponent();
 
-            //rn = new RNAluno();
-            //OLD servico = new Servico();
+            rn = new RNAluno();
+            servico = new Servico();
             CarregarListView();
 
             //Faz com que as colunas da List View ocupem o espaço que precisar sem cortar
@@ -73,28 +73,28 @@ namespace GUI
 
         #region OLD
 
-        //public void carregarListAluno()
-        //{
-        //    try
-        //    {
-        //        listViewAlunos.Items.Clear();
-        //        Aluno aluno = new Aluno();
-        //        aluno.Matricula = "";
-        //        aluno.Nome = "";
-        //        foreach (Aluno a in servico.ListarAluno(aluno))
-        //        {
-        //            ListViewItem row = listViewAlunos.Items.Add(a.Matricula);
-        //            row.SubItems.Add(a.Nome);
-        //            row.SubItems.Add(a.Sexo);
-        //            row.SubItems.Add(a.Telefone);
-        //        }
+        public void carregarListAluno()
+        {
+            try
+            {
+                listViewAlunos.Items.Clear();
+                Aluno aluno = new Aluno();
+                aluno.Matricula = "";
+                aluno.Nome = "";
+                foreach (Aluno a in servico.ListarAluno(aluno))
+                {
+                    ListViewItem row = listViewAlunos.Items.Add(a.Matricula);
+                    row.SubItems.Add(a.Nome);
+                    row.SubItems.Add(a.Sexo);
+                    row.SubItems.Add(a.Telefone);
+                }
 
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
         #endregion
 
