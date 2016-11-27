@@ -219,24 +219,35 @@ namespace GUI
                 //Pega a Série selecionada, mesmo que só seja uma ele entende como uma coleção
                 ListView.SelectedListViewItemCollection colecaoSelecionada = listViewEnsinos.SelectedItems;
 
-                Ensino removerEnsino = new Ensino();
-
-                //Percorrendo a coleção(a série selecionada)
-                foreach (ListViewItem selecionado in colecaoSelecionada)
+                if (colecaoSelecionada.Count > 0)
                 {
-                    removerEnsino.CodigoEnsino = Convert.ToInt32(selecionado.SubItems[0].Text);
-                    if (MessageBox.Show("Tem certeza?", "Confirmar remoção do Ensino.", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                    {
-                        RNEnsino rnEnsino = new RNEnsino();
-                        rnEnsino.Excluir(removerEnsino);
+                    Ensino removerEnsino = new Ensino();
 
-                        listViewEnsinos.Items.Remove(selecionado);
-                    }
-                    else
+                    //Percorrendo a coleção(a série selecionada)
+                    foreach (ListViewItem selecionado in colecaoSelecionada)
                     {
-                        MessageBox.Show("Cancelado.", "Remoção de Ensino");
+                        removerEnsino.CodigoEnsino = Convert.ToInt32(selecionado.SubItems[0].Text);
+                        if (MessageBox.Show("Tem certeza?", "Confirmar remoção do Ensino.", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        {
+                            RNEnsino rnEnsino = new RNEnsino();
+                            rnEnsino.Excluir(removerEnsino);
+
+                            listViewEnsinos.Items.Remove(selecionado);
+                            MessageBox.Show("Ensino removido com sucesso!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Cancelado.", "Remoção de Ensino");
+                        }
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Selecione o Ensino que deseja Remover.");
+                }
+
+
+
             }
             catch (Exception ex)
             {
