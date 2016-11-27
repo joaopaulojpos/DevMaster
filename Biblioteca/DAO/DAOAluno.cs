@@ -121,11 +121,11 @@ namespace Biblioteca.DAO
 
                 if (filtro.Matricula.Length > 0)
                 {
-                    sql += " and matricula = @matricula";
+                    sql += " and matricula like '%" + filtro.Matricula.Trim() + "%'";
                 }
                 if (filtro.Nome != null && filtro.Nome.Trim().Equals("") == false)
                 {
-                    sql += " and nome_aluno like '%@nome%'";
+                    sql += " and nome_aluno like '%" + filtro.Nome.Trim() + "%'";
                 }
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
 

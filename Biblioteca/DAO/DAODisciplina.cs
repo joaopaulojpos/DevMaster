@@ -86,7 +86,7 @@ namespace Biblioteca.DAO
             try
             {
                 this.AbrirConexao();
-                string sql = "SELECT cod_disciplina,nome_disciplina FROM disciplina where cod_disciplina = cod_disciplina";
+                string sql = "SELECT cod_disciplina, nome_disciplina FROM disciplina where cod_disciplina = cod_disciplina";
 
                 if (filtro.CodigoDisciplina > 0)
                 {
