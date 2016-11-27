@@ -125,7 +125,7 @@ namespace Biblioteca.DAO
                 }
                 if (filtro.Nome != null && filtro.Nome.Trim().Equals("") == false)
                 {
-                    sql += " and nome_aluno like '%" + filtro.Nome.Trim() + "%'";
+                    sql += " and nome_aluno like '%@nome%'";
                 }
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
 
@@ -163,7 +163,7 @@ namespace Biblioteca.DAO
             }
             catch (SqlException ex)
             {
-                throw new Exception("Contate o suporte.\nErro: " + ex.Message);
+                throw new Exception(ex.Message);
             }
             return retorno;
         }

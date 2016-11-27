@@ -122,7 +122,6 @@ namespace Biblioteca.DAO
                 this.AbrirConexao();
                 string sql = "SELECT cod_ensino,descricao_ensino FROM ensino where cod_ensino = cod_ensino";
                 
-                //Se o usuário
                 if (filtro.CodigoEnsino > 0)
                 {
                     sql += " and cod_ensino = @codigoEnsino";

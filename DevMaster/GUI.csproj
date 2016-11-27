@@ -157,22 +157,22 @@
     <Compile Include="Turma\GUITurma.Designer.cs">
       <DependentUpon>GUITurma.cs</DependentUpon>
     </Compile>
-    <Compile Include="Usuario\GUIAlterarUsuario.cs">
+    <Compile Include="User\GUIAlterarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Usuario\GUIAlterarUsuario.Designer.cs">
+    <Compile Include="User\GUIAlterarUsuario.Designer.cs">
       <DependentUpon>GUIAlterarUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Usuario\GUIInserirUsuario.cs">
+    <Compile Include="User\GUIInserirUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Usuario\GUIInserirUsuario.Designer.cs">
+    <Compile Include="User\GUIInserirUsuario.Designer.cs">
       <DependentUpon>GUIInserirUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Usuario\GUIUsuario.cs">
+    <Compile Include="User\GUIUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Usuario\GUIUsuario.Designer.cs">
+    <Compile Include="User\GUIUsuario.Designer.cs">
       <DependentUpon>GUIUsuario.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Aluno\GUIAlterarAluno.resx">
@@ -239,13 +239,13 @@
     <EmbeddedResource Include="Turma\GUITurma.resx">
       <DependentUpon>GUITurma.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Usuario\GUIAlterarUsuario.resx">
+    <EmbeddedResource Include="User\GUIAlterarUsuario.resx">
       <DependentUpon>GUIAlterarUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Usuario\GUIInserirUsuario.resx">
+    <EmbeddedResource Include="User\GUIInserirUsuario.resx">
       <DependentUpon>GUIInserirUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Usuario\GUIUsuario.resx">
+    <EmbeddedResource Include="User\GUIUsuario.resx">
       <DependentUpon>GUIUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">

@@ -1,4 +1,4 @@
-﻿namespace GUI.Usuario
+﻿namespace GUI.User
 {
     partial class GUIAlterarUsuario
     {

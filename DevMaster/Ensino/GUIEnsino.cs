@@ -92,6 +92,8 @@ namespace GUI
                     throw new FormatException("Digite apenas números válidos.");
                 }
 
+                ensinoFiltro.DescricaoEnsino = textBoxEnsino.Text;
+
                 //Combo Box
                 /*
                 int indexComboBox = comboBoxCampos.SelectedIndex;

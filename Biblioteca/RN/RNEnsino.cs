@@ -43,12 +43,19 @@ namespace Biblioteca.RN
 
         public List<Ensino> Listar(Ensino ensino)
         {
+            ensino.DescricaoEnsino = Acentuacao(ensino);
             return Listar2(ensino);
         }
 
         #endregion
 
         #region Métodos auxiliares 
+
+        private string Acentuacao(Ensino ensino)
+        {
+                string retorno = ensino.DescricaoEnsino.Replace("e","é");
+                return retorno;
+        }
 
         private void Gravar(Ensino ensino)
         {

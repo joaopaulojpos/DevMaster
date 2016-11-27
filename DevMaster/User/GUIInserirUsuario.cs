@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GUI.Usuario
+namespace GUI.User
 {
     public partial class GUIInserirUsuario : Form
     {

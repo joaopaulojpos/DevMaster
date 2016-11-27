@@ -48,42 +48,47 @@ namespace Biblioteca.RN
 
 
         #region Métodos auxiliares 
-      
+
         private void gravar(Aluno aluno)
         {
-            try {
+            try
+            {
                 daoAluno.Inserir(aluno);
             }
             catch (Exception ex)
             {
-                throw new Exception("Falha ao inserir Aluno.\nErro: "+ex.Message);
+                throw new Exception("Falha ao inserir Aluno.\nErro: " + ex.Message);
             }
         }
 
         private void validar(Aluno aluno)
         {
-            
+
             if (aluno == null)
             {
-                throw new Exception("Impossível efetuar registro.");
+                throw new Exception("Aluno nulo.");
             }
-            if (aluno.Matricula==null || aluno.Matricula.Trim().Length < 0)
+            if (aluno.Matricula == null || aluno.Matricula.Trim().Length < 0)
             {
-                throw new Exception("Campo matrícula inválida");
+                throw new Exception("Preencha o campo Matrícula.");
             }
-            if (aluno.Nome.Trim().Length<4|| aluno.Nome.Trim().Length > 100)
+            if (aluno.Nome.Trim().Length < 4 || aluno.Nome.Trim().Length > 100)
             {
                 throw new Exception("Nome do aluno inválido. Minimo:4 , Máximo:100");
             }
             if (!aluno.Sexo.Equals("M") && !aluno.Sexo.Equals("F"))
             {
-                throw new Exception("Campo sexo inválido.");
+                throw new Exception("Campo Sexo inválido.");
             }
+
             String regex = @"^9.\\d{4}-\\d{4}$";
             Regex er = new Regex(regex);
             //if (aluno.Telefone != null)
-                if (!er.IsMatch(aluno.Telefone))
-                    throw new Exception("Telefone inválido.");
+            if (!er.IsMatch(aluno.Telefone))
+            {
+                throw new Exception("Telefone inválido.");
+            }
+
         }
 
 
@@ -93,12 +98,12 @@ namespace Biblioteca.RN
             {
                 if (daoAluno.VerificaDuplicidade(aluno))
                 {
-                    throw new Exception("Aluno já existe no sistema.");
+                    throw new Exception("Este Aluno já existe no sistema.");
                 }
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro: " + ex.Message);
+                throw new Exception(ex.Message);
             }
         }
 
@@ -143,7 +148,8 @@ namespace Biblioteca.RN
 
         private List<Aluno> lista(Aluno aluno)
         {
-            try {
+            try
+            {
                 return daoAluno.Listar(aluno);
             }
             catch (Exception ex)

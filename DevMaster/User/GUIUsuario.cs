@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 using Biblioteca.Basicas;
 using Biblioteca.RN;
 using Biblioteca.DAO;
@@ -15,33 +14,23 @@ using WebService;
 
 namespace GUI
 {
-    public partial class GUITipoUsuario : Form
+    public partial class GUIUsuario : Form
     {
         #region Atributos
 
-        List<TipoUsuario> listaTipoUsuario;
+        List<Usuario> listaUsuario;
         int filtroCodigo;
 
         #endregion
 
-        #region Construtores
+        #region Construtor
 
-        //Padrão
-        public GUITipoUsuario()
+        public GUIUsuario()
         {
             InitializeComponent();
             CarregarListView();
-            listViewTipoUsuarios.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-            listViewTipoUsuarios.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
-        }
-
-        #endregion
-
-        #region Consultar
-
-        private void btnConsultar_Click(object sender, EventArgs e)
-        {
-            CarregarListView();
+            listViewUsuario.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            listViewUsuario.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
         #endregion
@@ -81,18 +70,17 @@ namespace GUI
             try
             {
                 //Limpando a List View
-                listViewTipoUsuarios.Items.Clear();
+                listViewUsuario.Items.Clear();
 
-                TipoUsuario tipoUsuarioFiltro = new TipoUsuario();
-                DAOTipoUsuario daoTipoUsuario = new DAOTipoUsuario();
+                Usuario usuarioFiltro = new Usuario();
+                DAOUsuario daoUsuario = new DAOUsuario();
 
                 //                  CÓDIGO TIPO DE USUÁRIO
-                //Pro TryParse um textbox vazio = "" mas ai iria dar erro, q não é o nosso caso, então quando o textbox for "" vai virar "0" e assim não vai dar erro.
                 ZeraTextBoxCod();
-                if (int.TryParse(textBoxCodigo.Text, out filtroCodigo)) //Ele valida o primeiro param e se for inteiro, joga o valor pra o segundo param, nesse caso filtroCodigo
+                if (int.TryParse(textBoxCodigo.Text, out filtroCodigo))
                 {
-                    TirarZeroTextBoxCodigo(); //Só pra não ficar o número zero 0 lá no textbox, perfumaria...
-                    tipoUsuarioFiltro.CodTipoUsuario = filtroCodigo;
+                    TirarZeroTextBoxCodigo(); 
+                    usuarioFiltro.CodUsuario = filtroCodigo;
                 }
                 else
                 {
@@ -102,17 +90,19 @@ namespace GUI
 
 
                 //                  DESCRIÇÃO TIPO DE USUÁRIO
-                //Alimentando os campos num Objeto pra mandar pra DAO Pesquisar
-                tipoUsuarioFiltro.DescricaoTipoUsuario = textBoxTipo.Text;
+                usuarioFiltro.Nome = textBoxNome.Text;
 
-                listaTipoUsuario = daoTipoUsuario.Listar(tipoUsuarioFiltro);
+                listaUsuario = daoUsuario.Listar(usuarioFiltro);
 
-                if (listaTipoUsuario.Count > 0)
+                if (listaUsuario.Count > 0)
                 {
-                    foreach (TipoUsuario tipoUsuario in listaTipoUsuario)
+                    foreach (Usuario usuario in listaUsuario)
                     {
-                        ListViewItem linha = listViewTipoUsuarios.Items.Add(Convert.ToString(tipoUsuario.CodTipoUsuario));
-                        linha.SubItems.Add(tipoUsuario.DescricaoTipoUsuario);
+                        ListViewItem linha = listViewUsuario.Items.Add(Convert.ToString(usuario.CodUsuario));
+                        linha.SubItems.Add(usuario.LoginUsuario);
+                        linha.SubItems.Add(usuario.Nome);
+                        linha.SubItems.Add(usuario.Telefone);
+                        linha.SubItems.Add(usuario.TipoUsuario.DescricaoTipoUsuario);
                     }
                 }
                 else
@@ -130,14 +120,47 @@ namespace GUI
 
         #endregion
 
-        #region Voltar
+        #region Botão Consultar
+
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            CarregarListView();
+        }
+
+        #endregion
+
+        #region Botão Alterar
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        #endregion
+
+        #region Botão Remover
+
+        private void btnRemover_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        #endregion
+
+        #region Botão Voltar
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+
         #endregion
 
+        #region Outros
+
+        #endregion
+
+        
     }
 }

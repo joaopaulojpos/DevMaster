@@ -1,4 +1,6 @@
-﻿    using System;
+﻿using Biblioteca.Interfaces;
+using Biblioteca.Util;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +9,7 @@ using System.Threading.Tasks;
 namespace Biblioteca.Basicas
 {
     public class Usuario
-    {
+    {//Usuario usuario
         private int codUsuario;
         private string loginUsuario;
         private string senha;

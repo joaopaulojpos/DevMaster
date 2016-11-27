@@ -127,15 +127,15 @@ namespace Biblioteca.DAO
 
                 this.AbrirConexao();
 
-                string sql = "SELECT t.cod_turma,t.descricao_turma,t.turno,t.ano,t.data_inicio,e.descricao_ensino FROM turma as t INNER JOIN ensino as e ON t.cod_ensino = e.cod_ensino";
+                string sql = "SELECT T.cod_turma, T.descricao_turma, T.turno, T.ano, T.data_inicio, E.descricao_ensino FROM Turma as T INNER JOIN Ensino as E ON T.cod_ensino = E.cod_ensino";
 
                 if (filtro.CodigoTurma > 0)
                 {
-                    sql += " and t.cod_turma = @codigoTurma";
+                    sql += " AND T.cod_turma = @codigoTurma";
                 }
                 if (filtro.DescricaoTurma != null && filtro.DescricaoTurma.Trim().Equals("") == false)
                 {
-                    sql += " and t.descricao_turma like '%" + filtro.DescricaoTurma.Trim() + "%'";
+                    sql += " AND T.descricao_turma like '%" + filtro.DescricaoTurma.Trim() + "%'";
                 }
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
 

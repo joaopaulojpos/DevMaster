@@ -99,10 +99,20 @@ namespace Biblioteca.DAO
             try
             {
                 this.AbrirConexao();
-                string sql = "SELECT cod_usuario,loginUsuario,senha,nome,cod_tipo_usuario FROM usuario where cod_usuario = cod_usuario";
+                string sql = "SELECT U.cod_usuario, U.usuario_login, U.senha, U.nome, U.telefone, TU.desc_tipo_usuario " +
+                             "FROM Usuario U " +
+                             "INNER JOIN Tipo_usuario TU " +
+                             "ON U.cod_tipo_usuario = TU.cod_tipo_usuario " +
+                             "WHERE cod_usuario = cod_usuario";
+
                 if (filtro.CodUsuario > 0)
                 {
-                    sql += " and codUsuario = @codUsuario";
+                    sql += " and U.cod_usuario = @codUsuario";
+                }
+
+                if (filtro.Nome.Length > 0)
+                {
+                    sql += " and U.nome like '% @nomeUsuario %'";
                 }
 
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
@@ -113,16 +123,25 @@ namespace Biblioteca.DAO
                     cmd.Parameters["@codUsuario"].Value = filtro.CodUsuario;
                 }
 
+                if (filtro.Nome.Length > 0)
+                {
+                    cmd.Parameters.Add("@nomeUsuario", SqlDbType.VarChar);
+                    cmd.Parameters["@nomeUsuario"].Value = filtro.Nome;
+                }
+
                 SqlDataReader DbReader = cmd.ExecuteReader();
                 while (DbReader.Read())
                 {
                     Usuario usuario = new Usuario();
+                    TipoUsuario tipoUsuario = new TipoUsuario();
+
                     usuario.CodUsuario = DbReader.GetInt32(DbReader.GetOrdinal("cod_usuario"));
                     usuario.LoginUsuario = DbReader.GetString(DbReader.GetOrdinal("usuario_login"));
                     usuario.Senha = DbReader.GetString(DbReader.GetOrdinal("senha"));
                     usuario.Nome = DbReader.GetString(DbReader.GetOrdinal("nome"));
-                    usuario.TipoUsuario.CodTipoUsuario = DbReader.GetInt32(DbReader.GetOrdinal("cod_tipo_usuario"));
-
+                    usuario.Telefone = DbReader.GetString(DbReader.GetOrdinal("telefone"));
+                    tipoUsuario.DescricaoTipoUsuario = DbReader.GetString(DbReader.GetOrdinal("desc_tipo_usuario"));
+                    usuario.TipoUsuario = tipoUsuario;
                     retorno.Add(usuario);
                 }
                 DbReader.Close();
@@ -131,7 +150,7 @@ namespace Biblioteca.DAO
             }
             catch (SqlException ex)
             {
-                throw new Exception("Contate o suporte.\nErro: " + ex.Message);
+                throw new Exception("Erro: \n" + ex.Message);
             }
             return retorno;
         }
