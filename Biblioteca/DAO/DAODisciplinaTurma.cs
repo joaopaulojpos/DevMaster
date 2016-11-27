@@ -44,14 +44,14 @@ namespace Biblioteca.DAO
             try
             {
                 this.AbrirConexao();
-                string sql = "select d.nome_disciplina,t.descricao_turma,t.ano,t.turno,t.ano from Disciplina_Turma as dt INNER JOIN Turma as t ON dt.cod_turma=t.cod_turma INNER JOIN Disciplina as d ON d.cod_disciplina=dt.cod_disciplina INNER JOIN Usuario as u ON u.cod_usuario=dt.cod_disciplina_turma WHERE cod_disciplina_turma = cod_disciplina_turma";
+                string sql = "select dt.cod_disciplina_turma,d.nome_disciplina,t.cod_turma,t.descricao_turma,t.ano,t.turno,t.ano from Disciplina_Turma as dt INNER JOIN Turma as t ON dt.cod_turma=t.cod_turma INNER JOIN Disciplina as d ON d.cod_disciplina=dt.cod_disciplina INNER JOIN Usuario as u ON u.cod_usuario=dt.cod_usuario WHERE cod_disciplina_turma = cod_disciplina_turma";
                 if (filtro.Disciplina.NomeDisciplina != null && filtro.Disciplina.NomeDisciplina.Trim().Equals("")==false)
                 {
-                    sql += " and d.nome_disciplina = @nomeDisciplina";
+                    sql += " and nome_disciplina = @nomeDisciplina";
                 }
-                if (filtro.Turma.DescricaoTurma != null && filtro.Turma.DescricaoTurma.Trim().Equals("") == false)
+                if (filtro.Turma.CodigoTurma > 0)
                 {
-                    sql += " and t.descricao_turma like '%" + filtro.Turma.DescricaoTurma.Trim() + "%'";
+                    sql += " and dt.cod_turma = @codigoTurma";
                 }
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
 
@@ -60,10 +60,10 @@ namespace Biblioteca.DAO
                     cmd.Parameters.Add("@nomeDisciplina", SqlDbType.VarChar);
                     cmd.Parameters["@nomeDisciplina"].Value = filtro.Disciplina.NomeDisciplina;
                 }
-                if (filtro.Turma.DescricaoTurma != null && filtro.Turma.DescricaoTurma.Trim().Equals("") == false)
+                if (filtro.Turma.CodigoTurma > 0)
                 {
-                    cmd.Parameters.Add("@descricaoTurma", SqlDbType.VarChar);
-                    cmd.Parameters["@descricaoTurma"].Value = filtro.Turma.DescricaoTurma;
+                    cmd.Parameters.Add("@codigoTurma", SqlDbType.VarChar);
+                    cmd.Parameters["@codigoTurma"].Value = filtro.Turma.CodigoTurma;
                 }
                 SqlDataReader DbReader = cmd.ExecuteReader();
                 while (DbReader.Read())
@@ -73,9 +73,11 @@ namespace Biblioteca.DAO
                     Turma t = new Turma();
                     d.NomeDisciplina = DbReader.GetString(DbReader.GetOrdinal("nome_disciplina"));
                     dt.Disciplina = d;
+                    t.CodigoTurma = DbReader.GetInt32(DbReader.GetOrdinal("cod_turma"));
                     t.DescricaoTurma = DbReader.GetString(DbReader.GetOrdinal("descricao_turma"));
                     t.Ano = DbReader.GetInt32(DbReader.GetOrdinal("ano"));
                     t.Turno = DbReader.GetString(DbReader.GetOrdinal("turno"));
+                    dt.CodigoDisciplinaTurma = DbReader.GetInt32(DbReader.GetOrdinal("cod_disciplina_turma"));
                     dt.Turma = t;
                     retorno.Add(dt);
                 }
@@ -85,7 +87,7 @@ namespace Biblioteca.DAO
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao conectar e selecionar: \n" + ex.Message);
+                throw new Exception("Erro ao conectar e selecionar: \n" +ex.Message);
             }
             return retorno;
         }

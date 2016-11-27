@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Biblioteca.DAO
 {
-    class DAOAvaliacao: ConexaoBanco,InterfaceAvaliacao
+    public class DAOAvaliacao: ConexaoBanco,InterfaceAvaliacao
     {
         #region Implementação da Interface
         public void Alterar(Avaliacao avaliacao)
@@ -73,7 +73,7 @@ namespace Biblioteca.DAO
             try
             {
                 this.AbrirConexao();
-                string sql = "insert into avaliacao(nota,descricao,matricula,cod_disciplina_turma) values(@nota,@descricao,@matricula,@cod_disciplina_turma)";
+                string sql = "insert into Avaliacao(nota,descricao_avaliacao,matricula,cod_disciplina_turma) values(@nota,@descricao,@matricula,@codigoDisciplinaTurma)";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
                 cmd.Parameters.Add("@nota", SqlDbType.Decimal);
@@ -82,11 +82,11 @@ namespace Biblioteca.DAO
                 cmd.Parameters.Add("@descricao", SqlDbType.VarChar);
                 cmd.Parameters["@descricao"].Value = avaliacao.Descricao;
 
-                cmd.Parameters.Add("@codigoDisciplinaTurma", SqlDbType.Int);
-                cmd.Parameters["@codigoDisciplinaTurma"].Value = avaliacao.Disciplina_turma.CodigoDisciplinaTurma;
-
                 cmd.Parameters.Add("@matricula", SqlDbType.VarChar);
                 cmd.Parameters["@matricula"].Value = avaliacao.Aluno.Matricula;
+
+                cmd.Parameters.Add("@codigoDisciplinaTurma", SqlDbType.Int);
+                cmd.Parameters["@codigoDisciplinaTurma"].Value = avaliacao.Disciplina_turma.CodigoDisciplinaTurma;
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
@@ -108,7 +108,7 @@ namespace Biblioteca.DAO
 
                 if (filtro.Aluno.Matricula.Length > 0)
                 {
-                    sql += " and al.matricula = @matricula";
+                    sql += " and matricula = @matricula";
                 }
                 if (filtro.Disciplina_turma.Disciplina.NomeDisciplina != null && filtro.Disciplina_turma.Disciplina.NomeDisciplina.Trim().Equals("") == false)
                 {
@@ -119,7 +119,7 @@ namespace Biblioteca.DAO
                 if (filtro.Aluno.Matricula.Length > 0)
                 {
                     cmd.Parameters.Add("@matricula", SqlDbType.VarChar);
-                    cmd.Parameters["@nomeDisciplina"].Value = filtro.Disciplina_turma.Disciplina.NomeDisciplina;
+                    cmd.Parameters["@matricula"].Value = filtro.Aluno.Matricula;
                 }
                 if (filtro.Disciplina_turma.Disciplina.NomeDisciplina != null && filtro.Disciplina_turma.Disciplina.NomeDisciplina.Trim().Equals("") == false)
                 {
@@ -134,13 +134,13 @@ namespace Biblioteca.DAO
                     Avaliacao avaliacao = new Avaliacao();
                     Disciplina_Turma dt = new Disciplina_Turma();
                     Disciplina disciplina = new Disciplina();
-                    avaliacao.CodigoAvaliacao = DbReader.GetInt32(DbReader.GetOrdinal("av.cod_avaliacao"));
-                    avaliacao.Nota = DbReader.GetDouble(DbReader.GetOrdinal("av.nota"));
-                    avaliacao.Descricao = DbReader.GetString(DbReader.GetOrdinal("av.descricao"));
-                    aluno.Matricula = DbReader.GetString(DbReader.GetOrdinal("av.matricula"));
-                    aluno.Nome = DbReader.GetString(DbReader.GetOrdinal("al.nome"));
+                    avaliacao.CodigoAvaliacao = DbReader.GetInt32(DbReader.GetOrdinal("cod_avaliacao"));
+                    avaliacao.Nota = DbReader.GetDouble(DbReader.GetOrdinal("nota"));
+                    avaliacao.Descricao = DbReader.GetString(DbReader.GetOrdinal("descricao"));
+                    aluno.Matricula = DbReader.GetString(DbReader.GetOrdinal("matricula"));
+                    aluno.Nome = DbReader.GetString(DbReader.GetOrdinal("nome"));
                     avaliacao.Aluno = aluno;
-                    disciplina.NomeDisciplina = DbReader.GetString(DbReader.GetOrdinal("d.nome_disciplina"));
+                    disciplina.NomeDisciplina = DbReader.GetString(DbReader.GetOrdinal("nome_disciplina"));
                     dt.Disciplina = disciplina;
                     avaliacao.Disciplina_turma = dt;
                     retorno.Add(avaliacao);

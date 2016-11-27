@@ -120,4 +120,14 @@
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="novoAlunoToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAC7SURBVEhL7YyxDQJBDASPhOxjGqADeqCIb4M2aIMi6IEOaOBjMhJgV3pLp9Pa8sMFBD/SSJbt
+        3bLSkw08z3LuyhZe4HuWM3ddGOAVWrnJHW8/sYM32JabvPHnK/bwDlVxLX/4u4gDnKAqVPKXmRRH+ICq
+        KJIZZkNG+ISqICOz7JCc4Auq4BLZwa4QFcyYRoUzpolCau/9ulhAhdTe+3WxgAqpvffrYgEVqm+taaJQ
+        fWtNE4XqW+vK31HKBwM8qFi0fS8iAAAAAElFTkSuQmCC
+</value>
+  </data>
 </root>

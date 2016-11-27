@@ -11,10 +11,7 @@ namespace Biblioteca.Basicas
         private int codigoAula;
         private string data;
         private string assunto;
-        private Disciplina disciplina;
-        private Turma turma;
-
-
+        private Disciplina_Turma disciplinaTurma;
 
         public int CodigoAula
         {
@@ -54,30 +51,17 @@ namespace Biblioteca.Basicas
                 assunto = value;
             }
         }
-
-        public Disciplina Disciplina
+        
+        public Disciplina_Turma DisciplinaTurma
         {
             get
             {
-                return disciplina;
+                return disciplinaTurma;
             }
 
             set
             {
-                disciplina = value;
-            }
-        }
-
-        public Turma Turma
-        {
-            get
-            {
-                return turma;
-            }
-
-            set
-            {
-                turma = value;
+                disciplinaTurma = value;
             }
         }
     }

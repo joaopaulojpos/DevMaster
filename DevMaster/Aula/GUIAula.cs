@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GUI.Aula;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +21,12 @@ namespace GUI
         private void button4_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void novoAlunoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GUIInserirAula gui = new GUIInserirAula();
+            gui.ShowDialog();
         }
     }
 }

@@ -81,14 +81,14 @@ namespace GUI
                 Aluno alunoFiltro = new Aluno();
                 //DAOAluno daoAluno = new DAOAluno();
 
-
                 //                  MATRÍCULA ALUNO
                 alunoFiltro.Matricula = textBoxMatricula.Text;
 
-
                 //                  DESCRIÇÃO TIPO DE USUÁRIO
                 alunoFiltro.Nome = textBoxNome.Text;
-
+                Turma t = new Turma();
+                t.CodigoTurma = 0;
+                alunoFiltro.Turma = t;
                 //listaAluno = daoAluno.Listar(alunoFiltro);
                 listaAluno = servico.ListarAluno(alunoFiltro);
 

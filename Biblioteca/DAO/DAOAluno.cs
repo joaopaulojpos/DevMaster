@@ -21,7 +21,7 @@ namespace Biblioteca.DAO
             try
             {
                 this.AbrirConexao();
-                string sql = "update aluno set matricula = @matricula ,nome_aluno=@nome,data_nasc=@dataNasc,sexo=@sexo,telefone=@telefone,cod_turma=@codigoTurma  where matricula = @matricula";
+                string sql = "update aluno set matricula = @matricula,nome_aluno=@nome,data_nasc=@dataNasc,sexo=@sexo,telefone=@telefone,cod_turma=@codigoTurma where matricula = @matricula";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
                 cmd.Parameters.Add("@matricula", SqlDbType.VarChar);
@@ -95,8 +95,8 @@ namespace Biblioteca.DAO
                 cmd.Parameters.Add("@telefone", SqlDbType.VarChar);
                 cmd.Parameters["@telefone"].Value = aluno.Telefone;
 
-                cmd.Parameters.Add("@codTurma", SqlDbType.Int);
-                cmd.Parameters["@codTurma"].Value = aluno.Turma.CodigoTurma;
+                cmd.Parameters.Add("@codigoTurma", SqlDbType.Int);
+                cmd.Parameters["@codigoTurma"].Value = aluno.Turma.CodigoTurma;
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
@@ -127,6 +127,10 @@ namespace Biblioteca.DAO
                 {
                     sql += " and nome_aluno like '%@nome%'";
                 }
+                if (filtro.Turma.CodigoTurma > 0)
+                {
+                    sql += " and t.cod_turma = @codigoTurma";
+                }
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
 
                 if (filtro.Matricula.Length > 0)
@@ -138,7 +142,11 @@ namespace Biblioteca.DAO
                 {
                     cmd.Parameters.Add("@nome", SqlDbType.VarChar);
                     cmd.Parameters["@nome"].Value = filtro.Nome;
-
+                }
+                if (filtro.Turma.CodigoTurma > 0)
+                {
+                    cmd.Parameters.Add("@codigoTurma", SqlDbType.Int);
+                    cmd.Parameters["@codigoTurma"].Value = filtro.Turma.CodigoTurma;
                 }
 
                 SqlDataReader DbReader = cmd.ExecuteReader();

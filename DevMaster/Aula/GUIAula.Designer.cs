@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUIAula));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.listViewAulas = new System.Windows.Forms.ListView();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -37,7 +39,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.novoAlunoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listViewAulas = new System.Windows.Forms.ListView();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -57,6 +58,14 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(832, 462);
             this.panel1.TabIndex = 5;
+            // 
+            // listViewAulas
+            // 
+            this.listViewAulas.Location = new System.Drawing.Point(15, 74);
+            this.listViewAulas.Name = "listViewAulas";
+            this.listViewAulas.Size = new System.Drawing.Size(706, 381);
+            this.listViewAulas.TabIndex = 8;
+            this.listViewAulas.UseCompatibleStateImageBehavior = false;
             // 
             // button4
             // 
@@ -123,17 +132,11 @@
             // 
             // novoAlunoToolStripMenuItem
             // 
+            this.novoAlunoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("novoAlunoToolStripMenuItem.Image")));
             this.novoAlunoToolStripMenuItem.Name = "novoAlunoToolStripMenuItem";
-            this.novoAlunoToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
+            this.novoAlunoToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.novoAlunoToolStripMenuItem.Text = "Nova Aula";
-            // 
-            // listViewAulas
-            // 
-            this.listViewAulas.Location = new System.Drawing.Point(15, 74);
-            this.listViewAulas.Name = "listViewAulas";
-            this.listViewAulas.Size = new System.Drawing.Size(706, 381);
-            this.listViewAulas.TabIndex = 8;
-            this.listViewAulas.UseCompatibleStateImageBehavior = false;
+            this.novoAlunoToolStripMenuItem.Click += new System.EventHandler(this.novoAlunoToolStripMenuItem_Click);
             // 
             // GUIAula
             // 
@@ -143,7 +146,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "GUIAula";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "GUIAula";
+            this.Text = "Cadastro de aula";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);

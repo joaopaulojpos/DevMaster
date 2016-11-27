@@ -172,6 +172,8 @@
             this.comboBoxTurma.Name = "comboBoxTurma";
             this.comboBoxTurma.Size = new System.Drawing.Size(142, 21);
             this.comboBoxTurma.TabIndex = 1;
+            this.comboBoxTurma.SelectedIndexChanged += new System.EventHandler(this.comboBoxTurma_SelectedIndexChanged);
+            this.comboBoxTurma.DropDownStyleChanged += new System.EventHandler(this.comboBoxTurma_DropDownStyleChanged);
             // 
             // GUILancarNota
             // 
