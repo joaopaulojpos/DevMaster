@@ -82,6 +82,7 @@ namespace GUI
 
                 Turma turmaFiltro = new Turma();
 
+                //                  CÓDIGO TURMA
                 ZeraTextBox(textBoxCodigo);
                 if (int.TryParse(textBoxCodigo.Text, out filtroCodigo))
                 {
@@ -94,22 +95,19 @@ namespace GUI
                     throw new FormatException("Digite apenas números válidos.");
                 }
 
-
-
-
-
-
+                //                  DESCRIÇÃO TURMA
                 if (textBoxDescricao.Text.Length > 0)
                 {
-                    turma.DescricaoTurma = textBoxDescricao.Text;
+                    turmaFiltro.DescricaoTurma = textBoxDescricao.Text;
                 }
                 else
                 {
-                    turma.DescricaoTurma = "";
+                    turmaFiltro.DescricaoTurma = "";
                 }
+
                 //Tá dando erro pq RNTurma ainda não tá pronto
                 Servico servico = new Servico();
-                listaTurma = servico.ListarTurma(turma);
+                listaTurma = servico.ListarTurma(turmaFiltro);
 
                 foreach (Turma t in listaTurma)
                 {
