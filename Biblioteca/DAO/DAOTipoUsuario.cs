@@ -28,7 +28,7 @@ namespace Biblioteca.DAO
                 }
                 if (filtro.DescricaoTipoUsuario != null && filtro.DescricaoTipoUsuario.Trim().Equals("") == false)
                 {
-                    sql += " and desc_tipo_usuario like '%@TipoUsuario%'";
+                    sql += " and desc_tipo_usuario like '%" + filtro.DescricaoTipoUsuario.Trim() + "%'";
                 }
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
 
