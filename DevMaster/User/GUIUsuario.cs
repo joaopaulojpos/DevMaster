@@ -11,6 +11,7 @@ using Biblioteca.Basicas;
 using Biblioteca.RN;
 using Biblioteca.DAO;
 using WebService;
+using GUI.User;
 
 namespace GUI
 {
@@ -193,12 +194,17 @@ namespace GUI
 
 
 
+
         #endregion
 
         #region Outros
 
         #endregion
 
-        
+        private void novoAlunoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GUIInserirUsuario gui = new GUIInserirUsuario();
+            gui.ShowDialog();
+        }
     }
 }

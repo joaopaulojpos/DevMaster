@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_Excluir = new System.Windows.Forms.Button();
             this.textBoxNome = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.listViewUsuario = new System.Windows.Forms.ListView();
@@ -44,7 +45,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.novoAlunoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btn_Excluir = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -66,6 +66,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(713, 443);
             this.panel1.TabIndex = 5;
+            // 
+            // btn_Excluir
+            // 
+            this.btn_Excluir.Location = new System.Drawing.Point(601, 204);
+            this.btn_Excluir.Name = "btn_Excluir";
+            this.btn_Excluir.Size = new System.Drawing.Size(100, 40);
+            this.btn_Excluir.TabIndex = 11;
+            this.btn_Excluir.Text = "Excluir";
+            this.btn_Excluir.UseVisualStyleBackColor = true;
+            this.btn_Excluir.Click += new System.EventHandler(this.btn_Excluir_Click);
             // 
             // textBoxNome
             // 
@@ -184,16 +194,7 @@
             this.novoAlunoToolStripMenuItem.Name = "novoAlunoToolStripMenuItem";
             this.novoAlunoToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
             this.novoAlunoToolStripMenuItem.Text = "Novo Usuário";
-            // 
-            // btn_Excluir
-            // 
-            this.btn_Excluir.Location = new System.Drawing.Point(601, 204);
-            this.btn_Excluir.Name = "btn_Excluir";
-            this.btn_Excluir.Size = new System.Drawing.Size(100, 40);
-            this.btn_Excluir.TabIndex = 11;
-            this.btn_Excluir.Text = "Excluir";
-            this.btn_Excluir.UseVisualStyleBackColor = true;
-            this.btn_Excluir.Click += new System.EventHandler(this.btn_Excluir_Click);
+            this.novoAlunoToolStripMenuItem.Click += new System.EventHandler(this.novoAlunoToolStripMenuItem_Click);
             // 
             // GUIUsuario
             // 

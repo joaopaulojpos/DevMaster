@@ -96,7 +96,7 @@ namespace Biblioteca.DAO
                 }
                 if (filtro.NomeDisciplina != null && filtro.NomeDisciplina.Trim().Equals("") == false)
                 {
-                    sql += " and nome_disciplina like '%@NomeDisciplina%'";
+                    sql += " and nome_disciplina like '%"+filtro.NomeDisciplina.Trim()+"%'";
                 }
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
 

@@ -126,7 +126,7 @@ namespace Biblioteca.DAO
 
                 if (filtro.Nome.Length > 0)
                 {
-                    sql += " and U.nome like '%@NomeUsuario%'";
+                    sql += " and U.nome like '%"+filtro.Nome.Trim()+"'%";
                 }
 
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
