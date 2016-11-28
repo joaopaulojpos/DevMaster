@@ -21,26 +21,26 @@ namespace Biblioteca.DAO
             try
             {
                 this.AbrirConexao();
-                string sql = "update aluno set matricula = @matricula,nome_aluno=@nome,data_nasc=@dataNasc,sexo=@sexo,telefone=@telefone,cod_turma=@codigoTurma where matricula = @matricula";
+                string sql = "update aluno set matricula = @Matricula,nome_aluno=@Nome,data_nasc=@DataNasc,sexo=@Sexo,telefone=@Telefone,cod_turma=@CodigoTurma where matricula = @Matricula";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
-                cmd.Parameters.Add("@matricula", SqlDbType.VarChar);
-                cmd.Parameters["@matricula"].Value = aluno.Matricula;
+                cmd.Parameters.Add("@Matricula", SqlDbType.VarChar);
+                cmd.Parameters["@Matricula"].Value = aluno.Matricula;
 
-                cmd.Parameters.Add("@nome", SqlDbType.VarChar);
-                cmd.Parameters["@nome"].Value = aluno.Nome;
+                cmd.Parameters.Add("@Nome", SqlDbType.VarChar);
+                cmd.Parameters["@Nome"].Value = aluno.Nome;
 
-                cmd.Parameters.Add("@dataNasc", SqlDbType.Date);
-                cmd.Parameters["@dataNasc"].Value = aluno.DataNasc;
+                cmd.Parameters.Add("@DataNasc", SqlDbType.DateTime);
+                cmd.Parameters["@DataNasc"].Value = aluno.DataNasc;
 
-                cmd.Parameters.Add("@sexo", SqlDbType.Char);
-                cmd.Parameters["@sexo"].Value = aluno.Sexo;
+                cmd.Parameters.Add("@Sexo", SqlDbType.Char);
+                cmd.Parameters["@Sexo"].Value = aluno.Sexo;
 
-                cmd.Parameters.Add("@telefone", SqlDbType.VarChar);
-                cmd.Parameters["@telefone"].Value = aluno.Telefone;
+                cmd.Parameters.Add("@Telefone", SqlDbType.VarChar);
+                cmd.Parameters["@Telefone"].Value = aluno.Telefone;
 
-                cmd.Parameters.Add("@codigoTurma", SqlDbType.Int);
-                cmd.Parameters["@codigoTurma"].Value = aluno.Turma.CodigoTurma;
+                cmd.Parameters.Add("@CodigoTurma", SqlDbType.Int);
+                cmd.Parameters["@CodigoTurma"].Value = aluno.Turma.CodigoTurma;
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
@@ -48,7 +48,7 @@ namespace Biblioteca.DAO
             }
             catch (SqlException ex)
             {
-                throw new Exception("Contate o suporte.\nErro: " + ex.Message);
+                throw new Exception("Não foi possível Alterar o Aluno.\nErro: " + ex.Message);
             }
         }
 
@@ -57,10 +57,12 @@ namespace Biblioteca.DAO
             try
             {
                 this.AbrirConexao();
-                string sql = "delete from aluno where matricula = @matricula";
+                string sql = "delete from aluno where matricula = @Matricula";
+
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
-                cmd.Parameters.Add("@matricula", SqlDbType.VarChar);
-                cmd.Parameters["@matricula"].Value = aluno.Matricula;
+
+                cmd.Parameters.Add("@Matricula", SqlDbType.VarChar);
+                cmd.Parameters["@Matricula"].Value = aluno.Matricula;
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
@@ -68,7 +70,7 @@ namespace Biblioteca.DAO
             }
             catch (SqlException ex)
             {
-                throw new Exception("Contate o suporte.\nErro: " + ex.Message);
+                throw new Exception("Não foi possível Excluir o Aluno.\nErro: " + ex.Message);
             }
         }
 
@@ -77,26 +79,26 @@ namespace Biblioteca.DAO
             try
             {
                 this.AbrirConexao();
-                string sql = "insert into aluno (matricula,nome_aluno,data_nasc,sexo,telefone,cod_turma) values(@matricula,@nome,@dataNasc,@sexo,@telefone,@codTurma)";
+                string sql = "insert into aluno (matricula,nome_aluno,data_nasc,sexo,telefone,cod_turma) values(@Matricula,@Nome,@DataNasc,@Sexo,@Telefone,@CodTurma)";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
-                cmd.Parameters.Add("@matricula", SqlDbType.VarChar);
-                cmd.Parameters["@matricula"].Value = aluno.Matricula;
+                cmd.Parameters.Add("@Matricula", SqlDbType.VarChar);
+                cmd.Parameters["@Matricula"].Value = aluno.Matricula;
 
-                cmd.Parameters.Add("@nome", SqlDbType.VarChar);
-                cmd.Parameters["@nome"].Value = aluno.Nome;
+                cmd.Parameters.Add("@Nome", SqlDbType.VarChar);
+                cmd.Parameters["@Nome"].Value = aluno.Nome;
 
-                cmd.Parameters.Add("@dataNasc", SqlDbType.Date);
-                cmd.Parameters["@dataNasc"].Value = aluno.DataNasc;
+                cmd.Parameters.Add("@DataNasc", SqlDbType.DateTime);
+                cmd.Parameters["@DataNasc"].Value = aluno.DataNasc;
 
-                cmd.Parameters.Add("@sexo", SqlDbType.Char);
-                cmd.Parameters["@sexo"].Value = aluno.Sexo;
+                cmd.Parameters.Add("@Sexo", SqlDbType.Char);
+                cmd.Parameters["@Sexo"].Value = aluno.Sexo;
 
-                cmd.Parameters.Add("@telefone", SqlDbType.VarChar);
-                cmd.Parameters["@telefone"].Value = aluno.Telefone;
+                cmd.Parameters.Add("@Telefone", SqlDbType.VarChar);
+                cmd.Parameters["@Telefone"].Value = aluno.Telefone;
 
-                cmd.Parameters.Add("@codigoTurma", SqlDbType.Int);
-                cmd.Parameters["@codigoTurma"].Value = aluno.Turma.CodigoTurma;
+                cmd.Parameters.Add("@CodigoTurma", SqlDbType.Int);
+                cmd.Parameters["@CodigoTurma"].Value = aluno.Turma.CodigoTurma;
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
@@ -104,7 +106,7 @@ namespace Biblioteca.DAO
             }
             catch (SqlException ex)
             {
-                throw new Exception("Contate o suporte.\nErro: " + ex.Message);
+                throw new Exception("Não foi possível Inserir o Aluno.\nErro: " + ex.Message);
             }
         }
 
@@ -114,53 +116,56 @@ namespace Biblioteca.DAO
             try
             {
                 this.AbrirConexao();
-                string sql = "SELECT A.matricula, A.nome_aluno, A.data_nasc, A.sexo, A.telefone, T.descricao_turma, T.cod_turma FROM Aluno A " +
+                string sql = "SELECT A.matricula, A.nome_aluno, A.data_nasc, A.sexo, A.telefone, T.descricao_turma, T.cod_turma " + 
+                             "FROM Aluno A " +
                              "INNER JOIN Turma T " +
                              "ON A.cod_turma = T.cod_turma " +
                              "WHERE matricula = matricula";
 
                 if (filtro.Matricula.Length > 0)
                 {
-                    sql += " and matricula like '%" + filtro.Matricula.Trim() + "%'";
+                    sql += " and matricula like '%@Matricula%'";
                 }
                 if (filtro.Nome != null && filtro.Nome.Trim().Equals("") == false)
                 {
-                    sql += " and nome_aluno like '%" + filtro.Nome.Trim() + "%'";
+                    sql += " and nome_aluno like '%@Nome%'";
                 }
                 if (filtro.Turma.CodigoTurma > 0)
                 {
-                    sql += " and t.cod_turma = @codigoTurma";
+                    sql += " and t.cod_turma = @CodigoTurma";
                 }
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
 
                 if (filtro.Matricula.Length > 0)
                 {
-                    cmd.Parameters.Add("@matricula", SqlDbType.VarChar);
-                    cmd.Parameters["@matricula"].Value = filtro.Matricula;
+                    cmd.Parameters.Add("@Matricula", SqlDbType.VarChar);
+                    cmd.Parameters["@Matricula"].Value = filtro.Matricula;
                 }
                 if (filtro.Nome != null && filtro.Nome.Trim().Equals("") == false)
                 {
-                    cmd.Parameters.Add("@nome", SqlDbType.VarChar);
-                    cmd.Parameters["@nome"].Value = filtro.Nome;
+                    cmd.Parameters.Add("@Nome", SqlDbType.VarChar);
+                    cmd.Parameters["@Nome"].Value = filtro.Nome;
                 }
                 if (filtro.Turma.CodigoTurma > 0)
                 {
-                    cmd.Parameters.Add("@codigoTurma", SqlDbType.Int);
-                    cmd.Parameters["@codigoTurma"].Value = filtro.Turma.CodigoTurma;
+                    cmd.Parameters.Add("@CodigoTurma", SqlDbType.Int);
+                    cmd.Parameters["@CodigoTurma"].Value = filtro.Turma.CodigoTurma;
                 }
 
                 SqlDataReader DbReader = cmd.ExecuteReader();
                 while (DbReader.Read())
                 {
                     Aluno aluno = new Aluno();
-                    Turma t = new Turma();
                     aluno.Matricula = DbReader.GetString(DbReader.GetOrdinal("matricula"));
                     aluno.Nome = DbReader.GetString(DbReader.GetOrdinal("nome_aluno"));
                     aluno.DataNasc = DbReader.GetDateTime(DbReader.GetOrdinal("data_nasc"));
                     aluno.Sexo = DbReader.GetString(DbReader.GetOrdinal("sexo"));
                     aluno.Telefone = DbReader.GetString(DbReader.GetOrdinal("telefone"));
+
+                    Turma t = new Turma();
                     t.CodigoTurma= DbReader.GetInt32(DbReader.GetOrdinal("cod_turma"));
                     t.DescricaoTurma = DbReader.GetString(DbReader.GetOrdinal("descricao_turma"));
+
                     aluno.Turma = t;
 
                     retorno.Add(aluno);
@@ -171,7 +176,7 @@ namespace Biblioteca.DAO
             }
             catch (SqlException ex)
             {
-                throw new Exception(ex.Message);
+                throw new Exception("Não foi possível Listar os Alunos.\nErro: " + ex.Message);
             }
             return retorno;
         }
@@ -182,10 +187,10 @@ namespace Biblioteca.DAO
             try
             {
                 this.AbrirConexao();
-                string sql = "SELECT matricula FROM aluno where matricula = @matricula";
+                string sql = "SELECT matricula FROM aluno where matricula = @Matricula";
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
-                cmd.Parameters.Add("@matricula", SqlDbType.Int);
-                cmd.Parameters["@matricula"].Value = aluno.Matricula;
+                cmd.Parameters.Add("@Matricula", SqlDbType.Int);
+                cmd.Parameters["@Matricula"].Value = aluno.Matricula;
 
                 SqlDataReader DbReader = cmd.ExecuteReader();
                 while (DbReader.Read())
@@ -199,10 +204,11 @@ namespace Biblioteca.DAO
             }
             catch (SqlException ex)
             {
-                throw new Exception("Contate o suporte.\nErro: " + ex.Message);
+                throw new Exception("Não foi possível Verificar a Duplicidade do Aluno.\nErro: " + ex.Message);
             }
             return retorno;
         }
+
         #endregion
     }
 }

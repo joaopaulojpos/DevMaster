@@ -25,11 +25,12 @@ namespace GUI
 
         #region Construtores
 
-        //Construtor Padrão
+        //Construtor Padrão, nunca será usado
         private GUIAlterarEnsino()
         {
-
+            InitializeComponent();
         }
+
         //Construtror antigo
         public GUIAlterarEnsino(Ensino ensinoOld)
         {
@@ -37,7 +38,7 @@ namespace GUI
 
             ensinoAlterado = ensinoOld;
 
-            AlimentarCampos(ensinoOld);
+            AlimentarCampos(ensinoAlterado);
 
         }
 
@@ -48,7 +49,7 @@ namespace GUI
 
             ensinoAlterado = ensinoOld;
 
-            AlimentarCampos(ensinoOld);
+            AlimentarCampos(ensinoAlterado);
 
             //De fato recebendo a tela anterior
             this.guiEnsino = guiEnsino;

@@ -41,14 +41,14 @@ namespace Biblioteca.DAO
             try
             {
                 this.AbrirConexao();
-                string sql = "update ensino set descricao_ensino = @descricaoEnsino where cod_ensino = @codigoEnsino";
+                string sql = "update ensino set descricao_ensino = @DescricaoEnsino where cod_ensino = @CodigoEnsino";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
-                cmd.Parameters.Add("@codigoEnsino", SqlDbType.Int);
-                cmd.Parameters["@codigoEnsino"].Value = ensino.CodigoEnsino;
+                cmd.Parameters.Add("@CodigoEnsino", SqlDbType.Int);
+                cmd.Parameters["@CodigoEnsino"].Value = ensino.CodigoEnsino;
 
-                cmd.Parameters.Add("@descricaoEnsino", SqlDbType.VarChar);
-                cmd.Parameters["@descricaoEnsino"].Value = ensino.DescricaoEnsino;
+                cmd.Parameters.Add("@DescricaoEnsino", SqlDbType.VarChar);
+                cmd.Parameters["@DescricaoEnsino"].Value = ensino.DescricaoEnsino;
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
@@ -56,7 +56,7 @@ namespace Biblioteca.DAO
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao conecar e atualizar " + ex.Message);
+                throw new Exception("Não foi possível Alterar o Ensino.\nErro: " + ex.Message);
             }
         }
 
@@ -69,10 +69,10 @@ namespace Biblioteca.DAO
             try
             {
                 this.AbrirConexao();
-                string sql = "delete from ensino where cod_ensino = @codigoEnsino";
+                string sql = "delete from ensino where cod_ensino = @CodigoEnsino";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
-                cmd.Parameters.Add("@codigoEnsino", SqlDbType.Int);
-                cmd.Parameters["@codigoEnsino"].Value = ensino.CodigoEnsino;
+                cmd.Parameters.Add("@CodigoEnsino", SqlDbType.Int);
+                cmd.Parameters["@CodigoEnsino"].Value = ensino.CodigoEnsino;
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
@@ -80,7 +80,7 @@ namespace Biblioteca.DAO
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao conecar e remover " + ex.Message);
+                throw new Exception("Nâo foi possível Excluir o Ensino.\nErro: " + ex.Message);
             }
         }
 
@@ -93,12 +93,12 @@ namespace Biblioteca.DAO
             try
             {
                 this.AbrirConexao();
-                string sql = "INSERT INTO Ensino (descricao_ensino) VALUES (@descricaoEnsino)";
+                string sql = "INSERT INTO Ensino (descricao_ensino) VALUES (@DescricaoEnsino)";
 
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
-                cmd.Parameters.Add("@descricaoEnsino", SqlDbType.VarChar);
-                cmd.Parameters["@descricaoEnsino"].Value = ensino.DescricaoEnsino;
+                cmd.Parameters.Add("@DescricaoEnsino", SqlDbType.VarChar);
+                cmd.Parameters["@DescricaoEnsino"].Value = ensino.DescricaoEnsino;
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
@@ -106,7 +106,7 @@ namespace Biblioteca.DAO
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao conecar e inserir " + ex.Message);
+                throw new Exception("Não foi possível Inserir o Ensino.\nErro: " + ex.Message);
             }
         }
 
@@ -124,23 +124,23 @@ namespace Biblioteca.DAO
                 
                 if (filtro.CodigoEnsino > 0)
                 {
-                    sql += " and cod_ensino = @codigoEnsino";
+                    sql += " and cod_ensino = @CodigoEnsino";
                 }
                 if (filtro.DescricaoEnsino != null && filtro.DescricaoEnsino.Trim().Equals("") == false)
                 {
-                    sql += " and descricao_ensino like '%" + filtro.DescricaoEnsino.Trim() + "%'";
+                    sql += " and descricao_ensino like '%@DescricaoEnsino%'";
                 }
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
 
                 if (filtro.CodigoEnsino > 0)
                 {
-                    cmd.Parameters.Add("@codigoEnsino", SqlDbType.Int);
-                    cmd.Parameters["@codigoEnsino"].Value = filtro.CodigoEnsino;
+                    cmd.Parameters.Add("@CodigoEnsino", SqlDbType.Int);
+                    cmd.Parameters["@CodigoEnsino"].Value = filtro.CodigoEnsino;
                 }
                 if (filtro.DescricaoEnsino != null && filtro.DescricaoEnsino.Trim().Equals("") == false)
                 {
-                    cmd.Parameters.Add("@descricaoEnsino", SqlDbType.VarChar);
-                    cmd.Parameters["@descricaoEnsino"].Value = filtro.DescricaoEnsino;
+                    cmd.Parameters.Add("@DescricaoEnsino", SqlDbType.VarChar);
+                    cmd.Parameters["@DescricaoEnsino"].Value = filtro.DescricaoEnsino;
 
                 }
                 SqlDataReader DbReader = cmd.ExecuteReader();
@@ -157,7 +157,7 @@ namespace Biblioteca.DAO
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao Conectar e Selecionar: \n" + ex.Message);
+                throw new Exception("Não foi possível Listar os Ensinos.\nErro: " + ex.Message);
             }
             return retorno;
         }
@@ -172,11 +172,11 @@ namespace Biblioteca.DAO
             try
             {
                 this.AbrirConexao();
-                string sql = "SELECT cod_ensino FROM ensino where cod_ensino = @codigoEnsino";
+                string sql = "SELECT cod_ensino FROM ensino where cod_ensino = @CodigoEnsino";
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
 
-                cmd.Parameters.Add("@codigoEnsino", SqlDbType.Int);
-                cmd.Parameters["@codigoEnsino"].Value = ensino.CodigoEnsino;
+                cmd.Parameters.Add("@CodigoEnsino", SqlDbType.Int);
+                cmd.Parameters["@CodigoEnsino"].Value = ensino.CodigoEnsino;
 
                 SqlDataReader DbReader = cmd.ExecuteReader();
                 while (DbReader.Read())
@@ -190,7 +190,7 @@ namespace Biblioteca.DAO
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao conecar e selecionar " + ex.Message);
+                throw new Exception("Não foi possível Verificar Duplicidade do Ensino.\nErro: " + ex.Message);
             }
             return retorno;
         }

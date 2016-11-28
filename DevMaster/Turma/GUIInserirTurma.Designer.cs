@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dateTimePickerDataInicio = new System.Windows.Forms.DateTimePicker();
-            this.comboBoxSerie = new System.Windows.Forms.ComboBox();
+            this.comboBoxAno = new System.Windows.Forms.ComboBox();
+            this.dateDataInicio = new System.Windows.Forms.DateTimePicker();
+            this.comboBoxEnsino = new System.Windows.Forms.ComboBox();
             this.comboBoxTurno = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -40,15 +41,14 @@
             this.btnConcluir = new System.Windows.Forms.Button();
             this.textBoxDescricao = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBoxAno = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.comboBoxAno);
-            this.panel1.Controls.Add(this.dateTimePickerDataInicio);
-            this.panel1.Controls.Add(this.comboBoxSerie);
+            this.panel1.Controls.Add(this.dateDataInicio);
+            this.panel1.Controls.Add(this.comboBoxEnsino);
             this.panel1.Controls.Add(this.comboBoxTurno);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
@@ -64,22 +64,30 @@
             this.panel1.Size = new System.Drawing.Size(456, 274);
             this.panel1.TabIndex = 5;
             // 
-            // dateTimePickerDataInicio
+            // comboBoxAno
             // 
-            this.dateTimePickerDataInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerDataInicio.Location = new System.Drawing.Point(93, 132);
-            this.dateTimePickerDataInicio.Name = "dateTimePickerDataInicio";
-            this.dateTimePickerDataInicio.Size = new System.Drawing.Size(132, 20);
-            this.dateTimePickerDataInicio.TabIndex = 21;
-            this.dateTimePickerDataInicio.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.comboBoxAno.FormattingEnabled = true;
+            this.comboBoxAno.Location = new System.Drawing.Point(93, 61);
+            this.comboBoxAno.Name = "comboBoxAno";
+            this.comboBoxAno.Size = new System.Drawing.Size(132, 21);
+            this.comboBoxAno.TabIndex = 22;
             // 
-            // comboBoxSerie
+            // dateDataInicio
             // 
-            this.comboBoxSerie.FormattingEnabled = true;
-            this.comboBoxSerie.Location = new System.Drawing.Point(93, 170);
-            this.comboBoxSerie.Name = "comboBoxSerie";
-            this.comboBoxSerie.Size = new System.Drawing.Size(132, 21);
-            this.comboBoxSerie.TabIndex = 20;
+            this.dateDataInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateDataInicio.Location = new System.Drawing.Point(93, 132);
+            this.dateDataInicio.Name = "dateDataInicio";
+            this.dateDataInicio.Size = new System.Drawing.Size(132, 20);
+            this.dateDataInicio.TabIndex = 21;
+            this.dateDataInicio.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // comboBoxEnsino
+            // 
+            this.comboBoxEnsino.FormattingEnabled = true;
+            this.comboBoxEnsino.Location = new System.Drawing.Point(93, 170);
+            this.comboBoxEnsino.Name = "comboBoxEnsino";
+            this.comboBoxEnsino.Size = new System.Drawing.Size(132, 21);
+            this.comboBoxEnsino.TabIndex = 20;
             // 
             // comboBoxTurno
             // 
@@ -94,9 +102,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(53, 173);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(34, 13);
+            this.label5.Size = new System.Drawing.Size(42, 13);
             this.label5.TabIndex = 18;
-            this.label5.Text = "Série:";
+            this.label5.Text = "Ensino:";
             // 
             // label4
             // 
@@ -133,7 +141,7 @@
             this.btnVoltar.TabIndex = 13;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
-            this.btnVoltar.Click += new System.EventHandler(this.button2_Click);
+            this.btnVoltar.Click += new System.EventHandler(this.Voltar_Click);
             // 
             // btnConcluir
             // 
@@ -143,7 +151,7 @@
             this.btnConcluir.TabIndex = 10;
             this.btnConcluir.Text = "Concluir";
             this.btnConcluir.UseVisualStyleBackColor = true;
-            this.btnConcluir.Click += new System.EventHandler(this.button1_Click);
+            this.btnConcluir.Click += new System.EventHandler(this.Concluir_Click);
             // 
             // textBoxDescricao
             // 
@@ -160,14 +168,6 @@
             this.label2.Size = new System.Drawing.Size(58, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Descrição:";
-            // 
-            // comboBoxAno
-            // 
-            this.comboBoxAno.FormattingEnabled = true;
-            this.comboBoxAno.Location = new System.Drawing.Point(93, 61);
-            this.comboBoxAno.Name = "comboBoxAno";
-            this.comboBoxAno.Size = new System.Drawing.Size(132, 21);
-            this.comboBoxAno.TabIndex = 22;
             // 
             // GUIInserirTurma
             // 
@@ -195,8 +195,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePickerDataInicio;
-        private System.Windows.Forms.ComboBox comboBoxSerie;
+        private System.Windows.Forms.DateTimePicker dateDataInicio;
+        private System.Windows.Forms.ComboBox comboBoxEnsino;
         private System.Windows.Forms.ComboBox comboBoxTurno;
         private System.Windows.Forms.ComboBox comboBoxAno;
     }

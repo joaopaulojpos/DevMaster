@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using WebService;
 using Biblioteca.Basicas;
 using Biblioteca.RN;
-//using Biblioteca.DAO;
+using Biblioteca.DAO;
 
 namespace GUI
 {
@@ -186,32 +186,41 @@ namespace GUI
 
         #endregion
 
-        #region Botão Remover
+        #region Botão Excluir
 
-        private void btnRemover_Click(object sender, EventArgs e)
+        private void btnExcluir_Click(object sender, EventArgs e)
         {
             try
             {
-                //Pega a Série selecionada, mesmo que só seja uma ele entende como uma coleção
                 ListView.SelectedListViewItemCollection colecaoSelecionada = listViewAluno.SelectedItems;
 
-                Ensino removerEnsino = new Ensino();
-
-                //Percorrendo a coleção(a série selecionada)
-                foreach (ListViewItem selecionado in colecaoSelecionada)
+                if (colecaoSelecionada.Count > 0)
                 {
-                    removerEnsino.CodigoEnsino = Convert.ToInt32(selecionado.SubItems[0].Text);
-                    if (MessageBox.Show("Tem certeza?", "Confirmar remoção do Ensino.", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                    {
-                        RNEnsino rnEnsino = new RNEnsino();
-                        rnEnsino.Excluir(removerEnsino);
 
-                        listViewAluno.Items.Remove(selecionado);
-                    }
-                    else
+                    Aluno removerAluno = new Aluno();
+
+                    //Percorrendo a coleção(a série selecionada)
+                    foreach (ListViewItem selecionado in colecaoSelecionada)
                     {
-                        MessageBox.Show("Cancelado.", "Remoção de Ensino");
+                        removerAluno.Matricula = selecionado.SubItems[0].Text;
+                        if (MessageBox.Show("Tem certeza?", "Confirmar remoção do Aluno.", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        {
+                            DAOAluno daoAluno = new DAOAluno();
+                            daoAluno.Excluir(removerAluno);
+                            //servico.Excluir(removerTurma);
+
+                            listViewAluno.Items.Remove(selecionado);
+                            MessageBox.Show("Aluno removido com sucesso!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Cancelado.", "Remoção de Turma");
+                        }
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Selecione o Aluno que deseja Excluir.");
                 }
             }
             catch (Exception ex)
@@ -237,5 +246,6 @@ namespace GUI
 
         #endregion
 
+        
     }
 }

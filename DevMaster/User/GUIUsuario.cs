@@ -140,9 +140,46 @@ namespace GUI
 
         #region Botão Remover
 
-        private void btnRemover_Click(object sender, EventArgs e)
+        private void btn_Excluir_Click(object sender, EventArgs e)
         {
+            //Botei btn_Excluir em vez de btnExcluir pq tava dando conflito com uma tentativa de outro botão com esse msm nome
+            try
+            {
+                ListView.SelectedListViewItemCollection colecaoSelecionada = listViewUsuario.SelectedItems;
 
+                if (colecaoSelecionada.Count > 0)
+                {
+
+                    Usuario removerUsuario = new Usuario();
+
+                    //Percorrendo a coleção(a série selecionada)
+                    foreach (ListViewItem selecionado in colecaoSelecionada)
+                    {
+                        removerUsuario.CodUsuario = Convert.ToInt32(selecionado.SubItems[0].Text);
+                        if (MessageBox.Show("Tem certeza?", "Confirmar remoção do Usuário.", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        {
+                            DAOUsuario daoUsuario = new DAOUsuario();
+                            daoUsuario.Excluir(removerUsuario);
+                            //servico.Excluir(removerTurma);
+
+                            listViewUsuario.Items.Remove(selecionado);
+                            MessageBox.Show("Usuário removido com sucesso!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Cancelado.", "Remoção de Usuário");
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Selecione o Usuário que deseja Excluir.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: \n" + ex.Message);
+            }
         }
 
         #endregion
@@ -153,6 +190,7 @@ namespace GUI
         {
             this.Close();
         }
+
 
 
         #endregion

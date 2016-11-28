@@ -22,6 +22,9 @@ namespace GUI
         List<Turma> listaTurma;
         int filtroCodigo;
 
+        DAOEnsino daoEnsino;
+        List<Ensino> listaEnsino;
+
         #endregion
 
         #region Construtores
@@ -31,7 +34,7 @@ namespace GUI
         {
             InitializeComponent();
             //listViewTurmas
-            Consultar();
+            CarregarListView();
 
             listViewTurma.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             listViewTurma.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
@@ -67,7 +70,9 @@ namespace GUI
 
         #endregion
 
-        public void Consultar()
+        #region Consultar
+
+        public void CarregarListView()
         {
             #region Old
             //try
@@ -90,7 +95,7 @@ namespace GUI
             //        linha.SubItems.Add(Convert.ToString(t.Turno));
             //        linha.SubItems.Add(Convert.ToString(t.Ano));
             //        linha.SubItems.Add(t.DataInicio);
-            //        linha.SubItems.Add(t.Ensino.DescricaoEnsino);
+            //        linha.SubItems.Add(t.Turma.DescricaoTurma);
             //    }
             //}
             //catch (Exception ex)
@@ -103,7 +108,7 @@ namespace GUI
                 listViewTurma.Items.Clear();
 
                 Turma turmaFiltro = new Turma();
-                Ensino ensinoFiltro = new Ensino();
+                Turma ensinoFiltro = new Turma();
                 DAOTurma daoTurma = new DAOTurma();
 
                 //                  CÓDIGO TURMA FILTRO
@@ -135,8 +140,9 @@ namespace GUI
                         linha.SubItems.Add(Convert.ToString(turma.Ano));
                         linha.SubItems.Add(Convert.ToString(turma.DataInicio.ToShortDateString()));
                         linha.SubItems.Add(turma.Ensino.DescricaoEnsino);
+                        MessageBox.Show(turma.Ensino.DescricaoEnsino + turma.Ensino.CodigoEnsino);
                     }
-                    
+
                 }
                 else
                 {
@@ -154,6 +160,7 @@ namespace GUI
             }
         }
 
+        #endregion
 
 
         #endregion
@@ -164,7 +171,7 @@ namespace GUI
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-                Consultar();
+            CarregarListView();
         }
 
         #endregion
@@ -173,8 +180,17 @@ namespace GUI
 
         private void novaTurmaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GUIInserirTurma guiInserirTurma = new GUIInserirTurma();
-            guiInserirTurma.ShowDialog();
+            try
+            {
+                //O parâmetro this é essa própria tela, com isso lá na tela de Inserir 
+                //será possível chamar o método Consultar(); dessa tela.
+                GUIInserirTurma guiInserirTurma = new GUIInserirTurma(this);
+                guiInserirTurma.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         #endregion
@@ -183,26 +199,45 @@ namespace GUI
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            ListView.SelectedListViewItemCollection colecaoSelecionada = listViewTurma.SelectedItems;
-
-            Turma alterarTurma = new Turma();
-            int codigoSelecionado = 0;
-
-            foreach (ListViewItem selecionado in colecaoSelecionada)
+            try
             {
-                codigoSelecionado = Convert.ToInt32(selecionado.SubItems[0].Text);
-            }
+                Turma alterarTurma = new Turma();
+                daoEnsino = new DAOEnsino();
+                Ensino ensino = new Ensino();
+                Ensino ensinoFiltro = new Ensino();
 
-            foreach (Turma turma in listaTurma)
-            {
-                if (turma.CodigoTurma == codigoSelecionado)
+                int codigoTurmaSelecionado = 0;
+
+                ListView.SelectedListViewItemCollection colecaoSelecionada = listViewTurma.SelectedItems;
+                foreach (ListViewItem selecionado in colecaoSelecionada)
                 {
-                    alterarTurma = turma;
+                    codigoTurmaSelecionado = Convert.ToInt32(selecionado.SubItems[0].Text);
                 }
-            }
 
-            GUIAlterarTurma guiAlterarTurma = new GUIAlterarTurma(alterarTurma, this);
-            guiAlterarTurma.ShowDialog();
+                foreach (Turma turma in listaTurma)
+                {
+                    if (turma.CodigoTurma == codigoTurmaSelecionado)
+                    {
+                        alterarTurma = turma;
+                    }
+                }
+
+/*
+                ensino.DescricaoEnsino = alterarTurma.Ensino.DescricaoEnsino;
+                listaEnsino = daoEnsino.Listar(ensino);
+                foreach (Ensino ensino2 in listaEnsino)
+                {
+                    ensino = ensino2;
+                }
+
+                GUIAlterarTurma guiAlterarTurma = new GUIAlterarTurma(alterarTurma, this);
+                guiAlterarTurma.ShowDialog();
+                */
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         #endregion
@@ -211,27 +246,41 @@ namespace GUI
 
         private void btnRemover_Click(object sender, EventArgs e)
         {
-            //Pega a Série selecionada, mesmo que só seja uma ele entende como uma coleção
-            ListView.SelectedListViewItemCollection colecaoSelecionada = listViewTurma.SelectedItems;
-
-            Turma removerTurma = new Turma();
-
-            //Percorrendo a coleção(a série selecionada)
-            foreach (ListViewItem selecionado in colecaoSelecionada)
+            try
             {
-                removerTurma.CodigoTurma = Convert.ToInt32(selecionado.SubItems[0].Text);
+                //Pega a Série selecionada, mesmo que só seja uma ele entende como uma coleção
+                ListView.SelectedListViewItemCollection colecaoSelecionada = listViewTurma.SelectedItems;
 
-                if (MessageBox.Show("Tem certeza?", "Confirmar remoção da Turma.", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (colecaoSelecionada.Count > 0)
                 {
-                    DAOTurma rnTurma = new DAOTurma();
-                    rnTurma.Excluir(removerTurma);
+                    Turma removerTurma = new Turma();
 
-                    listViewTurma.Items.Remove(selecionado);
+                    //Percorrendo a coleção(a série selecionada)
+                    foreach (ListViewItem selecionado in colecaoSelecionada)
+                    {
+                        removerTurma.CodigoTurma = Convert.ToInt32(selecionado.SubItems[0].Text);
+                        if (MessageBox.Show("Tem certeza?", "Confirmar remoção do Turma.", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        {
+                            DAOTurma daoTurma = new DAOTurma();
+                            daoTurma.Excluir(removerTurma);
+
+                            listViewTurma.Items.Remove(selecionado);
+                            MessageBox.Show("Turma removido com sucesso!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Cancelado.", "Remoção de Turma");
+                        }
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Cancelado.", "Remoção da Turma.");
+                    MessageBox.Show("Selecione o Turma que deseja Remover.");
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: \n" + ex.Message);
             }
         }
 

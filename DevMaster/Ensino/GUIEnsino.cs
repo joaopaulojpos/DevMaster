@@ -173,7 +173,7 @@ namespace GUI
 
         #region Alterar
 
-        private void btnAlterarClick(object sender, EventArgs e)
+        private void btnAlterar_Click(object sender, EventArgs e)
         {
             try
             {
@@ -212,7 +212,7 @@ namespace GUI
 
         #region Remover
 
-        private void btnRemoverClick(object sender, EventArgs e)
+        private void btnRemover_Click(object sender, EventArgs e)
         {
             try
             {
@@ -245,9 +245,6 @@ namespace GUI
                 {
                     MessageBox.Show("Selecione o Ensino que deseja Remover.");
                 }
-
-
-
             }
             catch (Exception ex)
             {
