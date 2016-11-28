@@ -106,13 +106,13 @@ namespace Biblioteca.DAO
                 }
                 if (filtro.DisciplinaTurma.Turma.CodigoTurma > 0)
                 {
-                    sql += " and cod_turma = @codigoTurma";
+                    sql += " and dt.cod_turma = @codigoTurma";
                 }
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
 
                 if (filtro.Data.Length > 0)
                 {
-                    cmd.Parameters.Add("@data", SqlDbType.Int);
+                    cmd.Parameters.Add("@data", SqlDbType.VarChar);
                     cmd.Parameters["@data"].Value = filtro.Data;
                 }
                 if (filtro.DisciplinaTurma.Turma.CodigoTurma > 0)
@@ -161,7 +161,7 @@ namespace Biblioteca.DAO
                 this.AbrirConexao();
                 string sql = "SELECT data FROM aula where data = @data";
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
-                cmd.Parameters.Add("@data", SqlDbType.Int);
+                cmd.Parameters.Add("@data", SqlDbType.VarChar);
                 cmd.Parameters["@data"].Value = aula.Data;
 
                 SqlDataReader DbReader = cmd.ExecuteReader();

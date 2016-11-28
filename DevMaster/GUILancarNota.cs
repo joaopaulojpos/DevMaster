@@ -126,14 +126,10 @@ namespace GUI
                 listaDT = servico.ListarDisciplinaTurma(dt);
                 dt.CodigoDisciplinaTurma = listaDT[0].CodigoDisciplinaTurma;
                 avaliacao.Disciplina_turma = dt;
-                foreach (Disciplina_Turma dtt in listaDT)
-                {
+                
                     servico.InserirAvaliacao(avaliacao);
-                    MessageBox.Show("DT: " + listaDT[0].CodigoDisciplinaTurma
-                        +"Aluno: "+aluno.Matricula
-                        +"turma: "+ t.CodigoTurma
-                        +"nota: "+avaliacao.Nota);
-                }
+                    MessageBox.Show("Nota inserida.");
+                
             }catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -142,8 +138,7 @@ namespace GUI
 
         private void comboBoxTurma_DropDownStyleChanged(object sender, EventArgs e)
         {
-            int index = comboBoxTurma.SelectedIndex;
-            MessageBox.Show(comboBoxTurma.Items[index].ToString());
+          
         }
 
         private void comboBoxTurma_SelectedIndexChanged(object sender, EventArgs e)

@@ -31,7 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.checkedListBoxAlunos = new System.Windows.Forms.CheckedListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -65,46 +65,24 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(165, 134);
+            this.label2.Location = new System.Drawing.Point(9, 134);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(93, 24);
             this.label2.TabIndex = 1;
             this.label2.Text = "ALUNOS";
             // 
-            // checkedListBox1
+            // checkedListBoxAlunos
             // 
-            this.checkedListBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.checkedListBox1.CheckOnClick = true;
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Items.AddRange(new object[] {
-            "A",
-            "B",
-            "C",
-            "D",
-            "F",
-            "G",
-            "H",
-            "I",
-            "J",
-            "K",
-            "Leandro Luís Cavalcanti Oliveira",
-            "M",
-            "N",
-            "O",
-            "P",
-            "Q",
-            "R",
-            "S",
-            "T",
-            "U",
-            "W",
-            "Y",
-            "Z"});
-            this.checkedListBox1.Location = new System.Drawing.Point(13, 161);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.checkedListBox1.Size = new System.Drawing.Size(317, 364);
-            this.checkedListBox1.TabIndex = 0;
+            this.checkedListBoxAlunos.BackColor = System.Drawing.SystemColors.Control;
+            this.checkedListBoxAlunos.CheckOnClick = true;
+            this.checkedListBoxAlunos.FormattingEnabled = true;
+            this.checkedListBoxAlunos.Items.AddRange(new object[] {
+            "teste"});
+            this.checkedListBoxAlunos.Location = new System.Drawing.Point(13, 161);
+            this.checkedListBoxAlunos.Name = "checkedListBoxAlunos";
+            this.checkedListBoxAlunos.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.checkedListBoxAlunos.Size = new System.Drawing.Size(317, 364);
+            this.checkedListBoxAlunos.TabIndex = 0;
             // 
             // label3
             // 
@@ -127,7 +105,8 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(58, 41);
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(56, 41);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 8;
@@ -137,8 +116,9 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(56, 10);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(202, 21);
+            this.comboBox1.Size = new System.Drawing.Size(200, 21);
             this.comboBox1.TabIndex = 1;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -159,7 +139,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.checkedListBox1);
+            this.panel1.Controls.Add(this.checkedListBoxAlunos);
             this.panel1.Controls.Add(this.comboBox2);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label4);
@@ -169,9 +149,9 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(440, 536);
+            this.panel1.Size = new System.Drawing.Size(452, 547);
             this.panel1.TabIndex = 11;
             // 
             // GUIChamada
@@ -183,7 +163,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "GUIChamada";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "GUIProfessor";
+            this.Text = "Chamada";
             this.Load += new System.EventHandler(this.GUIChamada_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -195,7 +175,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.CheckedListBox checkedListBoxAlunos;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;

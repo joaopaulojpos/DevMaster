@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Basicas\Aluno.cs" />
     <Compile Include="Basicas\Aula.cs" />
+    <Compile Include="Basicas\Boletim.cs" />
     <Compile Include="Basicas\Disciplina.cs" />
     <Compile Include="Basicas\Disciplina_Turma.cs" />
     <Compile Include="Basicas\Falta.cs" />

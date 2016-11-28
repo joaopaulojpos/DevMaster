@@ -44,7 +44,7 @@ namespace Biblioteca.DAO
             try
             {
                 this.AbrirConexao();
-                string sql = "select dt.cod_disciplina_turma,d.nome_disciplina,t.cod_turma,t.descricao_turma,t.ano,t.turno,t.ano from Disciplina_Turma as dt INNER JOIN Turma as t ON dt.cod_turma=t.cod_turma INNER JOIN Disciplina as d ON d.cod_disciplina=dt.cod_disciplina INNER JOIN Usuario as u ON u.cod_usuario=dt.cod_usuario WHERE cod_disciplina_turma = cod_disciplina_turma";
+                string sql = "select dt.cod_disciplina_turma,d.cod_disciplina,d.nome_disciplina,t.cod_turma,t.descricao_turma,t.ano,t.turno,t.ano from Disciplina_Turma as dt INNER JOIN Turma as t ON dt.cod_turma=t.cod_turma INNER JOIN Disciplina as d ON d.cod_disciplina=dt.cod_disciplina INNER JOIN Usuario as u ON u.cod_usuario=dt.cod_usuario WHERE cod_disciplina_turma = cod_disciplina_turma";
                 if (filtro.Disciplina.NomeDisciplina != null && filtro.Disciplina.NomeDisciplina.Trim().Equals("")==false)
                 {
                     sql += " and nome_disciplina = @nomeDisciplina";
@@ -71,6 +71,7 @@ namespace Biblioteca.DAO
                     Disciplina_Turma dt = new Disciplina_Turma();
                     Disciplina d = new Disciplina();
                     Turma t = new Turma();
+                    d.CodigoDisciplina = DbReader.GetInt32(DbReader.GetOrdinal("cod_disciplina"));
                     d.NomeDisciplina = DbReader.GetString(DbReader.GetOrdinal("nome_disciplina"));
                     dt.Disciplina = d;
                     t.CodigoTurma = DbReader.GetInt32(DbReader.GetOrdinal("cod_turma"));

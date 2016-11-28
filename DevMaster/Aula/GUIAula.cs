@@ -21,6 +21,7 @@ namespace GUI
         private void button4_Click(object sender, EventArgs e)
         {
             this.Close();
+           
         }
 
         private void novoAlunoToolStripMenuItem_Click(object sender, EventArgs e)
