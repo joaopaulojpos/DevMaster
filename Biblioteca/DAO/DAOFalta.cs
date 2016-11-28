@@ -164,10 +164,13 @@ namespace Biblioteca.DAO
             try
             {
                 this.AbrirConexao();
-                string sql = "SELECT data FROM falta where data = @data";
+                string sql = "SELECT data FROM falta where data = @data AND matricula = @matricula" ;
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
-                cmd.Parameters.Add("@data", SqlDbType.Int);
+                cmd.Parameters.Add("@data", SqlDbType.VarChar);
                 cmd.Parameters["@data"].Value = falta.Data;
+
+                cmd.Parameters.Add("@matricula", SqlDbType.VarChar);
+                cmd.Parameters["@matricula"].Value = falta.Aluno.Matricula;
 
                 SqlDataReader DbReader = cmd.ExecuteReader();
                 while (DbReader.Read())

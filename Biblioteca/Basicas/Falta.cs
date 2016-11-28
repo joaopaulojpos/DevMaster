@@ -54,7 +54,7 @@ namespace Biblioteca.Basicas
             }
         }
 
-        internal Aula Aula
+        public Aula Aula
         {
             get
             {

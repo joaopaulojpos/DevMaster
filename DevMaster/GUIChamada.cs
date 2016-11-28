@@ -103,7 +103,31 @@ namespace GUI
 
         private void button2_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Aluno aluno = new Aluno();
 
+                Biblioteca.Basicas.Aula aula = new Biblioteca.Basicas.Aula();
+                Falta falta = new Falta();
+                int indexA = comboBox2.SelectedIndex;
+                foreach(int c in checkedListBoxAlunos.CheckedIndices)
+                {
+                    int indexAl = Int32.Parse(c.ToString());
+                    aluno = listaAlunos[indexAl];
+                    aula = listaAulas[indexA];
+                    falta.Data = dateTimePicker1.Text;
+                    falta.Aluno = aluno;
+                    falta.Aula = aula;
+                    falta.Abono = false;
+                    falta.Motivo = "";
+                    servico.InserirFalta(falta);
+                }
+                MessageBox.Show("Chamada registrada.");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void GUIChamada_Load(object sender, EventArgs e)

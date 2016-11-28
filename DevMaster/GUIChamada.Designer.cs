@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonFinalizarChamada = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.checkedListBoxAlunos = new System.Windows.Forms.CheckedListBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -51,15 +51,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Turma:";
             // 
-            // button2
+            // buttonFinalizarChamada
             // 
-            this.button2.Location = new System.Drawing.Point(336, 161);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(97, 34);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Finalizar Chamada";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.buttonFinalizarChamada.Location = new System.Drawing.Point(336, 161);
+            this.buttonFinalizarChamada.Name = "buttonFinalizarChamada";
+            this.buttonFinalizarChamada.Size = new System.Drawing.Size(97, 34);
+            this.buttonFinalizarChamada.TabIndex = 7;
+            this.buttonFinalizarChamada.Text = "Finalizar Chamada";
+            this.buttonFinalizarChamada.UseVisualStyleBackColor = true;
+            this.buttonFinalizarChamada.Click += new System.EventHandler(this.button2_Click);
             // 
             // label2
             // 
@@ -77,7 +77,7 @@
             this.checkedListBoxAlunos.CheckOnClick = true;
             this.checkedListBoxAlunos.FormattingEnabled = true;
             this.checkedListBoxAlunos.Items.AddRange(new object[] {
-            "teste"});
+            ""});
             this.checkedListBoxAlunos.Location = new System.Drawing.Point(13, 161);
             this.checkedListBoxAlunos.Name = "checkedListBoxAlunos";
             this.checkedListBoxAlunos.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -144,7 +144,7 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.buttonFinalizarChamada);
             this.panel1.Controls.Add(this.dateTimePicker1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.comboBox1);
@@ -176,7 +176,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckedListBox checkedListBoxAlunos;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonFinalizarChamada;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
