@@ -162,5 +162,33 @@ namespace GUI
                 checkedListBoxAlunos.Items.Clear();
             }
         }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            int index = comboBox1.SelectedIndex;
+            if (!comboBox1.Items[index].Equals(""))
+            {
+                Disciplina d = new Disciplina();
+                d.NomeDisciplina = "";
+                Disciplina_Turma dt = new Disciplina_Turma();
+                Aluno aluno = new Aluno();
+                aluno.Matricula = "";
+                aluno.Nome = "";
+                Turma t = new Turma();
+                t.CodigoTurma = listaTurmas[index - 1].CodigoTurma;
+                aluno.Turma = t;
+                dt.Turma = t;
+                dt.Disciplina = d;
+                Biblioteca.Basicas.Aula al = new Biblioteca.Basicas.Aula();
+                al.DisciplinaTurma = dt;
+                al.Data = dateTimePicker1.Text;
+                carregarAlunos(aluno);
+                carregarAulas(al);
+            }
+            else
+            {
+                checkedListBoxAlunos.Items.Clear();
+            }
+        }
     }
 }

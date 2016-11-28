@@ -30,7 +30,6 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.dateNascimento = new System.Windows.Forms.DateTimePicker();
-            this.label7 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -50,7 +49,6 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.dateNascimento);
-            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.comboBox2);
             this.panel1.Controls.Add(this.label6);
@@ -77,16 +75,6 @@
             this.dateNascimento.Name = "dateNascimento";
             this.dateNascimento.Size = new System.Drawing.Size(150, 20);
             this.dateNascimento.TabIndex = 15;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(124, 9);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(179, 24);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "INSERIR ALUNOS";
             // 
             // button2
             // 
@@ -210,7 +198,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "GUIInserirAluno";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "GUIInserirAluno";
+            this.Text = "Inserir Aluno";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -233,7 +221,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker dateNascimento;
     }
 }

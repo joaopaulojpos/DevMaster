@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
+            this.dateNascimento = new System.Windows.Forms.DateTimePicker();
             this.button2 = new System.Windows.Forms.Button();
             this.comboBoxTurma = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -43,14 +43,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxMatricula = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dateNascimento = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.dateNascimento);
-            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.comboBoxTurma);
             this.panel1.Controls.Add(this.label6);
@@ -70,15 +68,13 @@
             this.panel1.Size = new System.Drawing.Size(427, 299);
             this.panel1.TabIndex = 4;
             // 
-            // label7
+            // dateNascimento
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(124, 9);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(180, 24);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "ALTERAR ALUNO";
+            this.dateNascimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateNascimento.Location = new System.Drawing.Point(118, 124);
+            this.dateNascimento.Name = "dateNascimento";
+            this.dateNascimento.Size = new System.Drawing.Size(150, 20);
+            this.dateNascimento.TabIndex = 15;
             // 
             // button2
             // 
@@ -191,14 +187,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Matrícula:";
             // 
-            // dateNascimento
-            // 
-            this.dateNascimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateNascimento.Location = new System.Drawing.Point(118, 124);
-            this.dateNascimento.Name = "dateNascimento";
-            this.dateNascimento.Size = new System.Drawing.Size(150, 20);
-            this.dateNascimento.TabIndex = 15;
-            // 
             // GUIAlterarAluno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -207,7 +195,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "GUIAlterarAluno";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "GUIAlterar2Aluno";
+            this.Text = "Alterar aluno";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -217,7 +205,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox comboBoxTurma;
         private System.Windows.Forms.Label label6;

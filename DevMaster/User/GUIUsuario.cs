@@ -134,7 +134,8 @@ namespace GUI
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-
+            GUIAlterarUsuario gui = new GUIAlterarUsuario();
+            gui.ShowDialog();
         }
 
         #endregion
