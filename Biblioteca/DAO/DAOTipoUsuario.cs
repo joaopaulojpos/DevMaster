@@ -13,18 +13,6 @@ namespace Biblioteca.DAO
 {
     public class DAOTipoUsuario : ConexaoBanco, InterfaceTipoUsuario
     {
-        #region Atributos
-
-
-
-        #endregion
-
-        #region Construtores
-
-
-
-        #endregion
-
         #region Listar
 
         public List<TipoUsuario> Listar(TipoUsuario filtro)
@@ -36,23 +24,23 @@ namespace Biblioteca.DAO
                 string sql = "SELECT cod_tipo_usuario, desc_tipo_usuario FROM Tipo_usuario WHERE cod_tipo_usuario = cod_tipo_usuario";
                 if (filtro.CodTipoUsuario > 0)
                 {
-                    sql += " and cod_tipo_usuario = @codigoTipoUsuario";
+                    sql += " and cod_tipo_usuario = @CodigoTipoUsuario";
                 }
                 if (filtro.DescricaoTipoUsuario != null && filtro.DescricaoTipoUsuario.Trim().Equals("") == false)
                 {
-                    sql += " and desc_tipo_usuario like '%" + filtro.DescricaoTipoUsuario.Trim() + "%'";
+                    sql += " and desc_tipo_usuario like '%@TipoUsuario%'";
                 }
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
 
                 if (filtro.CodTipoUsuario > 0)
                 {
-                    cmd.Parameters.Add("@codigoTipoUsuario", SqlDbType.Int);
-                    cmd.Parameters["@codigoTipoUsuario"].Value = filtro.CodTipoUsuario;
+                    cmd.Parameters.Add("@CodigoTipoUsuario", SqlDbType.Int);
+                    cmd.Parameters["@CodigoTipoUsuario"].Value = filtro.CodTipoUsuario;
                 }
                 if (filtro.DescricaoTipoUsuario != null && filtro.DescricaoTipoUsuario.Trim().Equals("") == false)
                 {
-                    cmd.Parameters.Add("@descricaoTipoUsuario", SqlDbType.VarChar);
-                    cmd.Parameters["@descricaoTipoUsuario"].Value = filtro.DescricaoTipoUsuario;
+                    cmd.Parameters.Add("@TipoUsuario", SqlDbType.VarChar);
+                    cmd.Parameters["@TipoUsuario"].Value = filtro.DescricaoTipoUsuario;
 
                 }
                 SqlDataReader DbReader = cmd.ExecuteReader();
@@ -69,7 +57,7 @@ namespace Biblioteca.DAO
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao conectar e selecionar: \n" + ex.Message);
+                throw new Exception("Não foi possível Listar os Tipos de Usuários.\nErro: " + ex.Message);
             }
             return retorno;
         }

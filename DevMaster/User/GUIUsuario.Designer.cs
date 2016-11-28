@@ -33,30 +33,30 @@
             this.label2 = new System.Windows.Forms.Label();
             this.listViewUsuario = new System.Windows.Forms.ListView();
             this.columnHeaderCodigo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderLogin = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderNome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderTelefone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderTipoUsuario = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnVoltar = new System.Windows.Forms.Button();
             this.btnConsultar = new System.Windows.Forms.Button();
-            this.btnRemover = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.textBoxCodigo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.novoAlunoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.columnHeaderLogin = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btn_Excluir = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btn_Excluir);
             this.panel1.Controls.Add(this.textBoxNome);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.listViewUsuario);
             this.panel1.Controls.Add(this.btnVoltar);
             this.panel1.Controls.Add(this.btnConsultar);
-            this.panel1.Controls.Add(this.btnRemover);
             this.panel1.Controls.Add(this.btnAlterar);
             this.panel1.Controls.Add(this.textBoxCodigo);
             this.panel1.Controls.Add(this.label1);
@@ -103,21 +103,23 @@
             // 
             this.columnHeaderCodigo.Text = "Código";
             // 
+            // columnHeaderLogin
+            // 
+            this.columnHeaderLogin.Text = "Login";
+            this.columnHeaderLogin.Width = 97;
+            // 
             // columnHeaderNome
             // 
-            this.columnHeaderNome.DisplayIndex = 2;
             this.columnHeaderNome.Text = "Nome";
             this.columnHeaderNome.Width = 164;
             // 
             // columnHeaderTelefone
             // 
-            this.columnHeaderTelefone.DisplayIndex = 3;
             this.columnHeaderTelefone.Text = "Telefone";
             this.columnHeaderTelefone.Width = 115;
             // 
             // columnHeaderTipoUsuario
             // 
-            this.columnHeaderTipoUsuario.DisplayIndex = 4;
             this.columnHeaderTipoUsuario.Text = "Tipo de Usuário";
             this.columnHeaderTipoUsuario.Width = 136;
             // 
@@ -140,16 +142,6 @@
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = true;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
-            // 
-            // btnRemover
-            // 
-            this.btnRemover.Location = new System.Drawing.Point(601, 195);
-            this.btnRemover.Name = "btnRemover";
-            this.btnRemover.Size = new System.Drawing.Size(100, 40);
-            this.btnRemover.TabIndex = 4;
-            this.btnRemover.Text = "Remover";
-            this.btnRemover.UseVisualStyleBackColor = true;
-            this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
             // 
             // btnAlterar
             // 
@@ -193,11 +185,15 @@
             this.novoAlunoToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
             this.novoAlunoToolStripMenuItem.Text = "Novo Usuário";
             // 
-            // columnHeaderLogin
+            // btn_Excluir
             // 
-            this.columnHeaderLogin.DisplayIndex = 1;
-            this.columnHeaderLogin.Text = "Login";
-            this.columnHeaderLogin.Width = 97;
+            this.btn_Excluir.Location = new System.Drawing.Point(601, 204);
+            this.btn_Excluir.Name = "btn_Excluir";
+            this.btn_Excluir.Size = new System.Drawing.Size(100, 40);
+            this.btn_Excluir.TabIndex = 11;
+            this.btn_Excluir.Text = "Excluir";
+            this.btn_Excluir.UseVisualStyleBackColor = true;
+            this.btn_Excluir.Click += new System.EventHandler(this.btn_Excluir_Click);
             // 
             // GUIUsuario
             // 
@@ -221,7 +217,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.Button btnConsultar;
-        private System.Windows.Forms.Button btnRemover;
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.TextBox textBoxCodigo;
         private System.Windows.Forms.Label label1;
@@ -235,5 +230,6 @@
         private System.Windows.Forms.TextBox textBoxNome;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ColumnHeader columnHeaderLogin;
+        private System.Windows.Forms.Button btn_Excluir;
     }
 }

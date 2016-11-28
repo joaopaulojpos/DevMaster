@@ -18,23 +18,29 @@ namespace Biblioteca.DAO
             try
             {
                 this.AbrirConexao();
-                string sql = "update usuario set usuario_login=@loginUsuario,senha=@senha,cod_tipo_usuario=@tipoUsuario,nome=@nome where cod_usuario = @codUsuario";
+                string sql = "UPDATE usuario " +
+                             "SET usuario_login = @LoginUsuario, senha = @Senha, nome = @Nome, telefone = @Telefone, cod_tipo_usuario = @TipoUsuario " +
+                             "WHERE cod_usuario = @CodUsuario";
+
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
-                cmd.Parameters.Add("@codUsuario", SqlDbType.Int);
-                cmd.Parameters["@codUsuario"].Value = usuario.CodUsuario;
+                cmd.Parameters.Add("@CodUsuario", SqlDbType.Int);
+                cmd.Parameters["@CodUsuario"].Value = usuario.CodUsuario;
 
-                cmd.Parameters.Add("@loginUsuario", SqlDbType.VarChar);
-                cmd.Parameters["@loginUsuario"].Value = usuario.LoginUsuario;
+                cmd.Parameters.Add("@LoginUsuario", SqlDbType.VarChar);
+                cmd.Parameters["@LoginUsuario"].Value = usuario.LoginUsuario;
 
-                cmd.Parameters.Add("@senha", SqlDbType.VarChar);
-                cmd.Parameters["@senha"].Value = usuario.Senha;
-                
-                cmd.Parameters.Add("@tipoUsuario", SqlDbType.Int);
-                cmd.Parameters["@tipoUsuario"].Value = usuario.TipoUsuario;
+                cmd.Parameters.Add("@Senha", SqlDbType.VarChar);
+                cmd.Parameters["@Senha"].Value = usuario.Senha;
 
-                cmd.Parameters.Add("@nome", SqlDbType.VarChar);
-                cmd.Parameters["@nome"].Value = usuario.Nome;
+                cmd.Parameters.Add("@Nome", SqlDbType.VarChar);
+                cmd.Parameters["@Nome"].Value = usuario.Nome;
+
+                cmd.Parameters.Add("@Telefone", SqlDbType.VarChar);
+                cmd.Parameters["@Telefone"].Value = usuario.Nome;
+
+                cmd.Parameters.Add("@TipoUsuario", SqlDbType.Int);
+                cmd.Parameters["@TipoUsuario"].Value = usuario.TipoUsuario;
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
@@ -42,7 +48,7 @@ namespace Biblioteca.DAO
             }
             catch (SqlException ex)
             {
-                throw new Exception("Contate o suporte.\nErro: " + ex.Message);
+                throw new Exception("Não foi possível Alterar o Usuário.\nErro: " + ex.Message);
             }
         }
 
@@ -51,10 +57,11 @@ namespace Biblioteca.DAO
             try
             {
                 this.AbrirConexao();
-                string sql = "delete from usuario where cod_usuario = @codUsuario";
+                string sql = "DELETE FROM Usuario " +
+                             "WHERE cod_usuario = @CodUsuario";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
-                cmd.Parameters.Add("@codUsuario", SqlDbType.Int);
-                cmd.Parameters["@codUsuario"].Value = usuario.CodUsuario;
+                cmd.Parameters.Add("@CodUsuario", SqlDbType.Int);
+                cmd.Parameters["@CodUsuario"].Value = usuario.CodUsuario;
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
@@ -62,7 +69,7 @@ namespace Biblioteca.DAO
             }
             catch (SqlException ex)
             {
-                throw new Exception("Contate o suporte.\nErro: " + ex.Message);
+                throw new Exception("Não foi possível Excluir o Usuário. Detalhes:\n" + ex.Message);
             }
         }
 
@@ -71,17 +78,24 @@ namespace Biblioteca.DAO
             try
             {
                 this.AbrirConexao();
-                string sql = "insert into usuario (usuario_login,senha,cod_tipo_usuario) values(@loginUsuario,@senha,@tipoUsuario)";
+                string sql = "INSERT INTO Usuario " + 
+                             "(usuario_login,senha, nome, telefone, cod_tipo_usuario) " +
+                             "VALUES " +
+                             "(@LoginUsuario,@Senha,@Nome, @Telefone, @TipoUsuario)";
+
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
-                cmd.Parameters.Add("@loginUsuario", SqlDbType.VarChar);
-                cmd.Parameters["@loginUsuario"].Value = usuario.LoginUsuario;
+                cmd.Parameters.Add("@LoginUsuario", SqlDbType.VarChar);
+                cmd.Parameters["@LoginUsuario"].Value = usuario.LoginUsuario;
 
-                cmd.Parameters.Add("@senha", SqlDbType.VarChar);
-                cmd.Parameters["@senha"].Value = usuario.Senha;
+                cmd.Parameters.Add("@Senha", SqlDbType.VarChar);
+                cmd.Parameters["@Senha"].Value = usuario.Senha;
 
-                cmd.Parameters.Add("@tipoUsuario", SqlDbType.Int);
-                cmd.Parameters["@tipoUsuario"].Value = usuario.TipoUsuario;
+                cmd.Parameters.Add("@Nome", SqlDbType.VarChar);
+                cmd.Parameters["@Nome"].Value = usuario.Senha;
+
+                cmd.Parameters.Add("@TipoUsuario", SqlDbType.Int);
+                cmd.Parameters["@TipoUsuario"].Value = usuario.TipoUsuario;
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
@@ -89,7 +103,7 @@ namespace Biblioteca.DAO
             }
             catch (SqlException ex)
             {
-                throw new Exception("Contate o suporte.\nErro: " + ex.Message);
+                throw new Exception("Não foi possível Inserir o Usuário.\nErro: " + ex.Message);
             }
         }
 
@@ -99,7 +113,7 @@ namespace Biblioteca.DAO
             try
             {
                 this.AbrirConexao();
-                string sql = "SELECT U.cod_usuario, U.usuario_login, U.senha, U.nome, U.telefone, TU.desc_tipo_usuario " +
+                string sql = "SELECT U.cod_usuario, U.usuario_login, U.senha, U.nome, U.telefone, TU.desc_tipo_usuario, TU.cod_tipo_usuario " +
                              "FROM Usuario U " +
                              "INNER JOIN Tipo_usuario TU " +
                              "ON U.cod_tipo_usuario = TU.cod_tipo_usuario " +
@@ -107,41 +121,44 @@ namespace Biblioteca.DAO
 
                 if (filtro.CodUsuario > 0)
                 {
-                    sql += " and U.cod_usuario = @codUsuario";
+                    sql += " and U.cod_usuario = @CodUsuario";
                 }
 
                 if (filtro.Nome.Length > 0)
                 {
-                    sql += " and U.nome like '% @nomeUsuario %'";
+                    sql += " and U.nome like '%@NomeUsuario%'";
                 }
 
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
 
                 if (filtro.CodUsuario > 0)
                 {
-                    cmd.Parameters.Add("@codUsuario", SqlDbType.Int);
-                    cmd.Parameters["@codUsuario"].Value = filtro.CodUsuario;
+                    cmd.Parameters.Add("@CodUsuario", SqlDbType.Int);
+                    cmd.Parameters["@CodUsuario"].Value = filtro.CodUsuario;
                 }
 
                 if (filtro.Nome.Length > 0)
                 {
-                    cmd.Parameters.Add("@nomeUsuario", SqlDbType.VarChar);
-                    cmd.Parameters["@nomeUsuario"].Value = filtro.Nome;
+                    cmd.Parameters.Add("@NomeUsuario", SqlDbType.VarChar);
+                    cmd.Parameters["@NomeUsuario"].Value = filtro.Nome;
                 }
 
                 SqlDataReader DbReader = cmd.ExecuteReader();
                 while (DbReader.Read())
                 {
                     Usuario usuario = new Usuario();
-                    TipoUsuario tipoUsuario = new TipoUsuario();
-
                     usuario.CodUsuario = DbReader.GetInt32(DbReader.GetOrdinal("cod_usuario"));
                     usuario.LoginUsuario = DbReader.GetString(DbReader.GetOrdinal("usuario_login"));
                     usuario.Senha = DbReader.GetString(DbReader.GetOrdinal("senha"));
                     usuario.Nome = DbReader.GetString(DbReader.GetOrdinal("nome"));
                     usuario.Telefone = DbReader.GetString(DbReader.GetOrdinal("telefone"));
+
+                    TipoUsuario tipoUsuario = new TipoUsuario();
                     tipoUsuario.DescricaoTipoUsuario = DbReader.GetString(DbReader.GetOrdinal("desc_tipo_usuario"));
+                    tipoUsuario.CodTipoUsuario = DbReader.GetInt32(DbReader.GetOrdinal("cod_tipo_usuario"));
+
                     usuario.TipoUsuario = tipoUsuario;
+
                     retorno.Add(usuario);
                 }
                 DbReader.Close();
@@ -150,7 +167,7 @@ namespace Biblioteca.DAO
             }
             catch (SqlException ex)
             {
-                throw new Exception("Erro: \n" + ex.Message);
+                throw new Exception("Não foi possível Listar os Usuários. Erro:\n" + ex.Message);
             }
             return retorno;
         }
@@ -161,13 +178,18 @@ namespace Biblioteca.DAO
             try
             {
                 this.AbrirConexao();
-                string sql = "SELECT cod_usuario FROM usuario where usuario_login = @loginUsuario and senha = @senha";
-                SqlCommand cmd = new SqlCommand(sql, sqlConn);
-                cmd.Parameters.Add("@senha", SqlDbType.Int);
-                cmd.Parameters["@senha"].Value = usuario.Senha;
+                string sql = "SELECT cod_usuario " +
+                             "FROM usuario " + 
+                             "WHERE usuario_login = @LoginUsuario " +
+                             "AND senha = @Senha";
 
-                cmd.Parameters.Add("@loginUsuario", SqlDbType.Int);
-                cmd.Parameters["@loginUsuario"].Value = usuario.LoginUsuario;
+                SqlCommand cmd = new SqlCommand(sql, sqlConn);
+
+                cmd.Parameters.Add("@Senha", SqlDbType.Int);
+                cmd.Parameters["@Senha"].Value = usuario.Senha;
+
+                cmd.Parameters.Add("@LoginUsuario", SqlDbType.VarChar);
+                cmd.Parameters["@LoginUsuario"].Value = usuario.LoginUsuario;
 
                 SqlDataReader DbReader = cmd.ExecuteReader();
                 while (DbReader.Read())
@@ -181,7 +203,7 @@ namespace Biblioteca.DAO
             }
             catch (SqlException ex)
             {
-                throw new Exception("Contate o suporte.\nErro: " + ex.Message);
+                throw new Exception("Não foi possível Verificar Duplicidade dos Usuários.\nErro: " + ex.Message);
             }
             return retorno;
         }

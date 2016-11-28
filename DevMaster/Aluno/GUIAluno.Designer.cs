@@ -34,30 +34,30 @@
             this.listViewAluno = new System.Windows.Forms.ListView();
             this.columnHeaderMatricula = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderNome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderDataNasc = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderSexo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderTelefone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderTurma = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnVoltar = new System.Windows.Forms.Button();
             this.btnConsultar = new System.Windows.Forms.Button();
-            this.btnRemover = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.textBoxMatricula = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.novoAlunoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.columnHeaderTurma = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderDataNasc = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnExcluir = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnExcluir);
             this.panel1.Controls.Add(this.textBoxNome);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.listViewAluno);
             this.panel1.Controls.Add(this.btnVoltar);
             this.panel1.Controls.Add(this.btnConsultar);
-            this.panel1.Controls.Add(this.btnRemover);
             this.panel1.Controls.Add(this.btnAlterar);
             this.panel1.Controls.Add(this.textBoxMatricula);
             this.panel1.Controls.Add(this.label1);
@@ -113,6 +113,11 @@
             this.columnHeaderNome.Text = "Nome";
             this.columnHeaderNome.Width = 203;
             // 
+            // columnHeaderDataNasc
+            // 
+            this.columnHeaderDataNasc.Text = "Data de Nascimento";
+            this.columnHeaderDataNasc.Width = 114;
+            // 
             // columnHeaderSexo
             // 
             this.columnHeaderSexo.Text = "Sexo";
@@ -122,6 +127,11 @@
             // 
             this.columnHeaderTelefone.Text = "Telefone";
             this.columnHeaderTelefone.Width = 105;
+            // 
+            // columnHeaderTurma
+            // 
+            this.columnHeaderTurma.Text = "Turma";
+            this.columnHeaderTurma.Width = 52;
             // 
             // btnVoltar
             // 
@@ -142,16 +152,6 @@
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = true;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
-            // 
-            // btnRemover
-            // 
-            this.btnRemover.Location = new System.Drawing.Point(639, 210);
-            this.btnRemover.Name = "btnRemover";
-            this.btnRemover.Size = new System.Drawing.Size(100, 40);
-            this.btnRemover.TabIndex = 4;
-            this.btnRemover.Text = "Remover";
-            this.btnRemover.UseVisualStyleBackColor = true;
-            this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
             // 
             // btnAlterar
             // 
@@ -196,15 +196,15 @@
             this.novoAlunoToolStripMenuItem.Text = "Novo Aluno";
             this.novoAlunoToolStripMenuItem.Click += new System.EventHandler(this.novoAlunoToolStripMenuItem_Click);
             // 
-            // columnHeaderTurma
+            // btnExcluir
             // 
-            this.columnHeaderTurma.Text = "Turma";
-            this.columnHeaderTurma.Width = 52;
-            // 
-            // columnHeaderDataNasc
-            // 
-            this.columnHeaderDataNasc.Text = "Data de Nascimento";
-            this.columnHeaderDataNasc.Width = 114;
+            this.btnExcluir.Location = new System.Drawing.Point(639, 221);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(100, 40);
+            this.btnExcluir.TabIndex = 11;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // GUIAluno
             // 
@@ -228,7 +228,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.Button btnConsultar;
-        private System.Windows.Forms.Button btnRemover;
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.TextBox textBoxMatricula;
         private System.Windows.Forms.Label label1;
@@ -243,5 +242,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ColumnHeader columnHeaderTurma;
         private System.Windows.Forms.ColumnHeader columnHeaderDataNasc;
+        private System.Windows.Forms.Button btnExcluir;
     }
 }
