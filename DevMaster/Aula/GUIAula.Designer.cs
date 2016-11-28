@@ -39,6 +39,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.novoAlunoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Data = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Turma = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Turno = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Disciplina = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Assunto = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -61,6 +66,12 @@
             // 
             // listViewAulas
             // 
+            this.listViewAulas.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Data,
+            this.Turma,
+            this.Turno,
+            this.Disciplina,
+            this.Assunto});
             this.listViewAulas.Location = new System.Drawing.Point(15, 74);
             this.listViewAulas.Name = "listViewAulas";
             this.listViewAulas.Size = new System.Drawing.Size(706, 381);
@@ -167,5 +178,10 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem novoAlunoToolStripMenuItem;
         private System.Windows.Forms.ListView listViewAulas;
+        private System.Windows.Forms.ColumnHeader Data;
+        private System.Windows.Forms.ColumnHeader Turma;
+        private System.Windows.Forms.ColumnHeader Turno;
+        private System.Windows.Forms.ColumnHeader Disciplina;
+        private System.Windows.Forms.ColumnHeader Assunto;
     }
 }

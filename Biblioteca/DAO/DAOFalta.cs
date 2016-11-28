@@ -107,15 +107,15 @@ namespace Biblioteca.DAO
             try
             {
                 this.AbrirConexao();
-                string sql = "SELECT f.cod_falta,f.data,f.motivo,f.abono,f.matricula,a.nome,f.cod_aula FROM falta as f INNER JOIN aluno as a ON f.matricula=a.matricula where cod_falta = cod_falta";
+                string sql = "SELECT f.cod_falta,f.data,f.motivo,f.abono,f.matricula,a.nome_aluno,f.cod_aula,aula.assunto,d.cod_disciplina,d.nome_disciplina,t.cod_turma,t.descricao_turma,dt.cod_disciplina_turma FROM falta as f INNER JOIN aluno as a ON f.matricula=a.matricula INNER JOIN aula ON aula.cod_aula=f.cod_aula INNER JOIN Disciplina_Turma as dt ON dt.cod_disciplina_turma=aula.cod_disciplina_turma INNER JOIN turma as t ON t.cod_turma=dt.cod_turma INNER JOIN Disciplina as d ON d.cod_disciplina=dt.cod_disciplina where cod_falta = cod_falta";
 
                 if (filtro.Data.Length > 0)
                 {
-                    sql += " and cod_disciplina = @codigoDisciplina";
+                    sql += " and data = @data";
                 }
                 if (filtro.Aluno.Nome != null && filtro.Aluno.Nome.Trim().Equals("") == false)
                 {
-                    sql += " and nome_disciplina like '%" + filtro.Aluno.Nome.Trim() + "%'";
+                    sql += " and nome_aluno like '%" + filtro.Aluno.Nome.Trim() + "%'";
                 }
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
 
@@ -136,6 +136,9 @@ namespace Biblioteca.DAO
                     Falta falta = new Falta();
                     Aluno aluno = new Aluno();
                     Aula aula = new Aula();
+                    Disciplina d = new Disciplina();
+                    Disciplina_Turma dt = new Disciplina_Turma();
+                    Turma t = new Turma();
                     falta.CodigoFalta = DbReader.GetInt32(DbReader.GetOrdinal("f.cod_falta"));
                     falta.Data = DbReader.GetDateTime(DbReader.GetOrdinal("f.data")).ToString();
                     falta.Motivo = DbReader.GetString(DbReader.GetOrdinal("f.motivo"));
@@ -143,7 +146,16 @@ namespace Biblioteca.DAO
                     aluno.Matricula = DbReader.GetString(DbReader.GetOrdinal("f.matricula"));
                     aluno.Nome = DbReader.GetString(DbReader.GetOrdinal("a.nome"));
                     falta.Aluno = aluno;
-                    aula.CodigoAula = DbReader.GetInt32(DbReader.GetOrdinal("f.cod_aula"));
+                    d.CodigoDisciplina = DbReader.GetInt32(DbReader.GetOrdinal("cod_disciplina"));
+                    d.NomeDisciplina = DbReader.GetString(DbReader.GetOrdinal("nome_disciplina"));
+                    t.CodigoTurma = DbReader.GetInt32(DbReader.GetOrdinal("cod_turma"));
+                    t.DescricaoTurma = DbReader.GetString(DbReader.GetOrdinal("descricao_turmma"));
+                    aula.CodigoAula = DbReader.GetInt32(DbReader.GetOrdinal("cod_aula"));
+                    dt.CodigoDisciplinaTurma = DbReader.GetInt32(DbReader.GetOrdinal("cod_disciplina_turma"));
+                    aula.Assunto = DbReader.GetString(DbReader.GetOrdinal("aula.assunto"));
+                    dt.Disciplina = d;
+                    dt.Turma = t;
+                    aula.DisciplinaTurma = dt;
                     falta.Aula = aula;
                     retorno.Add(falta);
                 }

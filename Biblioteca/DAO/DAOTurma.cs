@@ -130,18 +130,18 @@ namespace Biblioteca.DAO
 
                 if (filtro.CodigoTurma > 0)
                 {
-                    sql += " AND T.cod_turma = @CodTurma";
+                    sql += " AND T.cod_turma = @codigoTurma";
                 }
                 if (filtro.DescricaoTurma != null && filtro.DescricaoTurma.Trim().Equals("") == false)
                 {
-                    sql += " AND T.descricao_turma like '%@DescricaoTurma%'";
+                    sql += " AND T.descricao_turma like '%" + filtro.DescricaoTurma.Trim() + "%'";
                 }
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
 
                 if (filtro.CodigoTurma > 0)
                 {
-                    cmd.Parameters.Add("@CodigoTurma", SqlDbType.Int);
-                    cmd.Parameters["@CodigoTurma"].Value = filtro.CodigoTurma;
+                    cmd.Parameters.Add("@codigoTurma", SqlDbType.Int);
+                    cmd.Parameters["@codigoTurma"].Value = filtro.CodigoTurma;
                 }
                 if (filtro.DescricaoTurma != null && filtro.DescricaoTurma.Trim().Equals("") == false)
                 {

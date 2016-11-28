@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dateNascimento = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -43,7 +44,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dateNascimento = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,6 +69,14 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(420, 296);
             this.panel1.TabIndex = 3;
+            // 
+            // dateNascimento
+            // 
+            this.dateNascimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateNascimento.Location = new System.Drawing.Point(118, 124);
+            this.dateNascimento.Name = "dateNascimento";
+            this.dateNascimento.Size = new System.Drawing.Size(150, 20);
+            this.dateNascimento.TabIndex = 15;
             // 
             // label7
             // 
@@ -120,6 +128,9 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "M",
+            "F"});
             this.comboBox1.Location = new System.Drawing.Point(118, 151);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(150, 21);
@@ -190,14 +201,6 @@
             this.label1.Size = new System.Drawing.Size(55, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Matrícula:";
-            // 
-            // dateNascimento
-            // 
-            this.dateNascimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateNascimento.Location = new System.Drawing.Point(118, 124);
-            this.dateNascimento.Name = "dateNascimento";
-            this.dateNascimento.Size = new System.Drawing.Size(150, 20);
-            this.dateNascimento.TabIndex = 15;
             // 
             // GUIInserirAluno
             // 

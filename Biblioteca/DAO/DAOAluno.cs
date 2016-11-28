@@ -128,7 +128,7 @@ namespace Biblioteca.DAO
                 }
                 if (filtro.Nome != null && filtro.Nome.Trim().Equals("") == false)
                 {
-                    sql += " and nome_aluno like '%@Nome%'";
+                    sql += " and nome_aluno like '%" + filtro.Nome.Trim() + "%'";
                 }
                 if (filtro.Turma.CodigoTurma > 0)
                 {

@@ -106,13 +106,6 @@ namespace GUI
         #endregion
 
 
-
-
-
-
-
-
-
         #region Coordenação
 
         private void coordenaçãoToolStripMenuItem_Click(object sender, EventArgs e)
