@@ -21,8 +21,10 @@ namespace GUI
 
         List<Turma> listaTurma;
         int filtroCodigo;
+        Turma alterarTurma;
 
         DAOEnsino daoEnsino;
+        DAOTurma daoTurma;
         List<Ensino> listaEnsino;
 
         #endregion
@@ -140,7 +142,6 @@ namespace GUI
                         linha.SubItems.Add(Convert.ToString(turma.Ano));
                         linha.SubItems.Add(Convert.ToString(turma.DataInicio.ToShortDateString()));
                         linha.SubItems.Add(turma.Ensino.DescricaoEnsino);
-                        MessageBox.Show(turma.Ensino.DescricaoEnsino + turma.Ensino.CodigoEnsino);
                     }
 
                 }
@@ -201,38 +202,49 @@ namespace GUI
         {
             try
             {
-                Turma alterarTurma = new Turma();
-                daoEnsino = new DAOEnsino();
-                Ensino ensino = new Ensino();
-                Ensino ensinoFiltro = new Ensino();
-
-                int codigoTurmaSelecionado = 0;
-
                 ListView.SelectedListViewItemCollection colecaoSelecionada = listViewTurma.SelectedItems;
-                foreach (ListViewItem selecionado in colecaoSelecionada)
-                {
-                    codigoTurmaSelecionado = Convert.ToInt32(selecionado.SubItems[0].Text);
-                }
 
-                foreach (Turma turma in listaTurma)
+                if (colecaoSelecionada.Count > 0)
                 {
-                    if (turma.CodigoTurma == codigoTurmaSelecionado)
+                    int codigoTurmaSelecionado = 0;
+
+                    alterarTurma = new Turma();
+                    daoEnsino = new DAOEnsino();
+                    daoTurma = new DAOTurma();
+                    Ensino ensino = new Ensino();
+                    Ensino ensinoFiltro = new Ensino();
+
+                    foreach (ListViewItem selecionado in colecaoSelecionada)
                     {
-                        alterarTurma = turma;
+                        codigoTurmaSelecionado = Convert.ToInt32(selecionado.SubItems[0].Text);
+                        foreach (Turma turma in listaTurma)
+                        {
+                            if (turma.CodigoTurma == codigoTurmaSelecionado)
+                            {
+                                alterarTurma = turma;
+                            }
+                        }
                     }
-                }
 
-/*
-                ensino.DescricaoEnsino = alterarTurma.Ensino.DescricaoEnsino;
-                listaEnsino = daoEnsino.Listar(ensino);
-                foreach (Ensino ensino2 in listaEnsino)
+                    GUIAlterarTurma guiAlterarTurma = new GUIAlterarTurma(alterarTurma, this);
+                    guiAlterarTurma.ShowDialog();
+                }
+                else
                 {
-                    ensino = ensino2;
+                    MessageBox.Show("Selecione a Turma que deseja Alterar.");
                 }
 
-                GUIAlterarTurma guiAlterarTurma = new GUIAlterarTurma(alterarTurma, this);
-                guiAlterarTurma.ShowDialog();
-                */
+                /*
+                                ensino.DescricaoEnsino = alterarTurma.Ensino.DescricaoEnsino;
+                                listaEnsino = daoEnsino.Listar(ensino);
+                                foreach (Ensino ensino2 in listaEnsino)
+                                {
+                                    ensino = ensino2;
+                                }
+
+                                GUIAlterarTurma guiAlterarTurma = new GUIAlterarTurma(alterarTurma, this);
+                                guiAlterarTurma.ShowDialog();
+                                */
             }
             catch (Exception ex)
             {

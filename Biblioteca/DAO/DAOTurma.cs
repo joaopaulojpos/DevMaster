@@ -22,7 +22,7 @@ namespace Biblioteca.DAO
             try
             {
                 this.AbrirConexao();
-                string sql = "update turma set descricao_turma = @DescricaoTurma, turno = @Turno, ano = @Ano, data_inicio = @DataInicio, codEnsino = @CodEnsino where cod_turma = @CodigoTurma";
+                string sql = "update turma set descricao_turma = @DescricaoTurma, turno = @Turno, ano = @Ano, data_inicio = @DataInicio, cod_ensino = @CodEnsino where cod_turma = @CodigoTurma";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
                 cmd.Parameters.Add("@CodigoTurma", SqlDbType.Int);

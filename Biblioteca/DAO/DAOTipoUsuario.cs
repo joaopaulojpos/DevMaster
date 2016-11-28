@@ -28,7 +28,7 @@ namespace Biblioteca.DAO
                 }
                 if (filtro.DescricaoTipoUsuario != null && filtro.DescricaoTipoUsuario.Trim().Equals("") == false)
                 {
-                    sql += " and desc_tipo_usuario like '%@DesccricaoTipoUsuario%'";
+                    sql += " and desc_tipo_usuario like '%@TipoUsuario%'";
                 }
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
 
@@ -39,8 +39,8 @@ namespace Biblioteca.DAO
                 }
                 if (filtro.DescricaoTipoUsuario != null && filtro.DescricaoTipoUsuario.Trim().Equals("") == false)
                 {
-                    cmd.Parameters.Add("@DescricaoTipoUsuario", SqlDbType.VarChar);
-                    cmd.Parameters["@DescricaoTipoUsuario"].Value = filtro.DescricaoTipoUsuario;
+                    cmd.Parameters.Add("@TipoUsuario", SqlDbType.VarChar);
+                    cmd.Parameters["@TipoUsuario"].Value = filtro.DescricaoTipoUsuario;
 
                 }
                 SqlDataReader DbReader = cmd.ExecuteReader();
