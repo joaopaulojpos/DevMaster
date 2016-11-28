@@ -80,18 +80,28 @@ namespace GUI
             {
                 listViewTurma.Items.Clear();
 
-                Turma turma = new Turma();
-                if (textBoxCodigo.Text.Length > 0)
+                Turma turmaFiltro = new Turma();
+
+                ZeraTextBox(textBoxCodigo);
+                if (int.TryParse(textBoxCodigo.Text, out filtroCodigo))
                 {
-                    turma.CodigoTurma = Int32.Parse(textBoxCodigo.Text);
+                    TirarZeroTextBox(textBoxCodigo);
+                    turmaFiltro.CodigoTurma = filtroCodigo;
                 }
                 else
                 {
-                    turma.CodigoTurma = 0;
+                    LimpaTextBox(textBoxCodigo);
+                    throw new FormatException("Digite apenas números válidos.");
                 }
+
+
+
+
+
+
                 if (textBoxDescricao.Text.Length > 0)
                 {
-                    turma.DescricaoTurma = textBoxDescricao.Text ;
+                    turma.DescricaoTurma = textBoxDescricao.Text;
                 }
                 else
                 {
@@ -118,94 +128,95 @@ namespace GUI
         }
         //public void CarregarListView()
         //{
-        //    #region Old
+        #region Old
         //    //try
         //    //{
         //    //    listViewTurmas.Items.Clear();
 
-            //    //    Turma turma = new Turma();
-            //    //    turma.CodigoTurma = 0;
-            //    //    turma.DescricaoTurma = "";
+        //    //    Turma turma = new Turma();
+        //    //    turma.CodigoTurma = 0;
+        //    //    turma.DescricaoTurma = "";
 
-            //    //    Servico servico = new Servico();
+        //    //    Servico servico = new Servico();
 
-            //    //    //Tá dando erro pq RNTurma ainda não tá pronto
-            //    //    listaTurma = servico.ListarTurma(turma);
+        //    //    //Tá dando erro pq RNTurma ainda não tá pronto
+        //    //    listaTurma = servico.ListarTurma(turma);
 
-            //    //    foreach (Turma t in listaTurma)
-            //    //    {
-            //    //        ListViewItem linha = listViewTurmas.Items.Add(t.CodigoTurma.ToString());
-            //    //        linha.SubItems.Add(t.DescricaoTurma);
-            //    //        linha.SubItems.Add(Convert.ToString(t.Turno));
-            //    //        linha.SubItems.Add(Convert.ToString(t.Ano));
-            //    //        linha.SubItems.Add(t.DataInicio);
-            //    //        linha.SubItems.Add(t.Turma.DescricaoTurma);
-            //    //    }
-            //    //}
-            //    //catch (Exception ex)
-            //    //{
-            //    //    MessageBox.Show(ex.Message);
-            //    //}
-            //    #endregion
-            //    try
-            //    {
-            //        listViewTurma.Items.Clear();
-
-            //        Turma turmaFiltro = new Turma();
-            //        Turma ensinoFiltro = new Turma();
-            //        DAOTurma daoTurma = new DAOTurma();
-
-            //        //                  CÓDIGO TURMA FILTRO
-            //        ZeraTextBox(textBoxCodigo);
-            //        if (int.TryParse(textBoxCodigo.Text, out filtroCodigo)) //Ele valida o primeiro param e se for inteiro, joga o valor pra o segundo param, nesse caso filtroCodigo
-            //        {
-            //            TirarZeroTextBox(textBoxCodigo); //Só pra não ficar o número zero 0 lá no textbox, perfumaria...
-            //            turmaFiltro.CodigoTurma = filtroCodigo;
-            //        }
-            //        else
-            //        {
-            //            LimpaTextBox(textBoxCodigo);
-            //            throw new FormatException("Digite apenas números válidos.");
-            //        }
-
-            //        //                  DESCRIÇÃO TURMA FILTRO
-            //        //Alimentando os campos num Objeto pra mandar pra DAO Pesquisar
-            //        turmaFiltro.DescricaoTurma = textBoxDescricao.Text;
-
-            //        listaTurma = daoTurma.Listar(turmaFiltro);
-
-            //        if (listaTurma.Count > 0)
-            //        {
-            //            foreach (Turma turma in listaTurma)
-            //            {
-            //                ListViewItem linha = listViewTurma.Items.Add(Convert.ToString(turma.CodigoTurma));
-            //                linha.SubItems.Add(turma.DescricaoTurma);
-            //                linha.SubItems.Add(turma.Turno);
-            //                linha.SubItems.Add(Convert.ToString(turma.Ano));
-            //                linha.SubItems.Add(Convert.ToString(turma.DataInicio.ToShortDateString()));
-            //                linha.SubItems.Add(turma.Ensino.DescricaoEnsino);
-            //            }
-
-            //        }
-            //        else
-            //        {
-            //            MessageBox.Show("Sem resultados.");
-            //        }
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        MessageBox.Show(ex.Message);
-            //    }
-            //}
-
-            #endregion
+        //    //    foreach (Turma t in listaTurma)
+        //    //    {
+        //    //        ListViewItem linha = listViewTurmas.Items.Add(t.CodigoTurma.ToString());
+        //    //        linha.SubItems.Add(t.DescricaoTurma);
+        //    //        linha.SubItems.Add(Convert.ToString(t.Turno));
+        //    //        linha.SubItems.Add(Convert.ToString(t.Ano));
+        //    //        linha.SubItems.Add(t.DataInicio);
+        //    //        linha.SubItems.Add(t.Turma.DescricaoTurma);
+        //    //    }
+        //    //}
+        //    //catch (Exception ex)
+        //    //{
+        //    //    MessageBox.Show(ex.Message);
+        //    //}
+        #endregion
 
 
-            #endregion
 
-            #region Botões
+        //    try
+        //    {
+        //        Turma turmaFiltro = new Turma();
+        //        Turma ensinoFiltro = new Turma();
+        //        DAOTurma daoTurma = new DAOTurma();
 
-            #region Consultar
+        //        //                  CÓDIGO TURMA FILTRO
+        //        ZeraTextBox(textBoxCodigo);
+        //        if (int.TryParse(textBoxCodigo.Text, out filtroCodigo)) //Ele valida o primeiro param e se for inteiro, joga o valor pra o segundo param, nesse caso filtroCodigo
+        //        {
+        //            TirarZeroTextBox(textBoxCodigo); //Só pra não ficar o número zero 0 lá no textbox, perfumaria...
+        //            turmaFiltro.CodigoTurma = filtroCodigo;
+        //        }
+        //        else
+        //        {
+        //            LimpaTextBox(textBoxCodigo);
+        //            throw new FormatException("Digite apenas números válidos.");
+        //        }
+
+        //        //                  DESCRIÇÃO TURMA FILTRO
+        //        //Alimentando os campos num Objeto pra mandar pra DAO Pesquisar
+        //        turmaFiltro.DescricaoTurma = textBoxDescricao.Text;
+
+        //        listaTurma = daoTurma.Listar(turmaFiltro);
+
+        //        if (listaTurma.Count > 0)
+        //        {
+        //            foreach (Turma turma in listaTurma)
+        //            {
+        //                ListViewItem linha = listViewTurma.Items.Add(Convert.ToString(turma.CodigoTurma));
+        //                linha.SubItems.Add(turma.DescricaoTurma);
+        //                linha.SubItems.Add(turma.Turno);
+        //                linha.SubItems.Add(Convert.ToString(turma.Ano));
+        //                linha.SubItems.Add(Convert.ToString(turma.DataInicio.ToShortDateString()));
+        //                linha.SubItems.Add(turma.Ensino.DescricaoEnsino);
+        //            }
+
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show("Sem resultados.");
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
+
+        #endregion
+
+
+        #endregion
+
+        #region Botões
+
+        #region Consultar
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
