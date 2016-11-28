@@ -8,9 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Biblioteca.Basicas;
-using Biblioteca.RN;
 using WebService;
-using Biblioteca.DAO;
 
 namespace GUI
 {
@@ -19,9 +17,15 @@ namespace GUI
         #region Atributos
 
         Turma turma;
+        Turma novaTurma;
         GUITurma guiTurma;
 
-        DAOTurma daoTurma;
+        Ensino ensino;
+        List<Ensino> listaEnsino;
+
+        List<Disciplina> listaDisciplina;
+
+        Servico servico;
 
         #endregion
 
@@ -63,8 +67,25 @@ namespace GUI
         {
             try
             {
-                daoTurma = new DAOTurma();
-                daoTurma.Alterar(turma);
+                novaTurma.Ano = Convert.ToInt32(comboBoxAno.Text);
+                novaTurma.DataInicio = dateDataInicio.Value;
+                novaTurma.DescricaoTurma = textBoxDescricao.Text;
+
+                listaEnsino = servico.ListarEnsino(turma.Ensino);
+
+                foreach (Ensino ensino2 in listaEnsino)
+                {
+                    ensino.CodigoEnsino = ensino2.CodigoEnsino;
+                    ensino.DescricaoEnsino = ensino2.DescricaoEnsino;
+                }
+
+                novaTurma.Ensino = ensino;
+
+                //Disciplinas
+                //listaDisciplina
+
+                servico = new Servico();
+                servico.AlterarTurma(turma);
                 MessageBox.Show("Turma alterada com sucesso!");
 
                 guiTurma.CarregarListView();

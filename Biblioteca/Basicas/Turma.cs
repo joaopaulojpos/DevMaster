@@ -16,7 +16,6 @@ namespace Biblioteca.Basicas
         private int ano;
         private DateTime dataInicio;
         private Ensino ensino;
-        private List<Disciplina_Turma> disciplinas;
 
         public int CodigoTurma
         {
@@ -93,19 +92,6 @@ namespace Biblioteca.Basicas
             set
             {
                 ensino = value;
-            }
-        }
-
-        public List<Disciplina_Turma> Disciplinas
-        {
-            get
-            {
-                return disciplinas;
-            }
-
-            set
-            {
-                disciplinas = value;
             }
         }
     }

@@ -63,7 +63,7 @@ namespace Biblioteca.RN
 
             if (turma == null)
             {
-                throw new Exception("Impossível efetuar registro.");
+                throw new Exception("A turma não pode ser Nulo.");
             }
             if (turma.Ano < 0)
             {

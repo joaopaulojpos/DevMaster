@@ -128,7 +128,7 @@ namespace Biblioteca.DAO
                 }
                 if (filtro.DescricaoEnsino != null && filtro.DescricaoEnsino.Trim().Equals("") == false)
                 {
-                    sql += " and descricao_ensino like '%@DescricaoEnsino%'";
+                    sql += " and descricao_ensino like '%" + filtro.DescricaoEnsino.Trim() + "%'";
                 }
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
 
