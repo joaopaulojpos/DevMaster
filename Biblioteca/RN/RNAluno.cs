@@ -81,10 +81,15 @@ namespace Biblioteca.RN
                 throw new Exception("Campo Sexo inválido.");
             }
 
-            String regex = @"^9.\\d{4}-\\d{4}$";
-            Regex er = new Regex(regex);
-            //if (aluno.Telefone != null)
-            if (!er.IsMatch(aluno.Telefone))
+            if (aluno.Telefone == null || aluno.Telefone == "")
+            {
+                throw new Exception("Campo Telefone não pode ser vazio.");
+            }
+
+            //String regexString = @"^9.\\d{4}-\\d{4}$"; OLD
+            String regexString = "^\\(\\d{2}\\)\\d{4}-\\d{4}$"; //(81)1234-1234
+            Regex regex = new Regex(regexString);
+            if (!regex.IsMatch(aluno.Telefone))
             {
                 throw new Exception("Telefone inválido.");
             }

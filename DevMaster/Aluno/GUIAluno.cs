@@ -153,30 +153,38 @@ namespace GUI
         {
             try
             {
-                Aluno alunoSelecionado = new Aluno();
-                string matriculaSelecionada = "";
-
                 //Pega o Ensino selecionado, mesmo que só seja um ele entende como uma coleção
                 ListView.SelectedListViewItemCollection colecaoSelecionada = listViewAluno.SelectedItems;
-                //Percorrendo a coleção(a série selecionada)
-                foreach (ListViewItem itemSelecionado in colecaoSelecionada)
+                if (colecaoSelecionada.Count > 0)
                 {
-                    matriculaSelecionada = itemSelecionado.SubItems[0].Text;
-                }
+                    Aluno alunoSelecionado = new Aluno();
+                    string matriculaSelecionada = "";
 
-                foreach (Aluno aluno in listaAluno)
-                {
-                    if (aluno.Matricula == matriculaSelecionada)
+
+                    //Percorrendo a coleção(a série selecionada)
+                    foreach (ListViewItem itemSelecionado in colecaoSelecionada)
                     {
-                        alunoSelecionado = aluno;
+                        matriculaSelecionada = itemSelecionado.SubItems[0].Text;
                     }
-                }
 
-                //Enviando a série a ser alterada pra tela de Alterar:
-                //O parâmetro this é essa própria tela, com isso lá na tela de Alterar 
-                //será possível chamar o método Consultar(); dessa tela.
-                GUIAlterarAluno guiAlterarAluno = new GUIAlterarAluno(alunoSelecionado, this);
-                guiAlterarAluno.ShowDialog();
+                    foreach (Aluno aluno in listaAluno)
+                    {
+                        if (aluno.Matricula == matriculaSelecionada)
+                        {
+                            alunoSelecionado = aluno;
+                        }
+                    }
+
+                    //Enviando a série a ser alterada pra tela de Alterar:
+                    //O parâmetro this é essa própria tela, com isso lá na tela de Alterar 
+                    //será possível chamar o método Consultar(); dessa tela.
+                    GUIAlterarAluno guiAlterarAluno = new GUIAlterarAluno(alunoSelecionado, this);
+                    guiAlterarAluno.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Selecione o Aluno que deseja Alterar.");
+                }
             }
             catch (Exception ex)
             {
