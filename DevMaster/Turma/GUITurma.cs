@@ -118,7 +118,7 @@ namespace GUI
                         linha.SubItems.Add(Convert.ToString(t.Turno));
                         linha.SubItems.Add(Convert.ToString(t.Ano));
                         linha.SubItems.Add(t.DataInicio.ToString());
-                        linha.SubItems.Add(t.DescricaoTurma);
+                        linha.SubItems.Add(t.Ensino.DescricaoEnsino);
                     }
                 }
                 else

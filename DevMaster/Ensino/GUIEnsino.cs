@@ -8,8 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Biblioteca.Basicas;
-using Biblioteca.RN;
-using Biblioteca.DAO;
 using WebService;
 
 namespace GUI
@@ -20,6 +18,9 @@ namespace GUI
 
         List<Ensino> listaEnsino;
         int filtroCodigo;
+
+        Servico servico;
+        Ensino ensinoFiltro;
 
         #endregion
 
@@ -76,9 +77,8 @@ namespace GUI
             {
                 listViewEnsinos.Items.Clear();
 
-                Ensino ensinoFiltro = new Ensino();
-                RNEnsino rnEnsino = new RNEnsino(); //Trocar por servico
-
+                ensinoFiltro = new Ensino();
+                servico = new Servico();
                 //                  CÓDIGO ENSINO
                 ZeraTextBoxCod();
                 if (int.TryParse(textBoxCodigo.Text, out filtroCodigo)) //Ele valida o primeiro param e se for inteiro, joga o valor pra o segundo param, nesse caso filtroCodigo
@@ -108,7 +108,7 @@ namespace GUI
                     ensinoFiltro.DescricaoEnsino = filtro;
                 }*/
 
-                listaEnsino = rnEnsino.Listar(ensinoFiltro);
+                listaEnsino = servico.ListarEnsino(ensinoFiltro);
 
                 if (listaEnsino.Count > 0)
                 {
@@ -152,108 +152,6 @@ namespace GUI
 
         #endregion
 
-        #region Menu Inserir
-
-        private void novoAlunoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                //O parâmetro this é essa própria tela, com isso lá na tela de Inserir 
-                //será possível chamar o método Consultar(); dessa tela.
-                GUIInserirEnsino guiInserirEnsino = new GUIInserirEnsino(this);
-                guiInserirEnsino.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro: \n" + ex.Message);
-            }
-        }
-
-        #endregion
-
-        #region Alterar
-
-        private void btnAlterar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Ensino alterarEnsino = new Ensino();
-                int codigoSelecionado = 0;
-
-                //Pega o Ensino selecionado, mesmo que só seja um ele entende como uma coleção
-                ListView.SelectedListViewItemCollection colecaoSelecionada = listViewEnsinos.SelectedItems;
-                //Percorrendo a coleção(a série selecionada)
-                foreach (ListViewItem selecionado in colecaoSelecionada)
-                {
-                    codigoSelecionado = Convert.ToInt32(selecionado.SubItems[0].Text);
-                }
-
-                foreach (Ensino ensino in listaEnsino)
-                {
-                    if (ensino.CodigoEnsino == codigoSelecionado)
-                    {
-                        alterarEnsino = ensino;
-                    }
-                }
-
-                //Enviando a série a ser alterada pra tela de Alterar:
-                //O parâmetro this é essa própria tela, com isso lá na tela de Alterar 
-                //será possível chamar o método Consultar(); dessa tela.
-                GUIAlterarEnsino guiAlterarEnsino = new GUIAlterarEnsino(alterarEnsino, this);
-                guiAlterarEnsino.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro: \n" + ex.Message);
-            }
-        }
-
-        #endregion
-
-        #region Remover
-
-        private void btnRemover_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                //Pega a Série selecionada, mesmo que só seja uma ele entende como uma coleção
-                ListView.SelectedListViewItemCollection colecaoSelecionada = listViewEnsinos.SelectedItems;
-
-                if (colecaoSelecionada.Count > 0)
-                {
-                    Ensino removerEnsino = new Ensino();
-
-                    //Percorrendo a coleção(a série selecionada)
-                    foreach (ListViewItem selecionado in colecaoSelecionada)
-                    {
-                        removerEnsino.CodigoEnsino = Convert.ToInt32(selecionado.SubItems[0].Text);
-                        if (MessageBox.Show("Tem certeza?", "Confirmar remoção do Ensino.", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                        {
-                            RNEnsino rnEnsino = new RNEnsino();
-                            rnEnsino.Excluir(removerEnsino);
-
-                            listViewEnsinos.Items.Remove(selecionado);
-                            MessageBox.Show("Ensino removido com sucesso!");
-                        }
-                        else
-                        {
-                            MessageBox.Show("Cancelado.", "Remoção de Ensino");
-                        }
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Selecione o Ensino que deseja Remover.");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro: \n" + ex.Message);
-            }
-        }
-
-        #endregion
-
         #region Voltar
 
         private void btnVoltarClick(object sender, EventArgs e)
@@ -283,5 +181,108 @@ namespace GUI
         #endregion
 
 
+
+
+        #region Menu Inserir
+
+        //private void novoAlunoToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        //O parâmetro this é essa própria tela, com isso lá na tela de Inserir 
+        //        //será possível chamar o método Consultar(); dessa tela.
+        //        GUIInserirEnsino guiInserirEnsino = new GUIInserirEnsino(this);
+        //        guiInserirEnsino.ShowDialog();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Erro: \n" + ex.Message);
+        //    }
+        //}
+
+        #endregion
+
+        #region Alterar
+
+        //private void btnAlterar_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        Ensino alterarEnsino = new Ensino();
+        //        int codigoSelecionado = 0;
+
+        //        //Pega o Ensino selecionado, mesmo que só seja um ele entende como uma coleção
+        //        ListView.SelectedListViewItemCollection colecaoSelecionada = listViewEnsinos.SelectedItems;
+        //        //Percorrendo a coleção(a série selecionada)
+        //        foreach (ListViewItem selecionado in colecaoSelecionada)
+        //        {
+        //            codigoSelecionado = Convert.ToInt32(selecionado.SubItems[0].Text);
+        //        }
+
+        //        foreach (Ensino ensino in listaEnsino)
+        //        {
+        //            if (ensino.CodigoEnsino == codigoSelecionado)
+        //            {
+        //                alterarEnsino = ensino;
+        //            }
+        //        }
+
+        //        //Enviando a série a ser alterada pra tela de Alterar:
+        //        //O parâmetro this é essa própria tela, com isso lá na tela de Alterar 
+        //        //será possível chamar o método Consultar(); dessa tela.
+        //        GUIAlterarEnsino guiAlterarEnsino = new GUIAlterarEnsino(alterarEnsino, this);
+        //        guiAlterarEnsino.ShowDialog();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Erro: \n" + ex.Message);
+        //    }
+        //}
+
+        #endregion
+
+        #region Remover
+
+        //private void btnRemover_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        //Pega a Série selecionada, mesmo que só seja uma ele entende como uma coleção
+        //        ListView.SelectedListViewItemCollection colecaoSelecionada = listViewEnsinos.SelectedItems;
+
+        //        if (colecaoSelecionada.Count > 0)
+        //        {
+        //            Ensino removerEnsino = new Ensino();
+
+        //            //Percorrendo a coleção(a série selecionada)
+        //            foreach (ListViewItem selecionado in colecaoSelecionada)
+        //            {
+        //                removerEnsino.CodigoEnsino = Convert.ToInt32(selecionado.SubItems[0].Text);
+        //                if (MessageBox.Show("Tem certeza?", "Confirmar remoção do Ensino.", MessageBoxButtons.YesNo) == DialogResult.Yes)
+        //                {
+        //                    servico = new Servico();
+        //                    servico.Excluiren(removerEnsino);
+
+        //                    listViewEnsinos.Items.Remove(selecionado);
+        //                    MessageBox.Show("Ensino removido com sucesso!");
+        //                }
+        //                else
+        //                {
+        //                    MessageBox.Show("Cancelado.", "Remoção de Ensino");
+        //                }
+        //            }
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show("Selecione o Ensino que deseja Remover.");
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Erro: \n" + ex.Message);
+        //    }
+        //}
+
+        #endregion
     }
 }

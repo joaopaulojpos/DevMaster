@@ -27,84 +27,89 @@ namespace GUI
 
         #region Construtores
 
-        //Padrão
-        public GUIInserirTurma()
-        {
-            InitializeComponent();
-            carregarComboEnsino();
-            carregarComboTurno();
-        }
-
-
-        //Utilizado
         public GUIInserirTurma(GUITurma guiTurma)
         {
             InitializeComponent();
             this.guiTurma = guiTurma;
-            carregarComboAno("Fundamental");
-            carregarComboEnsino();
-            carregarComboTurno();
+            AlimentarCampos();
         }
 
         #endregion
 
         #region Métodos Auxiliares
 
-        #region Combobox Turno
+        #region Alimentar Campos
 
-        private void carregarComboTurno()
+        void AlimentarCampos()
         {
-            comboBoxTurno.Items.Add("M");
-            comboBoxTurno.Items.Add("T");
-            comboBoxTurno.Items.Add("N");
+            LimparComboAno();
+            AlimentarComboTurno();
+            AlimentarComboEnsino();
+            comboBoxAno.SelectedIndex = 0;
         }
 
         #endregion
 
         #region ComboBox Ano
 
-        private void carregarComboAno(string ensino)
+        void LimparComboAno()
         {
-            int totalAno = 0;
+            comboBoxAno.Items.Clear();
+        }
 
-            if (ensino == "Fundamental")
+        //Ensino Médio tem 3 anos, Fundamental 9, dependendo do Ensino ele Alimenta o Combo com 3 ou 9
+        void AlimentarComboAno(string ensinoDescricao)
+        {
+            int limite = 9;
+            switch (ensinoDescricao)
             {
-                totalAno = 9;
+                case "Fundamental":
+                    limite = 9;
+                    break;
+                case "Médio":
+                    limite = 3;
+                    break;
             }
-            if (ensino == "Médio")
-            {
-                totalAno = 3;
-            }
-            int x = 1;
-            while (x <= totalAno)
+            for (int x = 1; x <= limite; x++)
             {
                 comboBoxAno.Items.Add(x);
-                x++;
             }
-                
         }
 
         #endregion
 
-        #region Combobox Ensino
+        #region ComboBox Ensino Descrição
 
-        private void carregarComboEnsino()
+        void AlimentarComboEnsino()
         {
-            try
-            {
-                Ensino ensinoFiltro = new Ensino();
-                daoEnsino = new DAOEnsino();
-                ensinoFiltro.CodigoEnsino = 0;
-                listaEnsino = daoEnsino.Listar(ensinoFiltro);
-                foreach (Ensino ensino3 in listaEnsino)
-                {
-                    comboBoxEnsino.Items.Add(ensino3.DescricaoEnsino);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            comboBoxAno.Items.Clear();
+            comboBoxEnsino.Items.Add("Fundamental");
+            comboBoxEnsino.Items.Add("Médio");
+            comboBoxEnsino.SelectedIndex = 0;
+        }
+
+        #endregion
+
+        #region ComboBox Turno
+
+        void AlimentarComboTurno()
+        {
+            comboBoxTurno.Items.Add("M");
+            comboBoxTurno.Items.Add("T");
+            comboBoxTurno.Items.Add("N");
+            comboBoxTurno.SelectedIndex = 0;
+        }
+
+        #endregion
+
+        #region Evento ComboBox Ensino Changed
+
+        private void comboBoxEnsino_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            LimparComboAno();
+            AlimentarComboAno(comboBoxEnsino.Text);
+            comboBoxAno.SelectedIndex = 0;
+
         }
 
         #endregion
@@ -171,6 +176,7 @@ namespace GUI
         {
 
         }
+
 
 
 
