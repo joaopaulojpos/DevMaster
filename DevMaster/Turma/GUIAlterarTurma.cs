@@ -67,6 +67,7 @@ namespace GUI
         {
             try
             {
+                novaTurma = new Turma();
                 novaTurma.Ano = Convert.ToInt32(comboBoxAno.Text);
                 novaTurma.DataInicio = dateDataInicio.Value;
                 novaTurma.DescricaoTurma = textBoxDescricao.Text;
