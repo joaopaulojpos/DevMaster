@@ -88,6 +88,7 @@
             // 
             // comboBoxTurma
             // 
+            this.comboBoxTurma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTurma.FormattingEnabled = true;
             this.comboBoxTurma.Location = new System.Drawing.Point(118, 205);
             this.comboBoxTurma.Name = "comboBoxTurma";
@@ -115,6 +116,7 @@
             // 
             // comboBoxSexo
             // 
+            this.comboBoxSexo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSexo.FormattingEnabled = true;
             this.comboBoxSexo.Location = new System.Drawing.Point(118, 151);
             this.comboBoxSexo.Name = "comboBoxSexo";

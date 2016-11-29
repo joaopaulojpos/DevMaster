@@ -146,19 +146,19 @@ namespace Biblioteca.Fachada
         #region Turma
         public void InserirTurma(Turma turma)
         {
-            rnTurma.inserir(turma);
+            rnTurma.Inserir(turma);
         }
         public void AlterarTurma(Turma turma)
         {
-            rnTurma.alterar(turma);
+            rnTurma.Alterar(turma);
         }
         public void ExcluirTurma(Turma turma)
         {
-            rnTurma.excluir(turma);
+            rnTurma.Excluir(turma);
         }
         public List<Turma> ListarTurma(Turma turma)
         {
-            return rnTurma.listar(turma);
+            return rnTurma.Listar(turma);
         }
         #endregion
 

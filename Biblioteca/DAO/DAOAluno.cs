@@ -15,9 +15,10 @@ namespace Biblioteca.DAO
     {
         #region Implementação da Interface
 
+        #region Alterar
+
         public void Alterar(Aluno aluno)
         {
-
             try
             {
                 this.AbrirConexao();
@@ -52,6 +53,10 @@ namespace Biblioteca.DAO
             }
         }
 
+        #endregion
+
+        #region Excluir
+
         public void Excluir(Aluno aluno)
         {
             try
@@ -74,12 +79,16 @@ namespace Biblioteca.DAO
             }
         }
 
+        #endregion
+
+        #region Inserir
+
         public void Inserir(Aluno aluno)
         {
             try
             {
                 this.AbrirConexao();
-                string sql = "insert into aluno (matricula,nome_aluno,data_nasc,sexo,telefone,cod_turma) values(@Matricula,@Nome,@DataNasc,@Sexo,@Telefone,@CodTurma)";
+                string sql = "insert into aluno (matricula,nome_aluno,data_nasc,sexo,telefone,cod_turma) values(@Matricula,@Nome,@DataNasc,@Sexo,@Telefone,@CodigoTurma)";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
                 cmd.Parameters.Add("@Matricula", SqlDbType.VarChar);
@@ -110,6 +119,10 @@ namespace Biblioteca.DAO
             }
         }
 
+        #endregion
+
+        #region Listar
+
         public List<Aluno> Listar(Aluno filtro)
         {
             List<Aluno> retorno = new List<Aluno>();
@@ -124,7 +137,7 @@ namespace Biblioteca.DAO
 
                 if (filtro.Matricula.Length > 0)
                 {
-                    sql += " and matricula like '%@Matricula%'";
+                    sql += " and matricula like '%" + filtro.Matricula.Trim() + "%'";
                 }
                 if (filtro.Nome != null && filtro.Nome.Trim().Equals("") == false)
                 {
@@ -181,6 +194,10 @@ namespace Biblioteca.DAO
             return retorno;
         }
 
+        #endregion
+
+        #region Verifica Duplicidade
+
         public bool VerificaDuplicidade(Aluno aluno)
         {
             bool retorno = false;
@@ -208,6 +225,8 @@ namespace Biblioteca.DAO
             }
             return retorno;
         }
+
+        #endregion
 
         #endregion
     }

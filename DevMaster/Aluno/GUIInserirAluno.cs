@@ -16,63 +16,108 @@ namespace GUI
 {
     public partial class GUIInserirAluno : Form
     {
+        #region Atributos
+
         GUIAluno guiAluno;
-        private List<Turma> listaTurmas;
+        List<Turma> listaTurma;
         Servico servico = new Servico();
-        public GUIInserirAluno()
-        {
-            InitializeComponent();
-        }
+
+        #endregion
+
+        #region Construtores
 
         public GUIInserirAluno(GUIAluno guiAluno)
         {
             InitializeComponent();
-            carregarTurmas();
+            this.guiAluno = guiAluno;
+            AlimentarComboSexo();
+            AlimentarComboTurma();
         }
 
-        private void carregarTurmas()
+        #endregion
+
+        #region Métodos Auxiliares
+
+        #region Alimentar Campos
+
+        void AlimentarComboTurma()
         {
-            try{
-                Turma t = new Turma();
-                comboBox2.Items.Clear();
-                t.CodigoTurma = 0;
-                t.DescricaoTurma = "";
-                listaTurmas = servico.ListarTurma(t);
-                foreach(Turma tm in listaTurmas)
+            try
+            {
+                Turma turmaFiltro = new Turma();
+                turmaFiltro.CodigoTurma = 0;
+                turmaFiltro.DescricaoTurma = "";
+                listaTurma = servico.ListarTurma(turmaFiltro);
+
+                foreach (Turma turma in listaTurma)
                 {
-                    comboBox2.Items.Add(tm.DescricaoTurma);
+                    comboBoxTurma.Items.Add(turma.DescricaoTurma);
                 }
-            }catch(Exception ex)
+                comboBoxTurma.SelectedIndex = 0;
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        void AlimentarComboSexo()
+        {
+            comboBoxSexo.Items.Clear();
+            comboBoxSexo.Items.Add("M");
+            comboBoxSexo.Items.Add("F");
+            comboBoxSexo.SelectedIndex = 0;
+        }
+
+        #endregion
+
+        #endregion
+
+        #region Botão Concluir
+
+        private void Concluir_Click(object sender, EventArgs e)
         {
             try
             {
                 Aluno a = new Aluno();
+                a.Matricula = textBoxMatricula.Text;
+                a.Nome = textBoxNome.Text;
+                a.DataNasc = dateNascimento.Value;
+                a.Sexo = comboBoxSexo.Items[comboBoxSexo.SelectedIndex].ToString();
+                a.Telefone = textBoxTelefone.Text;
+
                 Turma t = new Turma();
-                a.Matricula = textBox1.Text;
-                a.Nome = textBox2.Text;
-                a.DataNasc = Convert.ToDateTime(dateNascimento);
-                a.Sexo = comboBox1.Items[comboBox1.SelectedIndex].ToString() ;
-                a.Telefone = textBox4.Text;
-                t.CodigoTurma = listaTurmas[comboBox2.SelectedIndex].CodigoTurma;
+                t = listaTurma[comboBoxTurma.SelectedIndex];
+
                 a.Turma = t;
+
                 servico.InserirAluno(a);
-                MessageBox.Show("Inserido!");
-            }catch(Exception ex)
+                MessageBox.Show("Aluno Inserido com sucesso!");
+                guiAluno.CarregarListView();
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        #endregion
+
+        #region Botão Voltar
+
+        private void btnVoltar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        #endregion
+
+        #region Outros
+
+
+
+        #endregion
+
     }
 }

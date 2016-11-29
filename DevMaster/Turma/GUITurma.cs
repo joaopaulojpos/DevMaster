@@ -80,62 +80,59 @@ namespace GUI
             {
                 listViewTurma.Items.Clear();
 
-                //Turma turmaFiltro = new Turma();
+                Turma turmaFiltro = new Turma();
 
-                //ZeraTextBox(textBoxCodigo);
-                //if (int.TryParse(textBoxCodigo.Text, out filtroCodigo))
-                //{
-                //    TirarZeroTextBox(textBoxCodigo);
-                //    turmaFiltro.CodigoTurma = filtroCodigo;
-                //}
-                //else
-                //{
-                //    LimpaTextBox(textBoxCodigo);
-                //    throw new FormatException("Digite apenas números válidos.");
-                //}
-
-
-
-
-                Turma turma = new Turma();
-                if (textBoxCodigo.Text.Length > 0)
+                //                  CÓDIGO TURMA
+                ZeraTextBox(textBoxCodigo);
+                if (int.TryParse(textBoxCodigo.Text, out filtroCodigo))
                 {
-                    turma.CodigoTurma = Int32.Parse(textBoxCodigo.Text);
+                    TirarZeroTextBox(textBoxCodigo);
+                    turmaFiltro.CodigoTurma = filtroCodigo;
                 }
                 else
                 {
-                    turma.CodigoTurma = 0;
+                    LimpaTextBox(textBoxCodigo);
+                    throw new FormatException("Digite apenas números válidos.");
                 }
 
+                //                  DESCRIÇÃO TURMA
                 if (textBoxDescricao.Text.Length > 0)
                 {
-                    turma.DescricaoTurma = textBoxDescricao.Text;
+                    turmaFiltro.DescricaoTurma = textBoxDescricao.Text;
                 }
                 else
                 {
-                    turma.DescricaoTurma = "";
+                    turmaFiltro.DescricaoTurma = "";
                 }
+
                 //Tá dando erro pq RNTurma ainda não tá pronto
                 Servico servico = new Servico();
-                listaTurma = servico.ListarTurma(turma);
+                listaTurma = servico.ListarTurma(turmaFiltro);
 
-                foreach (Turma t in listaTurma)
+                if (listaTurma.Count > 0)
                 {
-                    ListViewItem linha = listViewTurma.Items.Add(t.CodigoTurma.ToString());
-                    linha.SubItems.Add(t.DescricaoTurma);
-                    linha.SubItems.Add(Convert.ToString(t.Turno));
-                    linha.SubItems.Add(Convert.ToString(t.Ano));
-                    linha.SubItems.Add(t.DataInicio.ToString());
-                    linha.SubItems.Add(t.DescricaoTurma);
+                    foreach (Turma t in listaTurma)
+                    {
+                        ListViewItem linha = listViewTurma.Items.Add(t.CodigoTurma.ToString());
+                        linha.SubItems.Add(t.DescricaoTurma);
+                        linha.SubItems.Add(Convert.ToString(t.Turno));
+                        linha.SubItems.Add(Convert.ToString(t.Ano));
+                        linha.SubItems.Add(t.DataInicio.ToString());
+                        linha.SubItems.Add(t.Ensino.DescricaoEnsino);
+                    }
                 }
+                else
+                {
+                    MessageBox.Show("Sem resultados.");
+                }
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
-        //public void CarregarListView()
-        //{
+
         #region Old
         //    //try
         //    //{
@@ -165,57 +162,6 @@ namespace GUI
         //    //    MessageBox.Show(ex.Message);
         //    //}
         #endregion
-
-
-
-        //    try
-        //    {
-        //        Turma turmaFiltro = new Turma();
-        //        Turma ensinoFiltro = new Turma();
-        //        DAOTurma daoTurma = new DAOTurma();
-
-        //        //                  CÓDIGO TURMA FILTRO
-        //        ZeraTextBox(textBoxCodigo);
-        //        if (int.TryParse(textBoxCodigo.Text, out filtroCodigo)) //Ele valida o primeiro param e se for inteiro, joga o valor pra o segundo param, nesse caso filtroCodigo
-        //        {
-        //            TirarZeroTextBox(textBoxCodigo); //Só pra não ficar o número zero 0 lá no textbox, perfumaria...
-        //            turmaFiltro.CodigoTurma = filtroCodigo;
-        //        }
-        //        else
-        //        {
-        //            LimpaTextBox(textBoxCodigo);
-        //            throw new FormatException("Digite apenas números válidos.");
-        //        }
-
-        //        //                  DESCRIÇÃO TURMA FILTRO
-        //        //Alimentando os campos num Objeto pra mandar pra DAO Pesquisar
-        //        turmaFiltro.DescricaoTurma = textBoxDescricao.Text;
-
-        //        listaTurma = daoTurma.Listar(turmaFiltro);
-
-        //        if (listaTurma.Count > 0)
-        //        {
-        //            foreach (Turma turma in listaTurma)
-        //            {
-        //                ListViewItem linha = listViewTurma.Items.Add(Convert.ToString(turma.CodigoTurma));
-        //                linha.SubItems.Add(turma.DescricaoTurma);
-        //                linha.SubItems.Add(turma.Turno);
-        //                linha.SubItems.Add(Convert.ToString(turma.Ano));
-        //                linha.SubItems.Add(Convert.ToString(turma.DataInicio.ToShortDateString()));
-        //                linha.SubItems.Add(turma.Ensino.DescricaoEnsino);
-        //            }
-
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("Sem resultados.");
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
 
         #endregion
 

@@ -67,8 +67,9 @@
             // 
             // comboBoxAno
             // 
+            this.comboBoxAno.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxAno.FormattingEnabled = true;
-            this.comboBoxAno.Location = new System.Drawing.Point(93, 88);
+            this.comboBoxAno.Location = new System.Drawing.Point(93, 111);
             this.comboBoxAno.Name = "comboBoxAno";
             this.comboBoxAno.Size = new System.Drawing.Size(132, 21);
             this.comboBoxAno.TabIndex = 22;
@@ -76,23 +77,26 @@
             // dateDataInicio
             // 
             this.dateDataInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateDataInicio.Location = new System.Drawing.Point(93, 157);
+            this.dateDataInicio.Location = new System.Drawing.Point(93, 178);
             this.dateDataInicio.Name = "dateDataInicio";
             this.dateDataInicio.Size = new System.Drawing.Size(132, 20);
             this.dateDataInicio.TabIndex = 21;
             // 
             // comboBoxEnsino
             // 
+            this.comboBoxEnsino.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxEnsino.FormattingEnabled = true;
-            this.comboBoxEnsino.Location = new System.Drawing.Point(93, 195);
+            this.comboBoxEnsino.Location = new System.Drawing.Point(93, 84);
             this.comboBoxEnsino.Name = "comboBoxEnsino";
             this.comboBoxEnsino.Size = new System.Drawing.Size(132, 21);
             this.comboBoxEnsino.TabIndex = 20;
+            this.comboBoxEnsino.SelectedIndexChanged += new System.EventHandler(this.comboBoxEnsino_SelectedIndexChanged);
             // 
             // comboBoxTurno
             // 
+            this.comboBoxTurno.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTurno.FormattingEnabled = true;
-            this.comboBoxTurno.Location = new System.Drawing.Point(93, 120);
+            this.comboBoxTurno.Location = new System.Drawing.Point(93, 141);
             this.comboBoxTurno.Name = "comboBoxTurno";
             this.comboBoxTurno.Size = new System.Drawing.Size(132, 21);
             this.comboBoxTurno.TabIndex = 19;
@@ -100,7 +104,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(53, 198);
+            this.label5.Location = new System.Drawing.Point(53, 87);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(42, 13);
             this.label5.TabIndex = 18;
@@ -109,7 +113,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(58, 91);
+            this.label4.Location = new System.Drawing.Point(58, 114);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(29, 13);
             this.label4.TabIndex = 17;
@@ -118,7 +122,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(49, 123);
+            this.label3.Location = new System.Drawing.Point(49, 144);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 13);
             this.label3.TabIndex = 16;
@@ -127,7 +131,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 163);
+            this.label1.Location = new System.Drawing.Point(9, 184);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 13);
             this.label1.TabIndex = 15;
