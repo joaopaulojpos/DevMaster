@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBoxCodigo = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.listViewEnsinos = new System.Windows.Forms.ListView();
             this.ColumnHeaderCodigo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ColumnHeaderSerie = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -40,8 +42,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.novoAlunoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.textBoxCodigo = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -64,6 +64,22 @@
             this.panel1.Size = new System.Drawing.Size(441, 420);
             this.panel1.TabIndex = 3;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // textBoxCodigo
+            // 
+            this.textBoxCodigo.Location = new System.Drawing.Point(104, 68);
+            this.textBoxCodigo.Name = "textBoxCodigo";
+            this.textBoxCodigo.Size = new System.Drawing.Size(219, 20);
+            this.textBoxCodigo.TabIndex = 10;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(42, 71);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(43, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Código:";
             // 
             // listViewEnsinos
             // 
@@ -103,6 +119,8 @@
             // btnConsultar
             // 
             this.btnConsultar.AccessibleName = "";
+            this.btnConsultar.Image = global::GUI.Properties.Resources.magnify__1_;
+            this.btnConsultar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConsultar.Location = new System.Drawing.Point(329, 120);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(100, 40);
@@ -163,22 +181,6 @@
             this.novoAlunoToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
             this.novoAlunoToolStripMenuItem.Text = "Nova Série";
             this.novoAlunoToolStripMenuItem.Click += new System.EventHandler(this.novoAlunoToolStripMenuItem_Click);
-            // 
-            // textBoxCodigo
-            // 
-            this.textBoxCodigo.Location = new System.Drawing.Point(104, 68);
-            this.textBoxCodigo.Name = "textBoxCodigo";
-            this.textBoxCodigo.Size = new System.Drawing.Size(219, 20);
-            this.textBoxCodigo.TabIndex = 10;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(42, 71);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 13);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Código:";
             // 
             // GUIEnsino
             // 

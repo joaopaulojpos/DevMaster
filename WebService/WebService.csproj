@@ -91,29 +91,6 @@
   <ItemGroup>
     <Content Include="Service1.svc" />
     <Content Include="Servico.asmx" />
-    <Content Include="Web References\localhost1\Aluno.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </Content>
-    <Content Include="Web References\localhost1\Aula.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </Content>
-    <Content Include="Web References\localhost1\Avaliacao.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </Content>
-    <Content Include="Web References\localhost1\Disciplina.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </Content>
-    <Content Include="Web References\localhost1\Ensino.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </Content>
-    <Content Include="Web References\localhost1\Falta.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </Content>
-    <None Include="Web References\localhost1\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Web References\localhost1\Servico.disco" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -131,11 +108,6 @@
       <DependentUpon>Servico.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Web References\localhost1\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -149,13 +121,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Web References\localhost1\Servico.wsdl" />
-    <Content Include="Web References\localhost1\Turma.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </Content>
-    <Content Include="Web References\localhost1\Usuario.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -168,19 +133,6 @@
   </ItemGroup>
   <ItemGroup>
     <WebReferences Include="Web References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WebReferenceUrl Include="http://localhost:56743/Servico.asmx">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\localhost1\</RelPath>
-      <UpdateFromURL>http://localhost:56743/Servico.asmx</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>WebService_localhost1_Servico</CachedSettingsPropName>
-    </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Biblioteca\Biblioteca.csproj">

@@ -125,11 +125,14 @@
             // 
             // buttonConcluir
             // 
+            this.buttonConcluir.Image = global::GUI.Properties.Resources.content_save__1_;
+            this.buttonConcluir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonConcluir.Location = new System.Drawing.Point(12, 184);
             this.buttonConcluir.Name = "buttonConcluir";
             this.buttonConcluir.Size = new System.Drawing.Size(85, 34);
             this.buttonConcluir.TabIndex = 10;
             this.buttonConcluir.Text = "Concluir";
+            this.buttonConcluir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonConcluir.UseVisualStyleBackColor = true;
             this.buttonConcluir.Click += new System.EventHandler(this.buttonConcluir_Click);
             // 

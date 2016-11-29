@@ -13,7 +13,7 @@
 // 
 #pragma warning disable 1591
 
-namespace WebService.localhost1 {
+namespace GUI.localhost {
     using System;
     using System.Web.Services;
     using System.Diagnostics;
@@ -81,11 +81,15 @@ namespace WebService.localhost1 {
         
         private System.Threading.SendOrPostCallback ListarUsuarioOperationCompleted;
         
+        private System.Threading.SendOrPostCallback InserirDisciplinaTurmaOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ListarDisciplinaTurmaOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
         public Servico() {
-            this.Url = global::WebService.Properties.Settings.Default.WebService_localhost1_Servico;
+            this.Url = global::GUI.Properties.Settings.Default.GUI_localhost_Servico;
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;
@@ -196,6 +200,12 @@ namespace WebService.localhost1 {
         
         /// <remarks/>
         public event ListarUsuarioCompletedEventHandler ListarUsuarioCompleted;
+        
+        /// <remarks/>
+        public event InserirDisciplinaTurmaCompletedEventHandler InserirDisciplinaTurmaCompleted;
+        
+        /// <remarks/>
+        public event ListarDisciplinaTurmaCompletedEventHandler ListarDisciplinaTurmaCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/InserirAluno", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -934,6 +944,63 @@ namespace WebService.localhost1 {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/InserirDisciplinaTurma", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void InserirDisciplinaTurma(Disciplina_Turma dt) {
+            this.Invoke("InserirDisciplinaTurma", new object[] {
+                        dt});
+        }
+        
+        /// <remarks/>
+        public void InserirDisciplinaTurmaAsync(Disciplina_Turma dt) {
+            this.InserirDisciplinaTurmaAsync(dt, null);
+        }
+        
+        /// <remarks/>
+        public void InserirDisciplinaTurmaAsync(Disciplina_Turma dt, object userState) {
+            if ((this.InserirDisciplinaTurmaOperationCompleted == null)) {
+                this.InserirDisciplinaTurmaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnInserirDisciplinaTurmaOperationCompleted);
+            }
+            this.InvokeAsync("InserirDisciplinaTurma", new object[] {
+                        dt}, this.InserirDisciplinaTurmaOperationCompleted, userState);
+        }
+        
+        private void OnInserirDisciplinaTurmaOperationCompleted(object arg) {
+            if ((this.InserirDisciplinaTurmaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.InserirDisciplinaTurmaCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ListarDisciplinaTurma", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Disciplina_Turma[] ListarDisciplinaTurma(Disciplina_Turma dt) {
+            object[] results = this.Invoke("ListarDisciplinaTurma", new object[] {
+                        dt});
+            return ((Disciplina_Turma[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ListarDisciplinaTurmaAsync(Disciplina_Turma dt) {
+            this.ListarDisciplinaTurmaAsync(dt, null);
+        }
+        
+        /// <remarks/>
+        public void ListarDisciplinaTurmaAsync(Disciplina_Turma dt, object userState) {
+            if ((this.ListarDisciplinaTurmaOperationCompleted == null)) {
+                this.ListarDisciplinaTurmaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnListarDisciplinaTurmaOperationCompleted);
+            }
+            this.InvokeAsync("ListarDisciplinaTurma", new object[] {
+                        dt}, this.ListarDisciplinaTurmaOperationCompleted, userState);
+        }
+        
+        private void OnListarDisciplinaTurmaOperationCompleted(object arg) {
+            if ((this.ListarDisciplinaTurmaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ListarDisciplinaTurmaCompleted(this, new ListarDisciplinaTurmaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -964,7 +1031,7 @@ namespace WebService.localhost1 {
         
         private string nomeField;
         
-        private string dataNascField;
+        private System.DateTime dataNascField;
         
         private string sexoField;
         
@@ -993,7 +1060,7 @@ namespace WebService.localhost1 {
         }
         
         /// <remarks/>
-        public string DataNasc {
+        public System.DateTime DataNasc {
             get {
                 return this.dataNascField;
             }
@@ -1049,11 +1116,9 @@ namespace WebService.localhost1 {
         
         private int anoField;
         
-        private string dataInicioField;
+        private System.DateTime dataInicioField;
         
         private Ensino ensinoField;
-        
-        private Disciplina_Turma[] disciplinasField;
         
         /// <remarks/>
         public int CodigoTurma {
@@ -1096,7 +1161,7 @@ namespace WebService.localhost1 {
         }
         
         /// <remarks/>
-        public string DataInicio {
+        public System.DateTime DataInicio {
             get {
                 return this.dataInicioField;
             }
@@ -1112,16 +1177,6 @@ namespace WebService.localhost1 {
             }
             set {
                 this.ensinoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public Disciplina_Turma[] Disciplinas {
-            get {
-                return this.disciplinasField;
-            }
-            set {
-                this.disciplinasField = value;
             }
         }
     }
@@ -1173,6 +1228,8 @@ namespace WebService.localhost1 {
         
         private string dataField;
         
+        private Aula aulaField;
+        
         private Aluno alunoField;
         
         private int codigoFaltaField;
@@ -1208,6 +1265,16 @@ namespace WebService.localhost1 {
         }
         
         /// <remarks/>
+        public Aula Aula {
+            get {
+                return this.aulaField;
+            }
+            set {
+                this.aulaField = value;
+            }
+        }
+        
+        /// <remarks/>
         public Aluno Aluno {
             get {
                 return this.alunoField;
@@ -1234,65 +1301,53 @@ namespace WebService.localhost1 {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class Avaliacao {
+    public partial class Aula {
         
-        private double notaField;
+        private int codigoAulaField;
         
-        private string descricaoField;
+        private string dataField;
         
-        private Disciplina_Turma disciplina_turmaField;
+        private string assuntoField;
         
-        private Aluno alunoField;
-        
-        private int codigoAvaliacaoField;
+        private Disciplina_Turma disciplinaTurmaField;
         
         /// <remarks/>
-        public double Nota {
+        public int CodigoAula {
             get {
-                return this.notaField;
+                return this.codigoAulaField;
             }
             set {
-                this.notaField = value;
+                this.codigoAulaField = value;
             }
         }
         
         /// <remarks/>
-        public string Descricao {
+        public string Data {
             get {
-                return this.descricaoField;
+                return this.dataField;
             }
             set {
-                this.descricaoField = value;
+                this.dataField = value;
             }
         }
         
         /// <remarks/>
-        public Disciplina_Turma Disciplina_turma {
+        public string Assunto {
             get {
-                return this.disciplina_turmaField;
+                return this.assuntoField;
             }
             set {
-                this.disciplina_turmaField = value;
+                this.assuntoField = value;
             }
         }
         
         /// <remarks/>
-        public Aluno Aluno {
+        public Disciplina_Turma DisciplinaTurma {
             get {
-                return this.alunoField;
+                return this.disciplinaTurmaField;
             }
             set {
-                this.alunoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int CodigoAvaliacao {
-            get {
-                return this.codigoAvaliacaoField;
-            }
-            set {
-                this.codigoAvaliacaoField = value;
+                this.disciplinaTurmaField = value;
             }
         }
     }
@@ -1507,65 +1562,65 @@ namespace WebService.localhost1 {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class Aula {
+    public partial class Avaliacao {
         
-        private int codigoAulaField;
+        private double notaField;
         
-        private string dataField;
+        private string descricaoField;
         
-        private string assuntoField;
+        private Disciplina_Turma disciplina_turmaField;
         
-        private Disciplina disciplinaField;
+        private Aluno alunoField;
         
-        private Turma turmaField;
+        private int codigoAvaliacaoField;
         
         /// <remarks/>
-        public int CodigoAula {
+        public double Nota {
             get {
-                return this.codigoAulaField;
+                return this.notaField;
             }
             set {
-                this.codigoAulaField = value;
+                this.notaField = value;
             }
         }
         
         /// <remarks/>
-        public string Data {
+        public string Descricao {
             get {
-                return this.dataField;
+                return this.descricaoField;
             }
             set {
-                this.dataField = value;
+                this.descricaoField = value;
             }
         }
         
         /// <remarks/>
-        public string Assunto {
+        public Disciplina_Turma Disciplina_turma {
             get {
-                return this.assuntoField;
+                return this.disciplina_turmaField;
             }
             set {
-                this.assuntoField = value;
+                this.disciplina_turmaField = value;
             }
         }
         
         /// <remarks/>
-        public Disciplina Disciplina {
+        public Aluno Aluno {
             get {
-                return this.disciplinaField;
+                return this.alunoField;
             }
             set {
-                this.disciplinaField = value;
+                this.alunoField = value;
             }
         }
         
         /// <remarks/>
-        public Turma Turma {
+        public int CodigoAvaliacao {
             get {
-                return this.turmaField;
+                return this.codigoAvaliacaoField;
             }
             set {
-                this.turmaField = value;
+                this.codigoAvaliacaoField = value;
             }
         }
     }
@@ -1846,6 +1901,36 @@ namespace WebService.localhost1 {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((Usuario[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void InserirDisciplinaTurmaCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void ListarDisciplinaTurmaCompletedEventHandler(object sender, ListarDisciplinaTurmaCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ListarDisciplinaTurmaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ListarDisciplinaTurmaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Disciplina_Turma[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Disciplina_Turma[])(this.results[0]));
             }
         }
     }

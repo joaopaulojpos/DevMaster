@@ -169,8 +169,8 @@ namespace GUI
 
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //Finaliza o programa
-            Application.Exit();
+          
+         
         }
 
         #endregion
@@ -189,8 +189,17 @@ namespace GUI
         }
 
 
+
         #endregion
 
+        private void ToolStripMenuItemLogOut_Click(object sender, EventArgs e)
+        {
+           
+        }
 
+        private void ToolStripMenuItemSair_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

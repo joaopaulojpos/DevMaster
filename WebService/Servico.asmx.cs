@@ -178,10 +178,12 @@ namespace WebService
         #endregion
 
         #region DisciplinaTurma
+        [WebMethod]
         public void InserirDisciplinaTurma(Disciplina_Turma dt)
         {
             fachada.InserirDisciplinaTurma(dt);
         }
+        [WebMethod]
         public List<Disciplina_Turma> ListarDisciplinaTurma(Disciplina_Turma dt)
         {
             return fachada.ListarDisciplinaTurma(dt);

@@ -80,24 +80,32 @@ namespace GUI
             {
                 listViewTurma.Items.Clear();
 
-                Turma turmaFiltro = new Turma();
+                //Turma turmaFiltro = new Turma();
 
-                ZeraTextBox(textBoxCodigo);
-                if (int.TryParse(textBoxCodigo.Text, out filtroCodigo))
+                //ZeraTextBox(textBoxCodigo);
+                //if (int.TryParse(textBoxCodigo.Text, out filtroCodigo))
+                //{
+                //    TirarZeroTextBox(textBoxCodigo);
+                //    turmaFiltro.CodigoTurma = filtroCodigo;
+                //}
+                //else
+                //{
+                //    LimpaTextBox(textBoxCodigo);
+                //    throw new FormatException("Digite apenas números válidos.");
+                //}
+
+
+
+
+                Turma turma = new Turma();
+                if (textBoxCodigo.Text.Length > 0)
                 {
-                    TirarZeroTextBox(textBoxCodigo);
-                    turmaFiltro.CodigoTurma = filtroCodigo;
+                    turma.CodigoTurma = Int32.Parse(textBoxCodigo.Text);
                 }
                 else
                 {
-                    LimpaTextBox(textBoxCodigo);
-                    throw new FormatException("Digite apenas números válidos.");
+                    turma.CodigoTurma = 0;
                 }
-
-
-
-
-
 
                 if (textBoxDescricao.Text.Length > 0)
                 {

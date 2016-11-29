@@ -39,6 +39,8 @@
             // 
             // btnLogar
             // 
+            this.btnLogar.Image = global::GUI.Properties.Resources.login__1_;
+            this.btnLogar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogar.Location = new System.Drawing.Point(80, 108);
             this.btnLogar.Name = "btnLogar";
             this.btnLogar.Size = new System.Drawing.Size(144, 35);
@@ -105,7 +107,7 @@
             this.Name = "GUILogin";
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Sistema Acadêmico";
+            this.Text = "Login - Escola Pablo Neruda";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

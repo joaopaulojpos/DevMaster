@@ -22,5 +22,15 @@ namespace GUI.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:56743/Servico.asmx")]
+        public string GUI_localhost_Servico {
+            get {
+                return ((string)(this["GUI_localhost_Servico"]));
+            }
+        }
     }
 }

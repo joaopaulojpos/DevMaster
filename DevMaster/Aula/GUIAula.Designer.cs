@@ -28,22 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUIAula));
             this.panel1 = new System.Windows.Forms.Panel();
             this.listViewAulas = new System.Windows.Forms.ListView();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.novoAlunoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Data = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Turma = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Turno = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Disciplina = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Assunto = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.button4 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.novoAlunoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -88,24 +87,6 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(621, 28);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(100, 40);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Pesquisar";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(727, 120);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 40);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Remover";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(727, 74);
@@ -141,9 +122,31 @@
             this.menuStrip1.TabIndex = 7;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // button3
+            // 
+            this.button3.Image = global::GUI.Properties.Resources.magnify__1_;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.Location = new System.Drawing.Point(621, 28);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(100, 40);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "Pesquisar";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Image = global::GUI.Properties.Resources.delete__1_;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(727, 120);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(100, 40);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Remover";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // novoAlunoToolStripMenuItem
             // 
-            this.novoAlunoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("novoAlunoToolStripMenuItem.Image")));
+            this.novoAlunoToolStripMenuItem.Image = global::GUI.Properties.Resources.plus_box__1_;
             this.novoAlunoToolStripMenuItem.Name = "novoAlunoToolStripMenuItem";
             this.novoAlunoToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.novoAlunoToolStripMenuItem.Text = "Nova Aula";
