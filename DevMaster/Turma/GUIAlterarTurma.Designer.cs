@@ -67,6 +67,7 @@
             // 
             // comboBoxAno
             // 
+            this.comboBoxAno.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxAno.FormattingEnabled = true;
             this.comboBoxAno.Location = new System.Drawing.Point(93, 111);
             this.comboBoxAno.Name = "comboBoxAno";
@@ -83,6 +84,7 @@
             // 
             // comboBoxEnsino
             // 
+            this.comboBoxEnsino.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxEnsino.FormattingEnabled = true;
             this.comboBoxEnsino.Location = new System.Drawing.Point(93, 84);
             this.comboBoxEnsino.Name = "comboBoxEnsino";
@@ -92,6 +94,7 @@
             // 
             // comboBoxTurno
             // 
+            this.comboBoxTurno.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTurno.FormattingEnabled = true;
             this.comboBoxTurno.Location = new System.Drawing.Point(93, 141);
             this.comboBoxTurno.Name = "comboBoxTurno";

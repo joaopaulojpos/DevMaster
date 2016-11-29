@@ -16,29 +16,30 @@ namespace Biblioteca.RN
         {
             dao = new DAOTurma();
         }
+
         #region Métodos Principais
 
-        public void inserir(Turma turma)
+        public void Inserir(Turma turma)
         {
-            validar(turma);
-            duplicidade(turma);
-            gravar(turma);
+            Validar(turma);
+            Duplicidade(turma);
+            Gravar(turma);
         }
-        public void alterar(Turma turma)
+        public void Alterar(Turma turma)
         {
-            validar(turma);
-            atualizar(turma);
-        }
-
-        public void excluir(Turma turma)
-        {
-            existe(turma);
-            apagar(turma);
+            Validar(turma);
+            Atualizar(turma);
         }
 
-        public List<Turma> listar(Turma turma)
+        public void Excluir(Turma turma)
         {
-            return lista(turma);
+            Existe(turma);
+            Apagar(turma);
+        }
+
+        public List<Turma> Listar(Turma turma)
+        {
+            return Lista(turma);
         }
 
         #endregion
@@ -46,7 +47,7 @@ namespace Biblioteca.RN
 
         #region Métodos auxiliares 
 
-        private void gravar(Turma turma)
+        private void Gravar(Turma turma)
         {
             try
             {
@@ -58,17 +59,33 @@ namespace Biblioteca.RN
             }
         }
 
-        private void validar(Turma turma)
+        private void Validar(Turma turma)
         {
-
             if (turma == null)
             {
                 throw new Exception("A turma não pode ser Nulo.");
             }
-            if (turma.Ano < 0)
+
+            if (turma.DescricaoTurma == null || turma.DescricaoTurma.Trim() == "")
+            {
+                throw new Exception("O campo Descrição não pode ser nulo.");
+            }
+
+            if (Convert.ToString(turma.Ano) == null || (Convert.ToString(turma.Ano) == ""))
+            {
+                throw new Exception("Preencha o campo Ano.");
+            }
+
+            if (turma.Ano < 1 || turma.Ano > 9)
             {
                 throw new Exception("Campo 'ano' inválido.");
             }
+
+            if (turma.DataInicio == null)
+            {
+                throw new Exception("O campo Data não pode ser nulo.");
+            }
+
             if(turma.Ensino.CodigoEnsino < 0)
             {
                 throw new Exception("Campo 'ensino' inválido.");
@@ -76,7 +93,7 @@ namespace Biblioteca.RN
         }
 
 
-        private void duplicidade(Turma turma)
+        private void Duplicidade(Turma turma)
         {
             try
             {
@@ -91,7 +108,7 @@ namespace Biblioteca.RN
             }
         }
 
-        private void atualizar(Turma turma)
+        private void Atualizar(Turma turma)
         {
             try
             {
@@ -103,7 +120,7 @@ namespace Biblioteca.RN
             }
         }
 
-        private void existe(Turma turma)
+        private void Existe(Turma turma)
         {
             try
             {
@@ -118,7 +135,7 @@ namespace Biblioteca.RN
             }
         }
 
-        private void apagar(Turma turma)
+        private void Apagar(Turma turma)
         {
             try
             {
@@ -130,7 +147,7 @@ namespace Biblioteca.RN
             }
         }
 
-        private List<Turma> lista(Turma turma)
+        private List<Turma> Lista(Turma turma)
         {
             try
             {

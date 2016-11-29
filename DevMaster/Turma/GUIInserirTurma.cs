@@ -1,5 +1,4 @@
-﻿using Biblioteca.Basicas;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,7 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WebService;
-using Biblioteca.DAO;
+using Biblioteca.RN;
+using Biblioteca.Basicas;
 
 namespace GUI
 {
@@ -20,8 +20,10 @@ namespace GUI
         GUITurma guiTurma;
         List<Ensino> listaEnsino;
         //Servico servico = new Servico();
-        DAOEnsino daoEnsino; //TROCAR PRA SERVIÇO AQUI
-        DAOTurma daoTurma;
+        //DAOEnsino daoEnsino; //TROCAR PRA SERVIÇO AQUI
+        //DAOTurma daoTurma;
+        RNEnsino rnEnsino;
+        RNTurma rnTurma;
 
         #endregion 
 
@@ -134,9 +136,10 @@ namespace GUI
                 ensinoFiltro.DescricaoEnsino = comboBoxEnsino.Text;
 
                 //TROCAR PRA SERVIÇO AQUI
-                daoEnsino = new DAOEnsino();
+                //daoEnsino = new DAOEnsino();
+                rnEnsino = new RNEnsino();
 
-                listaEnsino = daoEnsino.Listar(ensinoFiltro);
+                listaEnsino = rnEnsino.Listar(ensinoFiltro);
                 if (listaEnsino.Count > 0)
                 {
                     foreach (Ensino ensino2 in listaEnsino)
@@ -146,11 +149,15 @@ namespace GUI
                 }
                 turma.Ensino = ensino;
 
-                daoTurma = new DAOTurma();
-                daoTurma.Inserir(turma);
+                rnTurma = new RNTurma();
 
+                //Chamando Web Service
+                rnTurma.Inserir(turma);
+
+                //Informando Usuário
                 MessageBox.Show("Turma inserida com sucesso!");
 
+                //Atualizando List View
                 guiTurma.CarregarListView();
             }
             catch (Exception ex)
@@ -177,11 +184,7 @@ namespace GUI
 
         }
 
-
-
-
         #endregion
-
 
     }
 }
