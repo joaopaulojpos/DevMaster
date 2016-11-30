@@ -18,7 +18,6 @@ namespace GUI
     {
         #region Atributos 
 
-        private RNAluno rn;
         List<Aluno> listaAluno;
         private Servico servico;
 
@@ -30,7 +29,6 @@ namespace GUI
         {
             InitializeComponent();
 
-            rn = new RNAluno();
             servico = new Servico();
             CarregarListView();
 

@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -76,6 +77,12 @@
     </Compile>
     <Compile Include="Aula\GUIInserirAula.Designer.cs">
       <DependentUpon>GUIInserirAula.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DisciplinaTurma\GUIDisciplinaTurma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DisciplinaTurma\GUIDisciplinaTurma.Designer.cs">
+      <DependentUpon>GUIDisciplinaTurma.cs</DependentUpon>
     </Compile>
     <Compile Include="Disciplina\GUIDisciplina.cs">
       <SubType>Form</SubType>
@@ -163,6 +170,11 @@
     <Compile Include="User\GUIUsuario.Designer.cs">
       <DependentUpon>GUIUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Web References\localhost\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Aluno\GUIAlterarAluno.resx">
       <DependentUpon>GUIAlterarAluno.cs</DependentUpon>
     </EmbeddedResource>
@@ -177,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Aula\GUIInserirAula.resx">
       <DependentUpon>GUIInserirAula.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DisciplinaTurma\GUIDisciplinaTurma.resx">
+      <DependentUpon>GUIDisciplinaTurma.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Disciplina\GUIDisciplina.resx">
       <DependentUpon>GUIDisciplina.cs</DependentUpon>
@@ -239,6 +254,38 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Web References\localhost\Aluno.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\localhost\Aula.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\localhost\Avaliacao.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\localhost\Disciplina.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\localhost\Disciplina_Turma.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\localhost\Ensino.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\localhost\Falta.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\localhost\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\localhost\Servico.wsdl" />
+    <None Include="Web References\localhost\Turma.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\localhost\Usuario.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -255,6 +302,91 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus-box %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit-to-app %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magnify %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\content-save %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\certificate %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\account %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\account-box %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\account-card-details %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\account-circle %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\account-multiple %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\account-star %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\book %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\content-paste %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrange-bring-forward %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lead-pencil %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:56743/Servico.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\localhost\</RelPath>
+      <UpdateFromURL>http://localhost:56743/Servico.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>GUI_localhost_Servico</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\localhost\Servico.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow-left %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow-right %281%291.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

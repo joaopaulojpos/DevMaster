@@ -21,6 +21,7 @@ namespace Biblioteca.RN
         public void inserir(Disciplina_Turma dt)
         {
             validar(dt);
+            duplicidade(dt);
             gravar(dt);
         }
 
@@ -53,6 +54,14 @@ namespace Biblioteca.RN
             if (dt.Turma.CodigoTurma <= 0)
             {
                 throw new Exception("Turma inválida");
+            }
+        }
+
+        private void duplicidade(Disciplina_Turma dt)
+        {
+            if (dao.VerificaDuplicidade(dt))
+            {
+                throw new Exception("Disciplina "+dt.Disciplina.NomeDisciplina+" já cadastrada na turma");
             }
         }
 

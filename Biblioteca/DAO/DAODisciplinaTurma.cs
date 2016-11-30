@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 
 namespace Biblioteca.DAO
 {
-    public class DAODisciplinaTurma:ConexaoBanco
+    public class DAODisciplinaTurma : ConexaoBanco
     {
 
         public void Inserir(Disciplina_Turma disciplinaTurma)
@@ -26,7 +26,7 @@ namespace Biblioteca.DAO
 
                 cmd.Parameters.Add("@codigoUsuario", SqlDbType.Int);
                 cmd.Parameters["@codigoUsuario"].Value = disciplinaTurma.Usuario.CodUsuario;
-                
+
                 cmd.ExecuteNonQuery();
 
                 cmd.Dispose();
@@ -45,7 +45,7 @@ namespace Biblioteca.DAO
             {
                 this.AbrirConexao();
                 string sql = "select dt.cod_disciplina_turma,d.cod_disciplina,d.nome_disciplina,t.cod_turma,t.descricao_turma,t.ano,t.turno,t.ano from Disciplina_Turma as dt INNER JOIN Turma as t ON dt.cod_turma=t.cod_turma INNER JOIN Disciplina as d ON d.cod_disciplina=dt.cod_disciplina INNER JOIN Usuario as u ON u.cod_usuario=dt.cod_usuario WHERE cod_disciplina_turma = cod_disciplina_turma";
-                if (filtro.Disciplina.NomeDisciplina != null && filtro.Disciplina.NomeDisciplina.Trim().Equals("")==false)
+                if (filtro.Disciplina.NomeDisciplina != null && filtro.Disciplina.NomeDisciplina.Trim().Equals("") == false)
                 {
                     sql += " and nome_disciplina = @nomeDisciplina";
                 }
@@ -88,7 +88,37 @@ namespace Biblioteca.DAO
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao conectar e selecionar: \n" +ex.Message);
+                throw new Exception("Erro ao conectar e selecionar: \n" + ex.Message);
+            }
+            return retorno;
+        }
+        public bool VerificaDuplicidade(Disciplina_Turma disciplinaTurma)
+        {
+            bool retorno = false;
+            try
+            {
+                this.AbrirConexao();
+                string sql = "SELECT cod_disciplina_turma FROM disciplina_turma where cod_turma = @codigoTurma AND cod_disciplina=@codigoDisciplina";
+                SqlCommand cmd = new SqlCommand(sql, sqlConn);
+                cmd.Parameters.Add("@codigoTurma", SqlDbType.Int);
+                cmd.Parameters["@codigoTurma"].Value = disciplinaTurma.Turma.CodigoTurma;
+
+                cmd.Parameters.Add("@codigoDisciplina", SqlDbType.Int);
+                cmd.Parameters["@codigoDisciplina"].Value = disciplinaTurma.Disciplina.CodigoDisciplina;
+
+                SqlDataReader DbReader = cmd.ExecuteReader();
+                while (DbReader.Read())
+                {
+                    retorno = true;
+                    break;
+                }
+                DbReader.Close();
+                cmd.Dispose();
+                this.FecharConexao();
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("Contate o suporte.\nErro: " + ex.Message);
             }
             return retorno;
         }

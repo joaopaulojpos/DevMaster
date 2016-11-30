@@ -20,36 +20,31 @@ namespace WebService
     {
         private Fachada fachada = Fachada.Instance;
 
-        #region Aluno
 
+        #region Aluno
         [WebMethod]
         public void InserirAluno(Aluno aluno)
         {
             fachada.InserirAluno(aluno);
         }
-
         [WebMethod]
         public void AlterarAluno(Aluno aluno)
         {
             fachada.AlterarAluno(aluno);
         }
-
         [WebMethod]
         public void ExcluirAluno(Aluno aluno)
         {
             fachada.ExcluirAluno(aluno);
         }
-
         [WebMethod]
         public List<Aluno> ListarAluno(Aluno aluno)
         {
             return fachada.ListarAluno(aluno);
         }
-
         #endregion
 
         #region Aula
-
         [WebMethod]
         public void InserirAula(Aula aula)
         {
@@ -74,7 +69,6 @@ namespace WebService
         #endregion
 
         #region Avaliação
-
         [WebMethod]
         public void InserirAvaliacao(Avaliacao avaliacao)
         {
@@ -95,11 +89,9 @@ namespace WebService
         {
             return fachada.ListarAvaliacao(avaliacao);
         }
-
         #endregion
 
         #region Disciplina
-
         [WebMethod]
         public List<Disciplina> ListarDisciplina(Disciplina disciplina)
         {
@@ -109,17 +101,14 @@ namespace WebService
         #endregion
 
         #region Ensino
-
         [WebMethod]
         public List<Ensino> ListarEnsino(Ensino ensino)
         {
             return fachada.ListarEnsino(ensino);
         }
-
         #endregion
 
         #region Falta
-
         [WebMethod]
         public void InserirFalta(Falta falta)
         {
@@ -140,77 +129,65 @@ namespace WebService
         {
             return fachada.ListarFalta(falta);
         }
-
         #endregion
 
         #region Turma
-
         [WebMethod]
         public void InserirTurma(Turma turma)
         {
             fachada.InserirTurma(turma);
         }
-
         [WebMethod]
         public void AlterarTurma(Turma turma)
         {
             fachada.AlterarTurma(turma);
         }
-
         [WebMethod]
         public void ExcluirTurma(Turma turma)
         {
             fachada.ExcluirTurma(turma);
         }
-
         [WebMethod]
         public List<Turma> ListarTurma(Turma turma)
         {
             return fachada.ListarTurma(turma);
         }
-
         #endregion
 
         #region Usuário
-
         [WebMethod]
         public void InserirUsuario(Usuario usuario)
         {
             fachada.InserirUsuario(usuario);
         }
-
         [WebMethod]
         public void AlterarUsuario(Usuario usuario)
         {
             fachada.AlterarUsuario(usuario);
         }
-
         [WebMethod]
         public void ExcluirUsuario(Usuario usuario)
         {
             fachada.ExcluirUsuario(usuario);
         }
-
         [WebMethod]
         public List<Usuario> ListarUsuario(Usuario usuario)
         {
             return fachada.ListarUsuario(usuario);
         }
-
         #endregion
 
         #region DisciplinaTurma
-
+        [WebMethod]
         public void InserirDisciplinaTurma(Disciplina_Turma dt)
         {
             fachada.InserirDisciplinaTurma(dt);
         }
-
+        [WebMethod]
         public List<Disciplina_Turma> ListarDisciplinaTurma(Disciplina_Turma dt)
         {
             return fachada.ListarDisciplinaTurma(dt);
         }
-
         #endregion
     }
 }

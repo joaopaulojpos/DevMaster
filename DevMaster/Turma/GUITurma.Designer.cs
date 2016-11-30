@@ -46,12 +46,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.novaTurmaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonVincular = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.buttonVincular);
             this.panel1.Controls.Add(this.textBoxDescricao);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.listViewTurma);
@@ -96,6 +98,7 @@
             this.listViewTurma.FullRowSelect = true;
             this.listViewTurma.GridLines = true;
             this.listViewTurma.Location = new System.Drawing.Point(12, 133);
+            this.listViewTurma.MultiSelect = false;
             this.listViewTurma.Name = "listViewTurma";
             this.listViewTurma.Size = new System.Drawing.Size(475, 257);
             this.listViewTurma.TabIndex = 8;
@@ -141,21 +144,27 @@
             // 
             // btnConsultar
             // 
+            this.btnConsultar.Image = global::GUI.Properties.Resources.magnify__1_;
+            this.btnConsultar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConsultar.Location = new System.Drawing.Point(12, 96);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(79, 31);
             this.btnConsultar.TabIndex = 5;
             this.btnConsultar.Text = "Consultar";
+            this.btnConsultar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnConsultar.UseVisualStyleBackColor = true;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // btnRemover
             // 
+            this.btnRemover.Image = global::GUI.Properties.Resources.delete__1_;
+            this.btnRemover.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRemover.Location = new System.Drawing.Point(493, 170);
             this.btnRemover.Name = "btnRemover";
             this.btnRemover.Size = new System.Drawing.Size(79, 31);
             this.btnRemover.TabIndex = 4;
             this.btnRemover.Text = "Remover";
+            this.btnRemover.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRemover.UseVisualStyleBackColor = true;
             this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
             // 
@@ -197,10 +206,21 @@
             // 
             // novaTurmaToolStripMenuItem
             // 
+            this.novaTurmaToolStripMenuItem.Image = global::GUI.Properties.Resources.plus_box__1_;
             this.novaTurmaToolStripMenuItem.Name = "novaTurmaToolStripMenuItem";
-            this.novaTurmaToolStripMenuItem.Size = new System.Drawing.Size(85, 20);
+            this.novaTurmaToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
             this.novaTurmaToolStripMenuItem.Text = "Nova Turma";
             this.novaTurmaToolStripMenuItem.Click += new System.EventHandler(this.novaTurmaToolStripMenuItem_Click);
+            // 
+            // buttonVincular
+            // 
+            this.buttonVincular.Location = new System.Drawing.Point(493, 207);
+            this.buttonVincular.Name = "buttonVincular";
+            this.buttonVincular.Size = new System.Drawing.Size(79, 30);
+            this.buttonVincular.TabIndex = 11;
+            this.buttonVincular.Text = "Disciplinas";
+            this.buttonVincular.UseVisualStyleBackColor = true;
+            this.buttonVincular.Click += new System.EventHandler(this.buttonVincular_Click);
             // 
             // GUITurma
             // 
@@ -210,7 +230,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "GUITurma";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "GUITurma";
+            this.Text = "Cadastro de Turma";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -239,5 +259,6 @@
         private System.Windows.Forms.ColumnHeader columnHeaderEnsino;
         private System.Windows.Forms.TextBox textBoxDescricao;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button buttonVincular;
     }
 }

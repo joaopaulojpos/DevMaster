@@ -13,7 +13,7 @@
         <s:sequence>
           <s:element minOccurs="0" maxOccurs="1" name="Matricula" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="DataNasc" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataNasc" type="s:dateTime" />
           <s:element minOccurs="0" maxOccurs="1" name="Sexo" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Telefone" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Turma" type="tns:Turma" />
@@ -25,50 +25,14 @@
           <s:element minOccurs="0" maxOccurs="1" name="DescricaoTurma" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Turno" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="Ano" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="DataInicio" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataInicio" type="s:dateTime" />
           <s:element minOccurs="0" maxOccurs="1" name="Ensino" type="tns:Ensino" />
-          <s:element minOccurs="0" maxOccurs="1" name="Disciplinas" type="tns:ArrayOfDisciplina_Turma" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="Ensino">
         <s:sequence>
           <s:element minOccurs="1" maxOccurs="1" name="CodigoEnsino" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="DescricaoEnsino" type="s:string" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="ArrayOfDisciplina_Turma">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="Disciplina_Turma" nillable="true" type="tns:Disciplina_Turma" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="Disciplina_Turma">
-        <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="CodigoDisciplinaTurma" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="Turma" type="tns:Turma" />
-          <s:element minOccurs="0" maxOccurs="1" name="Disciplina" type="tns:Disciplina" />
-          <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="tns:Usuario" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="Disciplina">
-        <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="CodigoDisciplina" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="NomeDisciplina" type="s:string" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="Usuario">
-        <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="CodUsuario" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="LoginUsuario" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Senha" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Telefone" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="TipoUsuario" type="tns:TipoUsuario" />
-          <s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="TipoUsuario">
-        <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="CodTipoUsuario" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="DescricaoTipoUsuario" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:element name="InserirAlunoResponse">
@@ -125,8 +89,37 @@
           <s:element minOccurs="1" maxOccurs="1" name="CodigoAula" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="Data" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Assunto" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Disciplina" type="tns:Disciplina" />
+          <s:element minOccurs="0" maxOccurs="1" name="DisciplinaTurma" type="tns:Disciplina_Turma" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Disciplina_Turma">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoDisciplinaTurma" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="Turma" type="tns:Turma" />
+          <s:element minOccurs="0" maxOccurs="1" name="Disciplina" type="tns:Disciplina" />
+          <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="tns:Usuario" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Disciplina">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoDisciplina" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NomeDisciplina" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Usuario">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodUsuario" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LoginUsuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Senha" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telefone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoUsuario" type="tns:TipoUsuario" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoUsuario">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodTipoUsuario" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescricaoTipoUsuario" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:element name="InserirAulaResponse">
@@ -279,6 +272,7 @@
           <s:element minOccurs="0" maxOccurs="1" name="Motivo" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="Abono" type="s:boolean" />
           <s:element minOccurs="0" maxOccurs="1" name="Data" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Aula" type="tns:Aula" />
           <s:element minOccurs="0" maxOccurs="1" name="Aluno" type="tns:Aluno" />
           <s:element minOccurs="1" maxOccurs="1" name="CodigoFalta" type="s:int" />
         </s:sequence>
@@ -421,6 +415,35 @@
       <s:complexType name="ArrayOfUsuario">
         <s:sequence>
           <s:element minOccurs="0" maxOccurs="unbounded" name="Usuario" nillable="true" type="tns:Usuario" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InserirDisciplinaTurma">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dt" type="tns:Disciplina_Turma" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InserirDisciplinaTurmaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListarDisciplinaTurma">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dt" type="tns:Disciplina_Turma" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarDisciplinaTurmaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarDisciplinaTurmaResult" type="tns:ArrayOfDisciplina_Turma" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDisciplina_Turma">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Disciplina_Turma" nillable="true" type="tns:Disciplina_Turma" />
         </s:sequence>
       </s:complexType>
     </s:schema>
@@ -581,6 +604,18 @@
   <wsdl:message name="ListarUsuarioSoapOut">
     <wsdl:part name="parameters" element="tns:ListarUsuarioResponse" />
   </wsdl:message>
+  <wsdl:message name="InserirDisciplinaTurmaSoapIn">
+    <wsdl:part name="parameters" element="tns:InserirDisciplinaTurma" />
+  </wsdl:message>
+  <wsdl:message name="InserirDisciplinaTurmaSoapOut">
+    <wsdl:part name="parameters" element="tns:InserirDisciplinaTurmaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarDisciplinaTurmaSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarDisciplinaTurma" />
+  </wsdl:message>
+  <wsdl:message name="ListarDisciplinaTurmaSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarDisciplinaTurmaResponse" />
+  </wsdl:message>
   <wsdl:portType name="ServicoSoap">
     <wsdl:operation name="InserirAluno">
       <wsdl:input message="tns:InserirAlunoSoapIn" />
@@ -685,6 +720,14 @@
     <wsdl:operation name="ListarUsuario">
       <wsdl:input message="tns:ListarUsuarioSoapIn" />
       <wsdl:output message="tns:ListarUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InserirDisciplinaTurma">
+      <wsdl:input message="tns:InserirDisciplinaTurmaSoapIn" />
+      <wsdl:output message="tns:InserirDisciplinaTurmaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarDisciplinaTurma">
+      <wsdl:input message="tns:ListarDisciplinaTurmaSoapIn" />
+      <wsdl:output message="tns:ListarDisciplinaTurmaSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="ServicoSoap" type="tns:ServicoSoap">
@@ -923,6 +966,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="InserirDisciplinaTurma">
+      <soap:operation soapAction="http://tempuri.org/InserirDisciplinaTurma" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarDisciplinaTurma">
+      <soap:operation soapAction="http://tempuri.org/ListarDisciplinaTurma" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="ServicoSoap12" type="tns:ServicoSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -1153,6 +1214,24 @@
     </wsdl:operation>
     <wsdl:operation name="ListarUsuario">
       <soap12:operation soapAction="http://tempuri.org/ListarUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirDisciplinaTurma">
+      <soap12:operation soapAction="http://tempuri.org/InserirDisciplinaTurma" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarDisciplinaTurma">
+      <soap12:operation soapAction="http://tempuri.org/ListarDisciplinaTurma" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

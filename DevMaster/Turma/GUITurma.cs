@@ -11,6 +11,7 @@ using Biblioteca.Basicas;
 using Biblioteca.RN;
 using Biblioteca.DAO;
 using WebService;
+using GUI.DisciplinaTurma;
 
 namespace GUI
 {
@@ -309,7 +310,35 @@ namespace GUI
 
         #endregion
 
-
         #endregion
+
+        private void disciplinasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void buttonVincular_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ListView.SelectedListViewItemCollection colecaoSelecionada = listViewTurma.SelectedItems;
+
+                if (colecaoSelecionada.Count > 0)
+                {
+                    foreach (ListViewItem selecionado in colecaoSelecionada)
+                    {
+                        int codigoTurma = Int32.Parse(selecionado.SubItems[0].Text);
+                        GUIDisciplinaTurma gui = new GUIDisciplinaTurma(codigoTurma);
+                        gui.ShowDialog();
+                    }
+                }else
+                {
+                    MessageBox.Show("Selecione uma turma antes.");
+                }
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

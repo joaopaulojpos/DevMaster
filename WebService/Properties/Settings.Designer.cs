@@ -22,15 +22,5 @@ namespace WebService.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:56743/Servico.asmx")]
-        public string WebService_localhost1_Servico {
-            get {
-                return ((string)(this["WebService_localhost1_Servico"]));
-            }
-        }
     }
 }

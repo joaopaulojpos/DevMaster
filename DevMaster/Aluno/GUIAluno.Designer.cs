@@ -70,6 +70,8 @@
             // 
             // btnExcluir
             // 
+            this.btnExcluir.Image = global::GUI.Properties.Resources.delete__1_;
+            this.btnExcluir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnExcluir.Location = new System.Drawing.Point(639, 221);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(100, 40);
@@ -155,6 +157,8 @@
             // 
             // btnConsultar
             // 
+            this.btnConsultar.Image = global::GUI.Properties.Resources.magnify__1_;
+            this.btnConsultar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConsultar.Location = new System.Drawing.Point(12, 104);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(100, 40);
@@ -201,8 +205,9 @@
             // 
             // novoAlunoToolStripMenuItem
             // 
+            this.novoAlunoToolStripMenuItem.Image = global::GUI.Properties.Resources.plus_box__1_;
             this.novoAlunoToolStripMenuItem.Name = "novoAlunoToolStripMenuItem";
-            this.novoAlunoToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
+            this.novoAlunoToolStripMenuItem.Size = new System.Drawing.Size(99, 20);
             this.novoAlunoToolStripMenuItem.Text = "Novo Aluno";
             this.novoAlunoToolStripMenuItem.Click += new System.EventHandler(this.novoAlunoToolStripMenuItem_Click);
             // 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Biblioteca.Basicas;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -13,12 +14,118 @@ namespace WebService
     public interface IService1
     {
 
+
+        #region Aluno
         [OperationContract]
-        string GetData(int value);
+        void InserirAluno(Aluno aluno);
 
         [OperationContract]
-        CompositeType GetDataUsingDataContract(CompositeType composite);
+        void AlterarAluno(Aluno aluno);
 
+        [OperationContract]
+        void ExcluirAluno(Aluno aluno);
+
+        [OperationContract]
+        List<Aluno> ListarAluno(Aluno aluno);
+
+        #endregion
+
+        #region Aula
+        [OperationContract]
+        void InserirAula(Aula aula);
+
+        [OperationContract]
+        void AlterarAula(Aula aula);
+
+        [OperationContract]
+        void ExcluirAula(Aula aula);
+
+        [OperationContract]
+        List<Aula> ListarAula(Aula aula);
+
+
+        #endregion
+
+        #region Avaliação
+        [OperationContract]
+        void InserirAvaliacao(Avaliacao avaliacao);
+
+        [OperationContract]
+        void AlterarAvaliacao(Avaliacao avaliacao);
+
+        [OperationContract]
+        void ExcluirAvaliacao(Avaliacao avaliacao);
+
+        [OperationContract]
+        List<Avaliacao> ListarAvaliacao(Avaliacao avaliacao);
+
+        #endregion
+
+        #region Disciplina
+        [OperationContract]
+        List<Disciplina> ListarDisciplina(Disciplina disciplina);
+
+        #endregion
+
+        #region Ensino
+        [OperationContract]
+        List<Ensino> ListarEnsino(Ensino ensino);
+
+        #endregion
+
+        #region Falta
+        [OperationContract]
+        void InserirFalta(Falta falta);
+
+        [OperationContract]
+        void AlterarFalta(Falta falta);
+
+        [OperationContract]
+        void ExcluirFalta(Falta falta);
+
+        [OperationContract]
+        List<Falta> ListarFalta(Falta falta);
+
+        #endregion
+
+        #region Turma
+        [OperationContract]
+        void InserirTurma(Turma turma);
+
+        [OperationContract]
+        void AlterarTurma(Turma turma);
+
+        [OperationContract]
+        void ExcluirTurma(Turma turma);
+
+        [OperationContract]
+        List<Turma> ListarTurma(Turma turma);
+
+        #endregion
+
+        #region Usuário
+        [OperationContract]
+        void InserirUsuario(Usuario usuario);
+
+        [OperationContract]
+        void AlterarUsuario(Usuario usuario);
+
+        [OperationContract]
+        void ExcluirUsuario(Usuario usuario);
+
+        [OperationContract]
+        List<Usuario> ListarUsuario(Usuario usuario);
+
+        #endregion
+
+        #region DisciplinaTurma
+        [OperationContract]
+        void InserirDisciplinaTurma(Disciplina_Turma dt);
+
+        [OperationContract]
+        List<Disciplina_Turma> ListarDisciplinaTurma(Disciplina_Turma dt);
+        
+        #endregion
         // TODO: Add your service operations here
     }
 

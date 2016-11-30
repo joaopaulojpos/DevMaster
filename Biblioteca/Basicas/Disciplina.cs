@@ -36,5 +36,9 @@ namespace Biblioteca.Basicas
                 nomeDisciplina = value;
             }
         }
+        public string ToString()
+        {
+            return "codigo: "+codigoDisciplina+" nome: "+nomeDisciplina;
+        }
     }
 }

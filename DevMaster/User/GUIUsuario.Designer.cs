@@ -69,6 +69,8 @@
             // 
             // btn_Excluir
             // 
+            this.btn_Excluir.Image = global::GUI.Properties.Resources.delete__1_;
+            this.btn_Excluir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Excluir.Location = new System.Drawing.Point(601, 204);
             this.btn_Excluir.Name = "btn_Excluir";
             this.btn_Excluir.Size = new System.Drawing.Size(100, 40);
@@ -145,11 +147,13 @@
             // 
             // btnConsultar
             // 
+            this.btnConsultar.Image = global::GUI.Properties.Resources.magnify__1_;
+            this.btnConsultar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConsultar.Location = new System.Drawing.Point(20, 105);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(100, 40);
             this.btnConsultar.TabIndex = 5;
-            this.btnConsultar.Text = "Consultar";
+            this.btnConsultar.Text = "  Consultar";
             this.btnConsultar.UseVisualStyleBackColor = true;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
@@ -191,8 +195,9 @@
             // 
             // novoAlunoToolStripMenuItem
             // 
+            this.novoAlunoToolStripMenuItem.Image = global::GUI.Properties.Resources.plus_box__1_;
             this.novoAlunoToolStripMenuItem.Name = "novoAlunoToolStripMenuItem";
-            this.novoAlunoToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
+            this.novoAlunoToolStripMenuItem.Size = new System.Drawing.Size(107, 20);
             this.novoAlunoToolStripMenuItem.Text = "Novo Usuário";
             this.novoAlunoToolStripMenuItem.Click += new System.EventHandler(this.novoAlunoToolStripMenuItem_Click);
             // 
@@ -204,7 +209,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "GUIUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "GUIUsuario";
+            this.Text = "Cadastro de usuário";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
