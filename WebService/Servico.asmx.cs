@@ -6,6 +6,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Services;
 
+//XML
+using System.Xml;
+using System.IO;
+
 namespace WebService
 {
     /// <summary>
@@ -177,6 +181,16 @@ namespace WebService
         }
         #endregion
 
+        #region Tipo Usuário
+
+        [WebMethod]
+        public List<TipoUsuario> ListarTipoUsuario(TipoUsuario tipoUsuario)
+        {
+            return fachada.ListarTipoUsuario(tipoUsuario);
+        }
+
+        #endregion
+
         #region DisciplinaTurma
         [WebMethod]
         public void InserirDisciplinaTurma(Disciplina_Turma dt)
@@ -189,5 +203,181 @@ namespace WebService
             return fachada.ListarDisciplinaTurma(dt);
         }
         #endregion
+
+
+        #region XML
+        /*
+        #region Atributos 
+
+        string caminho = @"C:\Pablo_Neruda_XML.xml";
+        int pos = 0;
+
+        #endregion
+
+        #region Abrir Arquivo
+
+        [WebMethod]
+        public void abrirArquivo() //Esse é o Principal
+        {
+            if (File.Exists(caminho) == false)
+            {
+                XmlDocument doc = new XmlDocument();
+                XmlNode raiz = doc.CreateElement("empresa");
+                doc.AppendChild(raiz);
+                doc.Save(caminho);
+            }
+        }
+
+        #endregion
+
+        #region Carga Dados
+
+        [WebMethod]
+        public void cargaDados()
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.Load(caminho);
+
+            for (int i = 0; i < 150; i++)
+            {
+                XmlNode linha = doc.CreateElement("funcionario");
+                XmlNode Id = doc.CreateElement("id");
+                XmlNode NomeCompleto = doc.CreateElement("nomecompleto");
+                XmlNode Nome = doc.CreateElement("nome");
+                XmlNode SobreNome = doc.CreateElement("sobrenome");
+                XmlNode Idade = doc.CreateElement("idade");
+                XmlNode Cargo = doc.CreateElement("cargo");
+                Id.InnerText = "" + i;
+                Nome.InnerText = "Funcionario " + i;
+                Idade.InnerText = "" + (i * 2);
+                Cargo.InnerText = "Financeiro";
+                SobreNome.InnerText = "sobre func";
+                NomeCompleto.AppendChild(Nome);
+                NomeCompleto.AppendChild(SobreNome);
+                linha.AppendChild(Id);
+                linha.AppendChild(NomeCompleto);
+                linha.AppendChild(Idade);
+                linha.AppendChild(Cargo);
+                doc.SelectSingleNode("/empresa").AppendChild(linha);
+            }
+
+            doc.Save(caminho);
+            MessageBox.Show("Concluido");
+        }
+
+        #endregion
+
+        #region Nova Linha
+
+        public void novaLinha()
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.Load(caminho);
+
+            XmlNode linha = doc.CreateElement("funcionario");
+            XmlNode Id = doc.CreateElement("id");
+            XmlNode NomeCompleto = doc.CreateElement("nomecompleto");
+            XmlNode Nome = doc.CreateElement("nome");
+            XmlNode SobreNome = doc.CreateElement("sobrenome");
+            XmlNode Idade = doc.CreateElement("idade");
+            XmlNode Cargo = doc.CreateElement("cargo");
+
+            XmlAttribute idAtr = doc.CreateAttribute("idAtr");
+            idAtr.InnerText = "" + pos;
+            Id.InnerText = "" + pos;
+            Nome.InnerText = "Funcionario " + pos;
+            Idade.InnerText = "" + (pos * 2);
+            Cargo.InnerText = "Financeiro";
+            SobreNome.InnerText = "sobre func";
+            NomeCompleto.AppendChild(Nome);
+            NomeCompleto.AppendChild(SobreNome);
+
+            Id.Attributes.Append(idAtr);
+            linha.AppendChild(Id);
+            linha.AppendChild(NomeCompleto);
+            linha.AppendChild(Idade);
+            linha.AppendChild(Cargo);
+            doc.SelectSingleNode("/empresa").AppendChild(linha);
+
+            doc.Save(caminho);
+            pos++;
+            MessageBox.Show("Concluido");
+        }
+
+        #endregion
+
+        #region Alterar Linha
+
+        public void alterarLinha()
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.Load(caminho);
+            XmlNode no;
+
+            no = doc.SelectSingleNode(String.Format("/empresa/funcionario[id={0}]", 10));
+            if (no != null)
+            {
+                no.SelectSingleNode("./cargo").InnerText = "Gerente Administrativo";
+                doc.Save(caminho);
+                listar();
+                MessageBox.Show("Concluido");
+            }
+            else
+            {
+                MessageBox.Show("Não encontrado");
+            }
+        }
+
+        #endregion
+
+        #region Remover Linha
+
+        public void removerLinha()
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.Load(caminho);
+            foreach (XmlNode no in doc.DocumentElement.ChildNodes)
+            {
+                if (int.Parse(no.ChildNodes.Item(0).InnerText) == 10)
+                {
+                    doc.DocumentElement.RemoveChild(no);
+                    doc.Save(caminho);
+                    return;
+                }
+            }
+            listar();
+        }
+
+        #endregion
+
+        #region Listar
+
+        public void listar()
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.Load(caminho);
+
+            listView1.Items.Clear();
+            foreach (XmlNode no in doc.DocumentElement.ChildNodes)
+            {
+                //ID
+                ListViewItem item = listView1.Items.Add("" + no.ChildNodes.Item(0).InnerText);
+                //NOME
+                item.SubItems.Add(no.ChildNodes.Item(1).ChildNodes.Item(0).InnerText);
+                //SOBRENOME
+                item.SubItems.Add(no.ChildNodes.Item(1).ChildNodes.Item(1).InnerText);
+                //IDADE
+                item.SubItems.Add(no.ChildNodes.Item(2).InnerText);
+                //CARGO
+                item.SubItems.Add(no.ChildNodes.Item(3).InnerText);
+            }
+            doc.Save(caminho);
+            return;
+        }
+
+        #endregion
+    */
+        #endregion
+
     }
 }

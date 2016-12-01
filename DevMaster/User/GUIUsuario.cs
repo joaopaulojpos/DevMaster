@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Biblioteca.Basicas;
-using Biblioteca.RN;
-using Biblioteca.DAO;
-using WebService;
+
 using GUI.User;
+using Biblioteca.Basicas;
+using WebService;
+
 
 namespace GUI
 {
@@ -22,6 +22,8 @@ namespace GUI
         List<Usuario> listaUsuario;
         int filtroCodigo;
 
+        Servico servico;
+
         #endregion
 
         #region Construtor
@@ -29,6 +31,7 @@ namespace GUI
         public GUIUsuario()
         {
             InitializeComponent();
+            servico = new Servico();
             CarregarListView();
             listViewUsuario.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             listViewUsuario.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
@@ -74,7 +77,6 @@ namespace GUI
                 listViewUsuario.Items.Clear();
 
                 Usuario usuarioFiltro = new Usuario();
-                DAOUsuario daoUsuario = new DAOUsuario();
 
                 //                  CÓDIGO TIPO DE USUÁRIO
                 ZeraTextBoxCod();
@@ -93,7 +95,7 @@ namespace GUI
                 //                  DESCRIÇÃO TIPO DE USUÁRIO
                 usuarioFiltro.Nome = textBoxNome.Text;
 
-                listaUsuario = daoUsuario.Listar(usuarioFiltro);
+                listaUsuario = servico.ListarUsuario(usuarioFiltro);
 
                 if (listaUsuario.Count > 0)
                 {
@@ -160,9 +162,7 @@ namespace GUI
                         removerUsuario.CodUsuario = Convert.ToInt32(selecionado.SubItems[0].Text);
                         if (MessageBox.Show("Tem certeza?", "Confirmar remoção do Usuário.", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
-                            DAOUsuario daoUsuario = new DAOUsuario();
-                            daoUsuario.Excluir(removerUsuario);
-                            //servico.Excluir(removerTurma);
+                            servico.ExcluirUsuario(removerUsuario);
 
                             listViewUsuario.Items.Remove(selecionado);
                             MessageBox.Show("Usuário removido com sucesso!");

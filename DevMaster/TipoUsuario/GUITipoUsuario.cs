@@ -10,8 +10,9 @@ using System.Windows.Forms;
 
 using Biblioteca.Basicas;
 using Biblioteca.RN;
-using Biblioteca.DAO;
 using WebService;
+
+//using Biblioteca.Fachada;
 
 namespace GUI
 {
@@ -22,6 +23,8 @@ namespace GUI
         List<TipoUsuario> listaTipoUsuario;
         int filtroCodigo;
 
+        private Servico servico;
+
         #endregion
 
         #region Construtores
@@ -30,6 +33,7 @@ namespace GUI
         public GUITipoUsuario()
         {
             InitializeComponent();
+            servico = new Servico();
             CarregarListView();
             listViewTipoUsuarios.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             listViewTipoUsuarios.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
@@ -84,7 +88,6 @@ namespace GUI
                 listViewTipoUsuarios.Items.Clear();
 
                 TipoUsuario tipoUsuarioFiltro = new TipoUsuario();
-                DAOTipoUsuario daoTipoUsuario = new DAOTipoUsuario();
 
                 //                  CÓDIGO TIPO DE USUÁRIO
                 //Pro TryParse um textbox vazio = "" mas ai iria dar erro, q não é o nosso caso, então quando o textbox for "" vai virar "0" e assim não vai dar erro.
@@ -105,7 +108,7 @@ namespace GUI
                 //Alimentando os campos num Objeto pra mandar pra DAO Pesquisar
                 tipoUsuarioFiltro.DescricaoTipoUsuario = textBoxTipo.Text;
 
-                listaTipoUsuario = daoTipoUsuario.Listar(tipoUsuarioFiltro);
+                listaTipoUsuario = servico.ListarTipoUsuario(tipoUsuarioFiltro);
 
                 if (listaTipoUsuario.Count > 0)
                 {

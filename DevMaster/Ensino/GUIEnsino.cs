@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 using Biblioteca.Basicas;
 using WebService;
 
@@ -19,7 +20,7 @@ namespace GUI
         List<Ensino> listaEnsino;
         int filtroCodigo;
 
-        Servico servico;
+        private Servico servico;
         Ensino ensinoFiltro;
 
         #endregion
@@ -93,20 +94,6 @@ namespace GUI
                 }
 
                 ensinoFiltro.DescricaoEnsino = textBoxEnsino.Text;
-
-                //Combo Box
-                /*
-                int indexComboBox = comboBoxCampos.SelectedIndex;
-                String textoComboBox = comboBoxCampos.Items[index].ToString();
-
-                if (comboBoxCampos.SelectedItem.Equals("Código"))
-                {
-                    ensinoFiltro.CodigoEnsino = Convert.ToInt32(filtro);
-                }
-                if (comboBoxCampos.SelectedItem.Equals("Descrição"))
-                {
-                    ensinoFiltro.DescricaoEnsino = filtro;
-                }*/
 
                 listaEnsino = servico.ListarEnsino(ensinoFiltro);
 
@@ -182,7 +169,7 @@ namespace GUI
 
 
 
-
+//Comentados
         #region Menu Inserir
 
         //private void novoAlunoToolStripMenuItem_Click(object sender, EventArgs e)

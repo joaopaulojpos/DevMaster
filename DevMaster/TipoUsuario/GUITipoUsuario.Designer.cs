@@ -38,13 +38,11 @@
             this.btnConsultar = new System.Windows.Forms.Button();
             this.textBoxTipo = new System.Windows.Forms.TextBox();
             this.labelTipo = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.textBoxCodigo);
             this.panel1.Controls.Add(this.labelCodigo);
             this.panel1.Controls.Add(this.listViewTipoUsuarios);
@@ -133,15 +131,6 @@
             this.labelTipo.TabIndex = 1;
             this.labelTipo.Text = "Tipo de Usuário:";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(274, 134);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(97, 37);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Resetar Senha";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // GUITipoUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -169,6 +158,5 @@
         private System.Windows.Forms.ColumnHeader columnHeaderTipoUsuario;
         private System.Windows.Forms.TextBox textBoxCodigo;
         private System.Windows.Forms.Label labelCodigo;
-        private System.Windows.Forms.Button button1;
     }
 }

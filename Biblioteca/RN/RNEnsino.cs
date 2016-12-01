@@ -14,6 +14,11 @@ namespace Biblioteca.RN
 
         private DAOEnsino daoEnsino;
 
+        #endregion
+
+
+        #region Construtor
+
         public RNEnsino()
         {
             daoEnsino = new DAOEnsino();
@@ -23,23 +28,23 @@ namespace Biblioteca.RN
 
         #region Métodos Principais
 
-        public void Inserir(Ensino ensino)
-        {
-            Validar(ensino);
-            Duplicidade(ensino);
-            Gravar(ensino);
-        }
-        public void Alterar(Ensino ensino)
-        {
-            Validar(ensino);
-            Atualizar(ensino);
-        }
+        //public void Inserir(Ensino ensino)
+        //{
+        //    Validar(ensino);
+        //    Duplicidade(ensino);
+        //    Gravar(ensino);
+        //}
+        //public void Alterar(Ensino ensino)
+        //{
+        //    Validar(ensino);
+        //    Atualizar(ensino);
+        //}
 
-        public void Excluir(Ensino ensino)
-        {
-            Existe(ensino);
-            Apagar(ensino);
-        }
+        //public void Excluir(Ensino ensino)
+        //{
+        //    Existe(ensino);
+        //    Apagar(ensino);
+        //}
 
         public List<Ensino> Listar(Ensino ensino)
         {

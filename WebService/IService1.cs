@@ -16,6 +16,7 @@ namespace WebService
 
 
         #region Aluno
+
         [OperationContract]
         void InserirAluno(Aluno aluno);
 
@@ -100,6 +101,13 @@ namespace WebService
 
         [OperationContract]
         List<Turma> ListarTurma(Turma turma);
+
+        #endregion
+
+        #region Tipo Usuário
+
+        [OperationContract]
+        List<TipoUsuario> ListarTipoUsuario(TipoUsuario tipoUsuario);
 
         #endregion
 

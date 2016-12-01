@@ -151,6 +151,15 @@ namespace WebService
         }
         #endregion
 
+        #region Tipo Usuário
+
+        public List<TipoUsuario> ListarTipoUsuario(TipoUsuario tipoUsuario)
+        {
+            return fachada.ListarTipoUsuario(tipoUsuario);
+        }
+
+        #endregion
+
         #region DisciplinaTurma
         public void InserirDisciplinaTurma(Disciplina_Turma dt)
         {

@@ -12,6 +12,7 @@ namespace Biblioteca.Fachada
     {
         #region Atributos
         private static Fachada instance;
+
         private RNAluno rnAluno;
         private RNAula rnAula;
         private RNAvaliacao rnAvaliacao;
@@ -21,6 +22,8 @@ namespace Biblioteca.Fachada
         private RNTurma rnTurma;
         private RNUsuario rnUsuario;
         private RNDisciplinaTurma rnDt;
+        private RNTipoUsuario rnTipoUsuario;
+
         #endregion
 
         #region Construtor privado
@@ -35,13 +38,15 @@ namespace Biblioteca.Fachada
             rnTurma = new RNTurma();
             rnUsuario = new RNUsuario();
             rnDt = new RNDisciplinaTurma();
+            rnTipoUsuario = new RNTipoUsuario();
         }
         #endregion
 
         #region Método Singleton
         public static Fachada Instance
         {
-            get{
+            get
+            {
                 if (instance == null)
                 {
                     instance = new Fachada();
@@ -109,7 +114,7 @@ namespace Biblioteca.Fachada
         #endregion
 
         #region Disciplina
-        
+
         public List<Disciplina> ListarDisciplina(Disciplina disciplina)
         {
             return rnDisciplina.listar(disciplina);
@@ -160,6 +165,16 @@ namespace Biblioteca.Fachada
         {
             return rnTurma.Listar(turma);
         }
+        #endregion
+
+        #region Tipo Usuário
+
+        public List<TipoUsuario> ListarTipoUsuario(TipoUsuario tipoUsuario)
+        {
+            return rnTipoUsuario.Listar(tipoUsuario);
+        }
+
+
         #endregion
 
         #region Usuário
