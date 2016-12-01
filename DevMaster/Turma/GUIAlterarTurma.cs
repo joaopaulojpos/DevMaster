@@ -8,8 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Biblioteca.Basicas;
+
 using WebService;
-using Biblioteca.DAO;
+//using Biblioteca.DAO;
 
 namespace GUI
 {
@@ -20,6 +21,8 @@ namespace GUI
         Turma turma;
         Turma novaTurma;
         GUITurma guiTurma;
+
+        Servico servico;
 
         //Servico servico;
 
@@ -43,10 +46,13 @@ namespace GUI
         {
             LimparComboAno();
             textBoxDescricao.Text = turma.DescricaoTurma;
+
             AlimentarComboAno(turma.Ensino.DescricaoEnsino);
             comboBoxAno.SelectedIndex = comboBoxAno.FindStringExact(Convert.ToString(turma.Ano));
-            AlimentarComboTurno(turma);
+
+            AlimentarComboTurno();
             comboBoxTurno.SelectedIndex = comboBoxTurno.FindStringExact(turma.Turno);
+
             dateDataInicio.Value = turma.DataInicio;
 
             AlimentarComboEnsino(turma);
@@ -83,7 +89,7 @@ namespace GUI
             }
         }
 
-        void AlimentarComboTurno(Turma turma)
+        void AlimentarComboTurno()
         {
             comboBoxTurno.Items.Add("M");
             comboBoxTurno.Items.Add("T");
@@ -115,9 +121,9 @@ namespace GUI
                 ensino.DescricaoEnsino = comboBoxEnsino.Text;
 
                 List<Ensino> listaEnsino = new List<Ensino>();
-                DAOEnsino daoEnsino = new DAOEnsino();
 
-                listaEnsino = daoEnsino.Listar(ensino);
+                listaEnsino = servico.ListarEnsino(ensino);
+
                 foreach (Ensino ensino2 in listaEnsino)
                 {
                     ensino.CodigoEnsino = ensino2.CodigoEnsino;
@@ -125,8 +131,7 @@ namespace GUI
                 }
                 novaTurma.Ensino = ensino;
 
-                DAOTurma daoTurma = new DAOTurma();
-                daoTurma.Alterar(novaTurma);
+                servico.AlterarTurma(novaTurma);
 
                 MessageBox.Show("Turma Alterada com sucesso!");
                 //servico = new Servico();

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxNome = new System.Windows.Forms.TextBox();
             this.btnConcluir = new System.Windows.Forms.Button();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -37,10 +37,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.textBoxTelefone = new System.Windows.Forms.TextBox();
+            this.textBoxSenha = new System.Windows.Forms.TextBox();
+            this.textBoxLogin = new System.Windows.Forms.TextBox();
+            this.comboBoxTipoUsuario = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,12 +53,12 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Nome:";
             // 
-            // textBox2
+            // textBoxNome
             // 
-            this.textBox2.Location = new System.Drawing.Point(103, 55);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(335, 20);
-            this.textBox2.TabIndex = 6;
+            this.textBoxNome.Location = new System.Drawing.Point(103, 55);
+            this.textBoxNome.Name = "textBoxNome";
+            this.textBoxNome.Size = new System.Drawing.Size(335, 20);
+            this.textBoxNome.TabIndex = 6;
             // 
             // btnConcluir
             // 
@@ -68,6 +68,7 @@
             this.btnConcluir.TabIndex = 10;
             this.btnConcluir.Text = "Concluir";
             this.btnConcluir.UseVisualStyleBackColor = true;
+            this.btnConcluir.Click += new System.EventHandler(this.btnConcluir_Click);
             // 
             // btnVoltar
             // 
@@ -117,17 +118,17 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.textBox4);
-            this.panel1.Controls.Add(this.textBox3);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.textBoxTelefone);
+            this.panel1.Controls.Add(this.textBoxSenha);
+            this.panel1.Controls.Add(this.textBoxLogin);
+            this.panel1.Controls.Add(this.comboBoxTipoUsuario);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnVoltar);
             this.panel1.Controls.Add(this.btnConcluir);
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.textBoxNome);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -136,34 +137,35 @@
             this.panel1.TabIndex = 6;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // textBox4
+            // textBoxTelefone
             // 
-            this.textBox4.Location = new System.Drawing.Point(103, 148);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(129, 20);
-            this.textBox4.TabIndex = 22;
+            this.textBoxTelefone.Location = new System.Drawing.Point(103, 148);
+            this.textBoxTelefone.Name = "textBoxTelefone";
+            this.textBoxTelefone.Size = new System.Drawing.Size(129, 20);
+            this.textBoxTelefone.TabIndex = 22;
             // 
-            // textBox3
+            // textBoxSenha
             // 
-            this.textBox3.Location = new System.Drawing.Point(103, 117);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(188, 20);
-            this.textBox3.TabIndex = 21;
+            this.textBoxSenha.Location = new System.Drawing.Point(103, 117);
+            this.textBoxSenha.Name = "textBoxSenha";
+            this.textBoxSenha.Size = new System.Drawing.Size(188, 20);
+            this.textBoxSenha.TabIndex = 21;
             // 
-            // textBox1
+            // textBoxLogin
             // 
-            this.textBox1.Location = new System.Drawing.Point(103, 88);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(188, 20);
-            this.textBox1.TabIndex = 20;
+            this.textBoxLogin.Location = new System.Drawing.Point(103, 88);
+            this.textBoxLogin.Name = "textBoxLogin";
+            this.textBoxLogin.Size = new System.Drawing.Size(188, 20);
+            this.textBoxLogin.TabIndex = 20;
             // 
-            // comboBox1
+            // comboBoxTipoUsuario
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(103, 179);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(129, 21);
-            this.comboBox1.TabIndex = 19;
+            this.comboBoxTipoUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTipoUsuario.FormattingEnabled = true;
+            this.comboBoxTipoUsuario.Location = new System.Drawing.Point(103, 179);
+            this.comboBoxTipoUsuario.Name = "comboBoxTipoUsuario";
+            this.comboBoxTipoUsuario.Size = new System.Drawing.Size(129, 21);
+            this.comboBoxTipoUsuario.TabIndex = 19;
             // 
             // GUIInserirUsuario
             // 
@@ -183,7 +185,7 @@
         #endregion
 
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxNome;
         private System.Windows.Forms.Button btnConcluir;
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.Label label1;
@@ -191,9 +193,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox textBoxTelefone;
+        private System.Windows.Forms.TextBox textBoxSenha;
+        private System.Windows.Forms.TextBox textBoxLogin;
+        private System.Windows.Forms.ComboBox comboBoxTipoUsuario;
     }
 }

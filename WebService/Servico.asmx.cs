@@ -105,11 +105,13 @@ namespace WebService
         #endregion
 
         #region Ensino
+
         [WebMethod]
         public List<Ensino> ListarEnsino(Ensino ensino)
         {
             return fachada.ListarEnsino(ensino);
         }
+
         #endregion
 
         #region Falta

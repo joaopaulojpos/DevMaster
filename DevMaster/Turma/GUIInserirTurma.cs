@@ -7,8 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 using WebService;
-using Biblioteca.RN;
+//using Biblioteca.RN;
 using Biblioteca.Basicas;
 
 namespace GUI
@@ -19,11 +20,8 @@ namespace GUI
 
         GUITurma guiTurma;
         List<Ensino> listaEnsino;
-        //Servico servico = new Servico();
-        //DAOEnsino daoEnsino; //TROCAR PRA SERVIÇO AQUI
-        //DAOTurma daoTurma;
-        RNEnsino rnEnsino;
-        RNTurma rnTurma;
+
+        Servico servico;
 
         #endregion 
 
@@ -33,6 +31,7 @@ namespace GUI
         {
             InitializeComponent();
             this.guiTurma = guiTurma;
+            servico = new Servico();
             AlimentarCampos();
         }
 
@@ -124,6 +123,7 @@ namespace GUI
         {
             try
             {
+                servico = new Servico();
                 Turma turma = new Turma();
                 Ensino ensino = new Ensino();
                 Ensino ensinoFiltro = new Ensino(); //só vai servir pra buscar o Ensino do banco
@@ -135,11 +135,7 @@ namespace GUI
 
                 ensinoFiltro.DescricaoEnsino = comboBoxEnsino.Text;
 
-                //TROCAR PRA SERVIÇO AQUI
-                //daoEnsino = new DAOEnsino();
-                rnEnsino = new RNEnsino();
-
-                listaEnsino = rnEnsino.Listar(ensinoFiltro);
+                listaEnsino = servico.ListarEnsino(ensinoFiltro);
                 if (listaEnsino.Count > 0)
                 {
                     foreach (Ensino ensino2 in listaEnsino)
@@ -149,10 +145,8 @@ namespace GUI
                 }
                 turma.Ensino = ensino;
 
-                rnTurma = new RNTurma();
-
                 //Chamando Web Service
-                rnTurma.Inserir(turma);
+                servico.InserirTurma(turma);
 
                 //Informando Usuário
                 MessageBox.Show("Turma inserida com sucesso!");

@@ -21,7 +21,6 @@ namespace GUI
 
         List<Usuario> listaUsuario;
         int filtroCodigo;
-
         Servico servico;
 
         #endregion
@@ -82,7 +81,7 @@ namespace GUI
                 ZeraTextBoxCod();
                 if (int.TryParse(textBoxCodigo.Text, out filtroCodigo))
                 {
-                    TirarZeroTextBoxCodigo(); 
+                    TirarZeroTextBoxCodigo();
                     usuarioFiltro.CodUsuario = filtroCodigo;
                 }
                 else
@@ -136,8 +135,35 @@ namespace GUI
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            GUIAlterarUsuario gui = new GUIAlterarUsuario();
-            gui.ShowDialog();
+            ListView.SelectedListViewItemCollection colecaoSelecionada = listViewUsuario.SelectedItems;
+
+            if (colecaoSelecionada.Count > 0)
+            {
+                int codigoUsuarioSelecionado = 0;
+
+                Usuario alterarUsuario = new Usuario();
+                TipoUsuario tipoUsuario = new TipoUsuario();
+                TipoUsuario tipoUsuarioFiltro = new TipoUsuario();
+
+                foreach (ListViewItem selecionado in colecaoSelecionada)
+                {
+
+                    codigoUsuarioSelecionado = Convert.ToInt32(selecionado.SubItems[0].Text);
+                    foreach (Usuario usuario in listaUsuario)
+                    {
+                        if (usuario.CodUsuario == codigoUsuarioSelecionado)
+                        {
+                            alterarUsuario = usuario;
+                        }
+                    }
+                    GUIAlterarUsuario gui = new GUIAlterarUsuario(alterarUsuario, this);
+                    gui.ShowDialog();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecione o Usuário que deseja Alterar.");
+            }
         }
 
         #endregion
@@ -180,7 +206,7 @@ namespace GUI
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro: \n" + ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -204,7 +230,7 @@ namespace GUI
 
         private void novoAlunoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GUIInserirUsuario gui = new GUIInserirUsuario();
+            GUIInserirUsuario gui = new GUIInserirUsuario(this);
             gui.ShowDialog();
         }
     }

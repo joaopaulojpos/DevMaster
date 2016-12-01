@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Biblioteca.RN
@@ -51,7 +52,7 @@ namespace Biblioteca.RN
             }
             catch (Exception ex)
             {
-                throw new Exception("Falha ao inserir Aluno.\nErro: " + ex.Message);
+                throw new Exception("Falha ao inserir Usuário.\nErro: " + ex.Message);
             }
         }
 
@@ -59,7 +60,7 @@ namespace Biblioteca.RN
         {
             if (usuario==null)
             {
-                throw new Exception("Impossível inserir registro.");
+                throw new Exception("Não é possível inserir um Usuário nulo.");
             }
             if (usuario.Nome.Trim().Length<4|| usuario.Nome.Trim().Length > 100)
             {
@@ -72,6 +73,17 @@ namespace Biblioteca.RN
             if (usuario.Senha.Trim().Length < 5 || usuario.LoginUsuario.Trim().Length > 20)
             {
                 throw new Exception("Senha para usuário inválida. Minimo:5 , Máximo:20");
+            }
+            if (usuario.Telefone == null)
+            {
+                throw new Exception("Telefone não pode ser vazio.");
+            }
+
+            String regexString = "^\\(\\d{2}\\)\\d{4}-\\d{4}$"; //(81)1234-1234
+            Regex regex = new Regex(regexString);
+            if (!regex.IsMatch(usuario.Telefone))
+            {
+                throw new Exception("Formatação de telefone inválida, Siga o ex: (81)1234-1234.");
             }
         }
 
@@ -109,7 +121,7 @@ namespace Biblioteca.RN
             {
                 if (daoUsuario.VerificaDuplicidade(usuario)==false)
                 {
-                    throw new Exception("Usuario nao existe");
+                    throw new Exception("Usuario não existe");
                 }
             }
             catch (Exception ex)

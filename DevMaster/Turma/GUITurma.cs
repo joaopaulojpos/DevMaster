@@ -8,8 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Biblioteca.Basicas;
-using Biblioteca.RN;
-using Biblioteca.DAO;
+
+//using Biblioteca.RN;
+//using Biblioteca.DAO;
 using WebService;
 using GUI.DisciplinaTurma;
 
@@ -24,8 +25,9 @@ namespace GUI
         int filtroCodigo;
         Turma alterarTurma;
 
-        DAOEnsino daoEnsino;
-        DAOTurma daoTurma;
+        Servico servico;
+        //DAOEnsino daoEnsino;
+        //DAOTurma daoTurma;
         List<Ensino> listaEnsino;
 
         #endregion
@@ -106,7 +108,6 @@ namespace GUI
                     turmaFiltro.DescricaoTurma = "";
                 }
 
-                //Tá dando erro pq RNTurma ainda não tá pronto
                 Servico servico = new Servico();
                 listaTurma = servico.ListarTurma(turmaFiltro);
 
@@ -212,8 +213,6 @@ namespace GUI
                     int codigoTurmaSelecionado = 0;
 
                     alterarTurma = new Turma();
-                    daoEnsino = new DAOEnsino();
-                    daoTurma = new DAOTurma();
                     Ensino ensino = new Ensino();
                     Ensino ensinoFiltro = new Ensino();
 
@@ -236,18 +235,6 @@ namespace GUI
                 {
                     MessageBox.Show("Selecione a Turma que deseja Alterar.");
                 }
-
-                /*
-                                ensino.DescricaoEnsino = alterarTurma.Ensino.DescricaoEnsino;
-                                listaEnsino = daoEnsino.Listar(ensino);
-                                foreach (Ensino ensino2 in listaEnsino)
-                                {
-                                    ensino = ensino2;
-                                }
-
-                                GUIAlterarTurma guiAlterarTurma = new GUIAlterarTurma(alterarTurma, this);
-                                guiAlterarTurma.ShowDialog();
-                                */
             }
             catch (Exception ex)
             {
@@ -276,8 +263,7 @@ namespace GUI
                         removerTurma.CodigoTurma = Convert.ToInt32(selecionado.SubItems[0].Text);
                         if (MessageBox.Show("Tem certeza?", "Confirmar remoção do Turma.", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
-                            DAOTurma daoTurma = new DAOTurma();
-                            daoTurma.Excluir(removerTurma);
+                            servico.ExcluirTurma(removerTurma);
 
                             listViewTurma.Items.Remove(selecionado);
                             MessageBox.Show("Turma removido com sucesso!");

@@ -58,7 +58,14 @@ namespace Biblioteca.RN
 
         private string Acentuacao(Ensino ensino)
         {
-                string retorno = ensino.DescricaoEnsino.Replace("e","é");
+            string retorno = ensino.DescricaoEnsino;
+
+            if (ensino.DescricaoEnsino == "Medio")
+            {
+                string ensinoMedioAcento = ensino.DescricaoEnsino.Replace("e", "é");
+                retorno = ensinoMedioAcento;
+            }
+                
                 return retorno;
         }
 

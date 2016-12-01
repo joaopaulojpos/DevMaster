@@ -169,7 +169,7 @@ namespace GUI
 
 
 
-//Comentados
+        //Comentados
         #region Menu Inserir
 
         //private void novoAlunoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -271,5 +271,15 @@ namespace GUI
         //}
 
         #endregion
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRemover_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

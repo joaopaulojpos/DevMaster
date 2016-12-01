@@ -19,21 +19,74 @@ namespace GUI.User
         #region Atributos
 
         Servico servico;
+        GUIUsuario guiUsuario;
+        List<TipoUsuario> listaTipoUsuario;
 
         #endregion
 
         #region Construtor
 
-        public GUIInserirUsuario()
+        public GUIInserirUsuario(GUIUsuario guiUsuario)
         {
             InitializeComponent();
-            servico = new Servico();
+            this.guiUsuario = guiUsuario;
+            //servico = new Servico();
+            AlimentarComboTipoUsuario();
+        }
+
+        #endregion
+
+        #region Métodos Auxiliares
+
+        private void Inserir()
+        {
+            try
+            {
+                //servico = new Servico();
+                Usuario usuario = new Usuario();
+                TipoUsuario tipoUsuarioFiltro = new TipoUsuario();
+                TipoUsuario tipoUsuario = new TipoUsuario();
+
+                usuario.LoginUsuario = textBoxLogin.Text;
+                usuario.Nome = textBoxNome.Text;
+                usuario.Senha = textBoxSenha.Text;
+                usuario.Telefone = textBoxTelefone.Text;
+
+                tipoUsuarioFiltro.DescricaoTipoUsuario = comboBoxTipoUsuario.Text;
+                listaTipoUsuario = servico.ListarTipoUsuario(tipoUsuarioFiltro);
+                foreach (TipoUsuario tipoU in listaTipoUsuario)
+                {
+                    tipoUsuario.DescricaoTipoUsuario = tipoU.DescricaoTipoUsuario;
+                    tipoUsuario.CodTipoUsuario = tipoU.CodTipoUsuario; 
+                }
+                usuario.TipoUsuario = tipoUsuario;
+
+                servico.InserirUsuario(usuario);
+                MessageBox.Show("Turma inserida com sucesso!");
+                this.guiUsuario.CarregarListView();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void AlimentarComboTipoUsuario()
+        {
+            comboBoxTipoUsuario.Items.Add("Coordenador");
+            comboBoxTipoUsuario.Items.Add("Professor");
+            comboBoxTipoUsuario.Items.Add("Secretaria");
+            comboBoxTipoUsuario.SelectedIndex = 0;
         }
 
         #endregion
 
         #region Botão Concluir
 
+        private void btnConcluir_Click(object sender, EventArgs e)
+        {
+            Inserir();
+        }
 
         #endregion
 
@@ -64,6 +117,7 @@ namespace GUI.User
         }
 
         #endregion
+
 
     }
 }

@@ -19,13 +19,13 @@ namespace Biblioteca.DAO
             {
                 this.AbrirConexao();
                 string sql = "UPDATE usuario " +
-                             "SET usuario_login = @LoginUsuario, senha = @Senha, nome = @Nome, telefone = @Telefone, cod_tipo_usuario = @TipoUsuario " +
-                             "WHERE cod_usuario = @CodUsuario";
+                             "SET usuario_login = @LoginUsuario, senha = @Senha, nome = @Nome, telefone = @Telefone, cod_tipo_usuario = @CodigoTipoUsuario " +
+                             "WHERE cod_usuario = @CodigoUsuario";
 
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
-                cmd.Parameters.Add("@CodUsuario", SqlDbType.Int);
-                cmd.Parameters["@CodUsuario"].Value = usuario.CodUsuario;
+                cmd.Parameters.Add("@CodigoUsuario", SqlDbType.Int);
+                cmd.Parameters["@CodigoUsuario"].Value = usuario.CodUsuario;
 
                 cmd.Parameters.Add("@LoginUsuario", SqlDbType.VarChar);
                 cmd.Parameters["@LoginUsuario"].Value = usuario.LoginUsuario;
@@ -37,10 +37,10 @@ namespace Biblioteca.DAO
                 cmd.Parameters["@Nome"].Value = usuario.Nome;
 
                 cmd.Parameters.Add("@Telefone", SqlDbType.VarChar);
-                cmd.Parameters["@Telefone"].Value = usuario.Nome;
+                cmd.Parameters["@Telefone"].Value = usuario.Telefone;
 
-                cmd.Parameters.Add("@TipoUsuario", SqlDbType.Int);
-                cmd.Parameters["@TipoUsuario"].Value = usuario.TipoUsuario;
+                cmd.Parameters.Add("@CodigoTipoUsuario", SqlDbType.Int);
+                cmd.Parameters["@CodigoTipoUsuario"].Value = usuario.TipoUsuario.CodTipoUsuario;
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
@@ -81,7 +81,7 @@ namespace Biblioteca.DAO
                 string sql = "INSERT INTO Usuario " + 
                              "(usuario_login,senha, nome, telefone, cod_tipo_usuario) " +
                              "VALUES " +
-                             "(@LoginUsuario,@Senha,@Nome, @Telefone, @TipoUsuario)";
+                             "(@LoginUsuario,@Senha,@Nome, @Telefone, @CodTipoUsuario)";
 
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
@@ -94,8 +94,11 @@ namespace Biblioteca.DAO
                 cmd.Parameters.Add("@Nome", SqlDbType.VarChar);
                 cmd.Parameters["@Nome"].Value = usuario.Senha;
 
-                cmd.Parameters.Add("@TipoUsuario", SqlDbType.Int);
-                cmd.Parameters["@TipoUsuario"].Value = usuario.TipoUsuario;
+                cmd.Parameters.Add("@Telefone", SqlDbType.VarChar);
+                cmd.Parameters["@Telefone"].Value = usuario.Telefone;
+
+                cmd.Parameters.Add("@CodTipoUsuario", SqlDbType.Int);
+                cmd.Parameters["@CodTipoUsuario"].Value = usuario.TipoUsuario.CodTipoUsuario;
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
@@ -185,7 +188,7 @@ namespace Biblioteca.DAO
 
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
 
-                cmd.Parameters.Add("@Senha", SqlDbType.Int);
+                cmd.Parameters.Add("@Senha", SqlDbType.VarChar);
                 cmd.Parameters["@Senha"].Value = usuario.Senha;
 
                 cmd.Parameters.Add("@LoginUsuario", SqlDbType.VarChar);

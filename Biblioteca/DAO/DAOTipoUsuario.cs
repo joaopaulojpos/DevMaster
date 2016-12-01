@@ -37,12 +37,7 @@ namespace Biblioteca.DAO
                     cmd.Parameters.Add("@CodigoTipoUsuario", SqlDbType.Int);
                     cmd.Parameters["@CodigoTipoUsuario"].Value = filtro.CodTipoUsuario;
                 }
-                if (filtro.DescricaoTipoUsuario != null && filtro.DescricaoTipoUsuario.Trim().Equals("") == false)
-                {
-                    cmd.Parameters.Add("@TipoUsuario", SqlDbType.VarChar);
-                    cmd.Parameters["@TipoUsuario"].Value = filtro.DescricaoTipoUsuario;
-
-                }
+          
                 SqlDataReader DbReader = cmd.ExecuteReader();
                 while (DbReader.Read())
                 {
