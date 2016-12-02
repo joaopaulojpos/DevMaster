@@ -66,16 +66,16 @@
     <Compile Include="Aluno\GUIInserirAluno.Designer.cs">
       <DependentUpon>GUIInserirAluno.cs</DependentUpon>
     </Compile>
-    <Compile Include="Aula\GUIAula.cs">
+    <Compile Include="Aulaa\GUIAula.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Aula\GUIAula.Designer.cs">
+    <Compile Include="Aulaa\GUIAula.Designer.cs">
       <DependentUpon>GUIAula.cs</DependentUpon>
     </Compile>
-    <Compile Include="Aula\GUIInserirAula.cs">
+    <Compile Include="Aulaa\GUIInserirAula.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Aula\GUIInserirAula.Designer.cs">
+    <Compile Include="Aulaa\GUIInserirAula.Designer.cs">
       <DependentUpon>GUIInserirAula.cs</DependentUpon>
     </Compile>
     <Compile Include="DisciplinaTurma\GUIDisciplinaTurma.cs">
@@ -184,10 +184,10 @@
     <EmbeddedResource Include="Aluno\GUIInserirAluno.resx">
       <DependentUpon>GUIInserirAluno.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Aula\GUIAula.resx">
+    <EmbeddedResource Include="Aulaa\GUIAula.resx">
       <DependentUpon>GUIAula.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Aula\GUIInserirAula.resx">
+    <EmbeddedResource Include="Aulaa\GUIInserirAula.resx">
       <DependentUpon>GUIInserirAula.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DisciplinaTurma\GUIDisciplinaTurma.resx">

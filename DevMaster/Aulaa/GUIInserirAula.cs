@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WebService;
 
-namespace GUI.Aula
+namespace GUI
 {
     public partial class GUIInserirAula : Form
     {
