@@ -194,10 +194,20 @@ namespace Biblioteca.DAO
             try
             {
                 this.AbrirConexao();
-                string sql = "SELECT A.assunto, A.cod_aula, A.cod_disciplina_turma, A.data, DT.cod_disciplina, DT.cod_turma, DT.cod_usuario " +
+                string sql = "SELECT A.assunto, A.cod_aula, A.cod_disciplina_turma, A.data, " +
+                             "DT.cod_disciplina, D.nome_disciplina, DT.cod_usuario, T.ano, " +
+                             "T.cod_turma, T.data_inicio, T.descricao_turma, T.turno, " +
+                             "E.cod_ensino, E.descricao_ensino " +
                              "FROM Aula A " +
                              "INNER JOIN Disciplina_Turma DT " +
-                             "ON A.cod_disciplina_turma = DT.cod_disciplina_turma WHERE A.cod_disciplina_turma = @CodDisciplina";
+                             "ON A.cod_disciplina_turma = DT.cod_disciplina_turma " +
+                             "INNER JOIN Disciplina D " +
+                             "ON DT.cod_disciplina = D.cod_disciplina " +
+                             "INNER JOIN Turma T " +
+                             "ON DT.cod_turma = T.cod_turma " +
+                             "INNER JOIN Ensino E " +
+                             "ON E.cod_ensino = T.cod_ensino " +
+                             "WHERE A.cod_disciplina_turma = @CodDisciplina";
 
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
 
