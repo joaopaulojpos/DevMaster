@@ -108,7 +108,7 @@ namespace Biblioteca.DAO
 
                 if (filtro.Aluno.Matricula.Length > 0)
                 {
-                    sql += " and matricula = @matricula";
+                    sql += " and av.matricula = @matricula";
                 }
                 if (filtro.Disciplina_turma.Disciplina.NomeDisciplina != null && filtro.Disciplina_turma.Disciplina.NomeDisciplina.Trim().Equals("") == false)
                 {
@@ -135,10 +135,10 @@ namespace Biblioteca.DAO
                     Disciplina_Turma dt = new Disciplina_Turma();
                     Disciplina disciplina = new Disciplina();
                     avaliacao.CodigoAvaliacao = DbReader.GetInt32(DbReader.GetOrdinal("cod_avaliacao"));
-                    avaliacao.Nota = DbReader.GetDouble(DbReader.GetOrdinal("nota"));
-                    avaliacao.Descricao = DbReader.GetString(DbReader.GetOrdinal("descricao"));
+                    avaliacao.Nota = (Double )DbReader.GetDecimal(DbReader.GetOrdinal("nota"));
+                    avaliacao.Descricao = DbReader.GetString(DbReader.GetOrdinal("descricao_avaliacao"));
                     aluno.Matricula = DbReader.GetString(DbReader.GetOrdinal("matricula"));
-                    aluno.Nome = DbReader.GetString(DbReader.GetOrdinal("nome"));
+                    aluno.Nome = DbReader.GetString(DbReader.GetOrdinal("nome_aluno"));
                     avaliacao.Aluno = aluno;
                     disciplina.NomeDisciplina = DbReader.GetString(DbReader.GetOrdinal("nome_disciplina"));
                     dt.Disciplina = disciplina;
@@ -163,7 +163,7 @@ namespace Biblioteca.DAO
             try
             {
                 this.AbrirConexao();
-                string sql = "SELECT matricula FROM avaliacao where matricula = @matricula AND cod_disciplina_turma=@codigoDisciplinaTurma AND descricao=@descricao";
+                string sql = "SELECT matricula FROM avaliacao where matricula = @matricula AND cod_disciplina_turma=@codigoDisciplinaTurma AND descricao_avaliacao=@descricao";
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
 
                 cmd.Parameters.Add("@matricula", SqlDbType.VarChar);

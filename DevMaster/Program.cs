@@ -64,15 +64,15 @@ namespace GUI
                 binaryWriter = new BinaryWriter(networkStream);
                 binaryReader = new BinaryReader(networkStream);
 
-                //MessageBox.Show("conexão recebida!" + "Server App");
-                //binaryWriter.Write("\nconexão efetuada!");
+                MessageBox.Show("conexão recebida!" + "Server App");
+                binaryWriter.Write("\nconexão efetuada!");
 
                 string messageReceived = "";
                 do
                 {
                     messageReceived = binaryReader.ReadString();
 
-                    // AddToListBox("Filtro da pesquisa:" + messageReceived);
+                    //AddToListBox("Filtro da pesquisa:" + messageReceived);
 
                 } while (socket.Connected);
             }

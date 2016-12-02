@@ -132,11 +132,17 @@ namespace WebService
 
         [OperationContract]
         List<Disciplina_Turma> ListarDisciplinaTurma(Disciplina_Turma dt);
-        
+
         #endregion
         // TODO: Add your service operations here
-    }
+        #region Boletim
 
+        [OperationContract]
+        List<Boletim> EmitirBoletim(Boletim boletim);
+
+        #endregion
+
+    }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.
     [DataContract]

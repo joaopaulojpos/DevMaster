@@ -201,5 +201,21 @@ namespace GUI
         {
             Application.Exit();
         }
+
+        private void emitirBoletimToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GUIBoletim gui = new GUIBoletim();
+            gui.ShowDialog();
+        }
+
+        private void GUIPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void GUIPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
+        }
     }
 }

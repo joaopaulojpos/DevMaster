@@ -181,6 +181,12 @@
   <wsdl:message name="IService1_ListarDisciplinaTurma_OutputMessage">
     <wsdl:part name="parameters" element="tns:ListarDisciplinaTurmaResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_EmitirBoletim_InputMessage">
+    <wsdl:part name="parameters" element="tns:EmitirBoletim" />
+  </wsdl:message>
+  <wsdl:message name="IService1_EmitirBoletim_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EmitirBoletimResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="InserirAluno">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/InserirAluno" message="tns:IService1_InserirAluno_InputMessage" />
@@ -297,6 +303,10 @@
     <wsdl:operation name="ListarDisciplinaTurma">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListarDisciplinaTurma" message="tns:IService1_ListarDisciplinaTurma_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListarDisciplinaTurmaResponse" message="tns:IService1_ListarDisciplinaTurma_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmitirBoletim">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/EmitirBoletim" message="tns:IService1_EmitirBoletim_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/EmitirBoletimResponse" message="tns:IService1_EmitirBoletim_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -555,6 +565,15 @@
     </wsdl:operation>
     <wsdl:operation name="ListarDisciplinaTurma">
       <soap:operation soapAction="http://tempuri.org/IService1/ListarDisciplinaTurma" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmitirBoletim">
+      <soap:operation soapAction="http://tempuri.org/IService1/EmitirBoletim" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

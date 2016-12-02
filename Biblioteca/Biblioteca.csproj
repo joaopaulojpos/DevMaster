@@ -58,6 +58,7 @@
     <Compile Include="DAO\DAOAluno.cs" />
     <Compile Include="DAO\DAOAula.cs" />
     <Compile Include="DAO\DAOAvaliacao.cs" />
+    <Compile Include="DAO\DAOBoletim.cs" />
     <Compile Include="DAO\DAODisciplina.cs" />
     <Compile Include="DAO\DAODisciplinaTurma.cs" />
     <Compile Include="DAO\DAOEnsino.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Interfaces\InterfaceAluno.cs" />
     <Compile Include="Interfaces\InterfaceAula.cs" />
     <Compile Include="Interfaces\InterfaceAvaliacao.cs" />
+    <Compile Include="Interfaces\InterfaceBoletim.cs" />
     <Compile Include="Interfaces\InterfaceDisciplina.cs" />
     <Compile Include="Interfaces\InterfaceFalta.cs" />
     <Compile Include="Interfaces\InterfaceEnsino.cs" />

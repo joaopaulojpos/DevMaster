@@ -369,4 +369,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="EmitirBoletim">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/Biblioteca.Basicas" minOccurs="0" name="boletim" nillable="true" type="q40:Boletim" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmitirBoletimResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/Biblioteca.Basicas" minOccurs="0" name="EmitirBoletimResult" nillable="true" type="q41:ArrayOfBoletim" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

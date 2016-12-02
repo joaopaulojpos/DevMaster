@@ -169,6 +169,14 @@ namespace WebService
         {
             return fachada.ListarDisciplinaTurma(dt);
         }
+
+        #endregion
+
+        #region Boletim
+        public List<Boletim> EmitirBoletim(Boletim boletim)
+        {
+            return fachada.EmitirBoletim(boletim);
+        }
+        #endregion
     }
-    #endregion
 }

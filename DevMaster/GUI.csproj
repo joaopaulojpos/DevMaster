@@ -96,6 +96,18 @@
     <Compile Include="GUIAbono.Designer.cs">
       <DependentUpon>GUIAbono.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUIBoletim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIBoletim.Designer.cs">
+      <DependentUpon>GUIBoletim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUIConsultarNota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIConsultarNota.Designer.cs">
+      <DependentUpon>GUIConsultarNota.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUILancarNota.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,6 +211,12 @@
     <EmbeddedResource Include="GUIAbono.resx">
       <DependentUpon>GUIAbono.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUIBoletim.resx">
+      <DependentUpon>GUIBoletim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIConsultarNota.resx">
+      <DependentUpon>GUIConsultarNota.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUILancarNota.resx">
       <DependentUpon>GUILancarNota.cs</DependentUpon>
     </EmbeddedResource>
@@ -261,6 +279,9 @@
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\localhost\Avaliacao.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\localhost\Boletim.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\localhost\Disciplina.datasource">

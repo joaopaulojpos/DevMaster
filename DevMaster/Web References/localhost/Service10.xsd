@@ -153,4 +153,16 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfDisciplina_Turma" nillable="true" type="tns:ArrayOfDisciplina_Turma" />
+  <xs:complexType name="Boletim">
+    <xs:sequence>
+      <xs:element name="Avaliacao" nillable="true" type="tns:Avaliacao" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Boletim" nillable="true" type="tns:Boletim" />
+  <xs:complexType name="ArrayOfBoletim">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Boletim" nillable="true" type="tns:Boletim" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBoletim" nillable="true" type="tns:ArrayOfBoletim" />
 </xs:schema>

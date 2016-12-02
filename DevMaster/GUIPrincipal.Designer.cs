@@ -209,6 +209,7 @@
             this.emitirBoletimToolStripMenuItem.Name = "emitirBoletimToolStripMenuItem";
             this.emitirBoletimToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.emitirBoletimToolStripMenuItem.Text = "Emitir Boletim";
+            this.emitirBoletimToolStripMenuItem.Click += new System.EventHandler(this.emitirBoletimToolStripMenuItem_Click);
             // 
             // GUIPrincipal
             // 
@@ -222,6 +223,8 @@
             this.Name = "GUIPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " Escola Pablo Neruda";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GUIPrincipal_FormClosing);
+            this.Load += new System.EventHandler(this.GUIPrincipal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

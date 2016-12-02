@@ -128,8 +128,13 @@ namespace GUI
                 avaliacao.Disciplina_turma = dt;
                 
                     servico.InserirAvaliacao(avaliacao);
-                    MessageBox.Show("Nota inserida.");
-                
+                comboBox2.Items.Clear();
+                comboBox3.Items.Clear();
+                comboBox1.Items.Clear();
+                comboBoxTurma.Items.Clear();
+                textBox1.Clear();
+                MessageBox.Show("Nota inserida.");
+                this.Dispose();
             }catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -165,6 +170,12 @@ namespace GUI
                 comboBox1.Items.Clear();
                 comboBox3.Items.Clear();
             }
+        }
+
+        private void consultarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GUIConsultarNota gui = new GUIConsultarNota();
+            gui.ShowDialog();
         }
     }
 }

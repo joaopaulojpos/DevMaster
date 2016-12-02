@@ -1,4 +1,5 @@
 ﻿using Biblioteca.Basicas;
+using Biblioteca.DAO;
 using Biblioteca.RN;
 using System;
 using System.Collections.Generic;
@@ -204,6 +205,14 @@ namespace Biblioteca.Fachada
         public List<Disciplina_Turma> ListarDisciplinaTurma(Disciplina_Turma dt)
         {
             return rnDt.listar(dt);
+        }
+        #endregion
+
+        #region Boletim
+        public List<Boletim> EmitirBoletim(Boletim boletim)
+        {
+            DAOBoletim dao = new DAOBoletim();
+            return dao.listar(boletim);
         }
         #endregion
     }

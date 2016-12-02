@@ -87,6 +87,8 @@ namespace GUI.localhost {
         
         private System.Threading.SendOrPostCallback ListarDisciplinaTurmaOperationCompleted;
         
+        private System.Threading.SendOrPostCallback EmitirBoletimOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -211,6 +213,9 @@ namespace GUI.localhost {
         
         /// <remarks/>
         public event ListarDisciplinaTurmaCompletedEventHandler ListarDisciplinaTurmaCompleted;
+        
+        /// <remarks/>
+        public event EmitirBoletimCompletedEventHandler EmitirBoletimCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/InserirAluno", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -1055,6 +1060,37 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/EmitirBoletim", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.Basicas")]
+        public Boletim[] EmitirBoletim([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Boletim boletim) {
+            object[] results = this.Invoke("EmitirBoletim", new object[] {
+                        boletim});
+            return ((Boletim[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void EmitirBoletimAsync(Boletim boletim) {
+            this.EmitirBoletimAsync(boletim, null);
+        }
+        
+        /// <remarks/>
+        public void EmitirBoletimAsync(Boletim boletim, object userState) {
+            if ((this.EmitirBoletimOperationCompleted == null)) {
+                this.EmitirBoletimOperationCompleted = new System.Threading.SendOrPostCallback(this.OnEmitirBoletimOperationCompleted);
+            }
+            this.InvokeAsync("EmitirBoletim", new object[] {
+                        boletim}, this.EmitirBoletimOperationCompleted, userState);
+        }
+        
+        private void OnEmitirBoletimOperationCompleted(object arg) {
+            if ((this.EmitirBoletimCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.EmitirBoletimCompleted(this, new EmitirBoletimCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -1283,44 +1319,39 @@ namespace GUI.localhost {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.Basicas")]
-    public partial class Falta {
+    public partial class Boletim {
         
-        private bool abonoField;
+        private Avaliacao avaliacaoField;
         
-        private bool abonoFieldSpecified;
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public Avaliacao Avaliacao {
+            get {
+                return this.avaliacaoField;
+            }
+            set {
+                this.avaliacaoField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.Basicas")]
+    public partial class Avaliacao {
         
         private Aluno alunoField;
         
-        private Aula aulaField;
+        private int codigoAvaliacaoField;
         
-        private int codigoFaltaField;
+        private string descricaoField;
         
-        private bool codigoFaltaFieldSpecified;
+        private Disciplina_Turma disciplina_turmaField;
         
-        private string dataField;
-        
-        private string motivoField;
-        
-        /// <remarks/>
-        public bool Abono {
-            get {
-                return this.abonoField;
-            }
-            set {
-                this.abonoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool AbonoSpecified {
-            get {
-                return this.abonoFieldSpecified;
-            }
-            set {
-                this.abonoFieldSpecified = value;
-            }
-        }
+        private double notaField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
@@ -1334,116 +1365,44 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public Aula Aula {
+        public int CodigoAvaliacao {
             get {
-                return this.aulaField;
+                return this.codigoAvaliacaoField;
             }
             set {
-                this.aulaField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int CodigoFalta {
-            get {
-                return this.codigoFaltaField;
-            }
-            set {
-                this.codigoFaltaField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool CodigoFaltaSpecified {
-            get {
-                return this.codigoFaltaFieldSpecified;
-            }
-            set {
-                this.codigoFaltaFieldSpecified = value;
+                this.codigoAvaliacaoField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string Data {
+        public string Descricao {
             get {
-                return this.dataField;
+                return this.descricaoField;
             }
             set {
-                this.dataField = value;
+                this.descricaoField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string Motivo {
+        public Disciplina_Turma Disciplina_turma {
             get {
-                return this.motivoField;
+                return this.disciplina_turmaField;
             }
             set {
-                this.motivoField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.Basicas")]
-    public partial class Aula {
-        
-        private string assuntoField;
-        
-        private int codigoAulaField;
-        
-        private string dataField;
-        
-        private Disciplina_Turma disciplinaTurmaField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string Assunto {
-            get {
-                return this.assuntoField;
-            }
-            set {
-                this.assuntoField = value;
+                this.disciplina_turmaField = value;
             }
         }
         
         /// <remarks/>
-        public int CodigoAula {
+        public double Nota {
             get {
-                return this.codigoAulaField;
+                return this.notaField;
             }
             set {
-                this.codigoAulaField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string Data {
-            get {
-                return this.dataField;
-            }
-            set {
-                this.dataField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public Disciplina_Turma DisciplinaTurma {
-            get {
-                return this.disciplinaTurmaField;
-            }
-            set {
-                this.disciplinaTurmaField = value;
+                this.notaField = value;
             }
         }
     }
@@ -1668,17 +1627,44 @@ namespace GUI.localhost {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.Basicas")]
-    public partial class Avaliacao {
+    public partial class Falta {
+        
+        private bool abonoField;
+        
+        private bool abonoFieldSpecified;
         
         private Aluno alunoField;
         
-        private int codigoAvaliacaoField;
+        private Aula aulaField;
         
-        private string descricaoField;
+        private int codigoFaltaField;
         
-        private Disciplina_Turma disciplina_turmaField;
+        private bool codigoFaltaFieldSpecified;
         
-        private double notaField;
+        private string dataField;
+        
+        private string motivoField;
+        
+        /// <remarks/>
+        public bool Abono {
+            get {
+                return this.abonoField;
+            }
+            set {
+                this.abonoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool AbonoSpecified {
+            get {
+                return this.abonoFieldSpecified;
+            }
+            set {
+                this.abonoFieldSpecified = value;
+            }
+        }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
@@ -1692,44 +1678,116 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
-        public int CodigoAvaliacao {
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public Aula Aula {
             get {
-                return this.codigoAvaliacaoField;
+                return this.aulaField;
             }
             set {
-                this.codigoAvaliacaoField = value;
+                this.aulaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int CodigoFalta {
+            get {
+                return this.codigoFaltaField;
+            }
+            set {
+                this.codigoFaltaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool CodigoFaltaSpecified {
+            get {
+                return this.codigoFaltaFieldSpecified;
+            }
+            set {
+                this.codigoFaltaFieldSpecified = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string Descricao {
+        public string Data {
             get {
-                return this.descricaoField;
+                return this.dataField;
             }
             set {
-                this.descricaoField = value;
+                this.dataField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public Disciplina_Turma Disciplina_turma {
+        public string Motivo {
             get {
-                return this.disciplina_turmaField;
+                return this.motivoField;
             }
             set {
-                this.disciplina_turmaField = value;
+                this.motivoField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.Basicas")]
+    public partial class Aula {
+        
+        private string assuntoField;
+        
+        private int codigoAulaField;
+        
+        private string dataField;
+        
+        private Disciplina_Turma disciplinaTurmaField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Assunto {
+            get {
+                return this.assuntoField;
+            }
+            set {
+                this.assuntoField = value;
             }
         }
         
         /// <remarks/>
-        public double Nota {
+        public int CodigoAula {
             get {
-                return this.notaField;
+                return this.codigoAulaField;
             }
             set {
-                this.notaField = value;
+                this.codigoAulaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Data {
+            get {
+                return this.dataField;
+            }
+            set {
+                this.dataField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public Disciplina_Turma DisciplinaTurma {
+            get {
+                return this.disciplinaTurmaField;
+            }
+            set {
+                this.disciplinaTurmaField = value;
             }
         }
     }
@@ -2066,6 +2124,32 @@ namespace GUI.localhost {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((Disciplina_Turma[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void EmitirBoletimCompletedEventHandler(object sender, EmitirBoletimCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class EmitirBoletimCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal EmitirBoletimCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Boletim[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Boletim[])(this.results[0]));
             }
         }
     }

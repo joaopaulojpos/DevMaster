@@ -40,7 +40,7 @@ namespace Biblioteca.Basicas
                 nomeDisciplina = value;
             }
         }
-        public string ToString()
+        public override string ToString()
         {
             return "codigo: "+codigoDisciplina+" nome: "+nomeDisciplina;
         }

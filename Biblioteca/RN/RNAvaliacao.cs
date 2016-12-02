@@ -66,13 +66,17 @@ namespace Biblioteca.RN
             {
                 throw new Exception("Impossível efetuar registro.");
             }
-            if (avaliacao.Nota < 0)
+            if (avaliacao.Nota <= 0)
             {
                 throw new Exception("Nota inválida.");
             }
-            if (avaliacao.Disciplina_turma.CodigoDisciplinaTurma < 0)
+            if (avaliacao.Nota > 10)
             {
-                throw new Exception("Código da disciplina inválido.");
+                throw new Exception("Nota inválida.");
+            }
+            if (avaliacao.Descricao.Equals(""))
+            {
+                throw new Exception("Tipo de Avaliação inválido");
             }
         }
 
@@ -83,7 +87,7 @@ namespace Biblioteca.RN
             {
                 if (dao.VerificaDuplicidade(avaliacao))
                 {
-                    throw new Exception("Avaliação já registrada para este aluno.");
+                    throw new Exception(avaliacao.Descricao+" já registrada para este aluno.");
                 }
             }
             catch (Exception ex)
