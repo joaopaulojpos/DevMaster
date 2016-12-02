@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Biblioteca.Basicas
 {
+    [Serializable]
+    [DataContract()]
     public class Aluno
     {
         private string matricula;
@@ -15,6 +18,7 @@ namespace Biblioteca.Basicas
         private string telefone;
         private Turma turma;
 
+        [DataMember(IsRequired = true)]
         public string Matricula
         {
             get
@@ -27,7 +31,7 @@ namespace Biblioteca.Basicas
                 matricula = value;
             }
         }
-
+        [DataMember(IsRequired = true)]
         public string Nome
         {
             get
@@ -40,7 +44,7 @@ namespace Biblioteca.Basicas
                 nome = value;
             }
         }
-
+        [DataMember(IsRequired = true)]
         public DateTime DataNasc
         {
             get
@@ -53,7 +57,7 @@ namespace Biblioteca.Basicas
                 dataNasc = value;
             }
         }
-
+        [DataMember(IsRequired = true)]
         public string Sexo
         {
             get
@@ -66,7 +70,7 @@ namespace Biblioteca.Basicas
                 sexo = value;
             }
         }
-
+        [DataMember(IsRequired = true)]
         public string Telefone
         {
             get
@@ -79,7 +83,7 @@ namespace Biblioteca.Basicas
                 telefone = value;
             }
         }
-
+        [DataMember(IsRequired = true)]
         public Turma Turma
         {
             get

@@ -279,7 +279,19 @@
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Web References\localhost\Servico.wsdl" />
+    <None Include="Web References\localhost\Service1.wsdl" />
+    <None Include="Web References\localhost\Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\localhost\Service10.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\localhost\Service11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\localhost\TipoUsuario.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
     <None Include="Web References\localhost\Turma.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
@@ -367,26 +379,26 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://localhost:56743/Servico.asmx">
+    <None Include="Resources\arrow-left %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow-right %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:56743/Service1.svc">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\localhost\</RelPath>
-      <UpdateFromURL>http://localhost:56743/Servico.asmx</UpdateFromURL>
+      <UpdateFromURL>http://localhost:56743/Service1.svc</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>GUI_localhost_Servico</CachedSettingsPropName>
+      <CachedSettingsPropName>GUI_localhost_Service1</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Web References\localhost\Servico.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\arrow-left %281%291.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\arrow-right %281%291.png" />
+    <None Include="Web References\localhost\Service1.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

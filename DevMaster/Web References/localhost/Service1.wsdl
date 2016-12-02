@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:56743/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:56743/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:56743/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Biblioteca.Basicas" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService1_InserirAluno_InputMessage">
+    <wsdl:part name="parameters" element="tns:InserirAluno" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InserirAluno_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InserirAlunoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AlterarAluno_InputMessage">
+    <wsdl:part name="parameters" element="tns:AlterarAluno" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AlterarAluno_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AlterarAlunoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ExcluirAluno_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluirAluno" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ExcluirAluno_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluirAlunoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarAluno_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarAluno" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarAluno_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarAlunoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InserirAula_InputMessage">
+    <wsdl:part name="parameters" element="tns:InserirAula" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InserirAula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InserirAulaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AlterarAula_InputMessage">
+    <wsdl:part name="parameters" element="tns:AlterarAula" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AlterarAula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AlterarAulaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ExcluirAula_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluirAula" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ExcluirAula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluirAulaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarAula_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarAula" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarAula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarAulaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InserirAvaliacao_InputMessage">
+    <wsdl:part name="parameters" element="tns:InserirAvaliacao" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InserirAvaliacao_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InserirAvaliacaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AlterarAvaliacao_InputMessage">
+    <wsdl:part name="parameters" element="tns:AlterarAvaliacao" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AlterarAvaliacao_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AlterarAvaliacaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ExcluirAvaliacao_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluirAvaliacao" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ExcluirAvaliacao_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluirAvaliacaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarAvaliacao_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarAvaliacao" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarAvaliacao_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarAvaliacaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarDisciplina_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarDisciplina" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarDisciplina_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarDisciplinaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarEnsino_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarEnsino" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarEnsino_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarEnsinoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InserirFalta_InputMessage">
+    <wsdl:part name="parameters" element="tns:InserirFalta" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InserirFalta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InserirFaltaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AlterarFalta_InputMessage">
+    <wsdl:part name="parameters" element="tns:AlterarFalta" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AlterarFalta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AlterarFaltaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ExcluirFalta_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluirFalta" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ExcluirFalta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluirFaltaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarFalta_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarFalta" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarFalta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarFaltaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InserirTurma_InputMessage">
+    <wsdl:part name="parameters" element="tns:InserirTurma" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InserirTurma_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InserirTurmaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AlterarTurma_InputMessage">
+    <wsdl:part name="parameters" element="tns:AlterarTurma" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AlterarTurma_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AlterarTurmaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ExcluirTurma_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluirTurma" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ExcluirTurma_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluirTurmaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarTurma_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarTurma" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarTurma_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarTurmaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarTipoUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarTipoUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarTipoUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarTipoUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InserirUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:InserirUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InserirUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InserirUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AlterarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:AlterarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AlterarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AlterarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ExcluirUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluirUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ExcluirUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExcluirUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InserirDisciplinaTurma_InputMessage">
+    <wsdl:part name="parameters" element="tns:InserirDisciplinaTurma" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InserirDisciplinaTurma_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InserirDisciplinaTurmaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarDisciplinaTurma_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarDisciplinaTurma" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarDisciplinaTurma_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarDisciplinaTurmaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService1">
+    <wsdl:operation name="InserirAluno">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/InserirAluno" message="tns:IService1_InserirAluno_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InserirAlunoResponse" message="tns:IService1_InserirAluno_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarAluno">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AlterarAluno" message="tns:IService1_AlterarAluno_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AlterarAlunoResponse" message="tns:IService1_AlterarAluno_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirAluno">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ExcluirAluno" message="tns:IService1_ExcluirAluno_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ExcluirAlunoResponse" message="tns:IService1_ExcluirAluno_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarAluno">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListarAluno" message="tns:IService1_ListarAluno_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListarAlunoResponse" message="tns:IService1_ListarAluno_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InserirAula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/InserirAula" message="tns:IService1_InserirAula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InserirAulaResponse" message="tns:IService1_InserirAula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarAula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AlterarAula" message="tns:IService1_AlterarAula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AlterarAulaResponse" message="tns:IService1_AlterarAula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirAula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ExcluirAula" message="tns:IService1_ExcluirAula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ExcluirAulaResponse" message="tns:IService1_ExcluirAula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarAula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListarAula" message="tns:IService1_ListarAula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListarAulaResponse" message="tns:IService1_ListarAula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InserirAvaliacao">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/InserirAvaliacao" message="tns:IService1_InserirAvaliacao_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InserirAvaliacaoResponse" message="tns:IService1_InserirAvaliacao_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarAvaliacao">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AlterarAvaliacao" message="tns:IService1_AlterarAvaliacao_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AlterarAvaliacaoResponse" message="tns:IService1_AlterarAvaliacao_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirAvaliacao">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ExcluirAvaliacao" message="tns:IService1_ExcluirAvaliacao_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ExcluirAvaliacaoResponse" message="tns:IService1_ExcluirAvaliacao_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarAvaliacao">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListarAvaliacao" message="tns:IService1_ListarAvaliacao_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListarAvaliacaoResponse" message="tns:IService1_ListarAvaliacao_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarDisciplina">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListarDisciplina" message="tns:IService1_ListarDisciplina_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListarDisciplinaResponse" message="tns:IService1_ListarDisciplina_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarEnsino">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListarEnsino" message="tns:IService1_ListarEnsino_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListarEnsinoResponse" message="tns:IService1_ListarEnsino_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InserirFalta">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/InserirFalta" message="tns:IService1_InserirFalta_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InserirFaltaResponse" message="tns:IService1_InserirFalta_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarFalta">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AlterarFalta" message="tns:IService1_AlterarFalta_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AlterarFaltaResponse" message="tns:IService1_AlterarFalta_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirFalta">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ExcluirFalta" message="tns:IService1_ExcluirFalta_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ExcluirFaltaResponse" message="tns:IService1_ExcluirFalta_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarFalta">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListarFalta" message="tns:IService1_ListarFalta_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListarFaltaResponse" message="tns:IService1_ListarFalta_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InserirTurma">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/InserirTurma" message="tns:IService1_InserirTurma_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InserirTurmaResponse" message="tns:IService1_InserirTurma_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarTurma">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AlterarTurma" message="tns:IService1_AlterarTurma_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AlterarTurmaResponse" message="tns:IService1_AlterarTurma_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirTurma">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ExcluirTurma" message="tns:IService1_ExcluirTurma_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ExcluirTurmaResponse" message="tns:IService1_ExcluirTurma_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarTurma">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListarTurma" message="tns:IService1_ListarTurma_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListarTurmaResponse" message="tns:IService1_ListarTurma_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarTipoUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListarTipoUsuario" message="tns:IService1_ListarTipoUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListarTipoUsuarioResponse" message="tns:IService1_ListarTipoUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InserirUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/InserirUsuario" message="tns:IService1_InserirUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InserirUsuarioResponse" message="tns:IService1_InserirUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AlterarUsuario" message="tns:IService1_AlterarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AlterarUsuarioResponse" message="tns:IService1_AlterarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ExcluirUsuario" message="tns:IService1_ExcluirUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ExcluirUsuarioResponse" message="tns:IService1_ExcluirUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListarUsuario" message="tns:IService1_ListarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListarUsuarioResponse" message="tns:IService1_ListarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InserirDisciplinaTurma">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/InserirDisciplinaTurma" message="tns:IService1_InserirDisciplinaTurma_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InserirDisciplinaTurmaResponse" message="tns:IService1_InserirDisciplinaTurma_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarDisciplinaTurma">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListarDisciplinaTurma" message="tns:IService1_ListarDisciplinaTurma_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListarDisciplinaTurmaResponse" message="tns:IService1_ListarDisciplinaTurma_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InserirAluno">
+      <soap:operation soapAction="http://tempuri.org/IService1/InserirAluno" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarAluno">
+      <soap:operation soapAction="http://tempuri.org/IService1/AlterarAluno" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirAluno">
+      <soap:operation soapAction="http://tempuri.org/IService1/ExcluirAluno" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarAluno">
+      <soap:operation soapAction="http://tempuri.org/IService1/ListarAluno" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirAula">
+      <soap:operation soapAction="http://tempuri.org/IService1/InserirAula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarAula">
+      <soap:operation soapAction="http://tempuri.org/IService1/AlterarAula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirAula">
+      <soap:operation soapAction="http://tempuri.org/IService1/ExcluirAula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarAula">
+      <soap:operation soapAction="http://tempuri.org/IService1/ListarAula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirAvaliacao">
+      <soap:operation soapAction="http://tempuri.org/IService1/InserirAvaliacao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarAvaliacao">
+      <soap:operation soapAction="http://tempuri.org/IService1/AlterarAvaliacao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirAvaliacao">
+      <soap:operation soapAction="http://tempuri.org/IService1/ExcluirAvaliacao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarAvaliacao">
+      <soap:operation soapAction="http://tempuri.org/IService1/ListarAvaliacao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarDisciplina">
+      <soap:operation soapAction="http://tempuri.org/IService1/ListarDisciplina" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarEnsino">
+      <soap:operation soapAction="http://tempuri.org/IService1/ListarEnsino" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirFalta">
+      <soap:operation soapAction="http://tempuri.org/IService1/InserirFalta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarFalta">
+      <soap:operation soapAction="http://tempuri.org/IService1/AlterarFalta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirFalta">
+      <soap:operation soapAction="http://tempuri.org/IService1/ExcluirFalta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarFalta">
+      <soap:operation soapAction="http://tempuri.org/IService1/ListarFalta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirTurma">
+      <soap:operation soapAction="http://tempuri.org/IService1/InserirTurma" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarTurma">
+      <soap:operation soapAction="http://tempuri.org/IService1/AlterarTurma" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirTurma">
+      <soap:operation soapAction="http://tempuri.org/IService1/ExcluirTurma" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarTurma">
+      <soap:operation soapAction="http://tempuri.org/IService1/ListarTurma" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarTipoUsuario">
+      <soap:operation soapAction="http://tempuri.org/IService1/ListarTipoUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirUsuario">
+      <soap:operation soapAction="http://tempuri.org/IService1/InserirUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarUsuario">
+      <soap:operation soapAction="http://tempuri.org/IService1/AlterarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExcluirUsuario">
+      <soap:operation soapAction="http://tempuri.org/IService1/ExcluirUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarUsuario">
+      <soap:operation soapAction="http://tempuri.org/IService1/ListarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirDisciplinaTurma">
+      <soap:operation soapAction="http://tempuri.org/IService1/InserirDisciplinaTurma" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarDisciplinaTurma">
+      <soap:operation soapAction="http://tempuri.org/IService1/ListarDisciplinaTurma" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="BasicHttpBinding_IService1" binding="tns:BasicHttpBinding_IService1">
+      <soap:address location="http://localhost:56743/Service1.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

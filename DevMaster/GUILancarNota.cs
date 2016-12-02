@@ -1,4 +1,4 @@
-﻿using Biblioteca.Basicas;
+﻿using GUI.localhost;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WebService;
 
 namespace GUI
 {
@@ -17,11 +16,12 @@ namespace GUI
         List<Aluno> listaAlunos;
         List<Disciplina_Turma> listaDisciplinas;
         List<Turma> listaTurmas;
-        Servico servico = new Servico();
+        Service1 servico;
 
         public GUILancarNota()
         {
             InitializeComponent();
+            servico = new Service1();
             carregarTurmas();
         }
 
@@ -36,7 +36,7 @@ namespace GUI
                 aluno.Turma = t;
                 aluno.Matricula = "";
                 aluno.Nome = "";
-                listaAlunos = servico.ListarAluno(aln);
+                listaAlunos = servico.ListarAluno(aln).ToList();
                 foreach (Aluno a in listaAlunos)
                 {
                     comboBox3.Items.Add(a.Nome);
@@ -55,7 +55,7 @@ namespace GUI
                 disc.CodigoDisciplina = 0;
                 disc.NomeDisciplina = "";
                 disciplina.Disciplina = disc;
-                listaDisciplinas = servico.ListarDisciplinaTurma(disciplina);
+                listaDisciplinas = servico.ListarDisciplinaTurma(disciplina).ToList();
                 foreach (Disciplina_Turma dt in listaDisciplinas)
                 {
                     comboBox1.Items.Add(dt.Disciplina.NomeDisciplina);
@@ -73,7 +73,7 @@ namespace GUI
                 comboBoxTurma.Items.Add("");
                 Turma turma = new Turma();
                 turma.CodigoTurma = 0;
-                listaTurmas = servico.ListarTurma(turma);
+                listaTurmas = servico.ListarTurma(turma).ToList();
                 foreach (Turma t in listaTurmas)
                 {
                     comboBoxTurma.Items.Add(t.DescricaoTurma);
@@ -100,8 +100,8 @@ namespace GUI
         {
             this.Close();
         }
-
-        private void button4_Click(object sender, EventArgs e)
+        
+    private void button4_Click(object sender, EventArgs e)
         {
             List<Disciplina_Turma> listaDT;
             try
@@ -123,7 +123,7 @@ namespace GUI
                 int indexDisc = comboBox1.SelectedIndex;
                 disc = listaDisciplinas[indexDisc].Disciplina;
                 dt.Disciplina = disc;
-                listaDT = servico.ListarDisciplinaTurma(dt);
+                listaDT = servico.ListarDisciplinaTurma(dt).ToList();
                 dt.CodigoDisciplinaTurma = listaDT[0].CodigoDisciplinaTurma;
                 avaliacao.Disciplina_turma = dt;
                 

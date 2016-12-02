@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GUI.localhost;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,9 +9,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using WebService;
-//using Biblioteca.RN;
-using Biblioteca.Basicas;
 
 namespace GUI
 {
@@ -21,7 +19,7 @@ namespace GUI
         GUITurma guiTurma;
         List<Ensino> listaEnsino;
 
-        Servico servico;
+        Service1 servico;
 
         #endregion 
 
@@ -31,7 +29,7 @@ namespace GUI
         {
             InitializeComponent();
             this.guiTurma = guiTurma;
-            servico = new Servico();
+            servico = new Service1();
             AlimentarCampos();
         }
 
@@ -83,10 +81,21 @@ namespace GUI
 
         void AlimentarComboEnsino()
         {
-            comboBoxAno.Items.Clear();
-            comboBoxEnsino.Items.Add("Fundamental");
-            comboBoxEnsino.Items.Add("Médio");
+            try {
+                Ensino ensino = new Ensino();
+                ensino.CodigoEnsino = 0;
+                ensino.DescricaoEnsino = "";
+                comboBoxAno.Items.Clear();
+                listaEnsino = servico.ListarEnsino(ensino).ToList();
+                foreach (Ensino e in listaEnsino) {
+                    comboBoxEnsino.Items.Add(e.DescricaoEnsino);
+                }
             comboBoxEnsino.SelectedIndex = 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         #endregion
@@ -123,26 +132,17 @@ namespace GUI
         {
             try
             {
-                servico = new Servico();
                 Turma turma = new Turma();
                 Ensino ensino = new Ensino();
-                Ensino ensinoFiltro = new Ensino(); //só vai servir pra buscar o Ensino do banco
 
                 turma.DescricaoTurma = textBoxDescricao.Text;
                 turma.Ano = Convert.ToInt32(comboBoxAno.Text);
                 turma.Turno = comboBoxTurno.Text;
                 turma.DataInicio = dateDataInicio.Value;
 
-                ensinoFiltro.DescricaoEnsino = comboBoxEnsino.Text;
-
-                listaEnsino = servico.ListarEnsino(ensinoFiltro);
-                if (listaEnsino.Count > 0)
-                {
-                    foreach (Ensino ensino2 in listaEnsino)
-                    {
-                        ensino = ensino2;
-                    }
-                }
+                int index = comboBoxEnsino.SelectedIndex;
+                ensino = listaEnsino[index];
+                
                 turma.Ensino = ensino;
 
                 //Chamando Web Service

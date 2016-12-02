@@ -3,11 +3,14 @@ using Biblioteca.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Biblioteca.Basicas
 {
+    [Serializable]
+    [DataContract()]
     public class Turma
     {
         private int codigoTurma;
@@ -16,7 +19,7 @@ namespace Biblioteca.Basicas
         private int ano;
         private DateTime dataInicio;
         private Ensino ensino;
-
+        [DataMember(IsRequired = true)]
         public int CodigoTurma
         {
             get
@@ -29,7 +32,7 @@ namespace Biblioteca.Basicas
                 codigoTurma = value;
             }
         }
-
+        [DataMember(IsRequired = true)]
         public string DescricaoTurma
         {
             get
@@ -42,7 +45,7 @@ namespace Biblioteca.Basicas
                 descricaoTurma = value;
             }
         }
-
+        [DataMember(IsRequired = true)]
         public string Turno
         {
             get
@@ -55,7 +58,7 @@ namespace Biblioteca.Basicas
                 turno = value;
             }
         }
-
+        [DataMember(IsRequired = true)]
         public int Ano
         {
             get
@@ -68,7 +71,7 @@ namespace Biblioteca.Basicas
                 ano = value;
             }
         }
-
+        [DataMember(IsRequired = true)]
         public DateTime DataInicio
         {
             get
@@ -81,7 +84,7 @@ namespace Biblioteca.Basicas
                 dataInicio = value;
             }
         }
-
+        [DataMember(IsRequired = true)]
         public Ensino Ensino
         {
             get

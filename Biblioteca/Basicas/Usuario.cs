@@ -3,11 +3,14 @@ using Biblioteca.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Biblioteca.Basicas
 {
+    [Serializable]
+    [DataContract()]
     public class Usuario
     {//Usuario usuario
         private int codUsuario;
@@ -17,6 +20,7 @@ namespace Biblioteca.Basicas
         private string telefone;
         private TipoUsuario tipoUsuario;
 
+        [DataMember(IsRequired = true)]
         public int CodUsuario
         {
             get
@@ -29,7 +33,7 @@ namespace Biblioteca.Basicas
                 codUsuario = value;
             }
         }
-
+        [DataMember(IsRequired = true)]
         public string LoginUsuario
         {
             get
@@ -42,7 +46,7 @@ namespace Biblioteca.Basicas
                 loginUsuario = value;
             }
         }
-
+        [DataMember(IsRequired = true)]
         public string Senha
         {
             get
@@ -55,7 +59,7 @@ namespace Biblioteca.Basicas
                 senha = value;
             }
         }
-
+        [DataMember(IsRequired = true)]
         public string Telefone
         {
             get
@@ -68,7 +72,7 @@ namespace Biblioteca.Basicas
                 telefone = value;
             }
         }
-
+        [DataMember(IsRequired = true)]
         public TipoUsuario TipoUsuario
         {
             get
@@ -81,7 +85,7 @@ namespace Biblioteca.Basicas
                 tipoUsuario = value;
             }
         }
-
+        [DataMember(IsRequired = true)]
         public string Nome
         {
             get

@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Biblioteca.Basicas
 {
+    [Serializable]
+    [DataContract()]
     public class Ensino
     {
         private int codigoEnsino;
         private string descricaoEnsino;
-
+        [DataMember(IsRequired = true)]
         public int CodigoEnsino
         {
             get
@@ -23,7 +26,7 @@ namespace Biblioteca.Basicas
                 codigoEnsino = value;
             }
         }
-
+        [DataMember(IsRequired = true)]
         public string DescricaoEnsino
         {
             get

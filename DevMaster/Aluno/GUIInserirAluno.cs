@@ -1,6 +1,4 @@
-﻿using Biblioteca.Basicas;
-using Biblioteca.DAO;
-using Biblioteca.RN;
+﻿using GUI.localhost;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WebService;
 
 namespace GUI
 {
@@ -20,7 +17,7 @@ namespace GUI
 
         GUIAluno guiAluno;
         List<Turma> listaTurma;
-        Servico servico = new Servico();
+        Service1 servico;
 
         #endregion
 
@@ -29,6 +26,7 @@ namespace GUI
         public GUIInserirAluno(GUIAluno guiAluno)
         {
             InitializeComponent();
+            servico= new Service1();
             this.guiAluno = guiAluno;
             AlimentarComboSexo();
             AlimentarComboTurma();
@@ -47,7 +45,7 @@ namespace GUI
                 Turma turmaFiltro = new Turma();
                 turmaFiltro.CodigoTurma = 0;
                 turmaFiltro.DescricaoTurma = "";
-                listaTurma = servico.ListarTurma(turmaFiltro);
+                listaTurma = servico.ListarTurma(turmaFiltro).ToList();
 
                 foreach (Turma turma in listaTurma)
                 {

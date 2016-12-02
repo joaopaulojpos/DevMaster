@@ -26,8 +26,8 @@ namespace GUI.localhost {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Web.Services.WebServiceBindingAttribute(Name="ServicoSoap", Namespace="http://tempuri.org/")]
-    public partial class Servico : System.Web.Services.Protocols.SoapHttpClientProtocol {
+    [System.Web.Services.WebServiceBindingAttribute(Name="BasicHttpBinding_IService1", Namespace="http://tempuri.org/")]
+    public partial class Service1 : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
         private System.Threading.SendOrPostCallback InserirAlunoOperationCompleted;
         
@@ -73,6 +73,8 @@ namespace GUI.localhost {
         
         private System.Threading.SendOrPostCallback ListarTurmaOperationCompleted;
         
+        private System.Threading.SendOrPostCallback ListarTipoUsuarioOperationCompleted;
+        
         private System.Threading.SendOrPostCallback InserirUsuarioOperationCompleted;
         
         private System.Threading.SendOrPostCallback AlterarUsuarioOperationCompleted;
@@ -88,8 +90,8 @@ namespace GUI.localhost {
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
-        public Servico() {
-            this.Url = global::GUI.Properties.Settings.Default.GUI_localhost_Servico;
+        public Service1() {
+            this.Url = global::GUI.Properties.Settings.Default.GUI_localhost_Service1;
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;
@@ -190,6 +192,9 @@ namespace GUI.localhost {
         public event ListarTurmaCompletedEventHandler ListarTurmaCompleted;
         
         /// <remarks/>
+        public event ListarTipoUsuarioCompletedEventHandler ListarTipoUsuarioCompleted;
+        
+        /// <remarks/>
         public event InserirUsuarioCompletedEventHandler InserirUsuarioCompleted;
         
         /// <remarks/>
@@ -208,8 +213,8 @@ namespace GUI.localhost {
         public event ListarDisciplinaTurmaCompletedEventHandler ListarDisciplinaTurmaCompleted;
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/InserirAluno", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void InserirAluno(Aluno aluno) {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/InserirAluno", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void InserirAluno([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Aluno aluno) {
             this.Invoke("InserirAluno", new object[] {
                         aluno});
         }
@@ -236,8 +241,8 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AlterarAluno", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void AlterarAluno(Aluno aluno) {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/AlterarAluno", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void AlterarAluno([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Aluno aluno) {
             this.Invoke("AlterarAluno", new object[] {
                         aluno});
         }
@@ -264,8 +269,8 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ExcluirAluno", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void ExcluirAluno(Aluno aluno) {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/ExcluirAluno", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void ExcluirAluno([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Aluno aluno) {
             this.Invoke("ExcluirAluno", new object[] {
                         aluno});
         }
@@ -292,8 +297,10 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ListarAluno", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Aluno[] ListarAluno(Aluno aluno) {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/ListarAluno", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.Basicas")]
+        public Aluno[] ListarAluno([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Aluno aluno) {
             object[] results = this.Invoke("ListarAluno", new object[] {
                         aluno});
             return ((Aluno[])(results[0]));
@@ -321,8 +328,8 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/InserirAula", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void InserirAula(Aula aula) {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/InserirAula", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void InserirAula([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Aula aula) {
             this.Invoke("InserirAula", new object[] {
                         aula});
         }
@@ -349,8 +356,8 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AlterarAula", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void AlterarAula(Aula aula) {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/AlterarAula", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void AlterarAula([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Aula aula) {
             this.Invoke("AlterarAula", new object[] {
                         aula});
         }
@@ -377,8 +384,8 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ExcluirAula", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void ExcluirAula(Aula aula) {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/ExcluirAula", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void ExcluirAula([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Aula aula) {
             this.Invoke("ExcluirAula", new object[] {
                         aula});
         }
@@ -405,8 +412,10 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ListarAula", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Aula[] ListarAula(Aula aula) {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/ListarAula", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.Basicas")]
+        public Aula[] ListarAula([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Aula aula) {
             object[] results = this.Invoke("ListarAula", new object[] {
                         aula});
             return ((Aula[])(results[0]));
@@ -434,8 +443,8 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/InserirAvaliacao", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void InserirAvaliacao(Avaliacao avaliacao) {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/InserirAvaliacao", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void InserirAvaliacao([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Avaliacao avaliacao) {
             this.Invoke("InserirAvaliacao", new object[] {
                         avaliacao});
         }
@@ -462,8 +471,8 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AlterarAvaliacao", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void AlterarAvaliacao(Avaliacao avaliacao) {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/AlterarAvaliacao", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void AlterarAvaliacao([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Avaliacao avaliacao) {
             this.Invoke("AlterarAvaliacao", new object[] {
                         avaliacao});
         }
@@ -490,8 +499,8 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ExcluirAvaliacao", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void ExcluirAvaliacao(Avaliacao avaliacao) {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/ExcluirAvaliacao", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void ExcluirAvaliacao([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Avaliacao avaliacao) {
             this.Invoke("ExcluirAvaliacao", new object[] {
                         avaliacao});
         }
@@ -518,8 +527,10 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ListarAvaliacao", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Avaliacao[] ListarAvaliacao(Avaliacao avaliacao) {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/ListarAvaliacao", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.Basicas")]
+        public Avaliacao[] ListarAvaliacao([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Avaliacao avaliacao) {
             object[] results = this.Invoke("ListarAvaliacao", new object[] {
                         avaliacao});
             return ((Avaliacao[])(results[0]));
@@ -547,8 +558,10 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ListarDisciplina", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Disciplina[] ListarDisciplina(Disciplina disciplina) {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/ListarDisciplina", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.Basicas")]
+        public Disciplina[] ListarDisciplina([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Disciplina disciplina) {
             object[] results = this.Invoke("ListarDisciplina", new object[] {
                         disciplina});
             return ((Disciplina[])(results[0]));
@@ -576,8 +589,10 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ListarEnsino", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Ensino[] ListarEnsino(Ensino ensino) {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/ListarEnsino", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.Basicas")]
+        public Ensino[] ListarEnsino([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Ensino ensino) {
             object[] results = this.Invoke("ListarEnsino", new object[] {
                         ensino});
             return ((Ensino[])(results[0]));
@@ -605,8 +620,8 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/InserirFalta", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void InserirFalta(Falta falta) {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/InserirFalta", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void InserirFalta([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Falta falta) {
             this.Invoke("InserirFalta", new object[] {
                         falta});
         }
@@ -633,8 +648,8 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AlterarFalta", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void AlterarFalta(Falta falta) {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/AlterarFalta", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void AlterarFalta([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Falta falta) {
             this.Invoke("AlterarFalta", new object[] {
                         falta});
         }
@@ -661,8 +676,8 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ExcluirFalta", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void ExcluirFalta(Falta falta) {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/ExcluirFalta", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void ExcluirFalta([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Falta falta) {
             this.Invoke("ExcluirFalta", new object[] {
                         falta});
         }
@@ -689,8 +704,10 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ListarFalta", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Falta[] ListarFalta(Falta falta) {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/ListarFalta", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.Basicas")]
+        public Falta[] ListarFalta([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Falta falta) {
             object[] results = this.Invoke("ListarFalta", new object[] {
                         falta});
             return ((Falta[])(results[0]));
@@ -718,8 +735,8 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/InserirTurma", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void InserirTurma(Turma turma) {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/InserirTurma", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void InserirTurma([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Turma turma) {
             this.Invoke("InserirTurma", new object[] {
                         turma});
         }
@@ -746,8 +763,8 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AlterarTurma", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void AlterarTurma(Turma turma) {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/AlterarTurma", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void AlterarTurma([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Turma turma) {
             this.Invoke("AlterarTurma", new object[] {
                         turma});
         }
@@ -774,8 +791,8 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ExcluirTurma", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void ExcluirTurma(Turma turma) {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/ExcluirTurma", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void ExcluirTurma([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Turma turma) {
             this.Invoke("ExcluirTurma", new object[] {
                         turma});
         }
@@ -802,8 +819,10 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ListarTurma", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Turma[] ListarTurma(Turma turma) {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/ListarTurma", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.Basicas")]
+        public Turma[] ListarTurma([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Turma turma) {
             object[] results = this.Invoke("ListarTurma", new object[] {
                         turma});
             return ((Turma[])(results[0]));
@@ -831,8 +850,39 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/InserirUsuario", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void InserirUsuario(Usuario usuario) {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/ListarTipoUsuario", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.Basicas")]
+        public TipoUsuario[] ListarTipoUsuario([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] TipoUsuario tipoUsuario) {
+            object[] results = this.Invoke("ListarTipoUsuario", new object[] {
+                        tipoUsuario});
+            return ((TipoUsuario[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ListarTipoUsuarioAsync(TipoUsuario tipoUsuario) {
+            this.ListarTipoUsuarioAsync(tipoUsuario, null);
+        }
+        
+        /// <remarks/>
+        public void ListarTipoUsuarioAsync(TipoUsuario tipoUsuario, object userState) {
+            if ((this.ListarTipoUsuarioOperationCompleted == null)) {
+                this.ListarTipoUsuarioOperationCompleted = new System.Threading.SendOrPostCallback(this.OnListarTipoUsuarioOperationCompleted);
+            }
+            this.InvokeAsync("ListarTipoUsuario", new object[] {
+                        tipoUsuario}, this.ListarTipoUsuarioOperationCompleted, userState);
+        }
+        
+        private void OnListarTipoUsuarioOperationCompleted(object arg) {
+            if ((this.ListarTipoUsuarioCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ListarTipoUsuarioCompleted(this, new ListarTipoUsuarioCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/InserirUsuario", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void InserirUsuario([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Usuario usuario) {
             this.Invoke("InserirUsuario", new object[] {
                         usuario});
         }
@@ -859,8 +909,8 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AlterarUsuario", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void AlterarUsuario(Usuario usuario) {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/AlterarUsuario", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void AlterarUsuario([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Usuario usuario) {
             this.Invoke("AlterarUsuario", new object[] {
                         usuario});
         }
@@ -887,8 +937,8 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ExcluirUsuario", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void ExcluirUsuario(Usuario usuario) {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/ExcluirUsuario", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void ExcluirUsuario([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Usuario usuario) {
             this.Invoke("ExcluirUsuario", new object[] {
                         usuario});
         }
@@ -915,8 +965,10 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ListarUsuario", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Usuario[] ListarUsuario(Usuario usuario) {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/ListarUsuario", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.Basicas")]
+        public Usuario[] ListarUsuario([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Usuario usuario) {
             object[] results = this.Invoke("ListarUsuario", new object[] {
                         usuario});
             return ((Usuario[])(results[0]));
@@ -944,8 +996,8 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/InserirDisciplinaTurma", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void InserirDisciplinaTurma(Disciplina_Turma dt) {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/InserirDisciplinaTurma", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void InserirDisciplinaTurma([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Disciplina_Turma dt) {
             this.Invoke("InserirDisciplinaTurma", new object[] {
                         dt});
         }
@@ -972,8 +1024,10 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ListarDisciplinaTurma", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Disciplina_Turma[] ListarDisciplinaTurma(Disciplina_Turma dt) {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/ListarDisciplinaTurma", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.Basicas")]
+        public Disciplina_Turma[] ListarDisciplinaTurma([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Disciplina_Turma dt) {
             object[] results = this.Invoke("ListarDisciplinaTurma", new object[] {
                         dt});
             return ((Disciplina_Turma[])(results[0]));
@@ -1024,40 +1078,20 @@ namespace GUI.localhost {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.Basicas")]
     public partial class Aluno {
+        
+        private System.DateTime dataNascField;
         
         private string matriculaField;
         
         private string nomeField;
-        
-        private System.DateTime dataNascField;
         
         private string sexoField;
         
         private string telefoneField;
         
         private Turma turmaField;
-        
-        /// <remarks/>
-        public string Matricula {
-            get {
-                return this.matriculaField;
-            }
-            set {
-                this.matriculaField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Nome {
-            get {
-                return this.nomeField;
-            }
-            set {
-                this.nomeField = value;
-            }
-        }
         
         /// <remarks/>
         public System.DateTime DataNasc {
@@ -1070,6 +1104,29 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Matricula {
+            get {
+                return this.matriculaField;
+            }
+            set {
+                this.matriculaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Nome {
+            get {
+                return this.nomeField;
+            }
+            set {
+                this.nomeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
         public string Sexo {
             get {
                 return this.sexoField;
@@ -1080,6 +1137,7 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
         public string Telefone {
             get {
                 return this.telefoneField;
@@ -1090,6 +1148,7 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
         public Turma Turma {
             get {
                 return this.turmaField;
@@ -1105,50 +1164,20 @@ namespace GUI.localhost {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.Basicas")]
     public partial class Turma {
-        
-        private int codigoTurmaField;
-        
-        private string descricaoTurmaField;
-        
-        private string turnoField;
         
         private int anoField;
         
+        private int codigoTurmaField;
+        
         private System.DateTime dataInicioField;
+        
+        private string descricaoTurmaField;
         
         private Ensino ensinoField;
         
-        /// <remarks/>
-        public int CodigoTurma {
-            get {
-                return this.codigoTurmaField;
-            }
-            set {
-                this.codigoTurmaField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string DescricaoTurma {
-            get {
-                return this.descricaoTurmaField;
-            }
-            set {
-                this.descricaoTurmaField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Turno {
-            get {
-                return this.turnoField;
-            }
-            set {
-                this.turnoField = value;
-            }
-        }
+        private string turnoField;
         
         /// <remarks/>
         public int Ano {
@@ -1157,6 +1186,16 @@ namespace GUI.localhost {
             }
             set {
                 this.anoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int CodigoTurma {
+            get {
+                return this.codigoTurmaField;
+            }
+            set {
+                this.codigoTurmaField = value;
             }
         }
         
@@ -1171,12 +1210,35 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string DescricaoTurma {
+            get {
+                return this.descricaoTurmaField;
+            }
+            set {
+                this.descricaoTurmaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
         public Ensino Ensino {
             get {
                 return this.ensinoField;
             }
             set {
                 this.ensinoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Turno {
+            get {
+                return this.turnoField;
+            }
+            set {
+                this.turnoField = value;
             }
         }
     }
@@ -1186,7 +1248,7 @@ namespace GUI.localhost {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.Basicas")]
     public partial class Ensino {
         
         private int codigoEnsinoField;
@@ -1204,6 +1266,7 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
         public string DescricaoEnsino {
             get {
                 return this.descricaoEnsinoField;
@@ -1219,30 +1282,24 @@ namespace GUI.localhost {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.Basicas")]
     public partial class Falta {
-        
-        private string motivoField;
         
         private bool abonoField;
         
-        private string dataField;
-        
-        private Aula aulaField;
+        private bool abonoFieldSpecified;
         
         private Aluno alunoField;
         
+        private Aula aulaField;
+        
         private int codigoFaltaField;
         
-        /// <remarks/>
-        public string Motivo {
-            get {
-                return this.motivoField;
-            }
-            set {
-                this.motivoField = value;
-            }
-        }
+        private bool codigoFaltaFieldSpecified;
+        
+        private string dataField;
+        
+        private string motivoField;
         
         /// <remarks/>
         public bool Abono {
@@ -1255,32 +1312,35 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
-        public string Data {
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool AbonoSpecified {
             get {
-                return this.dataField;
+                return this.abonoFieldSpecified;
             }
             set {
-                this.dataField = value;
+                this.abonoFieldSpecified = value;
             }
         }
         
         /// <remarks/>
-        public Aula Aula {
-            get {
-                return this.aulaField;
-            }
-            set {
-                this.aulaField = value;
-            }
-        }
-        
-        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
         public Aluno Aluno {
             get {
                 return this.alunoField;
             }
             set {
                 this.alunoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public Aula Aula {
+            get {
+                return this.aulaField;
+            }
+            set {
+                this.aulaField = value;
             }
         }
         
@@ -1293,6 +1353,39 @@ namespace GUI.localhost {
                 this.codigoFaltaField = value;
             }
         }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool CodigoFaltaSpecified {
+            get {
+                return this.codigoFaltaFieldSpecified;
+            }
+            set {
+                this.codigoFaltaFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Data {
+            get {
+                return this.dataField;
+            }
+            set {
+                this.dataField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Motivo {
+            get {
+                return this.motivoField;
+            }
+            set {
+                this.motivoField = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -1300,16 +1393,27 @@ namespace GUI.localhost {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.Basicas")]
     public partial class Aula {
+        
+        private string assuntoField;
         
         private int codigoAulaField;
         
         private string dataField;
         
-        private string assuntoField;
-        
         private Disciplina_Turma disciplinaTurmaField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Assunto {
+            get {
+                return this.assuntoField;
+            }
+            set {
+                this.assuntoField = value;
+            }
+        }
         
         /// <remarks/>
         public int CodigoAula {
@@ -1322,6 +1426,7 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
         public string Data {
             get {
                 return this.dataField;
@@ -1332,16 +1437,7 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
-        public string Assunto {
-            get {
-                return this.assuntoField;
-            }
-            set {
-                this.assuntoField = value;
-            }
-        }
-        
-        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
         public Disciplina_Turma DisciplinaTurma {
             get {
                 return this.disciplinaTurmaField;
@@ -1357,14 +1453,14 @@ namespace GUI.localhost {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.Basicas")]
     public partial class Disciplina_Turma {
         
         private int codigoDisciplinaTurmaField;
         
-        private Turma turmaField;
-        
         private Disciplina disciplinaField;
+        
+        private Turma turmaField;
         
         private Usuario usuarioField;
         
@@ -1379,16 +1475,7 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
-        public Turma Turma {
-            get {
-                return this.turmaField;
-            }
-            set {
-                this.turmaField = value;
-            }
-        }
-        
-        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
         public Disciplina Disciplina {
             get {
                 return this.disciplinaField;
@@ -1399,6 +1486,18 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public Turma Turma {
+            get {
+                return this.turmaField;
+            }
+            set {
+                this.turmaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
         public Usuario Usuario {
             get {
                 return this.usuarioField;
@@ -1414,7 +1513,7 @@ namespace GUI.localhost {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.Basicas")]
     public partial class Disciplina {
         
         private int codigoDisciplinaField;
@@ -1432,6 +1531,7 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
         public string NomeDisciplina {
             get {
                 return this.nomeDisciplinaField;
@@ -1447,20 +1547,20 @@ namespace GUI.localhost {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.Basicas")]
     public partial class Usuario {
         
         private int codUsuarioField;
         
         private string loginUsuarioField;
         
+        private string nomeField;
+        
         private string senhaField;
         
         private string telefoneField;
         
         private TipoUsuario tipoUsuarioField;
-        
-        private string nomeField;
         
         /// <remarks/>
         public int CodUsuario {
@@ -1473,6 +1573,7 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
         public string LoginUsuario {
             get {
                 return this.loginUsuarioField;
@@ -1483,6 +1584,18 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Nome {
+            get {
+                return this.nomeField;
+            }
+            set {
+                this.nomeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
         public string Senha {
             get {
                 return this.senhaField;
@@ -1493,6 +1606,7 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
         public string Telefone {
             get {
                 return this.telefoneField;
@@ -1503,22 +1617,13 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
         public TipoUsuario TipoUsuario {
             get {
                 return this.tipoUsuarioField;
             }
             set {
                 this.tipoUsuarioField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Nome {
-            get {
-                return this.nomeField;
-            }
-            set {
-                this.nomeField = value;
             }
         }
     }
@@ -1528,7 +1633,7 @@ namespace GUI.localhost {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.Basicas")]
     public partial class TipoUsuario {
         
         private int codTipoUsuarioField;
@@ -1546,6 +1651,7 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
         public string DescricaoTipoUsuario {
             get {
                 return this.descricaoTipoUsuarioField;
@@ -1561,50 +1667,21 @@ namespace GUI.localhost {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.Basicas")]
     public partial class Avaliacao {
-        
-        private double notaField;
-        
-        private string descricaoField;
-        
-        private Disciplina_Turma disciplina_turmaField;
         
         private Aluno alunoField;
         
         private int codigoAvaliacaoField;
         
-        /// <remarks/>
-        public double Nota {
-            get {
-                return this.notaField;
-            }
-            set {
-                this.notaField = value;
-            }
-        }
+        private string descricaoField;
+        
+        private Disciplina_Turma disciplina_turmaField;
+        
+        private double notaField;
         
         /// <remarks/>
-        public string Descricao {
-            get {
-                return this.descricaoField;
-            }
-            set {
-                this.descricaoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public Disciplina_Turma Disciplina_turma {
-            get {
-                return this.disciplina_turmaField;
-            }
-            set {
-                this.disciplina_turmaField = value;
-            }
-        }
-        
-        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
         public Aluno Aluno {
             get {
                 return this.alunoField;
@@ -1621,6 +1698,38 @@ namespace GUI.localhost {
             }
             set {
                 this.codigoAvaliacaoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Descricao {
+            get {
+                return this.descricaoField;
+            }
+            set {
+                this.descricaoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public Disciplina_Turma Disciplina_turma {
+            get {
+                return this.disciplina_turmaField;
+            }
+            set {
+                this.disciplina_turmaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public double Nota {
+            get {
+                return this.notaField;
+            }
+            set {
+                this.notaField = value;
             }
         }
     }
@@ -1863,6 +1972,32 @@ namespace GUI.localhost {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((Turma[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void ListarTipoUsuarioCompletedEventHandler(object sender, ListarTipoUsuarioCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ListarTipoUsuarioCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ListarTipoUsuarioCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public TipoUsuario[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((TipoUsuario[])(this.results[0]));
             }
         }
     }

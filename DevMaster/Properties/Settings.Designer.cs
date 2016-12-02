@@ -26,10 +26,10 @@ namespace GUI.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:56743/Servico.asmx")]
-        public string GUI_localhost_Servico {
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:56743/Service1.svc")]
+        public string GUI_localhost_Service1 {
             get {
-                return ((string)(this["GUI_localhost_Servico"]));
+                return ((string)(this["GUI_localhost_Service1"]));
             }
         }
     }

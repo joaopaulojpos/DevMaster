@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GUI.localhost;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,10 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WebService;
-using Biblioteca.Basicas;
-using Biblioteca.RN;
-using Biblioteca.DAO;
 
 namespace GUI
 {
@@ -19,7 +16,7 @@ namespace GUI
         #region Atributos 
 
         List<Aluno> listaAluno;
-        private Servico servico;
+        private Service1 servico;
 
         #endregion
 
@@ -29,7 +26,7 @@ namespace GUI
         {
             InitializeComponent();
 
-            servico = new Servico();
+            servico = new Service1();
             CarregarListView();
 
             //Faz com que as colunas da List View ocupem o espaço que precisar sem cortar
@@ -73,11 +70,9 @@ namespace GUI
         {
             try
             {
-                //Limpando a List View
                 listViewAluno.Items.Clear();
 
                 Aluno alunoFiltro = new Aluno();
-                //DAOAluno daoAluno = new DAOAluno();
 
                 //                  MATRÍCULA ALUNO
                 alunoFiltro.Matricula = textBoxMatricula.Text;
@@ -87,8 +82,7 @@ namespace GUI
                 Turma t = new Turma();
                 t.CodigoTurma = 0;
                 alunoFiltro.Turma = t;
-                //listaAluno = daoAluno.Listar(alunoFiltro);
-                listaAluno = servico.ListarAluno(alunoFiltro);
+                listaAluno = servico.ListarAluno(alunoFiltro).ToList();
 
                 if (listaAluno.Count > 0)
                 {
@@ -211,9 +205,7 @@ namespace GUI
                         removerAluno.Matricula = selecionado.SubItems[0].Text;
                         if (MessageBox.Show("Tem certeza?", "Confirmar remoção do Aluno.", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
-                            DAOAluno daoAluno = new DAOAluno();
-                            daoAluno.Excluir(removerAluno);
-                            //servico.Excluir(removerTurma);
+                            servico.ExcluirAluno(removerAluno);
 
                             listViewAluno.Items.Remove(selecionado);
                             MessageBox.Show("Aluno removido com sucesso!");

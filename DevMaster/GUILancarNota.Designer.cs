@@ -76,6 +76,9 @@
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
             "1 Unidade",
+            "2 Unidade",
+            "3 Unidade",
+            "4 Unidade",
             "Recuperação",
             "Final"});
             this.comboBox2.Location = new System.Drawing.Point(109, 115);

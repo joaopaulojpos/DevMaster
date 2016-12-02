@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GUI.localhost;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,10 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Biblioteca.Basicas;
 
-using WebService;
-//using Biblioteca.DAO;
 
 namespace GUI
 {
@@ -21,8 +19,9 @@ namespace GUI
         Turma turma;
         Turma novaTurma;
         GUITurma guiTurma;
+        List<Ensino> listaEnsino;
 
-        Servico servico;
+        Service1 servico;
 
         //Servico servico;
 
@@ -33,6 +32,7 @@ namespace GUI
         public GUIAlterarTurma(Turma turma, GUITurma guiTurma)
         {
             InitializeComponent();
+            servico = new Service1();
             this.turma = turma;
             AlimentarCampos(turma);
             this.guiTurma = guiTurma;
@@ -66,8 +66,22 @@ namespace GUI
 
         void AlimentarComboEnsino(Turma turma)
         {
-            comboBoxEnsino.Items.Add("Fundamental");
-            comboBoxEnsino.Items.Add("Médio");
+            try {
+                Ensino ensino = new Ensino();
+                ensino.CodigoEnsino = 0;
+                ensino.DescricaoEnsino = "";
+                comboBoxAno.Items.Clear();
+                listaEnsino = servico.ListarEnsino(ensino).ToList();
+                foreach (Ensino e in listaEnsino)
+                {
+                    comboBoxEnsino.Items.Add(e.DescricaoEnsino);
+                }
+                comboBoxEnsino.SelectedIndex = 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         //Ensino Médio tem 3 anos, Fundamental 9, dependendo do Ensino ele Alimenta o Combo com 3 ou 9
@@ -122,7 +136,7 @@ namespace GUI
 
                 List<Ensino> listaEnsino = new List<Ensino>();
 
-                listaEnsino = servico.ListarEnsino(ensino);
+                listaEnsino = servico.ListarEnsino(ensino).ToList();
 
                 foreach (Ensino ensino2 in listaEnsino)
                 {

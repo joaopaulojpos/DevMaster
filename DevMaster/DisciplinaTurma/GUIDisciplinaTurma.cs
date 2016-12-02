@@ -1,5 +1,4 @@
-﻿
-using Biblioteca.Basicas;
+﻿using GUI.localhost;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,26 +8,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WebService;
 
 namespace GUI.DisciplinaTurma
 {
     public partial class GUIDisciplinaTurma : Form
     {
-        Servico servico;
+        Service1 servico;
         private int codigoTurma;
         private List<Disciplina> listaDisciplina;
         public GUIDisciplinaTurma()
         {
             InitializeComponent();
-            servico = new Servico();
+            servico = new Service1();
             carregarDisciplinas();
         }
         public GUIDisciplinaTurma(int codigoTurma)
         {
             InitializeComponent();
             this.codigoTurma = codigoTurma;
-            servico = new Servico();
+            servico = new Service1();
             carregarDisciplinas();
         }
 
@@ -39,7 +37,7 @@ namespace GUI.DisciplinaTurma
                 Disciplina d = new Disciplina();
                 d.CodigoDisciplina = 0;
                 checkedListBoxDisciplinas.Items.Clear();
-                listaDisciplina= servico.ListarDisciplina(d);
+                listaDisciplina= servico.ListarDisciplina(d).ToList();
                 foreach (Disciplina disc in listaDisciplina)
                 {
                     checkedListBoxDisciplinas.Items.Add(disc.NomeDisciplina);

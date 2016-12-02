@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Biblioteca.Basicas" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Biblioteca.Basicas" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Aluno">
+    <xs:sequence>
+      <xs:element name="DataNasc" type="xs:dateTime" />
+      <xs:element name="Matricula" nillable="true" type="xs:string" />
+      <xs:element name="Nome" nillable="true" type="xs:string" />
+      <xs:element name="Sexo" nillable="true" type="xs:string" />
+      <xs:element name="Telefone" nillable="true" type="xs:string" />
+      <xs:element name="Turma" nillable="true" type="tns:Turma" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Aluno" nillable="true" type="tns:Aluno" />
+  <xs:complexType name="Turma">
+    <xs:sequence>
+      <xs:element name="Ano" type="xs:int" />
+      <xs:element name="CodigoTurma" type="xs:int" />
+      <xs:element name="DataInicio" type="xs:dateTime" />
+      <xs:element name="DescricaoTurma" nillable="true" type="xs:string" />
+      <xs:element name="Ensino" nillable="true" type="tns:Ensino" />
+      <xs:element name="Turno" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Turma" nillable="true" type="tns:Turma" />
+  <xs:complexType name="Ensino">
+    <xs:sequence>
+      <xs:element name="CodigoEnsino" type="xs:int" />
+      <xs:element name="DescricaoEnsino" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Ensino" nillable="true" type="tns:Ensino" />
+  <xs:complexType name="ArrayOfAluno">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Aluno" nillable="true" type="tns:Aluno" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAluno" nillable="true" type="tns:ArrayOfAluno" />
+  <xs:complexType name="Aula">
+    <xs:sequence>
+      <xs:element name="Assunto" nillable="true" type="xs:string" />
+      <xs:element name="CodigoAula" type="xs:int" />
+      <xs:element name="Data" nillable="true" type="xs:string" />
+      <xs:element name="DisciplinaTurma" nillable="true" type="tns:Disciplina_Turma" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Aula" nillable="true" type="tns:Aula" />
+  <xs:complexType name="Disciplina_Turma">
+    <xs:sequence>
+      <xs:element name="CodigoDisciplinaTurma" type="xs:int" />
+      <xs:element name="Disciplina" nillable="true" type="tns:Disciplina" />
+      <xs:element name="Turma" nillable="true" type="tns:Turma" />
+      <xs:element name="Usuario" nillable="true" type="tns:Usuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Disciplina_Turma" nillable="true" type="tns:Disciplina_Turma" />
+  <xs:complexType name="Disciplina">
+    <xs:sequence>
+      <xs:element name="CodigoDisciplina" type="xs:int" />
+      <xs:element name="NomeDisciplina" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Disciplina" nillable="true" type="tns:Disciplina" />
+  <xs:complexType name="Usuario">
+    <xs:sequence>
+      <xs:element name="CodUsuario" type="xs:int" />
+      <xs:element name="LoginUsuario" nillable="true" type="xs:string" />
+      <xs:element name="Nome" nillable="true" type="xs:string" />
+      <xs:element name="Senha" nillable="true" type="xs:string" />
+      <xs:element name="Telefone" nillable="true" type="xs:string" />
+      <xs:element name="TipoUsuario" nillable="true" type="tns:TipoUsuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Usuario" nillable="true" type="tns:Usuario" />
+  <xs:complexType name="TipoUsuario">
+    <xs:sequence>
+      <xs:element name="CodTipoUsuario" type="xs:int" />
+      <xs:element name="DescricaoTipoUsuario" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TipoUsuario" nillable="true" type="tns:TipoUsuario" />
+  <xs:complexType name="ArrayOfAula">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Aula" nillable="true" type="tns:Aula" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAula" nillable="true" type="tns:ArrayOfAula" />
+  <xs:complexType name="Avaliacao">
+    <xs:sequence>
+      <xs:element name="Aluno" nillable="true" type="tns:Aluno" />
+      <xs:element name="CodigoAvaliacao" type="xs:int" />
+      <xs:element name="Descricao" nillable="true" type="xs:string" />
+      <xs:element name="Disciplina_turma" nillable="true" type="tns:Disciplina_Turma" />
+      <xs:element name="Nota" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Avaliacao" nillable="true" type="tns:Avaliacao" />
+  <xs:complexType name="ArrayOfAvaliacao">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Avaliacao" nillable="true" type="tns:Avaliacao" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAvaliacao" nillable="true" type="tns:ArrayOfAvaliacao" />
+  <xs:complexType name="ArrayOfDisciplina">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Disciplina" nillable="true" type="tns:Disciplina" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDisciplina" nillable="true" type="tns:ArrayOfDisciplina" />
+  <xs:complexType name="ArrayOfEnsino">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Ensino" nillable="true" type="tns:Ensino" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEnsino" nillable="true" type="tns:ArrayOfEnsino" />
+  <xs:complexType name="Falta">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Abono" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Aluno" nillable="true" type="tns:Aluno" />
+      <xs:element minOccurs="0" name="Aula" nillable="true" type="tns:Aula" />
+      <xs:element minOccurs="0" name="CodigoFalta" type="xs:int" />
+      <xs:element minOccurs="0" name="Data" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Motivo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Falta" nillable="true" type="tns:Falta" />
+  <xs:complexType name="ArrayOfFalta">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Falta" nillable="true" type="tns:Falta" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFalta" nillable="true" type="tns:ArrayOfFalta" />
+  <xs:complexType name="ArrayOfTurma">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Turma" nillable="true" type="tns:Turma" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTurma" nillable="true" type="tns:ArrayOfTurma" />
+  <xs:complexType name="ArrayOfTipoUsuario">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TipoUsuario" nillable="true" type="tns:TipoUsuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTipoUsuario" nillable="true" type="tns:ArrayOfTipoUsuario" />
+  <xs:complexType name="ArrayOfUsuario">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Usuario" nillable="true" type="tns:Usuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUsuario" nillable="true" type="tns:ArrayOfUsuario" />
+  <xs:complexType name="ArrayOfDisciplina_Turma">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Disciplina_Turma" nillable="true" type="tns:Disciplina_Turma" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDisciplina_Turma" nillable="true" type="tns:ArrayOfDisciplina_Turma" />
+</xs:schema>

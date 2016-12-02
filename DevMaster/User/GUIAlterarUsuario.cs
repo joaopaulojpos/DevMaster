@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GUI.localhost;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,8 +9,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using WebService;
-using Biblioteca.Basicas;
 
 namespace GUI.User
 {
@@ -22,7 +21,7 @@ namespace GUI.User
         Usuario usuario;
         Usuario novoUsuario;
 
-        Servico servico;
+        Service1 servico;
 
         #endregion
 
@@ -76,11 +75,11 @@ namespace GUI.User
                 novoUsuario.Telefone = textBoxTelefone.Text;
 
                 TipoUsuario tipoUsuario = new TipoUsuario();
-                servico = new Servico();
+                servico = new Service1();
                 tipoUsuario.DescricaoTipoUsuario = comboBoxTipoUsuario.Text;
                 List<TipoUsuario> listaTipoUsuario = new List<TipoUsuario>();
 
-                listaTipoUsuario = servico.ListarTipoUsuario(tipoUsuario);
+                listaTipoUsuario = servico.ListarTipoUsuario(tipoUsuario).ToList();
                 foreach (TipoUsuario tipoUsuario2 in listaTipoUsuario)
                 {
                     tipoUsuario.CodTipoUsuario = tipoUsuario2.CodTipoUsuario;

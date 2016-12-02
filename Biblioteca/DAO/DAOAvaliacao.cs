@@ -104,7 +104,7 @@ namespace Biblioteca.DAO
             try
             {
                 this.AbrirConexao();
-                string sql = "SELECT av.cod_avaliacao,av.nota,av.descricao,av.matricula,al.nome,d.nome_disciplina FROM avaliacao as av INNER JOIN aluno as al ON av.matricula=al.matricula INNER JOIN disciplina_turma as dt ON dt.cod_disciplina_turma=av.cod_disciplina_turma INNER JOIN disciplina as d ON d.cod_disciplina=dt.cod_disciplina where cod_avaliacao = cod_avaliacao";
+                string sql = "SELECT av.cod_avaliacao,av.nota,av.descricao_avaliacao,av.matricula,al.nome_aluno,d.nome_disciplina,av.cod_disciplina_turma FROM avaliacao as av INNER JOIN aluno as al ON av.matricula=al.matricula INNER JOIN disciplina_turma as dt ON dt.cod_disciplina_turma=av.cod_disciplina_turma INNER JOIN disciplina as d ON d.cod_disciplina=dt.cod_disciplina where cod_avaliacao = cod_avaliacao";
 
                 if (filtro.Aluno.Matricula.Length > 0)
                 {
@@ -142,6 +142,7 @@ namespace Biblioteca.DAO
                     avaliacao.Aluno = aluno;
                     disciplina.NomeDisciplina = DbReader.GetString(DbReader.GetOrdinal("nome_disciplina"));
                     dt.Disciplina = disciplina;
+                    dt.CodigoDisciplinaTurma = DbReader.GetInt32(DbReader.GetOrdinal("cod_disciplina_turma"));
                     avaliacao.Disciplina_turma = dt;
                     retorno.Add(avaliacao);
                 }
@@ -162,10 +163,17 @@ namespace Biblioteca.DAO
             try
             {
                 this.AbrirConexao();
-                string sql = "SELECT cod_avaliacao FROM avaliacao where cod_avaliacao = @codigoAvaliacao";
+                string sql = "SELECT matricula FROM avaliacao where matricula = @matricula AND cod_disciplina_turma=@codigoDisciplinaTurma AND descricao=@descricao";
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
-                cmd.Parameters.Add("@codigoAvaliacao", SqlDbType.Int);
-                cmd.Parameters["@codigoAvaliacao"].Value = avaliacao.CodigoAvaliacao;
+
+                cmd.Parameters.Add("@matricula", SqlDbType.VarChar);
+                cmd.Parameters["@matricula"].Value = avaliacao.Aluno.Matricula;
+
+                cmd.Parameters.Add("@codigoDisciplinaTurma", SqlDbType.Int);
+                cmd.Parameters["@codigoDisciplinaTurma"].Value = avaliacao.Disciplina_turma.CodigoDisciplinaTurma;
+
+                cmd.Parameters.Add("@descricao", SqlDbType.VarChar);
+                cmd.Parameters["@descricao"].Value = avaliacao.Descricao;
 
                 SqlDataReader DbReader = cmd.ExecuteReader();
                 while (DbReader.Read())

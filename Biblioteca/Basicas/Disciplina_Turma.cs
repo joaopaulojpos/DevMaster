@@ -1,18 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Biblioteca.Basicas
 {
+    [Serializable]
+    [DataContract()]
     public class Disciplina_Turma
     {
         private int codigoDisciplinaTurma;
         private Turma turma;
         private Disciplina disciplina;
         private Usuario usuario;
-
+        [DataMember(IsRequired = true)]
         public int CodigoDisciplinaTurma
         {
             get
@@ -25,7 +28,7 @@ namespace Biblioteca.Basicas
                 codigoDisciplinaTurma = value;
             }
         }
-
+        [DataMember(IsRequired = true)]
         public Turma Turma
         {
             get
@@ -38,7 +41,7 @@ namespace Biblioteca.Basicas
                 turma = value;
             }
         }
-
+        [DataMember(IsRequired = true)]
         public Disciplina Disciplina
         {
             get
@@ -51,7 +54,7 @@ namespace Biblioteca.Basicas
                 disciplina = value;
             }
         }
-
+        [DataMember(IsRequired = true)]
         public Usuario Usuario
         {
             get

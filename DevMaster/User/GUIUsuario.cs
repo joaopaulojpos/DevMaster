@@ -7,10 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using GUI.localhost;
 using GUI.User;
-using Biblioteca.Basicas;
-using WebService;
 
 
 namespace GUI
@@ -21,7 +19,7 @@ namespace GUI
 
         List<Usuario> listaUsuario;
         int filtroCodigo;
-        Servico servico;
+        Service1 servico;
 
         #endregion
 
@@ -30,7 +28,7 @@ namespace GUI
         public GUIUsuario()
         {
             InitializeComponent();
-            servico = new Servico();
+            servico = new Service1();
             CarregarListView();
             listViewUsuario.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             listViewUsuario.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
@@ -94,7 +92,7 @@ namespace GUI
                 //                  DESCRIÇÃO TIPO DE USUÁRIO
                 usuarioFiltro.Nome = textBoxNome.Text;
 
-                listaUsuario = servico.ListarUsuario(usuarioFiltro);
+                listaUsuario = servico.ListarUsuario(usuarioFiltro).ToList();
 
                 if (listaUsuario.Count > 0)
                 {

@@ -1,19 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Biblioteca.Basicas
 {
+    [Serializable]
+    [DataContract()]
     public class Avaliacao
     {
+        
         private int codigoAvaliacao;
         private Double nota;
         private string descricao;
         private Disciplina_Turma disciplina_turma;
         private Aluno aluno;
-
+        [DataMember(IsRequired = true)]
         public double Nota
         {
             get
@@ -26,7 +30,7 @@ namespace Biblioteca.Basicas
                 nota = value;
             }
         }
-
+        [DataMember(IsRequired = true)]
         public string Descricao
         {
             get
@@ -39,7 +43,7 @@ namespace Biblioteca.Basicas
                 descricao = value;
             }
         }
-
+        [DataMember(IsRequired = true)]
         public Disciplina_Turma Disciplina_turma
         {
             get
@@ -52,7 +56,7 @@ namespace Biblioteca.Basicas
                 disciplina_turma = value;
             }
         }
-
+        [DataMember(IsRequired = true)]
         public Aluno Aluno
         {
             get
@@ -65,7 +69,7 @@ namespace Biblioteca.Basicas
                 aluno = value;
             }
         }
-
+        [DataMember(IsRequired = true)]
         public int CodigoAvaliacao
         {
             get

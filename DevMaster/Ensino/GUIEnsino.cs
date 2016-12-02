@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GUI.localhost;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,8 +9,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using Biblioteca.Basicas;
-using WebService;
 
 namespace GUI
 {
@@ -20,7 +19,7 @@ namespace GUI
         List<Ensino> listaEnsino;
         int filtroCodigo;
 
-        private Servico servico;
+        private Service1 servico;
         Ensino ensinoFiltro;
 
         #endregion
@@ -31,7 +30,7 @@ namespace GUI
         public GUIEnsino()
         {
             InitializeComponent();
-
+            servico = new Service1();
             //Já abre o form jogando a Consulta na List View
             CarregarListView();
 
@@ -79,7 +78,6 @@ namespace GUI
                 listViewEnsinos.Items.Clear();
 
                 ensinoFiltro = new Ensino();
-                servico = new Servico();
                 //                  CÓDIGO ENSINO
                 ZeraTextBoxCod();
                 if (int.TryParse(textBoxCodigo.Text, out filtroCodigo)) //Ele valida o primeiro param e se for inteiro, joga o valor pra o segundo param, nesse caso filtroCodigo
@@ -95,7 +93,7 @@ namespace GUI
 
                 ensinoFiltro.DescricaoEnsino = textBoxEnsino.Text;
 
-                listaEnsino = servico.ListarEnsino(ensinoFiltro);
+                listaEnsino = servico.ListarEnsino(ensinoFiltro).ToList();
 
                 if (listaEnsino.Count > 0)
                 {

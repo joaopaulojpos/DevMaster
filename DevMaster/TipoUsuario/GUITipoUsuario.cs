@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GUI.localhost;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,11 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using Biblioteca.Basicas;
-using Biblioteca.RN;
-using WebService;
 
-//using Biblioteca.Fachada;
 
 namespace GUI
 {
@@ -23,7 +20,7 @@ namespace GUI
         List<TipoUsuario> listaTipoUsuario;
         int filtroCodigo;
 
-        private Servico servico;
+        private Service1 servico;
 
         #endregion
 
@@ -33,7 +30,7 @@ namespace GUI
         public GUITipoUsuario()
         {
             InitializeComponent();
-            servico = new Servico();
+            servico = new Service1();
             CarregarListView();
             listViewTipoUsuarios.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             listViewTipoUsuarios.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
@@ -108,7 +105,7 @@ namespace GUI
                 //Alimentando os campos num Objeto pra mandar pra DAO Pesquisar
                 tipoUsuarioFiltro.DescricaoTipoUsuario = textBoxTipo.Text;
 
-                listaTipoUsuario = servico.ListarTipoUsuario(tipoUsuarioFiltro);
+                listaTipoUsuario = servico.ListarTipoUsuario(tipoUsuarioFiltro).ToList();
 
                 if (listaTipoUsuario.Count > 0)
                 {

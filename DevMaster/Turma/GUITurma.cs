@@ -7,12 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Biblioteca.Basicas;
 
-//using Biblioteca.RN;
-//using Biblioteca.DAO;
-using WebService;
 using GUI.DisciplinaTurma;
+using GUI.localhost;
 
 namespace GUI
 {
@@ -25,10 +22,7 @@ namespace GUI
         int filtroCodigo;
         Turma alterarTurma;
 
-        Servico servico;
-        //DAOEnsino daoEnsino;
-        //DAOTurma daoTurma;
-        List<Ensino> listaEnsino;
+        Service1 servico;
 
         #endregion
 
@@ -39,6 +33,7 @@ namespace GUI
         {
             InitializeComponent();
             //listViewTurmas
+            servico = new Service1();
             CarregarListView();
 
             listViewTurma.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
@@ -84,6 +79,7 @@ namespace GUI
                 listViewTurma.Items.Clear();
 
                 Turma turmaFiltro = new Turma();
+                turmaFiltro.Ano = 0;
 
                 //                  CÓDIGO TURMA
                 ZeraTextBox(textBoxCodigo);
@@ -108,8 +104,7 @@ namespace GUI
                     turmaFiltro.DescricaoTurma = "";
                 }
 
-                Servico servico = new Servico();
-                listaTurma = servico.ListarTurma(turmaFiltro);
+                listaTurma = servico.ListarTurma(turmaFiltro).ToList<Turma>();
 
                 if (listaTurma.Count > 0)
                 {

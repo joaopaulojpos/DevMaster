@@ -152,7 +152,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(97, 34);
             this.button2.TabIndex = 7;
-            this.button2.Text = "Finalizar Chamada";
+            this.button2.Text = "Concluir";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // dateTimePicker1
@@ -190,7 +190,7 @@
             this.Controls.Add(this.panel2);
             this.Name = "GUIAbono";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "GUIAbono";
+            this.Text = "Abono de faltas";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);

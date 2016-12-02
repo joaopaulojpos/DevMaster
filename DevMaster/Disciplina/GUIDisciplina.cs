@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GUI.localhost;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,9 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Biblioteca.Basicas;
-using Biblioteca.RN;
-using Biblioteca.DAO;
 
 namespace GUI
 {
@@ -18,6 +16,7 @@ namespace GUI
         #region Atributos
 
         List<Disciplina> listaDisciplina;
+        Service1 servico;
 
         string filtroDescricao;
         int filtroCodigo;
@@ -30,6 +29,7 @@ namespace GUI
         public GUIDisciplina()
         {
             InitializeComponent();
+            servico = new Service1();
             Consultar();
         }
 
@@ -81,7 +81,6 @@ namespace GUI
                 listViewDisciplinas.Items.Clear();
 
                 Disciplina disciplinaFiltro = new Disciplina();
-                DAODisciplina daoDisciplina = new DAODisciplina();
 
                 //                  CÓDIGO TIPO DE USUÁRIO
                 ZeraTextBoxCod();
@@ -101,7 +100,7 @@ namespace GUI
                 filtroDescricao = textBoxDescricao.Text;
                 disciplinaFiltro.NomeDisciplina = filtroDescricao;
 
-                listaDisciplina = daoDisciplina.Listar(disciplinaFiltro);
+                listaDisciplina = servico.ListarDisciplina(disciplinaFiltro).ToList();
 
                 if (listaDisciplina.Count > 0)
                 {
