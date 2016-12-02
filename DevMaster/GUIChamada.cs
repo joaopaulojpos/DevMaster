@@ -11,6 +11,8 @@ using System.Windows.Forms;
 using Biblioteca.Basicas;
 using WebService;
 using Biblioteca.DAO;
+using System.IO;
+using System.Xml;
 
 namespace GUI
 {
@@ -22,9 +24,10 @@ namespace GUI
         private List<Turma> listaTurmas;
         private List<Aluno> listaAlunos;
         private List<Disciplina> listaDisciplinas;
-        private List<Disciplina_Turma> listaDisciplinaTurma;
+        //private List<Disciplina_Turma> listaDisciplinaTurma;
+        //private List<Aluno> listaFaltosos;
         private List<Aula> listaAulas;
-
+        string caminhoXML = @"C:\Escola Pablo Neruda\Pablo Neruda Chamada.xml";
 
         #endregion
 
@@ -36,6 +39,8 @@ namespace GUI
             servico = new Servico();
             AlimentarComboTurma();
             AlimentarComboDisciplina();
+            AbrirXML();
+            PuxarXML();
         }
 
         #endregion
@@ -171,8 +176,9 @@ namespace GUI
             {
                 checkedListBoxAlunos.Items.Clear();
 
-                DAOParticipa daoParticipa = new DAOParticipa();
-                listaAlunos = daoParticipa.ListarAlunos(turma);
+                DAOChamada daoParticipa = new DAOChamada();
+
+                listaAlunos = daoParticipa.ListarAlunosDaTurma(turma);
 
                 if (listaAlunos.Count > 0)
                 {
@@ -250,37 +256,179 @@ namespace GUI
 
         #endregion
 
+        #region Métodos XML
+
+        #region Abrir XML
+
+        public void AbrirXML()
+        {
+            try
+            {
+                if (File.Exists(caminhoXML) == false)
+                {
+                    XmlDocument doc = new XmlDocument();
+                    XmlNode raiz = doc.CreateElement("telaChamadas");
+                    doc.AppendChild(raiz);
+                    doc.Save(caminhoXML);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Não foi possível abrir o XML da Chamada. Erro:\n" + ex.Message);
+            }
+        }
+
+        #endregion
+
+        #region Nova Linha XML
+
+        public void NovaLinhaXML()
+        {
+            try
+            {
+                XmlDocument doc = new XmlDocument();
+                doc.Load(caminhoXML);
+
+                XmlNode linha = doc.CreateElement("chamada");
+                XmlNode DescricaoTurma = doc.CreateElement("turma");
+                XmlNode NomeDisciplina = doc.CreateElement("disciplina");
+                XmlNode Dia = doc.CreateElement("dia");
+                XmlNode AssuntoAula = doc.CreateElement("aula");
+
+                DescricaoTurma.InnerText = comboBoxTurma.Text;
+                NomeDisciplina.InnerText = comboBoxDisciplina.Text;
+                AssuntoAula.InnerText = comboBoxAula.Text;
+                Dia.InnerText = dateDia.Value.ToShortDateString();
+
+
+                linha.AppendChild(DescricaoTurma);
+                linha.AppendChild(NomeDisciplina);
+                linha.AppendChild(Dia);
+                linha.AppendChild(AssuntoAula);
+
+                doc.SelectSingleNode("/telaChamadas").AppendChild(linha);
+
+                doc.Save(caminhoXML);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Não foi possível salvar informações da tela no XML. Erro:\n" + ex.Message);
+            }
+        }
+
+        #endregion
+
+        #region Puxar XML
+
+        public void PuxarXML()
+        {
+            try
+            {
+                XmlDocument doc = new XmlDocument();
+                doc.Load(caminhoXML);
+
+                foreach (XmlNode no in doc.DocumentElement.ChildNodes)
+                {
+                    //Turma
+                    comboBoxTurma.SelectedItem = no.ChildNodes.Item(0).ChildNodes.Item(0).InnerText;
+                    //Disciplina
+                    comboBoxDisciplina.SelectedItem = no.ChildNodes.Item(1).ChildNodes.Item(0).InnerText;
+                    //Dia
+                    dateDia.Value = Convert.ToDateTime(no.ChildNodes.Item(2).ChildNodes.Item(0).InnerText);
+                    //Aula
+                    comboBoxAula.SelectedItem = no.ChildNodes.Item(3).ChildNodes.Item(0).InnerText;
+                }
+                doc.Save(caminhoXML);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Não foi possível puxar o XML. Erro:\n" + ex.Message);
+            }
+            //return;
+        }
+
+        #endregion
+
+        #region Apaga Linha XML
+
+        public void ApagarLinhaXML()
+        {
+            try
+            {
+                if (File.Exists(caminhoXML))
+                {
+                    File.Delete(caminhoXML);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Não foi possível apagar o XML. Erro:\n" + ex.Message);
+            }
+        }
+
+        #endregion
+
+        #endregion
+
         #region Botão Finalizar Chamada
 
         private void btnFinalizarChamada_Click(object sender, EventArgs e)
         {
-            /*
             try
             {
-                Aluno aluno = new Aluno();
+                /* Incompleto
+                NovaLinhaXML();
+                Aluno alunoFiltro = new Aluno();
+                listaFaltosos = new List<Aluno>();
 
-                Biblioteca.Basicas.Aula aula = new Biblioteca.Basicas.Aula();
-                Falta falta = new Falta();
-                int indexA = comboBoxAula.SelectedIndex;
-                foreach (int c in checkedListBoxAlunos.CheckedIndices)
+                foreach (object nome in checkedListBoxAlunos.Items)
                 {
-                    int indexAl = Int32.Parse(c.ToString());
-                    aluno = listaAlunos[indexAl];
-                    aula = listaAulas[indexA];
-                    falta.Data = dateDia.Text;
-                    falta.Aluno = aluno;
-                    falta.Aula = aula;
-                    falta.Abono = false;
-                    falta.Motivo = "";
-                    servico.InserirFalta(falta);
+                    //Pega nos não checados
+                    if (!checkedListBoxAlunos.CheckedItems.Contains(nome))
+                    {
+                        alunoFiltro.Nome = Convert.ToString(nome);
+                        MessageBox.Show(alunoFiltro.Nome);
+                        listaFaltosos.Add;
+                    }
                 }
-                MessageBox.Show("Chamada registrada.");
+                */
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }*/
+            }
         }
+
+        #region OLD
+
+        /*
+        try
+        {
+            Aluno aluno = new Aluno();
+
+            Biblioteca.Basicas.Aula aula = new Biblioteca.Basicas.Aula();
+            Falta falta = new Falta();
+            int indexA = comboBoxAula.SelectedIndex;
+            foreach (int c in checkedListBoxAlunos.CheckedIndices)
+            {
+                int indexAl = Int32.Parse(c.ToString());
+                aluno = listaAlunos[indexAl];
+                aula = listaAulas[indexA];
+                falta.Data = dateDia.Text;
+                falta.Aluno = aluno;
+                falta.Aula = aula;
+                falta.Abono = false;
+                falta.Motivo = "";
+                servico.InserirFalta(falta);
+            }
+            MessageBox.Show("Chamada registrada.");
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show(ex.Message);
+        }*/
+
+        #endregion
 
         #endregion
 
@@ -328,35 +476,43 @@ namespace GUI
 
         #region Outros
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void GUIChamada_Load(object sender, EventArgs e)
         {
 
         }
 
 
-        
-        
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void comboBoxAula_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
+        private void testeXMLCLIck_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int varleandro = 1;
+                NovaLinhaXML();
+                if (varleandro == 2)
+                {
+                    MessageBox.Show("Digamos q conseguiu Finalizar Chamada");
+                    ApagarLinhaXML();
+                    MessageBox.Show("Apagou a linha, já q Conseguiu");
+                }
+                else
+                {
+                    MessageBox.Show("Digamos q o server caiu");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao gerar nova linha no XML. Erro: \n" + ex.Message);
+            }
+        }
+
         #endregion
 
-        private void comboBoxTurma_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
     }
 }

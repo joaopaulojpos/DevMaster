@@ -132,8 +132,9 @@ namespace WebService
 
         [OperationContract]
         List<Disciplina_Turma> ListarDisciplinaTurma(Disciplina_Turma dt);
-        
+
         #endregion
+
         // TODO: Add your service operations here
     }
 
