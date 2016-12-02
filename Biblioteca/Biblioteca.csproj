@@ -63,6 +63,7 @@
     <Compile Include="DAO\DAODisciplinaTurma.cs" />
     <Compile Include="DAO\DAOEnsino.cs" />
     <Compile Include="DAO\DAOFalta.cs" />
+    <Compile Include="DAO\DAOChamada.cs" />
     <Compile Include="DAO\DAOTipoUsuario.cs" />
     <Compile Include="DAO\DAOTurma.cs" />
     <Compile Include="DAO\DAOUsuario.cs" />

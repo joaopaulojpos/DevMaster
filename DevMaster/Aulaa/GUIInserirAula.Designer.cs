@@ -1,4 +1,4 @@
-﻿namespace GUI.Aula
+﻿namespace GUI
 {
     partial class GUIInserirAula
     {

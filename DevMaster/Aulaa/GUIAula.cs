@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using GUI.Aula;
 using GUI.localhost;
 using System.Net.Sockets;
 using System.IO;

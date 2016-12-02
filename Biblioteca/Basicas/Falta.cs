@@ -11,7 +11,7 @@ namespace Biblioteca.Basicas
         private int codigoFalta;
         private string motivo;
         private bool abono;
-        private string data;
+        private DateTime data;
         private Aula aula;
         private Aluno aluno;
 
@@ -41,7 +41,7 @@ namespace Biblioteca.Basicas
             }
         }
 
-        public string Data
+        public DateTime Data
         {
             get
             {

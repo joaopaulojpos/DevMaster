@@ -125,7 +125,7 @@ namespace GUI
                 dt.Disciplina = d;
                 Biblioteca.Basicas.Aula al = new Biblioteca.Basicas.Aula();
                 al.DisciplinaTurma = dt;
-                al.Data = dateTimePicker1.Text;
+                al.Data = dateTimePicker1.Value;
                 carregarAlunos(aluno);
                 carregarAulas(al);
             }
@@ -153,7 +153,7 @@ namespace GUI
                 dt.Disciplina = d;
                 Biblioteca.Basicas.Aula al = new Biblioteca.Basicas.Aula();
                 al.DisciplinaTurma = dt;
-                al.Data = dateTimePicker1.Text;
+                al.Data = dateTimePicker1.Value;
                 carregarAlunos(aluno);
                 carregarAulas(al);
             }
