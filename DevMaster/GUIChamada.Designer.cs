@@ -38,10 +38,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.comboBoxAula = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnFinalizarChamada = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBoxDisciplina = new System.Windows.Forms.ComboBox();
-            this.btnFinalizarChamada = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -154,6 +154,16 @@
             this.panel1.Size = new System.Drawing.Size(452, 547);
             this.panel1.TabIndex = 11;
             // 
+            // btnFinalizarChamada
+            // 
+            this.btnFinalizarChamada.Location = new System.Drawing.Point(343, 161);
+            this.btnFinalizarChamada.Name = "btnFinalizarChamada";
+            this.btnFinalizarChamada.Size = new System.Drawing.Size(90, 43);
+            this.btnFinalizarChamada.TabIndex = 14;
+            this.btnFinalizarChamada.Text = "Finalizar Chamada";
+            this.btnFinalizarChamada.UseVisualStyleBackColor = true;
+            this.btnFinalizarChamada.Click += new System.EventHandler(this.btnFinalizarChamada_Click);
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(335, 65);
@@ -183,16 +193,6 @@
             this.comboBoxDisciplina.TabIndex = 11;
             this.comboBoxDisciplina.SelectedIndexChanged += new System.EventHandler(this.comboBoxDisciplina_SelectedIndexChanged_1);
             // 
-            // btnFinalizarChamada
-            // 
-            this.btnFinalizarChamada.Location = new System.Drawing.Point(343, 161);
-            this.btnFinalizarChamada.Name = "btnFinalizarChamada";
-            this.btnFinalizarChamada.Size = new System.Drawing.Size(90, 43);
-            this.btnFinalizarChamada.TabIndex = 14;
-            this.btnFinalizarChamada.Text = "Finalizar Chamada";
-            this.btnFinalizarChamada.UseVisualStyleBackColor = true;
-            this.btnFinalizarChamada.Click += new System.EventHandler(this.btnFinalizarChamada_Click);
-            // 
             // GUIChamada
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -203,6 +203,7 @@
             this.Name = "GUIChamada";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Chamada";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GUIChamada_FormClosing);
             this.Load += new System.EventHandler(this.GUIChamada_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

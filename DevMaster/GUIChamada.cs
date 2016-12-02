@@ -376,7 +376,7 @@ namespace GUI
         {
             try
             {
-                /* Incompleto
+                
                 NovaLinhaXML();
                 Aluno alunoFiltro = new Aluno();
                 listaFaltosos = new List<Aluno>();
@@ -391,7 +391,7 @@ namespace GUI
                         listaFaltosos.Add;
                     }
                 }
-                */
+                
             }
             catch (Exception ex)
             {
@@ -511,8 +511,30 @@ namespace GUI
             }
         }
 
+
         #endregion
 
-
+        private void GUIChamada_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                int varleandro = 1;
+                NovaLinhaXML();
+                if (varleandro == 2)
+                {
+                    MessageBox.Show("Digamos q conseguiu Finalizar Chamada");
+                    ApagarLinhaXML();
+                    MessageBox.Show("Apagou a linha, já q Conseguiu");
+                }
+                else
+                {
+                    MessageBox.Show("Digamos q o server caiu");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao gerar nova linha no XML. Erro: \n" + ex.Message);
+            }
+        }
     }
 }
