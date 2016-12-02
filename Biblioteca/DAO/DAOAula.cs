@@ -100,7 +100,7 @@ namespace Biblioteca.DAO
                 this.AbrirConexao();
                 string sql = "SELECT a.cod_aula,a.data,a.assunto,a.cod_disciplina_turma,d.cod_disciplina,d.nome_disciplina,t.cod_turma,t.descricao_turma,t.turno,t.ano FROM aula AS a INNER JOIN Disciplina_Turma AS dt ON dt.cod_disciplina_turma=a.cod_disciplina_turma INNER JOIN Turma as t ON t.cod_turma=dt.cod_turma INNER JOIN Disciplina as d ON d.cod_disciplina=dt.cod_disciplina WHERE cod_aula = cod_aula";
 
-                if (filtro.Data.Length > 0)
+                if (filtro.Data.ToShortDateString().Length > 0)
                 {
                     sql += " and data = @data";
                 }
@@ -110,7 +110,7 @@ namespace Biblioteca.DAO
                 }
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
 
-                if (filtro.Data.Length > 0)
+                if (filtro.Data.ToShortDateString().Length > 0)
                 {
                     cmd.Parameters.Add("@data", SqlDbType.VarChar);
                     cmd.Parameters["@data"].Value = filtro.Data;
@@ -128,7 +128,7 @@ namespace Biblioteca.DAO
                     Disciplina_Turma dt = new Disciplina_Turma();
                     Turma t = new Turma();
                     aula.CodigoAula = DbReader.GetInt32(DbReader.GetOrdinal("cod_aula"));
-                    aula.Data = DbReader.GetDateTime(DbReader.GetOrdinal("data")).ToString();
+                    aula.Data = DbReader.GetDateTime(DbReader.GetOrdinal("data"));
                     aula.Assunto = DbReader.GetString(DbReader.GetOrdinal("assunto"));
                     t.CodigoTurma = DbReader.GetInt32(DbReader.GetOrdinal("cod_turma"));
                     t.Ano = DbReader.GetInt32(DbReader.GetOrdinal("ano"));
@@ -185,6 +185,8 @@ namespace Biblioteca.DAO
             return retorno;
         }
 
+
+
         //Para ajudar na GUIChamada
         public List<Aula> ListarParaChamada(Disciplina disciplina)
         {
@@ -192,7 +194,7 @@ namespace Biblioteca.DAO
             try
             {
                 this.AbrirConexao();
-                string sql = "SELECT A.assunto, A.cod_aula, A.cod_disciplina_turma, A.data, DT.cod_disciplina, DT.cod_turma, DT.cod_usuario" +
+                string sql = "SELECT A.assunto, A.cod_aula, A.cod_disciplina_turma, A.data, DT.cod_disciplina, DT.cod_turma, DT.cod_usuario " +
                              "FROM Aula A " +
                              "INNER JOIN Disciplina_Turma DT " +
                              "ON A.cod_disciplina_turma = DT.cod_disciplina_turma WHERE A.cod_disciplina_turma = @CodDisciplina";
@@ -206,7 +208,7 @@ namespace Biblioteca.DAO
                 while (DbReader.Read())
                 {
                     Aula aula = new Aula();
-                    aula.Data = DbReader.GetDateTime(DbReader.GetOrdinal("data")).ToString();
+                    aula.Data = DbReader.GetDateTime(DbReader.GetOrdinal("data"));
                     aula.CodigoAula = DbReader.GetInt32(DbReader.GetOrdinal("cod_aula"));
                     aula.Assunto = DbReader.GetString(DbReader.GetOrdinal("assunto"));
 

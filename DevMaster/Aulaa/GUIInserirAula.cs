@@ -94,7 +94,7 @@ namespace GUI
                 listaDT = servico.ListarDisciplinaTurma(dt);
                 dt.CodigoDisciplinaTurma = listaDT[0].CodigoDisciplinaTurma;
                 aula.Assunto = textBoxAssunto.Text;
-                aula.Data = dateTimePicker1.Text;
+                aula.Data = dateTimePicker1.Value;
                 aula.DisciplinaTurma = dt;
                 servico.InserirAula(aula);
                 MessageBox.Show("Aula Cadastrada.");

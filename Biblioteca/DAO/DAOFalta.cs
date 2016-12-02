@@ -109,7 +109,7 @@ namespace Biblioteca.DAO
                 this.AbrirConexao();
                 string sql = "SELECT f.cod_falta,f.data,f.motivo,f.abono,f.matricula,a.nome_aluno,f.cod_aula,aula.assunto,d.cod_disciplina,d.nome_disciplina,t.cod_turma,t.descricao_turma,dt.cod_disciplina_turma FROM falta as f INNER JOIN aluno as a ON f.matricula=a.matricula INNER JOIN aula ON aula.cod_aula=f.cod_aula INNER JOIN Disciplina_Turma as dt ON dt.cod_disciplina_turma=aula.cod_disciplina_turma INNER JOIN turma as t ON t.cod_turma=dt.cod_turma INNER JOIN Disciplina as d ON d.cod_disciplina=dt.cod_disciplina where cod_falta = cod_falta";
 
-                if (filtro.Data.Length > 0)
+                if (filtro.Data.ToShortDateString().Length > 0)
                 {
                     sql += " and data = @data";
                 }
@@ -119,7 +119,7 @@ namespace Biblioteca.DAO
                 }
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
 
-                if (filtro.Data.Length > 0)
+                if (filtro.Data.ToShortDateString().Length > 0)
                 {
                     cmd.Parameters.Add("@data", SqlDbType.Int);
                     cmd.Parameters["@data"].Value = filtro.Data;
@@ -140,7 +140,7 @@ namespace Biblioteca.DAO
                     Disciplina_Turma dt = new Disciplina_Turma();
                     Turma t = new Turma();
                     falta.CodigoFalta = DbReader.GetInt32(DbReader.GetOrdinal("f.cod_falta"));
-                    falta.Data = DbReader.GetDateTime(DbReader.GetOrdinal("f.data")).ToString();
+                    falta.Data = DbReader.GetDateTime(DbReader.GetOrdinal("f.data"));
                     falta.Motivo = DbReader.GetString(DbReader.GetOrdinal("f.motivo"));
                     falta.Abono = DbReader.GetBoolean(DbReader.GetOrdinal("f.abono"));
                     aluno.Matricula = DbReader.GetString(DbReader.GetOrdinal("f.matricula"));

@@ -69,7 +69,7 @@ namespace GUI
         //Quando mudar a Disciplina muda a aula
         #region Combobox Disciplina Change
 
-        private void comboBoxDisciplina_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBoxDisciplina_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             try
             {
@@ -116,7 +116,7 @@ namespace GUI
         //Quando mudar a Turma, muda a lista de alunos
         #region ComboBox Turma Change
 
-        private void comboBoxTurma_SelectedIndexChanged(object sender, EventArgs e)
+        private void birl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
@@ -286,7 +286,7 @@ namespace GUI
 
         #region Data Change
 
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        private void dateDia_ValueChanged(object sender, EventArgs e)
         {/*
             int index = comboBoxTurma.SelectedIndex;
             if (!comboBoxTurma.Items[index].Equals(""))
@@ -319,7 +319,7 @@ namespace GUI
 
         #region Botão Voltar
 
-        private void btnVoltar_Click_1(object sender, EventArgs e)
+        private void btn_Voltar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -339,23 +339,24 @@ namespace GUI
         }
 
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
-        }
+        
+        
 
         private void button2_Click(object sender, EventArgs e)
         {
 
         }
 
+        private void comboBoxAula_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         #endregion
 
+        private void comboBoxTurma_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }

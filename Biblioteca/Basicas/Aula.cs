@@ -12,9 +12,10 @@ namespace Biblioteca.Basicas
     public class Aula
     {
         private int codigoAula;
-        private string data;
+        private DateTime data;
         private string assunto;
         private Disciplina_Turma disciplinaTurma;
+
         [DataMember(IsRequired = true)]
         public int CodigoAula
         {
@@ -29,7 +30,7 @@ namespace Biblioteca.Basicas
             }
         }
         [DataMember(IsRequired = true)]
-        public string Data
+        public DateTime Data
         {
             get
             {
